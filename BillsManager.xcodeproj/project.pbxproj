@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01010001 /* BillsManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020001 /* BillsManagerApp.swift */; };
+		01010002 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020002 /* Category.swift */; };
+		01010003 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020003 /* Account.swift */; };
+		01010004 /* PaymentRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020004 /* PaymentRecord.swift */; };
+		01010005 /* BillFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020005 /* BillFrequency.swift */; };
+		01010006 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020006 /* Bill.swift */; };
+		01010007 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020007 /* StoreManager.swift */; };
+		01010008 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020008 /* NotificationManager.swift */; };
+		01010009 /* BiometricAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020009 /* BiometricAuthManager.swift */; };
+		0101000A /* ExportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102000A /* ExportManager.swift */; };
+		0101000B /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102000B /* MainTabView.swift */; };
+		0101000C /* iPadSidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102000C /* iPadSidebarView.swift */; };
+		0101000D /* MetricCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102000D /* MetricCardView.swift */; };
+		0101000E /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102000E /* DashboardView.swift */; };
+		0101000F /* BillRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102000F /* BillRowView.swift */; };
+		01010010 /* BillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020010 /* BillListView.swift */; };
+		01010011 /* BillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020011 /* BillDetailView.swift */; };
+		01010012 /* AddEditBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020012 /* AddEditBillView.swift */; };
+		01010013 /* BillCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020013 /* BillCalendarView.swift */; };
+		01010014 /* CalendarGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020014 /* CalendarGridCell.swift */; };
+		01010015 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020015 /* AnalyticsView.swift */; };
+		01010016 /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020016 /* IconPickerView.swift */; };
+		01010017 /* CategoryManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020017 /* CategoryManagerView.swift */; };
+		01010018 /* AccountManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020018 /* AccountManagerView.swift */; };
+		01010019 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020019 /* PaywallView.swift */; };
+		0101001A /* PasscodeLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102001A /* PasscodeLockView.swift */; };
+		0101001B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102001B /* SettingsView.swift */; };
+		0101001C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0102001C /* Assets.xcassets */; };
+		0101001D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0102001D /* Localizable.xcstrings */; };
+		0101001E /* StoreKit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 0102001E /* StoreKit.storekit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01000001 /* BillsManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillsManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01020001 /* BillsManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsManagerApp.swift; sourceTree = "<group>"; };
+		0102001F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01020020 /* BillsManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BillsManager.entitlements; sourceTree = "<group>"; };
+		01020002 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		01020003 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		01020004 /* PaymentRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRecord.swift; sourceTree = "<group>"; };
+		01020005 /* BillFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillFrequency.swift; sourceTree = "<group>"; };
+		01020006 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		01020007 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
+		01020008 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		01020009 /* BiometricAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthManager.swift; sourceTree = "<group>"; };
+		0102000A /* ExportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportManager.swift; sourceTree = "<group>"; };
+		0102000B /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		0102000C /* iPadSidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadSidebarView.swift; sourceTree = "<group>"; };
+		0102000D /* MetricCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricCardView.swift; sourceTree = "<group>"; };
+		0102000E /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		0102000F /* BillRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillRowView.swift; sourceTree = "<group>"; };
+		01020010 /* BillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillListView.swift; sourceTree = "<group>"; };
+		01020011 /* BillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillDetailView.swift; sourceTree = "<group>"; };
+		01020012 /* AddEditBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditBillView.swift; sourceTree = "<group>"; };
+		01020013 /* BillCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCalendarView.swift; sourceTree = "<group>"; };
+		01020014 /* CalendarGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridCell.swift; sourceTree = "<group>"; };
+		01020015 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
+		01020016 /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
+		01020017 /* CategoryManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManagerView.swift; sourceTree = "<group>"; };
+		01020018 /* AccountManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManagerView.swift; sourceTree = "<group>"; };
+		01020019 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		0102001A /* PasscodeLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeLockView.swift; sourceTree = "<group>"; };
+		0102001B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0102001C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0102001D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		0102001E /* StoreKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = StoreKit.storekit; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01030001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01040001 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				01040002 /* BillsManager */,
+				01000001 /* BillsManager.app */,
+			);
+			sourceTree = "<group>";
+		};
+		01040002 /* BillsManager */ = {
+			isa = PBXGroup;
+			children = (
+				01040003 /* App */,
+				01040004 /* Models */,
+				01040005 /* Managers */,
+				01040006 /* Views */,
+				01040007 /* Resources */,
+			);
+			path = BillsManager;
+			sourceTree = "<group>";
+		};
+		01040003 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				01020001 /* BillsManagerApp.swift */,
+				0102001F /* Info.plist */,
+				01020020 /* BillsManager.entitlements */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		01040004 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				01020002 /* Category.swift */,
+				01020003 /* Account.swift */,
+				01020004 /* PaymentRecord.swift */,
+				01020005 /* BillFrequency.swift */,
+				01020006 /* Bill.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		01040005 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				01020007 /* StoreManager.swift */,
+				01020008 /* NotificationManager.swift */,
+				01020009 /* BiometricAuthManager.swift */,
+				0102000A /* ExportManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		01040006 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				01040008 /* Main */,
+				01040009 /* Dashboard */,
+				0104000A /* Bills */,
+				0104000B /* Calendar */,
+				0104000C /* Analytics */,
+				0104000D /* CategoriesAccounts */,
+				0104000E /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		01040008 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				0102000B /* MainTabView.swift */,
+				0102000C /* iPadSidebarView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		01040009 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				0102000D /* MetricCardView.swift */,
+				0102000E /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		0104000A /* Bills */ = {
+			isa = PBXGroup;
+			children = (
+				0102000F /* BillRowView.swift */,
+				01020010 /* BillListView.swift */,
+				01020011 /* BillDetailView.swift */,
+				01020012 /* AddEditBillView.swift */,
+			);
+			path = Bills;
+			sourceTree = "<group>";
+		};
+		0104000B /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				01020013 /* BillCalendarView.swift */,
+				01020014 /* CalendarGridCell.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		0104000C /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				01020015 /* AnalyticsView.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		0104000D /* CategoriesAccounts */ = {
+			isa = PBXGroup;
+			children = (
+				01020016 /* IconPickerView.swift */,
+				01020017 /* CategoryManagerView.swift */,
+				01020018 /* AccountManagerView.swift */,
+			);
+			path = CategoriesAccounts;
+			sourceTree = "<group>";
+		};
+		0104000E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				01020019 /* PaywallView.swift */,
+				0102001A /* PasscodeLockView.swift */,
+				0102001B /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		01040007 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0102001C /* Assets.xcassets */,
+				0102001D /* Localizable.xcstrings */,
+				0102001E /* StoreKit.storekit */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01050001 /* BillsManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01060001 /* Build configuration list for PBXNativeTarget "BillsManager" */;
+			buildPhases = (
+				01070001 /* Sources */,
+				01030001 /* Frameworks */,
+				01080001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BillsManager;
+			productName = BillsManager;
+			productReference = 01000001 /* BillsManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01090001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					01050001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 01060002 /* Build configuration list for PBXProject "BillsManager" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 01040001 /* Root */;
+			productRefGroup = 01040001 /* Root */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01050001 /* BillsManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		01080001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0101001C /* Assets.xcassets in Resources */,
+				0101001D /* Localizable.xcstrings in Resources */,
+				0101001E /* StoreKit.storekit in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01070001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01010001 /* BillsManagerApp.swift in Sources */,
+				01010002 /* Category.swift in Sources */,
+				01010003 /* Account.swift in Sources */,
+				01010004 /* PaymentRecord.swift in Sources */,
+				01010005 /* BillFrequency.swift in Sources */,
+				01010006 /* Bill.swift in Sources */,
+				01010007 /* StoreManager.swift in Sources */,
+				01010008 /* NotificationManager.swift in Sources */,
+				01010009 /* BiometricAuthManager.swift in Sources */,
+				0101000A /* ExportManager.swift in Sources */,
+				0101000B /* MainTabView.swift in Sources */,
+				0101000C /* iPadSidebarView.swift in Sources */,
+				0101000D /* MetricCardView.swift in Sources */,
+				0101000E /* DashboardView.swift in Sources */,
+				0101000F /* BillRowView.swift in Sources */,
+				01010010 /* BillListView.swift in Sources */,
+				01010011 /* BillDetailView.swift in Sources */,
+				01010012 /* AddEditBillView.swift in Sources */,
+				01010013 /* BillCalendarView.swift in Sources */,
+				01010014 /* CalendarGridCell.swift in Sources */,
+				01010015 /* AnalyticsView.swift in Sources */,
+				01010016 /* IconPickerView.swift in Sources */,
+				01010017 /* CategoryManagerView.swift in Sources */,
+				01010018 /* AccountManagerView.swift in Sources */,
+				01010019 /* PaywallView.swift in Sources */,
+				0101001A /* PasscodeLockView.swift in Sources */,
+				0101001B /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		010A0001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = BillsManager/App/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antigravity.billsmanager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_OUT_DIR = "$(BUNDLE_LOCALIZATIONS_DIRECTORY)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		010A0002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = BillsManager/App/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antigravity.billsmanager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_OUT_DIR = "$(BUNDLE_LOCALIZATIONS_DIRECTORY)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		010A0003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMPOUND_ASSIGN_ENUM_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		010A0004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMPOUND_ASSIGN_ENUM_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01060001 /* Build configuration list for PBXNativeTarget "BillsManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				010A0001 /* Debug */,
+				010A0002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01060002 /* Build configuration list for PBXProject "BillsManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				010A0003 /* Debug */,
+				010A0004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01090001 /* Project object */;
+}

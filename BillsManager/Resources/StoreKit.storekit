@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<storekit-configuration version="1.0">
+  <products>
+    <product productID="com.billsmanager.pro.lifetime" type="nonConsumable">
+      <displayName>Lifetime PRO Unlock</displayName>
+      <description>One-time purchase for permanent lifetime PRO access</description>
+      <price>19.99</price>
+    </product>
+  </products>
+  <subscriptions>
+    <subscription-group identifier="BillsManagerProGroup">
+      <subscription productID="com.billsmanager.pro.monthly" type="autoRenewable">
+        <displayName>Bills Manager PRO Monthly</displayName>
+        <description>Monthly subscription for PRO features</description>
+        <price>1.99</price>
+        <duration>P1M</duration>
+      </subscription>
+      <subscription productID="com.billsmanager.pro.yearly" type="autoRenewable">
+        <displayName>Bills Manager PRO Yearly</displayName>
+        <description>Yearly subscription for PRO features</description>
+        <price>14.99</price>
+        <duration>P1Y</duration>
+      </subscription>
+    </subscription-group>
+  </subscriptions>
+  <version>2</version>
+</storekit-configuration>
