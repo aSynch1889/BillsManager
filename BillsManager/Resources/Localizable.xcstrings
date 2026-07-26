@@ -51,6 +51,9 @@
     "7 days before" : {
 
     },
+    "100% local storage protected with Face ID. Export data to CSV or JSON backup anytime." : {
+
+    },
     "About" : {
 
     },
@@ -174,6 +177,9 @@
       }
     },
     "Bills Due on %@" : {
+
+    },
+    "Bills Manager" : {
 
     },
     "Bills Manager Locked" : {
@@ -312,6 +318,9 @@
     "Frequency" : {
 
     },
+    "Get Started" : {
+
+    },
     "Icon" : {
 
     },
@@ -356,6 +365,9 @@
     "Monthly" : {
 
     },
+    "Never Miss a Payment" : {
+
+    },
     "New Bill" : {
       "localizations" : {
         "zh-Hans" : {
@@ -365,6 +377,9 @@
           }
         }
       }
+    },
+    "Next" : {
+
     },
     "No Analytics Data" : {
 
@@ -394,6 +409,9 @@
 
     },
     "One-time" : {
+
+    },
+    "Organize utilities, subscriptions, rent, and card payments in one unified place with automatic recurring dates." : {
 
     },
     "Overdue" : {
@@ -470,10 +488,16 @@
     "Payment will be charged to your Apple ID account at confirmation of purchase." : {
 
     },
+    "Privacy & Professional Tools" : {
+
+    },
     "PRO Version Active" : {
 
     },
     "Quarterly" : {
+
+    },
+    "Receive timely local notifications before due dates and view interactive monthly calendar indicator dots." : {
 
     },
     "Recurring & Auto-Pay" : {
@@ -528,6 +552,12 @@
         }
       }
     },
+    "Skip" : {
+
+    },
+    "Smart Bill Tracker & Reminder" : {
+
+    },
     "Tap '+' to create your first bill or change your search filter." : {
 
     },
@@ -541,6 +571,9 @@
 
     },
     "Total overdue: $%.2f" : {
+
+    },
+    "Track Bills Effortlessly" : {
 
     },
     "Uncategorized" : {
