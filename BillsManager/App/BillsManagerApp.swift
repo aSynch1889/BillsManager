@@ -7,6 +7,9 @@ struct BillsManagerApp: App {
     @State private var storeManager = StoreManager.shared
     @Environment(\.scenePhase) private var scenePhase
 
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding: Bool = false
+    @State private var showingSplash: Bool = true
+
     let container: ModelContainer
 
     init() {
@@ -29,16 +32,31 @@ struct BillsManagerApp: App {
     var body: some Scene {
         WindowGroup {
             ZStack {
-                MainTabView()
-                    .environment(authManager)
-                    .environment(storeManager)
-                
-                if authManager.isAppLockEnabled && !authManager.isUnlocked {
-                    PasscodeLockView()
-                        .environment(authManager)
-                        .transition(.opacity)
+                if showingSplash {
+                    SplashView {
+                        showingSplash = false
+                    }
+                    .transition(.opacity)
+                } else if !hasCompletedOnboarding {
+                    OnboardingView()
+                        .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .leading)))
+                } else {
+                    ZStack {
+                        MainTabView()
+                            .environment(authManager)
+                            .environment(storeManager)
+                        
+                        if authManager.isAppLockEnabled && !authManager.isUnlocked {
+                            PasscodeLockView()
+                                .environment(authManager)
+                                .transition(.opacity)
+                        }
+                    }
+                    .transition(.opacity)
                 }
             }
+            .animation(.default, value: showingSplash)
+            .animation(.default, value: hasCompletedOnboarding)
             .onChange(of: scenePhase) { oldPhase, newPhase in
                 if newPhase == .background {
                     authManager.lockApp()
@@ -60,7 +78,6 @@ struct BillsManagerApp: App {
                 context.insert(acc)
             }
             
-            // Seed a few sample bills so the user can immediately experience the app features
             let utilitiesCat = Category.defaults.first(where: { $0.name == "Utilities" })
             let housingCat = Category.defaults.first(where: { $0.name == "Housing" })
             let subCat = Category.defaults.first(where: { $0.name == "Subscriptions" })

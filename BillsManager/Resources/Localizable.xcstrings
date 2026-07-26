@@ -1,82 +1,74 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Dashboard" : {
+    "%@" : {
+
+    },
+    "%@ (%@) is due in %d days." : {
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "仪表盘"
+            "state" : "new",
+            "value" : "%1$@ (%2$@) is due in %3$d days."
           }
         }
       }
     },
-    "Bills" : {
+    "%@ is due today (%@)!" : {
       "localizations" : {
-        "zh-Hans" : {
+        "en" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "账单列表"
+            "state" : "new",
+            "value" : "%1$@ is due today (%2$@)!"
           }
         }
       }
     },
-    "Calendar" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "日历"
-          }
-        }
-      }
+    "%d days before" : {
+
     },
-    "Analytics" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "数据分析"
-          }
-        }
-      }
+    "•" : {
+
     },
-    "Settings" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "设置"
-          }
-        }
-      }
+    "•••• %@" : {
+
     },
-    "Due This Month" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本月应付"
-          }
-        }
-      }
+    "1 day before" : {
+
     },
-    "Overdue Amount" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "逾期金额"
-          }
-        }
-      }
+    "1.0.0 (Build 1)" : {
+
     },
-    "Paid This Month" : {
+    "2 days before" : {
+
+    },
+    "3 days before" : {
+
+    },
+    "3 Months" : {
+
+    },
+    "7 days before" : {
+
+    },
+    "About" : {
+
+    },
+    "Account" : {
+
+    },
+    "Account Info" : {
+
+    },
+    "Account Name (e.g. Chase Visa)" : {
+
+    },
+    "Action Required Soon" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "本月已付"
+            "value" : "即将到期"
           }
         }
       }
@@ -91,25 +83,17 @@
         }
       }
     },
-    "Action Required Soon" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "即将到期"
-          }
-        }
-      }
+    "Ad-free, unlimited categories, data backup" : {
+
     },
-    "Upcoming Bills" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "近期账单"
-          }
-        }
-      }
+    "Add Account" : {
+
+    },
+    "Add bills to view category spending charts." : {
+
+    },
+    "Add Category" : {
+
     },
     "All" : {
       "localizations" : {
@@ -121,45 +105,177 @@
         }
       }
     },
-    "Overdue" : {
+    "All bills are paid up!" : {
+
+    },
+    "All Categories" : {
+
+    },
+    "All premium features unlocked" : {
+
+    },
+    "All Time" : {
+
+    },
+    "Amount" : {
+
+    },
+    "Amount Paid" : {
+
+    },
+    "Analytics" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已逾期"
+            "value" : "数据分析"
           }
         }
       }
     },
-    "Unpaid" : {
+    "App Version" : {
+
+    },
+    "Attach Receipt / Invoice" : {
+
+    },
+    "Attachment / Receipt" : {
+
+    },
+    "Authentication is required to access your financial data." : {
+
+    },
+    "Auto-Pay" : {
+
+    },
+    "Bi-weekly" : {
+
+    },
+    "Bill Details" : {
+
+    },
+    "Bill Due Reminder" : {
+
+    },
+    "Bill Name (e.g. Electric Bill)" : {
+
+    },
+    "Bill Overview" : {
+
+    },
+    "Bills" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "未支付"
+            "value" : "账单列表"
           }
         }
       }
     },
-    "Paid" : {
+    "Bills Due on %@" : {
+
+    },
+    "Bills Manager Locked" : {
+
+    },
+    "Bills Manager PRO" : {
+
+    },
+    "Biometrics or passcode unavailable." : {
+
+    },
+    "Calendar" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "已支付"
+            "value" : "日历"
           }
         }
       }
     },
-    "New Bill" : {
+    "Categories" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "新建账单"
+            "value" : "分类管理"
           }
         }
       }
+    },
+    "Category" : {
+
+    },
+    "Category & Payment Account" : {
+
+    },
+    "Category Info" : {
+
+    },
+    "Category Name" : {
+
+    },
+    "Change Attachment" : {
+
+    },
+    "Color" : {
+
+    },
+    "Confirmation #" : {
+
+    },
+    "Continue with %@" : {
+
+    },
+    "Create JSON Backup" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "创建 JSON 完整备份"
+          }
+        }
+      }
+    },
+    "Daily" : {
+
+    },
+    "Dashboard" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仪表盘"
+          }
+        }
+      }
+    },
+    "Default" : {
+
+    },
+    "Disabled" : {
+
+    },
+    "Due Date" : {
+
+    },
+    "Due Soon" : {
+
+    },
+    "Due This Month" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本月应付"
+          }
+        }
+      }
+    },
+    "Due Today" : {
+
     },
     "Edit Bill" : {
       "localizations" : {
@@ -170,6 +286,49 @@
           }
         }
       }
+    },
+    "Enabled" : {
+
+    },
+    "Every 2 Months" : {
+
+    },
+    "Expense by Category" : {
+
+    },
+    "Export & Backup" : {
+
+    },
+    "Export to CSV" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导出为 CSV 表格"
+          }
+        }
+      }
+    },
+    "Frequency" : {
+
+    },
+    "Icon" : {
+
+    },
+    "iOS 17.0+" : {
+
+    },
+    "Last 4 Digits (Optional)" : {
+
+    },
+    "Loading Products..." : {
+
+    },
+    "Lock with %@" : {
+
+    },
+    "Manage Data" : {
+
     },
     "Mark as Paid" : {
       "localizations" : {
@@ -191,15 +350,106 @@
         }
       }
     },
-    "Categories" : {
+    "Minimum iOS Required" : {
+
+    },
+    "Monthly" : {
+
+    },
+    "New Bill" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "分类管理"
+            "value" : "新建账单"
           }
         }
       }
+    },
+    "No Analytics Data" : {
+
+    },
+    "No bill payments scheduled for this date." : {
+
+    },
+    "No Bills Due" : {
+
+    },
+    "No Bills Found" : {
+
+    },
+    "None" : {
+
+    },
+    "Notes" : {
+
+    },
+    "Notes / Account numbers..." : {
+
+    },
+    "Notes & Attachments" : {
+
+    },
+    "On due date" : {
+
+    },
+    "One-time" : {
+
+    },
+    "Overdue" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已逾期"
+          }
+        }
+      }
+    },
+    "Overdue Amount" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "逾期金额"
+          }
+        }
+      }
+    },
+    "Overdue Bills (%d)" : {
+
+    },
+    "Paid" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已支付"
+          }
+        }
+      }
+    },
+    "Paid / Unpaid" : {
+
+    },
+    "Paid This Month" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本月已付"
+          }
+        }
+      }
+    },
+    "Passcode" : {
+
+    },
+    "Pay" : {
+
+    },
+    "Payment Account" : {
+
     },
     "Payment Accounts" : {
       "localizations" : {
@@ -207,6 +457,123 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "支付账户"
+          }
+        }
+      }
+    },
+    "Payment History" : {
+
+    },
+    "Payment Record" : {
+
+    },
+    "Payment will be charged to your Apple ID account at confirmation of purchase." : {
+
+    },
+    "PRO Version Active" : {
+
+    },
+    "Quarterly" : {
+
+    },
+    "Recurring & Auto-Pay" : {
+
+    },
+    "Ref: %@" : {
+
+    },
+    "Remind Me" : {
+
+    },
+    "Reminder" : {
+
+    },
+    "Reminder Time" : {
+
+    },
+    "Reminders & Notifications" : {
+
+    },
+    "Repeat Frequency" : {
+
+    },
+    "Repeat Until" : {
+
+    },
+    "Restore Purchases" : {
+
+    },
+    "Search bills..." : {
+
+    },
+    "Security & Privacy" : {
+
+    },
+    "Select Icon" : {
+
+    },
+    "Semi-annually" : {
+
+    },
+    "Set End Date" : {
+
+    },
+    "Settings" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置"
+          }
+        }
+      }
+    },
+    "Tap '+' to create your first bill or change your search filter." : {
+
+    },
+    "This Month" : {
+
+    },
+    "This Year" : {
+
+    },
+    "Total Bills" : {
+
+    },
+    "Total overdue: $%.2f" : {
+
+    },
+    "Uncategorized" : {
+
+    },
+    "Unlock Bills Manager to view financial data." : {
+
+    },
+    "Unlock full financial tracking potential & ad-free experience" : {
+
+    },
+    "Unlock with %@" : {
+
+    },
+    "Unpaid" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未支付"
+          }
+        }
+      }
+    },
+    "Upcoming" : {
+
+    },
+    "Upcoming Bills" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "近期账单"
           }
         }
       }
@@ -221,25 +588,11 @@
         }
       }
     },
-    "Export to CSV" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "导出为 CSV 表格"
-          }
-        }
-      }
+    "Weekly" : {
+
     },
-    "Create JSON Backup" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "创建 JSON 完整备份"
-          }
-        }
-      }
+    "Yearly" : {
+
     }
   },
   "version" : "1.0"
