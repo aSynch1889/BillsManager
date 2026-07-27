@@ -8,14 +8,16 @@
 
 ```
 docs/
-├── INDEX.md                     # 📌 本文档 (组合包主索引)
-├── PRD.md                       # 📄 1. 产品需求文档 (PRD、商业模式与功能矩阵)
-├── ARCHITECTURE.md              # 🛠️ 2. 技术架构与设计文档 (Mermaid 架构图、ER 图与流程)
-└── UI_UX_SPECIFICATION.md       # 🎨 3. UI/UX 原型与交互流程规范 (信息架构图与流程图)
+├── INDEX.md                       # 📌 本文档 (组合包主索引)
+├── PRD.md                         # 📄 1. 产品需求文档 (PRD、商业模式与功能矩阵)
+├── ARCHITECTURE.md                # 🛠️ 2. 技术架构与设计文档 (Mermaid 架构图、ER 图与流程)
+├── UI_UX_SPECIFICATION.md         # 🎨 3. UI/UX 原型与交互流程规范 (信息架构图与流程图)
+├── APP_ISSUES_AND_SOLUTIONS.md    # 🔍 6. 深度问题评估与解决方案
+└── APP_STORE_REVIEW_RISKS.md      # 🍎 7. App Store 审核拒因风险与整改
 
 根目录/
-├── README.md                    # 🚀 4. 项目运行与工程部署指南
-└── design_tokens.md             # 🎨 5. Design Tokens 色彩/字阶/间距设计规范
+├── README.md                      # 🚀 4. 项目运行与工程部署指南
+└── design_tokens.md               # 🎨 5. Design Tokens 色彩/字阶/间距设计规范
 ```
 
 ---
@@ -60,3 +62,17 @@ docs/
 - 色彩 Token（主色、状态语义色、预设 7 大分类 Hex Palette、动态暗黑模式背景色）。
 - 字阶阶梯、间距尺寸（2pt ~ 48pt）、圆角与阴影 Token。
 - SF Symbols 5 规范清单。
+
+---
+
+### 6. 🔍 [深度问题评估与解决方案 (APP_ISSUES_AND_SOLUTIONS.md)](APP_ISSUES_AND_SOLUTIONS.md)
+> **解决：“产品与工程还差什么、怎么修”**
+- P0–P3 问题分级（PRO 门控、通知、备份恢复、本地化、统计口径等）。
+- 按模块速查表与 4 个迭代修复路线图、DoD 验收标准。
+
+---
+
+### 7. 🍎 [App Store 审核拒因风险 (APP_STORE_REVIEW_RISKS.md)](APP_STORE_REVIEW_RISKS.md)
+> **解决：“现在提交 ASC 可能被拒在哪、如何整改”**
+- 对照 Review Guidelines 的高/中/低风险矩阵（3.1.2 订阅、5.1.1 隐私、2.1 内购等）。
+- 提交前 Must/Should 清单、审核员自测路径、拒信对照与 Review Notes 模板。
