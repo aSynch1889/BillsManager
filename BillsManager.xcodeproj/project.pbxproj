@@ -293,6 +293,9 @@
 				en,
 				Base,
 				"zh-Hans",
+				"zh-Hant",
+				ja,
+				ko,
 			);
 			mainGroup = 01040001;
 			productRefGroup = 01040001;

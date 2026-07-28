@@ -23,6 +23,13 @@ enum LocalizationSelfCheck {
         assert(AppLanguage.resolveEffectiveCode(selected: .system,
                preferredLocalizations: []) == "en")
         print("[L10n] resolution self-check passed")
+
+        // Every non-English supported language compiles to an .lproj in the bundle.
+        for code in AppLanguage.supportedCodes where code != "en" {
+            assert(Bundle.main.path(forResource: code, ofType: "lproj") != nil,
+                   "Missing .lproj for \(code) — check knownRegions and translations")
+        }
+        print("[L10n] lproj coverage self-check passed")
     }
 }
 #endif
