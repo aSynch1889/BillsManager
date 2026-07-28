@@ -42,6 +42,7 @@
 		01010030 /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020030 /* AppLanguage.swift */; };
 		01010031 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020031 /* LanguageManager.swift */; };
 		01010032 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020032 /* L10n.swift */; };
+		01010033 /* RootContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020033 /* RootContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		01020030 /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
 		01020031 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		01020032 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		01020033 /* RootContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 		01040008 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				01020033 /* RootContentView.swift */,
 				0102000B /* MainTabView.swift */,
 				0102000C /* iPadSidebarView.swift */,
 				01020022 /* SplashView.swift */,
@@ -320,6 +323,7 @@
 				01010030 /* AppLanguage.swift in Sources */,
 				01010031 /* LanguageManager.swift in Sources */,
 				01010032 /* L10n.swift in Sources */,
+				01010033 /* RootContentView.swift in Sources */,
 				01010002 /* Category.swift in Sources */,
 				01010003 /* Account.swift in Sources */,
 				01010004 /* PaymentRecord.swift in Sources */,

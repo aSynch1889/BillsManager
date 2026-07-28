@@ -5,6 +5,7 @@ import SwiftData
 struct BillsManagerApp: App {
     @State private var authManager = BiometricAuthManager.shared
     @State private var storeManager = StoreManager.shared
+    @State private var languageManager = LanguageManager.shared
     @Environment(\.scenePhase) private var scenePhase
 
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding: Bool = false
@@ -31,37 +32,43 @@ struct BillsManagerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ZStack {
-                if showingSplash {
-                    SplashView {
-                        showingSplash = false
-                    }
-                    .transition(.opacity)
-                } else if !hasCompletedOnboarding {
-                    OnboardingView()
-                        .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .leading)))
-                } else {
-                    ZStack {
-                        MainTabView()
-                            .environment(authManager)
-                            .environment(storeManager)
-                        
-                        if authManager.isAppLockEnabled && !authManager.isUnlocked {
-                            PasscodeLockView()
-                                .environment(authManager)
-                                .transition(.opacity)
+            RootContentView {
+                ZStack {
+                    if showingSplash {
+                        SplashView {
+                            showingSplash = false
                         }
+                        .transition(.opacity)
+                    } else if !hasCompletedOnboarding {
+                        OnboardingView()
+                            .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .leading)))
+                    } else {
+                        ZStack {
+                            MainTabView()
+                                .environment(authManager)
+                                .environment(storeManager)
+
+                            if authManager.isAppLockEnabled && !authManager.isUnlocked {
+                                PasscodeLockView()
+                                    .environment(authManager)
+                                    .transition(.opacity)
+                            }
+                        }
+                        .transition(.opacity)
                     }
-                    .transition(.opacity)
+                }
+                .animation(.default, value: showingSplash)
+                .animation(.default, value: hasCompletedOnboarding)
+                .onChange(of: scenePhase) { oldPhase, newPhase in
+                    if newPhase == .background {
+                        authManager.lockApp()
+                    }
                 }
             }
-            .animation(.default, value: showingSplash)
-            .animation(.default, value: hasCompletedOnboarding)
-            .onChange(of: scenePhase) { oldPhase, newPhase in
-                if newPhase == .background {
-                    authManager.lockApp()
-                }
-            }
+            .environment(languageManager)
+            #if DEBUG
+            .onAppear { LocalizationSelfCheck.run() }
+            #endif
         }
         .modelContainer(container)
     }
