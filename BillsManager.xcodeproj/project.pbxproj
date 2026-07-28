@@ -39,6 +39,9 @@
 		0101001E /* StoreKit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 0102001E /* StoreKit.storekit */; };
 		01010021 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020021 /* OnboardingView.swift */; };
 		01010022 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020022 /* SplashView.swift */; };
+		01010030 /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020030 /* AppLanguage.swift */; };
+		01010031 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020031 /* LanguageManager.swift */; };
+		01010032 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020032 /* L10n.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +80,9 @@
 		01020020 /* BillsManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BillsManager.entitlements; sourceTree = "<group>"; };
 		01020021 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		01020022 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		01020030 /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
+		01020031 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		01020032 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,9 @@
 		01040005 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				01020030 /* AppLanguage.swift */,
+				01020031 /* LanguageManager.swift */,
+				01020032 /* L10n.swift */,
 				01020007 /* StoreManager.swift */,
 				01020008 /* NotificationManager.swift */,
 				01020009 /* BiometricAuthManager.swift */,
@@ -308,6 +317,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				01010001 /* BillsManagerApp.swift in Sources */,
+				01010030 /* AppLanguage.swift in Sources */,
+				01010031 /* LanguageManager.swift in Sources */,
+				01010032 /* L10n.swift in Sources */,
 				01010002 /* Category.swift in Sources */,
 				01010003 /* Account.swift in Sources */,
 				01010004 /* PaymentRecord.swift in Sources */,
