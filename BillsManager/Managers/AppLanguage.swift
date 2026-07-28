@@ -11,7 +11,8 @@ enum AppLanguage: String, CaseIterable, Identifiable {
     var id: String { rawValue }
 
     /// Concrete (non-system) language codes the app ships translations for.
-    static let supportedCodes: [String] = ["en", "zh-Hans", "zh-Hant", "ja", "ko"]
+    /// Derived from the cases so it can't drift from the enum definition.
+    static let supportedCodes: [String] = allCases.filter { $0 != .system }.map(\.rawValue)
 
     /// Concrete code for this choice; `nil` means "resolve from system".
     var explicitCode: String? { self == .system ? nil : rawValue }
@@ -39,6 +40,6 @@ enum AppLanguage: String, CaseIterable, Identifiable {
         if let first = preferredLocalizations.first, supportedCodes.contains(first) {
             return first
         }
-        return "en"   // unsupported system language (e.g. French) → English fallback
+        return AppLanguage.en.rawValue   // unsupported system language (e.g. French) → English fallback
     }
 }

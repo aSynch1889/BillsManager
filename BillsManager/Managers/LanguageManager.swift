@@ -1,5 +1,6 @@
 import Foundation
 import Observation
+import os
 
 @Observable
 final class LanguageManager {
@@ -10,7 +11,10 @@ final class LanguageManager {
     /// Tracked stored property — reassigning this is what triggers SwiftUI updates.
     private(set) var effectiveCode: String
 
-    private var bundleCache: [String: Bundle] = [:]
+    /// Thread-safe cache of resolved bundles; guarded so a future background
+    /// caller can't trigger concurrent dictionary mutation. `effectiveCode`
+    /// stays a plain tracked stored property (mutated only by `setLanguage`).
+    private let bundleCache = OSAllocatedUnfairLock(initialState: [String: Bundle]())
 
     private init() {
         let raw = UserDefaults.standard.string(forKey: Self.storageKey) ?? AppLanguage.system.rawValue
@@ -42,12 +46,14 @@ final class LanguageManager {
     }
 
     private func resolvedBundle(for code: String) -> Bundle {
-        if let cached = bundleCache[code] { return cached }
-        if let path = Bundle.main.path(forResource: code, ofType: "lproj"),
-           let bundle = Bundle(path: path) {
-            bundleCache[code] = bundle
-            return bundle
+        bundleCache.withLock { cache -> Bundle in
+            if let cached = cache[code] { return cached }
+            if let path = Bundle.main.path(forResource: code, ofType: "lproj"),
+               let bundle = Bundle(path: path) {
+                cache[code] = bundle
+                return bundle
+            }
+            return .main   // fallback: English source / Base
         }
-        return .main   // fallback: English source / Base
     }
 }
