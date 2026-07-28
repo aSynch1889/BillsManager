@@ -83,7 +83,7 @@ struct AnalyticsView: View {
         ScrollView {
             VStack(spacing: 20) {
                 // Time Range Segmented Picker
-                Picker("Range", selection: $selectedRange) {
+                Picker(L10n.s("Range"), selection: $selectedRange) {
                     ForEach(AnalyticsTimeRange.allCases) { range in
                         Text(range.localizedTitle).tag(range)
                     }

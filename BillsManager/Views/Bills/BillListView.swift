@@ -80,7 +80,7 @@ struct BillListView: View {
                 .background(Color(.secondarySystemGroupedBackground))
                 .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                 
-                Picker("Filter", selection: $selectedFilter) {
+                Picker(L10n.s("Filter"), selection: $selectedFilter) {
                     ForEach(BillFilterTab.allCases) { tab in
                         Text(tab.localizedTitle).tag(tab)
                     }

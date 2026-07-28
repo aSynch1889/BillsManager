@@ -190,7 +190,7 @@ struct BillDetailView: View {
                         HStack {
                             Text(L10n.s("Amount Paid"))
                             Spacer()
-                            TextField("Amount", text: $paidAmountText)
+                            TextField(L10n.s("Amount"), text: $paidAmountText)
                                 .keyboardType(.decimalPad)
                                 .multilineTextAlignment(.trailing)
                         }
@@ -198,7 +198,7 @@ struct BillDetailView: View {
                         HStack {
                             Text(L10n.s("Confirmation #"))
                             Spacer()
-                            TextField("Optional code", text: $confirmationCodeText)
+                            TextField(L10n.s("Optional code"), text: $confirmationCodeText)
                                 .multilineTextAlignment(.trailing)
                         }
                     }
@@ -223,7 +223,7 @@ struct BillDetailView: View {
             }
             .presentationDetents([.medium])
         }
-        .confirmationDialog("Are you sure you want to delete this bill?", isPresented: $showingDeleteConfirmation, titleVisibility: .visible) {
+        .confirmationDialog(L10n.s("Are you sure you want to delete this bill?"), isPresented: $showingDeleteConfirmation, titleVisibility: .visible) {
             Button(L10n.s("Delete Bill"), role: .destructive) {
                 NotificationManager.shared.cancelNotification(for: bill)
                 modelContext.delete(bill)
