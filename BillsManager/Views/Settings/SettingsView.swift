@@ -100,6 +100,15 @@ struct SettingsView: View {
                 }
             }
             
+            // Language Section
+            Section {
+                NavigationLink {
+                    LanguageSelectionView()
+                } label: {
+                    Label(L10n.s("Language"), systemImage: "globe")
+                }
+            }
+
             // App Info Section
             Section(header: Text(L10n.s("About"))) {
                 HStack {

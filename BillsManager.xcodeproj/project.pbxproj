@@ -43,6 +43,7 @@
 		01010031 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020031 /* LanguageManager.swift */; };
 		01010032 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020032 /* L10n.swift */; };
 		01010033 /* RootContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020033 /* RootContentView.swift */; };
+		01010034 /* LanguageSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020034 /* LanguageSelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		01020031 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		01020032 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		01020033 /* RootContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContentView.swift; sourceTree = "<group>"; };
+		01020034 /* LanguageSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 		0104000E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				01020034 /* LanguageSelectionView.swift */,
 				01020019 /* PaywallView.swift */,
 				0102001A /* PasscodeLockView.swift */,
 				0102001B /* SettingsView.swift */,
@@ -324,6 +327,7 @@
 				01010031 /* LanguageManager.swift in Sources */,
 				01010032 /* L10n.swift in Sources */,
 				01010033 /* RootContentView.swift in Sources */,
+				01010034 /* LanguageSelectionView.swift in Sources */,
 				01010002 /* Category.swift in Sources */,
 				01010003 /* Account.swift in Sources */,
 				01010004 /* PaymentRecord.swift in Sources */,
