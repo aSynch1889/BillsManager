@@ -27,7 +27,7 @@ struct SplashView: View {
                 .opacity(opacity)
                 
                 VStack(spacing: 6) {
-                    Text("Bills Manager")
+                    Text(L10n.s("Bills Manager"))
                         .font(.system(size: 32, weight: .bold, design: .rounded))
                         .foregroundStyle(.primary)
                     

@@ -12,10 +12,10 @@ enum AnalyticsTimeRange: String, CaseIterable, Identifiable {
     
     var localizedTitle: String {
         switch self {
-        case .thisMonth: return NSLocalizedString("This Month", comment: "")
-        case .last3Months: return NSLocalizedString("3 Months", comment: "")
-        case .thisYear: return NSLocalizedString("This Year", comment: "")
-        case .allTime: return NSLocalizedString("All Time", comment: "")
+        case .thisMonth: return L10n.s("This Month")
+        case .last3Months: return L10n.s("3 Months")
+        case .thisYear: return L10n.s("This Year")
+        case .allTime: return L10n.s("All Time")
         }
     }
 }
@@ -94,7 +94,7 @@ struct AnalyticsView: View {
                 // Total Summary Card
                 HStack(spacing: 16) {
                     VStack(alignment: .leading, spacing: 4) {
-                        Text(NSLocalizedString("Total Bills", comment: ""))
+                        Text(L10n.s("Total Bills"))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                         Text(String(format: "$%.2f", totalAmount))
@@ -102,7 +102,7 @@ struct AnalyticsView: View {
                     }
                     Spacer()
                     VStack(alignment: .trailing, spacing: 4) {
-                        Text(NSLocalizedString("Paid / Unpaid", comment: ""))
+                        Text(L10n.s("Paid / Unpaid"))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                         Text(String(format: "$%.0f / $%.0f", paidAmount, unpaidAmount))
@@ -118,7 +118,7 @@ struct AnalyticsView: View {
                 // Category Expense Donut Chart
                 if !categoryExpenses.isEmpty {
                     VStack(alignment: .leading, spacing: 16) {
-                        Text(NSLocalizedString("Expense by Category", comment: ""))
+                        Text(L10n.s("Expense by Category"))
                             .font(.title3.bold())
                         
                         Chart(categoryExpenses) { item in
@@ -157,9 +157,9 @@ struct AnalyticsView: View {
                     .padding(.horizontal)
                 } else {
                     ContentUnavailableView(
-                        NSLocalizedString("No Analytics Data", comment: ""),
+                        L10n.s("No Analytics Data"),
                         systemImage: "chart.bar.xaxis",
-                        description: Text(NSLocalizedString("Add bills to view category spending charts.", comment: ""))
+                        description: Text(L10n.s("Add bills to view category spending charts."))
                     )
                     .padding()
                 }
@@ -167,6 +167,6 @@ struct AnalyticsView: View {
             .padding(.vertical)
         }
         .background(Color(.systemGroupedBackground))
-        .navigationTitle(NSLocalizedString("Analytics", comment: ""))
+        .navigationTitle(L10n.s("Analytics"))
     }
 }

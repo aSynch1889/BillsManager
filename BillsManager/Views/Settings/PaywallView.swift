@@ -22,10 +22,10 @@ struct PaywallView: View {
                             .foregroundStyle(.white)
                     }
                     
-                    Text(NSLocalizedString("Bills Manager PRO", comment: ""))
+                    Text(L10n.s("Bills Manager PRO"))
                         .font(.system(size: 28, weight: .bold, design: .rounded))
                     
-                    Text(NSLocalizedString("Unlock full financial tracking potential & ad-free experience", comment: ""))
+                    Text(L10n.s("Unlock full financial tracking potential & ad-free experience"))
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -50,7 +50,7 @@ struct PaywallView: View {
                 if storeManager.products.isEmpty {
                     VStack(spacing: 12) {
                         ProgressView()
-                        Text(NSLocalizedString("Loading Products...", comment: ""))
+                        Text(L10n.s("Loading Products..."))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -100,7 +100,7 @@ struct PaywallView: View {
                                 }
                             }
                         }) {
-                            Text(String(format: NSLocalizedString("Continue with %@", comment: ""), selectedProduct.displayPrice))
+                            Text(String(format: L10n.s("Continue with %@"), selectedProduct.displayPrice))
                                 .font(.headline)
                                 .frame(maxWidth: .infinity)
                                 .padding()
@@ -115,7 +115,7 @@ struct PaywallView: View {
                             await storeManager.restorePurchases()
                         }
                     }) {
-                        Text(NSLocalizedString("Restore Purchases", comment: ""))
+                        Text(L10n.s("Restore Purchases"))
                             .font(.subheadline.bold())
                             .foregroundStyle(.blue)
                     }
@@ -123,7 +123,7 @@ struct PaywallView: View {
                 .padding(.horizontal)
                 
                 // Terms & Privacy Note
-                Text(NSLocalizedString("Payment will be charged to your Apple ID account at confirmation of purchase.", comment: ""))
+                Text(L10n.s("Payment will be charged to your Apple ID account at confirmation of purchase."))
                     .font(.caption2)
                     .foregroundStyle(.tertiary)
                     .multilineTextAlignment(.center)

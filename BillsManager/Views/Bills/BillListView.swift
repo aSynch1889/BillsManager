@@ -11,10 +11,10 @@ enum BillFilterTab: String, CaseIterable, Identifiable {
     
     var localizedTitle: String {
         switch self {
-        case .all: return NSLocalizedString("All", comment: "")
-        case .overdue: return NSLocalizedString("Overdue", comment: "")
-        case .unpaid: return NSLocalizedString("Unpaid", comment: "")
-        case .paid: return NSLocalizedString("Paid", comment: "")
+        case .all: return L10n.s("All")
+        case .overdue: return L10n.s("Overdue")
+        case .unpaid: return L10n.s("Unpaid")
+        case .paid: return L10n.s("Paid")
         }
     }
 }
@@ -68,7 +68,7 @@ struct BillListView: View {
                 HStack {
                     Image(systemName: "magnifyingglass")
                         .foregroundStyle(.secondary)
-                    TextField(NSLocalizedString("Search bills...", comment: ""), text: $searchText)
+                    TextField(L10n.s("Search bills..."), text: $searchText)
                     if !searchText.isEmpty {
                         Button(action: { searchText = "" }) {
                             Image(systemName: "xmark.circle.fill")
@@ -91,7 +91,7 @@ struct BillListView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         Button(action: { selectedCategory = nil }) {
-                            Text(NSLocalizedString("All Categories", comment: ""))
+                            Text(L10n.s("All Categories"))
                                 .font(.caption.bold())
                                 .padding(.horizontal, 12)
                                 .padding(.vertical, 6)
@@ -123,9 +123,9 @@ struct BillListView: View {
             // List View
             if filteredBills.isEmpty {
                 ContentUnavailableView(
-                    NSLocalizedString("No Bills Found", comment: ""),
+                    L10n.s("No Bills Found"),
                     systemImage: "doc.text.magnifyingglass",
-                    description: Text(NSLocalizedString("Tap '+' to create your first bill or change your search filter.", comment: ""))
+                    description: Text(L10n.s("Tap '+' to create your first bill or change your search filter."))
                 )
                 .frame(maxHeight: .infinity)
             } else {
@@ -141,13 +141,13 @@ struct BillListView: View {
                             Button(role: .destructive) {
                                 deleteBill(bill)
                             } label: {
-                                Label("Delete", systemImage: "trash")
+                                Label(L10n.s("Delete"), systemImage: "trash")
                             }
                             
                             Button {
                                 editingBill = bill
                             } label: {
-                                Label("Edit", systemImage: "pencil")
+                                Label(L10n.s("Edit"), systemImage: "pencil")
                             }
                             .tint(.orange)
                         }
@@ -165,7 +165,7 @@ struct BillListView: View {
                 .background(Color(.systemGroupedBackground))
             }
         }
-        .navigationTitle(NSLocalizedString("Bills", comment: ""))
+        .navigationTitle(L10n.s("Bills"))
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(action: { showingAddBill = true }) {

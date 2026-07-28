@@ -30,7 +30,7 @@ final class BiometricAuthManager {
         case .opticID:
             return "Optic ID"
         default:
-            return NSLocalizedString("Passcode", comment: "")
+            return L10n.s("Passcode")
         }
     }
     
@@ -45,7 +45,7 @@ final class BiometricAuthManager {
         let context = LAContext()
         var error: NSError?
         
-        let reason = NSLocalizedString("Unlock Bills Manager to view financial data.", comment: "")
+        let reason = L10n.s("Unlock Bills Manager to view financial data.")
         
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
             do {
@@ -61,7 +61,7 @@ final class BiometricAuthManager {
                 return false
             }
         } else {
-            authError = error?.localizedDescription ?? NSLocalizedString("Biometrics or passcode unavailable.", comment: "")
+            authError = error?.localizedDescription ?? L10n.s("Biometrics or passcode unavailable.")
         }
         return false
     }

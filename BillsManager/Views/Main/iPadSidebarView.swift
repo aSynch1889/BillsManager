@@ -22,7 +22,7 @@ struct iPadSidebarView: View {
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button(action: { showingAddBill = true }) {
-                        Label("Add Bill", systemImage: "plus")
+                        Label(L10n.s("Add Bill"), systemImage: "plus")
                     }
                 }
             }

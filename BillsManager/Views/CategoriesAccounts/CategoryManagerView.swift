@@ -31,7 +31,7 @@ struct CategoryManagerView: View {
                     Spacer()
                     
                     if category.isSystem {
-                        Text(NSLocalizedString("Default", comment: ""))
+                        Text(L10n.s("Default"))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -42,13 +42,13 @@ struct CategoryManagerView: View {
                             modelContext.delete(category)
                             try? modelContext.save()
                         } label: {
-                            Label("Delete", systemImage: "trash")
+                            Label(L10n.s("Delete"), systemImage: "trash")
                         }
                     }
                 }
             }
         }
-        .navigationTitle(NSLocalizedString("Categories", comment: ""))
+        .navigationTitle(L10n.s("Categories"))
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(action: {
@@ -64,12 +64,12 @@ struct CategoryManagerView: View {
         .sheet(isPresented: $showingAddCategorySheet) {
             NavigationStack {
                 Form {
-                    Section(NSLocalizedString("Category Info", comment: "")) {
-                        TextField(NSLocalizedString("Category Name", comment: ""), text: $categoryName)
+                    Section(L10n.s("Category Info")) {
+                        TextField(L10n.s("Category Name"), text: $categoryName)
                         
                         NavigationLink(destination: IconPickerView(selectedIcon: $iconName)) {
                             HStack {
-                                Text(NSLocalizedString("Icon", comment: ""))
+                                Text(L10n.s("Icon"))
                                 Spacer()
                                 Image(systemName: iconName)
                                     .font(.title3)
@@ -77,10 +77,10 @@ struct CategoryManagerView: View {
                             }
                         }
                         
-                        ColorPicker(NSLocalizedString("Color", comment: ""), selection: $categoryColor)
+                        ColorPicker(L10n.s("Color"), selection: $categoryColor)
                     }
                 }
-                .navigationTitle(NSLocalizedString("Add Category", comment: ""))
+                .navigationTitle(L10n.s("Add Category"))
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {

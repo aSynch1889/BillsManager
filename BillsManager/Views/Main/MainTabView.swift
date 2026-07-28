@@ -21,11 +21,11 @@ enum NavigationTab: String, CaseIterable, Identifiable {
     
     var localizedTitle: String {
         switch self {
-        case .dashboard: return NSLocalizedString("Dashboard", comment: "")
-        case .bills: return NSLocalizedString("Bills", comment: "")
-        case .calendar: return NSLocalizedString("Calendar", comment: "")
-        case .analytics: return NSLocalizedString("Analytics", comment: "")
-        case .settings: return NSLocalizedString("Settings", comment: "")
+        case .dashboard: return L10n.s("Dashboard")
+        case .bills: return L10n.s("Bills")
+        case .calendar: return L10n.s("Calendar")
+        case .analytics: return L10n.s("Analytics")
+        case .settings: return L10n.s("Settings")
         }
     }
 }

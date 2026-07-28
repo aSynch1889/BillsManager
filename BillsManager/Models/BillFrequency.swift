@@ -15,15 +15,15 @@ enum BillFrequency: String, Codable, CaseIterable, Identifiable {
     
     var localizedName: String {
         switch self {
-        case .once: return NSLocalizedString("One-time", comment: "")
-        case .daily: return NSLocalizedString("Daily", comment: "")
-        case .weekly: return NSLocalizedString("Weekly", comment: "")
-        case .biweekly: return NSLocalizedString("Bi-weekly", comment: "")
-        case .monthly: return NSLocalizedString("Monthly", comment: "")
-        case .bimonthly: return NSLocalizedString("Every 2 Months", comment: "")
-        case .quarterly: return NSLocalizedString("Quarterly", comment: "")
-        case .semiannually: return NSLocalizedString("Semi-annually", comment: "")
-        case .yearly: return NSLocalizedString("Yearly", comment: "")
+        case .once: return L10n.s("One-time")
+        case .daily: return L10n.s("Daily")
+        case .weekly: return L10n.s("Weekly")
+        case .biweekly: return L10n.s("Bi-weekly")
+        case .monthly: return L10n.s("Monthly")
+        case .bimonthly: return L10n.s("Every 2 Months")
+        case .quarterly: return L10n.s("Quarterly")
+        case .semiannually: return L10n.s("Semi-annually")
+        case .yearly: return L10n.s("Yearly")
         }
     }
     
@@ -61,11 +61,11 @@ enum BillStatus: String, Codable, CaseIterable {
     
     var localizedName: String {
         switch self {
-        case .overdue: return NSLocalizedString("Overdue", comment: "")
-        case .dueToday: return NSLocalizedString("Due Today", comment: "")
-        case .dueSoon: return NSLocalizedString("Due Soon", comment: "")
-        case .upcoming: return NSLocalizedString("Upcoming", comment: "")
-        case .paid: return NSLocalizedString("Paid", comment: "")
+        case .overdue: return L10n.s("Overdue")
+        case .dueToday: return L10n.s("Due Today")
+        case .dueSoon: return L10n.s("Due Soon")
+        case .upcoming: return L10n.s("Upcoming")
+        case .paid: return L10n.s("Paid")
         }
     }
 }

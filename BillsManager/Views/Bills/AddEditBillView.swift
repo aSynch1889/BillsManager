@@ -34,23 +34,23 @@ struct AddEditBillView: View {
     
     var body: some View {
         Form {
-            Section(header: Text(NSLocalizedString("Bill Overview", comment: ""))) {
-                TextField(NSLocalizedString("Bill Name (e.g. Electric Bill)", comment: ""), text: $name)
+            Section(header: Text(L10n.s("Bill Overview"))) {
+                TextField(L10n.s("Bill Name (e.g. Electric Bill)"), text: $name)
                 
                 HStack {
-                    Text(NSLocalizedString("Amount", comment: ""))
+                    Text(L10n.s("Amount"))
                     Spacer()
                     TextField("0.00", text: $amountText)
                         .keyboardType(.decimalPad)
                         .multilineTextAlignment(.trailing)
                 }
                 
-                DatePicker(NSLocalizedString("Due Date", comment: ""), selection: $dueDate, displayedComponents: [.date])
+                DatePicker(L10n.s("Due Date"), selection: $dueDate, displayedComponents: [.date])
             }
             
-            Section(header: Text(NSLocalizedString("Category & Payment Account", comment: ""))) {
-                Picker(NSLocalizedString("Category", comment: ""), selection: $selectedCategory) {
-                    Text(NSLocalizedString("Uncategorized", comment: "")).tag(Category?.none)
+            Section(header: Text(L10n.s("Category & Payment Account"))) {
+                Picker(L10n.s("Category"), selection: $selectedCategory) {
+                    Text(L10n.s("Uncategorized")).tag(Category?.none)
                     ForEach(categories) { cat in
                         HStack {
                             Image(systemName: cat.iconName)
@@ -61,8 +61,8 @@ struct AddEditBillView: View {
                     }
                 }
                 
-                Picker(NSLocalizedString("Account", comment: ""), selection: $selectedAccount) {
-                    Text(NSLocalizedString("None", comment: "")).tag(Account?.none)
+                Picker(L10n.s("Account"), selection: $selectedAccount) {
+                    Text(L10n.s("None")).tag(Account?.none)
                     ForEach(accounts) { acc in
                         HStack {
                             Image(systemName: acc.iconName)
@@ -74,43 +74,43 @@ struct AddEditBillView: View {
                 }
             }
             
-            Section(header: Text(NSLocalizedString("Recurring & Auto-Pay", comment: ""))) {
-                Picker(NSLocalizedString("Repeat Frequency", comment: ""), selection: $frequency) {
+            Section(header: Text(L10n.s("Recurring & Auto-Pay"))) {
+                Picker(L10n.s("Repeat Frequency"), selection: $frequency) {
                     ForEach(BillFrequency.allCases) { freq in
                         Text(freq.localizedName).tag(freq)
                     }
                 }
                 
-                Toggle(NSLocalizedString("Auto-Pay", comment: ""), isOn: $isAutoPay)
+                Toggle(L10n.s("Auto-Pay"), isOn: $isAutoPay)
                 
                 if frequency != .once {
-                    Toggle(NSLocalizedString("Set End Date", comment: ""), isOn: $hasRepeatEndDate)
+                    Toggle(L10n.s("Set End Date"), isOn: $hasRepeatEndDate)
                     if hasRepeatEndDate {
-                        DatePicker(NSLocalizedString("Repeat Until", comment: ""), selection: $repeatEndDate, displayedComponents: [.date])
+                        DatePicker(L10n.s("Repeat Until"), selection: $repeatEndDate, displayedComponents: [.date])
                     }
                 }
             }
             
-            Section(header: Text(NSLocalizedString("Reminders & Notifications", comment: ""))) {
-                Picker(NSLocalizedString("Remind Me", comment: ""), selection: $reminderDaysBefore) {
-                    Text(NSLocalizedString("On due date", comment: "")).tag(0)
-                    Text(NSLocalizedString("1 day before", comment: "")).tag(1)
-                    Text(NSLocalizedString("2 days before", comment: "")).tag(2)
-                    Text(NSLocalizedString("3 days before", comment: "")).tag(3)
-                    Text(NSLocalizedString("7 days before", comment: "")).tag(7)
+            Section(header: Text(L10n.s("Reminders & Notifications"))) {
+                Picker(L10n.s("Remind Me"), selection: $reminderDaysBefore) {
+                    Text(L10n.s("On due date")).tag(0)
+                    Text(L10n.s("1 day before")).tag(1)
+                    Text(L10n.s("2 days before")).tag(2)
+                    Text(L10n.s("3 days before")).tag(3)
+                    Text(L10n.s("7 days before")).tag(7)
                 }
                 
-                DatePicker(NSLocalizedString("Reminder Time", comment: ""), selection: $reminderTime, displayedComponents: [.hourAndMinute])
+                DatePicker(L10n.s("Reminder Time"), selection: $reminderTime, displayedComponents: [.hourAndMinute])
             }
             
-            Section(header: Text(NSLocalizedString("Notes & Attachments", comment: ""))) {
-                TextField(NSLocalizedString("Notes / Account numbers...", comment: ""), text: $notes, axis: .vertical)
+            Section(header: Text(L10n.s("Notes & Attachments"))) {
+                TextField(L10n.s("Notes / Account numbers..."), text: $notes, axis: .vertical)
                     .lineLimit(3...6)
                 
                 PhotosPicker(selection: $selectedPhotoItem, matching: .images) {
                     HStack {
                         Image(systemName: "photo.on.rectangle")
-                        Text(attachmentImageData == nil ? NSLocalizedString("Attach Receipt / Invoice", comment: "") : NSLocalizedString("Change Attachment", comment: ""))
+                        Text(attachmentImageData == nil ? L10n.s("Attach Receipt / Invoice") : L10n.s("Change Attachment"))
                         Spacer()
                         if attachmentImageData != nil {
                             Image(systemName: "checkmark.circle.fill")
@@ -146,7 +146,7 @@ struct AddEditBillView: View {
                 }
             }
         }
-        .navigationTitle(isEditing ? NSLocalizedString("Edit Bill", comment: "") : NSLocalizedString("New Bill", comment: ""))
+        .navigationTitle(isEditing ? L10n.s("Edit Bill") : L10n.s("New Bill"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {

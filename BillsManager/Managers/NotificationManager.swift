@@ -37,13 +37,13 @@ final class NotificationManager {
         dateComponents.minute = timeComponents.minute
         
         let content = UNMutableNotificationContent()
-        content.title = NSLocalizedString("Bill Due Reminder", comment: "")
+        content.title = L10n.s("Bill Due Reminder")
         let formattedAmount = bill.formattedAmount
         
         if bill.reminderDaysBefore == 0 {
-            content.body = String(format: NSLocalizedString("%@ is due today (%@)!", comment: ""), bill.name, formattedAmount)
+            content.body = String(format: L10n.s("%@ is due today (%@)!"), bill.name, formattedAmount)
         } else {
-            content.body = String(format: NSLocalizedString("%@ (%@) is due in %d days.", comment: ""), bill.name, formattedAmount, bill.reminderDaysBefore)
+            content.body = String(format: L10n.s("%@ (%@) is due in %d days."), bill.name, formattedAmount, bill.reminderDaysBefore)
         }
         
         content.sound = .default

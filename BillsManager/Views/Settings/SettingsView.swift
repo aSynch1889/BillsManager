@@ -37,11 +37,11 @@ struct SettingsView: View {
                         }
                         
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(storeManager.isProUser ? NSLocalizedString("PRO Version Active", comment: "") : NSLocalizedString("Upgrade to PRO", comment: ""))
+                            Text(storeManager.isProUser ? L10n.s("PRO Version Active") : L10n.s("Upgrade to PRO"))
                                 .font(.headline)
                                 .foregroundStyle(.primary)
                             
-                            Text(storeManager.isProUser ? NSLocalizedString("All premium features unlocked", comment: "") : NSLocalizedString("Ad-free, unlimited categories, data backup", comment: ""))
+                            Text(storeManager.isProUser ? L10n.s("All premium features unlocked") : L10n.s("Ad-free, unlimited categories, data backup"))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -59,18 +59,18 @@ struct SettingsView: View {
             }
             
             // Management Section
-            Section(header: Text(NSLocalizedString("Manage Data", comment: ""))) {
+            Section(header: Text(L10n.s("Manage Data"))) {
                 NavigationLink(destination: CategoryManagerView()) {
-                    Label(NSLocalizedString("Categories", comment: ""), systemImage: "folder.fill")
+                    Label(L10n.s("Categories"), systemImage: "folder.fill")
                 }
                 
                 NavigationLink(destination: AccountManagerView()) {
-                    Label(NSLocalizedString("Payment Accounts", comment: ""), systemImage: "creditcard.fill")
+                    Label(L10n.s("Payment Accounts"), systemImage: "creditcard.fill")
                 }
             }
             
             // Security Section
-            Section(header: Text(NSLocalizedString("Security & Privacy", comment: ""))) {
+            Section(header: Text(L10n.s("Security & Privacy"))) {
                 Toggle(isOn: Binding(
                     get: { authManager.isAppLockEnabled },
                     set: { newValue in
@@ -83,41 +83,41 @@ struct SettingsView: View {
                     }
                 )) {
                     Label(
-                        String(format: NSLocalizedString("Lock with %@", comment: ""), authManager.biometricName),
+                        String(format: L10n.s("Lock with %@"), authManager.biometricName),
                         systemImage: authManager.biometricType == .faceID ? "faceid" : "lock.fill"
                     )
                 }
             }
             
             // Backup & Export Section
-            Section(header: Text(NSLocalizedString("Export & Backup", comment: ""))) {
+            Section(header: Text(L10n.s("Export & Backup"))) {
                 Button(action: exportCSV) {
-                    Label(NSLocalizedString("Export to CSV", comment: ""), systemImage: "arrow.down.doc.fill")
+                    Label(L10n.s("Export to CSV"), systemImage: "arrow.down.doc.fill")
                 }
                 
                 Button(action: exportJSONBackup) {
-                    Label(NSLocalizedString("Create JSON Backup", comment: ""), systemImage: "externaldrive.fill")
+                    Label(L10n.s("Create JSON Backup"), systemImage: "externaldrive.fill")
                 }
             }
             
             // App Info Section
-            Section(header: Text(NSLocalizedString("About", comment: ""))) {
+            Section(header: Text(L10n.s("About"))) {
                 HStack {
-                    Text(NSLocalizedString("App Version", comment: ""))
+                    Text(L10n.s("App Version"))
                     Spacer()
                     Text("1.0.0 (Build 1)")
                         .foregroundStyle(.secondary)
                 }
                 
                 HStack {
-                    Text(NSLocalizedString("Minimum iOS Required", comment: ""))
+                    Text(L10n.s("Minimum iOS Required"))
                     Spacer()
                     Text("iOS 17.0+")
                         .foregroundStyle(.secondary)
                 }
             }
         }
-        .navigationTitle(NSLocalizedString("Settings", comment: ""))
+        .navigationTitle(L10n.s("Settings"))
         .sheet(isPresented: $showingPaywall) {
             NavigationStack {
                 PaywallView()

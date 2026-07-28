@@ -66,7 +66,7 @@ struct BillDetailView: View {
                 }) {
                     HStack {
                         Image(systemName: bill.isPaid ? "arrow.uturn.backward.circle.fill" : "checkmark.circle.fill")
-                        Text(bill.isPaid ? NSLocalizedString("Mark as Unpaid", comment: "") : NSLocalizedString("Mark as Paid", comment: ""))
+                        Text(bill.isPaid ? L10n.s("Mark as Unpaid") : L10n.s("Mark as Paid"))
                             .font(.headline)
                     }
                     .frame(maxWidth: .infinity)
@@ -78,19 +78,19 @@ struct BillDetailView: View {
                 
                 // Bill Details Info Group
                 VStack(spacing: 16) {
-                    DetailRow(title: NSLocalizedString("Due Date", comment: ""), value: formattedDate(bill.dueDate), icon: "calendar")
+                    DetailRow(title: L10n.s("Due Date"), value: formattedDate(bill.dueDate), icon: "calendar")
                     Divider()
-                    DetailRow(title: NSLocalizedString("Category", comment: ""), value: bill.category?.name ?? NSLocalizedString("Uncategorized", comment: ""), icon: bill.category?.iconName ?? "folder")
+                    DetailRow(title: L10n.s("Category"), value: bill.category?.name ?? L10n.s("Uncategorized"), icon: bill.category?.iconName ?? "folder")
                     Divider()
-                    DetailRow(title: NSLocalizedString("Payment Account", comment: ""), value: bill.account?.name ?? NSLocalizedString("None", comment: ""), icon: bill.account?.iconName ?? "creditcard")
+                    DetailRow(title: L10n.s("Payment Account"), value: bill.account?.name ?? L10n.s("None"), icon: bill.account?.iconName ?? "creditcard")
                     Divider()
-                    DetailRow(title: NSLocalizedString("Frequency", comment: ""), value: bill.frequency.localizedName, icon: "repeat")
+                    DetailRow(title: L10n.s("Frequency"), value: bill.frequency.localizedName, icon: "repeat")
                     Divider()
-                    DetailRow(title: NSLocalizedString("Auto-Pay", comment: ""), value: bill.isAutoPay ? NSLocalizedString("Enabled", comment: "") : NSLocalizedString("Disabled", comment: ""), icon: "arrow.triangle.2.circlepath")
+                    DetailRow(title: L10n.s("Auto-Pay"), value: bill.isAutoPay ? L10n.s("Enabled") : L10n.s("Disabled"), icon: "arrow.triangle.2.circlepath")
                     Divider()
                     DetailRow(
-                        title: NSLocalizedString("Reminder", comment: ""),
-                        value: bill.reminderDaysBefore == 0 ? NSLocalizedString("On due date", comment: "") : String(format: NSLocalizedString("%d days before", comment: ""), bill.reminderDaysBefore),
+                        title: L10n.s("Reminder"),
+                        value: bill.reminderDaysBefore == 0 ? L10n.s("On due date") : String(format: L10n.s("%d days before"), bill.reminderDaysBefore),
                         icon: "bell"
                     )
                 }
@@ -101,7 +101,7 @@ struct BillDetailView: View {
                 // Notes Section
                 if let notes = bill.notes, !notes.isEmpty {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text(NSLocalizedString("Notes", comment: ""))
+                        Text(L10n.s("Notes"))
                             .font(.headline)
                         Text(notes)
                             .font(.body)
@@ -116,7 +116,7 @@ struct BillDetailView: View {
                 // Attachment Image Preview
                 if let imageData = bill.attachmentImageData, let uiImage = UIImage(data: imageData) {
                     VStack(alignment: .leading, spacing: 8) {
-                        Text(NSLocalizedString("Attachment / Receipt", comment: ""))
+                        Text(L10n.s("Attachment / Receipt"))
                             .font(.headline)
                         Image(uiImage: uiImage)
                             .resizable()
@@ -133,7 +133,7 @@ struct BillDetailView: View {
                 // Payment History Log Section
                 if let history = bill.paymentHistory, !history.isEmpty {
                     VStack(alignment: .leading, spacing: 12) {
-                        Text(NSLocalizedString("Payment History", comment: ""))
+                        Text(L10n.s("Payment History"))
                             .font(.title3.bold())
                         
                         ForEach(history.sorted(by: { $0.paidDate > $1.paidDate })) { record in
@@ -142,7 +142,7 @@ struct BillDetailView: View {
                                     Text(formattedDate(record.paidDate))
                                         .font(.subheadline.bold())
                                     if let code = record.confirmationCode, !code.isEmpty {
-                                        Text(String(format: NSLocalizedString("Ref: %@", comment: ""), code))
+                                        Text(String(format: L10n.s("Ref: %@"), code))
                                             .font(.caption)
                                             .foregroundStyle(.secondary)
                                     }
@@ -162,16 +162,16 @@ struct BillDetailView: View {
             .padding()
         }
         .background(Color(.systemGroupedBackground))
-        .navigationTitle(NSLocalizedString("Bill Details", comment: ""))
+        .navigationTitle(L10n.s("Bill Details"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Menu {
                     Button(action: { showingEditSheet = true }) {
-                        Label("Edit Bill", systemImage: "pencil")
+                        Label(L10n.s("Edit Bill"), systemImage: "pencil")
                     }
                     Button(role: .destructive, action: { showingDeleteConfirmation = true }) {
-                        Label("Delete Bill", systemImage: "trash")
+                        Label(L10n.s("Delete Bill"), systemImage: "trash")
                     }
                 } label: {
                     Image(systemName: "ellipsis.circle")
@@ -186,9 +186,9 @@ struct BillDetailView: View {
         .sheet(isPresented: $showingMarkPaidSheet) {
             NavigationStack {
                 Form {
-                    Section(NSLocalizedString("Payment Record", comment: "")) {
+                    Section(L10n.s("Payment Record")) {
                         HStack {
-                            Text(NSLocalizedString("Amount Paid", comment: ""))
+                            Text(L10n.s("Amount Paid"))
                             Spacer()
                             TextField("Amount", text: $paidAmountText)
                                 .keyboardType(.decimalPad)
@@ -196,14 +196,14 @@ struct BillDetailView: View {
                         }
                         
                         HStack {
-                            Text(NSLocalizedString("Confirmation #", comment: ""))
+                            Text(L10n.s("Confirmation #"))
                             Spacer()
                             TextField("Optional code", text: $confirmationCodeText)
                                 .multilineTextAlignment(.trailing)
                         }
                     }
                 }
-                .navigationTitle(NSLocalizedString("Mark as Paid", comment: ""))
+                .navigationTitle(L10n.s("Mark as Paid"))
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {

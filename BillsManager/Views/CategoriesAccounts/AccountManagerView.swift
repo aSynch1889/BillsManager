@@ -38,7 +38,7 @@ struct AccountManagerView: View {
                     Spacer()
                     
                     if account.isDefault {
-                        Text(NSLocalizedString("Default", comment: ""))
+                        Text(L10n.s("Default"))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -48,12 +48,12 @@ struct AccountManagerView: View {
                         modelContext.delete(account)
                         try? modelContext.save()
                     } label: {
-                        Label("Delete", systemImage: "trash")
+                        Label(L10n.s("Delete"), systemImage: "trash")
                     }
                 }
             }
         }
-        .navigationTitle(NSLocalizedString("Payment Accounts", comment: ""))
+        .navigationTitle(L10n.s("Payment Accounts"))
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(action: {
@@ -70,14 +70,14 @@ struct AccountManagerView: View {
         .sheet(isPresented: $showingAddAccountSheet) {
             NavigationStack {
                 Form {
-                    Section(NSLocalizedString("Account Info", comment: "")) {
-                        TextField(NSLocalizedString("Account Name (e.g. Chase Visa)", comment: ""), text: $accountName)
-                        TextField(NSLocalizedString("Last 4 Digits (Optional)", comment: ""), text: $last4)
+                    Section(L10n.s("Account Info")) {
+                        TextField(L10n.s("Account Name (e.g. Chase Visa)"), text: $accountName)
+                        TextField(L10n.s("Last 4 Digits (Optional)"), text: $last4)
                             .keyboardType(.numberPad)
                         
                         NavigationLink(destination: IconPickerView(selectedIcon: $iconName)) {
                             HStack {
-                                Text(NSLocalizedString("Icon", comment: ""))
+                                Text(L10n.s("Icon"))
                                 Spacer()
                                 Image(systemName: iconName)
                                     .font(.title3)
@@ -85,10 +85,10 @@ struct AccountManagerView: View {
                             }
                         }
                         
-                        ColorPicker(NSLocalizedString("Color", comment: ""), selection: $accountColor)
+                        ColorPicker(L10n.s("Color"), selection: $accountColor)
                     }
                 }
-                .navigationTitle(NSLocalizedString("Add Account", comment: ""))
+                .navigationTitle(L10n.s("Add Account"))
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {

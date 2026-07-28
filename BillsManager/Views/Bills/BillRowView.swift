@@ -59,7 +59,7 @@ struct BillRowView: View {
                     HStack(spacing: 4) {
                         Image(systemName: bill.isPaid ? "checkmark.circle.fill" : "circle")
                             .foregroundStyle(bill.isPaid ? .green : .secondary)
-                        Text(bill.isPaid ? NSLocalizedString("Paid", comment: "") : NSLocalizedString("Pay", comment: ""))
+                        Text(bill.isPaid ? L10n.s("Paid") : L10n.s("Pay"))
                             .font(.caption2.bold())
                             .foregroundStyle(bill.isPaid ? .green : .secondary)
                     }
@@ -78,7 +78,7 @@ struct BillRowView: View {
     
     private var dueDateText: String {
         if bill.isPaid {
-            return NSLocalizedString("Paid", comment: "")
+            return L10n.s("Paid")
         }
         let formatter = DateFormatter()
         formatter.dateStyle = .medium

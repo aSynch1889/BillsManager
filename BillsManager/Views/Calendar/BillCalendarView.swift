@@ -93,16 +93,16 @@ struct BillCalendarView: View {
             
             // Selected Day Bills List
             VStack(alignment: .leading, spacing: 12) {
-                Text(String(format: NSLocalizedString("Bills Due on %@", comment: ""), formattedSelectedDate(selectedDayDate)))
+                Text(String(format: L10n.s("Bills Due on %@"), formattedSelectedDate(selectedDayDate)))
                     .font(.headline)
                     .padding(.horizontal)
                     .padding(.top, 12)
                 
                 if billsOnSelectedDay.isEmpty {
                     ContentUnavailableView(
-                        NSLocalizedString("No Bills Due", comment: ""),
+                        L10n.s("No Bills Due"),
                         systemImage: "calendar.badge.checkmark",
-                        description: Text(NSLocalizedString("No bill payments scheduled for this date.", comment: ""))
+                        description: Text(L10n.s("No bill payments scheduled for this date."))
                     )
                 } else {
                     List {
@@ -121,7 +121,7 @@ struct BillCalendarView: View {
             .frame(maxHeight: .infinity)
             .background(Color(.secondarySystemGroupedBackground))
         }
-        .navigationTitle(NSLocalizedString("Calendar", comment: ""))
+        .navigationTitle(L10n.s("Calendar"))
     }
     
     private func previousMonth() {

@@ -13,10 +13,10 @@ struct PasscodeLockView: View {
                     .font(.system(size: 64))
                     .foregroundStyle(.blue)
                 
-                Text(NSLocalizedString("Bills Manager Locked", comment: ""))
+                Text(L10n.s("Bills Manager Locked"))
                     .font(.title2.bold())
                 
-                Text(NSLocalizedString("Authentication is required to access your financial data.", comment: ""))
+                Text(L10n.s("Authentication is required to access your financial data."))
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
@@ -29,7 +29,7 @@ struct PasscodeLockView: View {
                 }) {
                     HStack {
                         Image(systemName: authManager.biometricType == .faceID ? "faceid" : "touchid")
-                        Text(String(format: NSLocalizedString("Unlock with %@", comment: ""), authManager.biometricName))
+                        Text(String(format: L10n.s("Unlock with %@"), authManager.biometricName))
                     }
                     .font(.headline)
                     .padding()

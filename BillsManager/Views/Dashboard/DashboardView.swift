@@ -50,10 +50,10 @@ struct DashboardView: View {
                             .foregroundStyle(.red)
                         
                         VStack(alignment: .leading, spacing: 2) {
-                            Text(String(format: NSLocalizedString("Overdue Bills (%d)", comment: ""), overdueBills.count))
+                            Text(String(format: L10n.s("Overdue Bills (%d)"), overdueBills.count))
                                 .font(.headline)
                                 .foregroundStyle(.red)
-                            Text(String(format: NSLocalizedString("Total overdue: $%.2f", comment: ""), totalOverdueAmount))
+                            Text(String(format: L10n.s("Total overdue: $%.2f"), totalOverdueAmount))
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                         }
@@ -71,28 +71,28 @@ struct DashboardView: View {
                 // Metrics Overview Grid
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
                     MetricCardView(
-                        title: NSLocalizedString("Due This Month", comment: ""),
+                        title: L10n.s("Due This Month"),
                         value: String(format: "$%.2f", totalDueThisMonth),
                         iconName: "calendar.badge.clock",
                         iconColor: .orange
                     )
                     
                     MetricCardView(
-                        title: NSLocalizedString("Overdue Amount", comment: ""),
+                        title: L10n.s("Overdue Amount"),
                         value: String(format: "$%.2f", totalOverdueAmount),
                         iconName: "exclamationmark.circle.fill",
                         iconColor: .red
                     )
                     
                     MetricCardView(
-                        title: NSLocalizedString("Paid This Month", comment: ""),
+                        title: L10n.s("Paid This Month"),
                         value: String(format: "$%.2f", totalPaidThisMonth),
                         iconName: "checkmark.circle.fill",
                         iconColor: .green
                     )
                     
                     MetricCardView(
-                        title: NSLocalizedString("Active Bills", comment: ""),
+                        title: L10n.s("Active Bills"),
                         value: "\(allBills.filter { !$0.isPaid }.count)",
                         iconName: "tray.full.fill",
                         iconColor: .blue
@@ -102,7 +102,7 @@ struct DashboardView: View {
                 // Due Soon Section
                 if !dueSoonBills.isEmpty {
                     VStack(alignment: .leading, spacing: 12) {
-                        Text(NSLocalizedString("Action Required Soon", comment: ""))
+                        Text(L10n.s("Action Required Soon"))
                             .font(.title3.bold())
                         
                         ForEach(dueSoonBills) { bill in
@@ -117,7 +117,7 @@ struct DashboardView: View {
                 // Upcoming Bills Section
                 VStack(alignment: .leading, spacing: 12) {
                     HStack {
-                        Text(NSLocalizedString("Upcoming Bills", comment: ""))
+                        Text(L10n.s("Upcoming Bills"))
                             .font(.title3.bold())
                         Spacer()
                     }
@@ -127,7 +127,7 @@ struct DashboardView: View {
                             Image(systemName: "checkmark.seal.fill")
                                 .font(.system(size: 48))
                                 .foregroundStyle(.green.opacity(0.8))
-                            Text(NSLocalizedString("All bills are paid up!", comment: ""))
+                            Text(L10n.s("All bills are paid up!"))
                                 .font(.headline)
                                 .foregroundStyle(.secondary)
                         }
@@ -148,7 +148,7 @@ struct DashboardView: View {
             .padding()
         }
         .background(Color(.systemGroupedBackground))
-        .navigationTitle(NSLocalizedString("Dashboard", comment: ""))
+        .navigationTitle(L10n.s("Dashboard"))
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(action: { showingAddBill = true }) {

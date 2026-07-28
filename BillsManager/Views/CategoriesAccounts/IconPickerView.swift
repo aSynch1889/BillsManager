@@ -35,7 +35,7 @@ struct IconPickerView: View {
             }
             .padding()
         }
-        .navigationTitle(NSLocalizedString("Select Icon", comment: ""))
+        .navigationTitle(L10n.s("Select Icon"))
         .navigationBarTitleDisplayMode(.inline)
     }
 }

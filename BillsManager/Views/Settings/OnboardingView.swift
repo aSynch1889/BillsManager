@@ -14,20 +14,20 @@ struct OnboardingView: View {
     
     let items: [OnboardingItem] = [
         OnboardingItem(
-            title: NSLocalizedString("Track Bills Effortlessly", comment: ""),
-            description: NSLocalizedString("Organize utilities, subscriptions, rent, and card payments in one unified place with automatic recurring dates.", comment: ""),
+            title: L10n.s("Track Bills Effortlessly"),
+            description: L10n.s("Organize utilities, subscriptions, rent, and card payments in one unified place with automatic recurring dates."),
             iconName: "doc.text.fill",
             gradientColors: [.blue, .indigo]
         ),
         OnboardingItem(
-            title: NSLocalizedString("Never Miss a Payment", comment: ""),
-            description: NSLocalizedString("Receive timely local notifications before due dates and view interactive monthly calendar indicator dots.", comment: ""),
+            title: L10n.s("Never Miss a Payment"),
+            description: L10n.s("Receive timely local notifications before due dates and view interactive monthly calendar indicator dots."),
             iconName: "bell.badge.fill",
             gradientColors: [.orange, .amber]
         ),
         OnboardingItem(
-            title: NSLocalizedString("Privacy & Professional Tools", comment: ""),
-            description: NSLocalizedString("100% local storage protected with Face ID. Export data to CSV or JSON backup anytime.", comment: ""),
+            title: L10n.s("Privacy & Professional Tools"),
+            description: L10n.s("100% local storage protected with Face ID. Export data to CSV or JSON backup anytime."),
             iconName: "lock.shield.fill",
             gradientColors: [.emerald, .teal]
         )
@@ -44,7 +44,7 @@ struct OnboardingView: View {
                     Spacer()
                     if currentPage < items.count - 1 {
                         Button(action: completeOnboarding) {
-                            Text(NSLocalizedString("Skip", comment: ""))
+                            Text(L10n.s("Skip"))
                                 .font(.subheadline.bold())
                                 .foregroundStyle(.secondary)
                                 .padding(.horizontal, 16)
@@ -104,7 +104,7 @@ struct OnboardingView: View {
                             completeOnboarding()
                         }
                     }) {
-                        Text(currentPage == items.count - 1 ? NSLocalizedString("Get Started", comment: "") : NSLocalizedString("Next", comment: ""))
+                        Text(currentPage == items.count - 1 ? L10n.s("Get Started") : L10n.s("Next"))
                             .font(.headline)
                             .frame(maxWidth: .infinity)
                             .padding()
