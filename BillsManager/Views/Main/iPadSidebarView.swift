@@ -18,7 +18,7 @@ struct iPadSidebarView: View {
                     .buttonStyle(.plain)
                 }
             }
-            .navigationTitle("Bills Manager")
+            .navigationTitle(L10n.s("Bills Manager"))
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button(action: { showingAddBill = true }) {

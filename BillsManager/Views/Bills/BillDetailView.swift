@@ -207,10 +207,10 @@ struct BillDetailView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("Cancel") { showingMarkPaidSheet = false }
+                        Button(L10n.s("Cancel")) { showingMarkPaidSheet = false }
                     }
                     ToolbarItem(placement: .confirmationAction) {
-                        Button("Confirm") {
+                        Button(L10n.s("Confirm")) {
                             let amount = Double(paidAmountText) ?? bill.amount
                             let code = confirmationCodeText.isEmpty ? nil : confirmationCodeText
                             bill.markAsPaid(paidAmount: amount, confirmationCode: code)
@@ -224,13 +224,13 @@ struct BillDetailView: View {
             .presentationDetents([.medium])
         }
         .confirmationDialog("Are you sure you want to delete this bill?", isPresented: $showingDeleteConfirmation, titleVisibility: .visible) {
-            Button("Delete Bill", role: .destructive) {
+            Button(L10n.s("Delete Bill"), role: .destructive) {
                 NotificationManager.shared.cancelNotification(for: bill)
                 modelContext.delete(bill)
                 try? modelContext.save()
                 dismiss()
             }
-            Button("Cancel", role: .cancel) {}
+            Button(L10n.s("Cancel"), role: .cancel) {}
         }
     }
     

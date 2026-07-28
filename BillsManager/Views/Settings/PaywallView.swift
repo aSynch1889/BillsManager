@@ -35,11 +35,11 @@ struct PaywallView: View {
                 
                 // Feature Highlights List
                 VStack(alignment: .leading, spacing: 16) {
-                    FeatureRow(icon: "star.circle.fill", color: .amber, title: "Ad-Free Experience", subtitle: "Zero banner or popup advertisements")
-                    FeatureRow(icon: "folder.badge.plus", color: .purple, title: "Unlimited Categories & Accounts", subtitle: "Create unlimited custom expense categories")
-                    FeatureRow(icon: "square.and.arrow.up.fill", color: .blue, title: "CSV Export & JSON Backup", subtitle: "Export all bill records to CSV or backup database")
-                    FeatureRow(icon: "lock.shield.fill", color: .green, title: "Face ID / Touch ID Security", subtitle: "Secure sensitive bill data with biometric lock")
-                    FeatureRow(icon: "chart.pie.fill", color: .orange, title: "Advanced Analytics", subtitle: "Detailed category breakdown & trend reports")
+                    FeatureRow(icon: "star.circle.fill", color: .amber, title: L10n.s("Ad-Free Experience"), subtitle: L10n.s("Zero banner or popup advertisements"))
+                    FeatureRow(icon: "folder.badge.plus", color: .purple, title: L10n.s("Unlimited Categories & Accounts"), subtitle: L10n.s("Create unlimited custom expense categories"))
+                    FeatureRow(icon: "square.and.arrow.up.fill", color: .blue, title: L10n.s("CSV Export & JSON Backup"), subtitle: L10n.s("Export all bill records to CSV or backup database"))
+                    FeatureRow(icon: "lock.shield.fill", color: .green, title: L10n.s("Face ID / Touch ID Security"), subtitle: L10n.s("Secure sensitive bill data with biometric lock"))
+                    FeatureRow(icon: "chart.pie.fill", color: .orange, title: L10n.s("Advanced Analytics"), subtitle: L10n.s("Detailed category breakdown & trend reports"))
                 }
                 .padding()
                 .background(Color(.secondarySystemGroupedBackground))

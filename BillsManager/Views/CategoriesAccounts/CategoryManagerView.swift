@@ -84,10 +84,10 @@ struct CategoryManagerView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("Cancel") { showingAddCategorySheet = false }
+                        Button(L10n.s("Cancel")) { showingAddCategorySheet = false }
                     }
                     ToolbarItem(placement: .confirmationAction) {
-                        Button("Save") {
+                        Button(L10n.s("Save")) {
                             guard !categoryName.trimmingCharacters(in: .whitespaces).isEmpty else { return }
                             let newCat = Category(
                                 name: categoryName,

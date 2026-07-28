@@ -31,7 +31,7 @@ struct SplashView: View {
                         .font(.system(size: 32, weight: .bold, design: .rounded))
                         .foregroundStyle(.primary)
                     
-                    Text("Smart Bill Tracker & Reminder")
+                    Text(L10n.s("Smart Bill Tracker & Reminder"))
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }

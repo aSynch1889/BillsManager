@@ -92,10 +92,10 @@ struct AccountManagerView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("Cancel") { showingAddAccountSheet = false }
+                        Button(L10n.s("Cancel")) { showingAddAccountSheet = false }
                     }
                     ToolbarItem(placement: .confirmationAction) {
-                        Button("Save") {
+                        Button(L10n.s("Save")) {
                             guard !accountName.trimmingCharacters(in: .whitespaces).isEmpty else { return }
                             let newAcc = Account(
                                 name: accountName,

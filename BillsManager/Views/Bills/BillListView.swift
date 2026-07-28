@@ -155,7 +155,7 @@ struct BillListView: View {
                             Button {
                                 togglePaid(bill)
                             } label: {
-                                Label(bill.isPaid ? "Unpay" : "Pay", systemImage: bill.isPaid ? "xmark.circle" : "checkmark.circle")
+                                Label(bill.isPaid ? L10n.s("Unpay") : L10n.s("Pay"), systemImage: bill.isPaid ? "xmark.circle" : "checkmark.circle")
                             }
                             .tint(bill.isPaid ? .gray : .green)
                         }

@@ -150,10 +150,10 @@ struct AddEditBillView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
-                Button("Cancel") { dismiss() }
+                Button(L10n.s("Cancel")) { dismiss() }
             }
             ToolbarItem(placement: .confirmationAction) {
-                Button("Save") { saveBill() }
+                Button(L10n.s("Save")) { saveBill() }
                     .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty || Double(amountText) == nil)
             }
         }
