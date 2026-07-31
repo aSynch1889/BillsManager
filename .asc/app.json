@@ -1,0 +1,54 @@
+{
+  "appId": "6796724831",
+  "bundleId": "com.antigravity.billsmanager",
+  "metadata": {
+    "locales": [
+      "en-US",
+      "zh-Hans"
+    ],
+    "version": "1.0",
+    "note": "First version cannot set whatsNew"
+  },
+  "subscriptionGroup": {
+    "id": "22277853",
+    "referenceName": "BillsManagerProGroup"
+  },
+  "products": [
+    {
+      "type": "NON_CONSUMABLE",
+      "productId": "com.billsmanager.pro.lifetime",
+      "ascId": "6796726719",
+      "priceUS": "19.99"
+    },
+    {
+      "type": "AUTO_RENEWABLE",
+      "productId": "com.billsmanager.pro.monthly",
+      "ascId": "6796726856",
+      "period": "ONE_MONTH",
+      "priceUS": "1.99",
+      "introOffer": "ONE_WEEK FREE_TRIAL"
+    },
+    {
+      "type": "AUTO_RENEWABLE",
+      "productId": "com.billsmanager.pro.yearly",
+      "ascId": "6796727243",
+      "period": "ONE_YEAR",
+      "priceUS": "14.99"
+    }
+  ],
+  "privacyUrls": {
+    "en": "https://asynch1889.github.io/BillsManager-legal/privacy/en.html",
+    "zh": "https://asynch1889.github.io/BillsManager-legal/privacy/zh.html",
+    "support": "https://asynch1889.github.io/BillsManager-legal/support/",
+    "warning": "Pages currently 404 — host before review submission"
+  },
+  "name": "Bills Manager - billsmanager",
+  "sku": "BILLSMANAGER-IOS-2026",
+  "versionId": "2079b84a-2ebd-4421-b04f-b487a33f1f9b",
+  "appInfoId": "b5306c77-b704-4233-aa10-0bc93c64eb8d",
+  "categories": {
+    "primary": "FINANCE",
+    "secondary": "PRODUCTIVITY"
+  },
+  "ageRating": "all-none (4+)"
+}

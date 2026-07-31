@@ -36,3 +36,6 @@ fastlane/.env.fastlane
 fastlane/.env
 fastlane/private_keys/*.p8
 
+# asc CLI transient reports (keep .asc/app.json)
+.asc/reports/
+
