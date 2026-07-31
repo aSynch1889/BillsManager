@@ -1,0 +1,147 @@
+# frozen_string_literal: true
+
+require_relative "lib/app_store_connect_auth"
+
+default_platform(:ios)
+
+base_env_path = File.expand_path(".env.fastlane", __dir__)
+if File.exist?(base_env_path)
+  begin
+    require "dotenv"
+    Dotenv.overload(base_env_path)
+  rescue LoadError
+    # dotenv optional; defaults below still apply
+  end
+end
+
+platform :ios do
+  PROJECT_ROOT = File.expand_path("..", __dir__)
+  BUNDLE_ID = "com.antigravity.billsmanager"
+  APP_NAME = "Bills Manager"
+  APP_SKU = "BILLSMANAGER-IOS-2026"
+  PRIMARY_LOCALE = "en-US"
+
+  # Team-wide App Manager key (same as PhotoX / sibling temp apps).
+  # Override with fastlane/.env.fastlane when needed.
+  DEFAULT_KEY_PATH = File.expand_path("private_keys/AuthKey_BG9GMFFPV8.p8", __dir__)
+  DEFAULT_KEY_ID = "BG9GMFFPV8"
+  DEFAULT_ISSUER_ID = "07cbedc7-eac5-49b6-a31a-da1a8b2048ea"
+
+  REQUIRE_ASC_AUTH = ENV["REQUIRE_ASC_AUTH"] || "true"
+
+  def bool_true?(value)
+    value.to_s.downcase == "true"
+  end
+
+  def seed_default_asc_env!
+    ENV["APP_STORE_CONNECT_API_KEY_PATH"] ||= DEFAULT_KEY_PATH
+    ENV["APP_STORE_CONNECT_KEY_ID"] ||= DEFAULT_KEY_ID
+    ENV["APP_STORE_CONNECT_ISSUER_ID"] ||= DEFAULT_ISSUER_ID
+  end
+
+  def app_store_connect_auth_analysis
+    @app_store_connect_auth_analysis ||= AppStoreConnectAuth.analyze(
+      ENV,
+      base_dir: PROJECT_ROOT
+    )
+  end
+
+  def app_store_connect_auth_options(required: false)
+    analysis = app_store_connect_auth_analysis
+    analysis[:messages].each { |msg| UI.important(msg) } if analysis[:messages]&.any?
+
+    case analysis[:status]
+    when :ready
+      if analysis[:deliver_via] == :api_key_object
+        @app_store_connect_api_key_obj ||= app_store_connect_api_key(
+          key_id: analysis[:key_id],
+          issuer_id: analysis[:issuer_id],
+          key_filepath: analysis[:path],
+          duration: 1200,
+          in_house: false
+        )
+        return { api_key: @app_store_connect_api_key_obj }
+      end
+      return { api_key_path: analysis[:path] }
+    when :incomplete
+      message = AppStoreConnectAuth.summary_line(analysis)
+      if required || bool_true?(REQUIRE_ASC_AUTH)
+        UI.user_error!(message)
+      else
+        UI.important(message)
+        return {}
+      end
+    else
+      if required
+        UI.user_error!(AppStoreConnectAuth.summary_line(analysis))
+      end
+      return {}
+    end
+  end
+
+  def ensure_spaceship_token!(auth)
+    return unless defined?(Spaceship::ConnectAPI)
+
+    begin
+      if auth[:api_key].is_a?(Hash)
+        key = auth[:api_key]
+        token = Spaceship::ConnectAPI::Token.create(
+          key_id: key[:key_id] || key["key_id"],
+          issuer_id: key[:issuer_id] || key["issuer_id"],
+          filepath: key[:key_filepath] || key["key_filepath"] || key[:key] || key["key"],
+          key: (key[:key] || key["key"] if (key[:key] || key["key"]).to_s.include?("BEGIN")),
+          duration: key[:duration] || key["duration"] || 1200,
+          in_house: false
+        )
+        Spaceship::ConnectAPI.token = token
+      elsif auth[:api_key]
+        Spaceship::ConnectAPI.token = auth[:api_key]
+      elsif auth[:api_key_path]
+        Spaceship::ConnectAPI.token = Spaceship::ConnectAPI::Token.from_json_file(auth[:api_key_path])
+      end
+    rescue => e
+      UI.important("Could not assign Spaceship token: #{e.message}")
+    end
+  end
+
+  desc "Validate ASC API key via fastlane Spaceship and list visible apps"
+  lane :asc_auth_check do
+    seed_default_asc_env!
+    auth = app_store_connect_auth_options(required: true)
+    ensure_spaceship_token!(auth)
+    apps = Spaceship::ConnectAPI::App.all
+    UI.success("ASC auth OK — #{apps.length} apps visible")
+    apps.first(30).each do |a|
+      UI.message("  - #{a.bundle_id} | #{a.name} | #{a.id}")
+    end
+    match = apps.find { |a| a.bundle_id == BUNDLE_ID }
+    if match
+      UI.success("Bills Manager on ASC: #{match.name} (#{match.id})")
+    else
+      UI.important("No ASC app for #{BUNDLE_ID} yet — run: fastlane ensure_app")
+    end
+  end
+
+  desc "Create Bills Manager on ASC if missing (Spaceship only; no asc CLI)"
+  lane :ensure_app do
+    seed_default_asc_env!
+    auth = app_store_connect_auth_options(required: true)
+    ensure_spaceship_token!(auth)
+
+    app = Spaceship::ConnectAPI::App.find(BUNDLE_ID)
+    if app
+      UI.success("App already exists: #{app.name} (#{app.id})")
+      next
+    end
+
+    UI.important("Creating app #{BUNDLE_ID} …")
+    created = Spaceship::ConnectAPI::App.create(
+      name: APP_NAME,
+      primary_locale: PRIMARY_LOCALE,
+      bundle_id: BUNDLE_ID,
+      sku: APP_SKU,
+      platforms: ["IOS"]
+    )
+    UI.success("Created app: #{created.id}")
+  end
+end

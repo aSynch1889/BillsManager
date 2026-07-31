@@ -25,3 +25,14 @@ Icon
 # Swift PM / Build
 .build/
 .swiftpm/
+
+# fastlane (PhotoX-style; secrets stay local)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+fastlane/builds/
+fastlane/.env.fastlane
+fastlane/.env
+fastlane/private_keys/*.p8
+
