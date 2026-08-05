@@ -12,6 +12,7 @@ struct BillDetailView: View {
     @State private var confirmationCodeText: String = ""
     @State private var paidNotesText: String = ""
     @State private var showingDeleteConfirmation: Bool = false
+    @State private var persistenceError: String?
     
     var body: some View {
         ScrollView {
@@ -230,7 +231,10 @@ struct BillDetailView: View {
                             guard let amount = CurrencyFormatter.parseAmount(paidAmountText) else { return }
                             let code = confirmationCodeText.isEmpty ? nil : confirmationCodeText
                             bill.markAsPaid(paidAmount: amount, confirmationCode: code)
-                            try? modelContext.save()
+                            if let message = Persistence.saveReturningMessage(modelContext) {
+                                persistenceError = message
+                                return
+                            }
                             NotificationManager.shared.applyPaidSideEffects(
                                 for: bill,
                                 overdueCount: overdueCount()
@@ -247,12 +251,16 @@ struct BillDetailView: View {
             Button(L10n.s("Delete Bill"), role: .destructive) {
                 NotificationManager.shared.cancelNotification(for: bill)
                 modelContext.delete(bill)
-                try? modelContext.save()
+                if let message = Persistence.saveReturningMessage(modelContext) {
+                    persistenceError = message
+                    return
+                }
                 NotificationManager.shared.refreshBadge(using: modelContext)
                 dismiss()
             }
             Button(L10n.s("Cancel"), role: .cancel) {}
         }
+        .persistenceAlert($persistenceError)
     }
     
     private func formattedDate(_ date: Date) -> String {
@@ -266,7 +274,10 @@ struct BillDetailView: View {
             if let record = bill.undoLastPayment() {
                 modelContext.delete(record)
             }
-            try? modelContext.save()
+            if let message = Persistence.saveReturningMessage(modelContext) {
+                persistenceError = message
+                return
+            }
             NotificationManager.shared.applyPaidSideEffects(
                 for: bill,
                 overdueCount: overdueCount()

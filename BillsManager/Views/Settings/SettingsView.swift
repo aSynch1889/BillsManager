@@ -23,6 +23,7 @@ struct SettingsView: View {
     @State private var notificationStatusText: String = L10n.s("Checking…")
     @State private var notificationDenied: Bool = false
     @State private var sampleBillCount: Int = 0
+    @State private var persistenceError: String?
 
     private static let commonCurrencyCodes = ["USD", "EUR", "GBP", "JPY", "CNY", "HKD", "AUD", "CAD", "SGD", "CHF"]
     
@@ -76,8 +77,12 @@ struct SettingsView: View {
 
                 if sampleBillCount > 0 {
                     Button(role: .destructive) {
-                        let removed = SampleDataSeeder.removeSamples(context: modelContext)
-                        sampleBillCount = max(0, sampleBillCount - removed)
+                        do {
+                            let removed = try SampleDataSeeder.removeSamples(context: modelContext)
+                            sampleBillCount = max(0, sampleBillCount - removed)
+                        } catch {
+                            persistenceError = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
+                        }
                     } label: {
                         Label(
                             String(format: L10n.s("Remove Sample Bills (%d)"), sampleBillCount),
@@ -208,6 +213,7 @@ struct SettingsView: View {
             await refreshNotificationStatus()
             sampleBillCount = SampleDataSeeder.sampleCount(in: modelContext)
         }
+        .persistenceAlert($persistenceError)
     }
 
     @MainActor
@@ -232,17 +238,24 @@ struct SettingsView: View {
     private func exportCSV() {
         let csvString = ExportManager.shared.generateCSV(bills: bills)
         let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent("BillsExport_\(Date().timeIntervalSince1970).csv")
-        try? csvString.write(to: tempURL, atomically: true, encoding: .utf8)
-        csvShareURL = tempURL
-        showingCSVShareSheet = true
+        do {
+            try csvString.write(to: tempURL, atomically: true, encoding: .utf8)
+            csvShareURL = tempURL
+            showingCSVShareSheet = true
+        } catch {
+            persistenceError = PersistenceError.exportFailed(underlying: error).errorDescription
+        }
     }
     
     private func exportJSONBackup() {
-        if let data = try? ExportManager.shared.generateJSONBackup(bills: bills, categories: categories, accounts: accounts) {
+        do {
+            let data = try ExportManager.shared.generateJSONBackup(bills: bills, categories: categories, accounts: accounts)
             let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent("BillsBackup_\(Date().timeIntervalSince1970).json")
-            try? data.write(to: tempURL)
+            try data.write(to: tempURL)
             jsonShareURL = tempURL
             showingJSONShareSheet = true
+        } catch {
+            persistenceError = PersistenceError.exportFailed(underlying: error).errorDescription
         }
     }
 }

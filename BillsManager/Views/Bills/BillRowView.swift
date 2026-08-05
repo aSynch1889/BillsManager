@@ -4,6 +4,7 @@ import SwiftData
 struct BillRowView: View {
     let bill: Bill
     @Environment(\.modelContext) private var modelContext
+    @State private var persistenceError: String?
     
     var body: some View {
         HStack(spacing: 16) {
@@ -75,6 +76,7 @@ struct BillRowView: View {
         .padding(12)
         .background(Color(.secondarySystemGroupedBackground))
         .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .persistenceAlert($persistenceError)
     }
     
     private var dueDateText: String {
@@ -95,7 +97,10 @@ struct BillRowView: View {
             } else {
                 bill.markAsPaid()
             }
-            try? modelContext.save()
+            if let message = Persistence.saveReturningMessage(modelContext) {
+                persistenceError = message
+                return
+            }
             NotificationManager.shared.applyPaidSideEffects(
                 for: bill,
                 overdueCount: {

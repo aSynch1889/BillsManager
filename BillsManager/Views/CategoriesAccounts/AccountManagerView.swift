@@ -11,6 +11,7 @@ struct AccountManagerView: View {
     @State private var last4: String = ""
     @State private var iconName: String = "creditcard.fill"
     @State private var accountColor: Color = .blue
+    @State private var persistenceError: String?
     
     var body: some View {
         List {
@@ -46,7 +47,9 @@ struct AccountManagerView: View {
                 .swipeActions(edge: .trailing) {
                     Button(role: .destructive) {
                         modelContext.delete(account)
-                        try? modelContext.save()
+                        if let message = Persistence.saveReturningMessage(modelContext) {
+                            persistenceError = message
+                        }
                     } label: {
                         Label(L10n.s("Delete"), systemImage: "trash")
                     }
@@ -107,7 +110,10 @@ struct AccountManagerView: View {
                                 isDefault: accounts.isEmpty
                             )
                             modelContext.insert(newAcc)
-                            try? modelContext.save()
+                            if let message = Persistence.saveReturningMessage(modelContext) {
+                                persistenceError = message
+                                return
+                            }
                             showingAddAccountSheet = false
                         }
                         .disabled(
@@ -119,5 +125,6 @@ struct AccountManagerView: View {
                 }
             }
         }
+        .persistenceAlert($persistenceError)
     }
 }

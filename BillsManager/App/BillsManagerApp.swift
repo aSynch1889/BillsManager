@@ -11,7 +11,12 @@ struct BillsManagerApp: App {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding: Bool = false
     @State private var showingSplash: Bool = true
 
-    let container: ModelContainer
+    private let bootstrap: BootstrapResult
+
+    private enum BootstrapResult {
+        case ready(ModelContainer)
+        case failed(Error)
+    }
 
     init() {
         do {
@@ -22,69 +27,81 @@ struct BillsManagerApp: App {
                 PaymentRecord.self
             ])
             let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-            container = try ModelContainer(for: schema, configurations: [config])
+            let container = try ModelContainer(for: schema, configurations: [config])
 
             NotificationManager.shared.configure()
-            seedInitialDataIfNeeded(context: container.mainContext)
+            Self.seedInitialDataIfNeeded(context: container.mainContext)
+            bootstrap = .ready(container)
         } catch {
-            fatalError("Could not initialize SwiftData ModelContainer: \(error)")
+            bootstrap = .failed(error)
         }
     }
 
     var body: some Scene {
         WindowGroup {
-            RootContentView {
-                ZStack {
-                    if showingSplash {
-                        SplashView {
-                            showingSplash = false
-                        }
-                        .transition(.opacity)
-                    } else if !hasCompletedOnboarding {
-                        OnboardingView()
-                            .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .leading)))
-                    } else {
-                        ZStack {
-                            MainTabView()
-                                .environment(authManager)
-                                .environment(storeManager)
-
-                            if authManager.isAppLockEnabled && !authManager.isUnlocked {
-                                PasscodeLockView()
-                                    .environment(authManager)
-                                    .transition(.opacity)
+            switch bootstrap {
+            case .ready(let container):
+                RootContentView {
+                    ZStack {
+                        if showingSplash {
+                            SplashView {
+                                showingSplash = false
                             }
+                            .transition(.opacity)
+                        } else if !hasCompletedOnboarding {
+                            OnboardingView()
+                                .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .leading)))
+                        } else {
+                            ZStack {
+                                MainTabView()
+                                    .environment(authManager)
+                                    .environment(storeManager)
+
+                                if authManager.isAppLockEnabled && !authManager.isUnlocked {
+                                    PasscodeLockView()
+                                        .environment(authManager)
+                                        .transition(.opacity)
+                                }
+                            }
+                            .transition(.opacity)
                         }
-                        .transition(.opacity)
+                    }
+                    .animation(.default, value: showingSplash)
+                    .animation(.default, value: hasCompletedOnboarding)
+                    .onChange(of: scenePhase) { _, newPhase in
+                        if newPhase == .background {
+                            authManager.lockApp()
+                        }
                     }
                 }
-                .animation(.default, value: showingSplash)
-                .animation(.default, value: hasCompletedOnboarding)
-                .onChange(of: scenePhase) { oldPhase, newPhase in
-                    if newPhase == .background {
-                        authManager.lockApp()
-                    }
-                }
+                .environment(languageManager)
+                #if DEBUG
+                .onAppear { LocalizationSelfCheck.run() }
+                #endif
+                .modelContainer(container)
+
+            case .failed(let error):
+                DatabaseLaunchErrorView(error: error)
+                    .environment(languageManager)
             }
-            .environment(languageManager)
-            #if DEBUG
-            .onAppear { LocalizationSelfCheck.run() }
-            #endif
         }
-        .modelContainer(container)
     }
 
-    private func seedInitialDataIfNeeded(context: ModelContext) {
+    private static func seedInitialDataIfNeeded(context: ModelContext) {
         let descriptor = FetchDescriptor<Category>()
         let existingCategories = (try? context.fetch(descriptor)) ?? []
-        
+
         if existingCategories.isEmpty {
-            // Create defaults once and reuse the same instances (never call .defaults twice).
             let defaultCategories = Category.defaults
             let defaultAccounts = Account.defaults
             defaultCategories.forEach(context.insert)
             defaultAccounts.forEach(context.insert)
-            try? context.save()
+            do {
+                try Persistence.save(context)
+            } catch {
+                print("Seed save failed: \(error)")
+                return
+            }
 
             #if DEBUG
             assertSeedIntegrity(context: context, expectedCategories: defaultCategories, expectedAccounts: defaultAccounts)
@@ -93,8 +110,7 @@ struct BillsManagerApp: App {
     }
 
     #if DEBUG
-    /// First-launch assertion: exactly 7 categories, 3 accounts, no duplicate names.
-    private func assertSeedIntegrity(
+    private static func assertSeedIntegrity(
         context: ModelContext,
         expectedCategories: [Category],
         expectedAccounts: [Account]

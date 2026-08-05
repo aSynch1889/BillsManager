@@ -11,6 +11,7 @@ struct CategoryManagerView: View {
     @State private var categoryName: String = ""
     @State private var iconName: String = "folder.fill"
     @State private var categoryColor: Color = .blue
+    @State private var persistenceError: String?
     
     var body: some View {
         List {
@@ -40,7 +41,9 @@ struct CategoryManagerView: View {
                     if !category.isSystem {
                         Button(role: .destructive) {
                             modelContext.delete(category)
-                            try? modelContext.save()
+                            if let message = Persistence.saveReturningMessage(modelContext) {
+                                persistenceError = message
+                            }
                         } label: {
                             Label(L10n.s("Delete"), systemImage: "trash")
                         }
@@ -96,7 +99,10 @@ struct CategoryManagerView: View {
                                 isSystem: false
                             )
                             modelContext.insert(newCat)
-                            try? modelContext.save()
+                            if let message = Persistence.saveReturningMessage(modelContext) {
+                                persistenceError = message
+                                return
+                            }
                             showingAddCategorySheet = false
                         }
                         .disabled(categoryName.trimmingCharacters(in: .whitespaces).isEmpty)
@@ -104,5 +110,6 @@ struct CategoryManagerView: View {
                 }
             }
         }
+        .persistenceAlert($persistenceError)
     }
 }

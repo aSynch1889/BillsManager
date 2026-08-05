@@ -23,7 +23,7 @@
 | 通知授权调用点 | 🟢 Onboarding 完成 + 保存账单 `ensureAuthorization`；设置页可跳转系统设置 |
 | PRO 权益门控 | 🔴 `isProUser` 仅在设置页展示文案，业务门控为 0 |
 | 本地化覆盖 | 🔴 148 key；`zh-Hans` 24（16.2%），显式 `en` 2（1.4%） |
-| 静默错误 | 🔴 17 处 `try?` |
+| 静默错误 | 🟠 关键保存/导出已 Alert；附件等路径仍有 `try?` |
 | 货币硬编码 | 🟢 `CurrencyFormatter` 统一；Dashboard/Analytics/支付历史已替换 |
 | App Icon | 🟠 源文件为 1024×1024 JPEG、无 alpha；Asset Catalog 编译成功 |
 | 版本号 | 🔴 构建产物为 `1.0.0 (1)`，与工程 `CURRENT_PROJECT_VERSION=2026072601`、设置页硬编码并存 |
@@ -324,11 +324,12 @@ case .background: if lockEnabled { isUnlocked = false }
 - 无 Spotlight / 快捷指令
 - 无 iCloud 同步（隐私向可接受，但需在文案说明“仅本机”）
 
-### 3.5 错误处理与稳定性 — 🔴 仍存在
+### 3.5 错误处理与稳定性 — 🟠 部分解决
 
-- `ModelContainer` 失败 `fatalError` — 生产应降级展示错误页
-- 共 17 处 `try?`，大量保存、附件加载和文件写入失败被吞掉
-- StoreKit 错误仅 `print` / 弱提示，Paywall 无明确失败 Alert
+- ✅ `ModelContainer` 失败展示 `DatabaseLaunchErrorView`，不再 `fatalError`
+- ✅ 账单 CRUD / 分类账户 / 示例数据清除走 `Persistence.save` + Alert
+- ✅ CSV/JSON 导出写文件失败弹 Alert
+- ⏳ StoreKit / Paywall 错误提示仍弱；附件加载等非关键路径仍有部分 `try?`
 
 ### 3.6 测试与 CI — 🔴 仍存在
 
@@ -417,7 +418,7 @@ case .background: if lockEnabled { isUnlocked = false }
 3. ✅ 周期账单支付后重 schedule；定义锚定日、逾期追赶和撤销支付语义
 4. ✅ 金额输入校验、地区化解析与货币格式化统一
 5. ✅ 示例数据可选
-6. 基础崩溃与保存错误提示
+6. ✅ 基础崩溃与保存错误提示
 
 ### Sprint B — 商业化可用（约 3–5 天）
 1. PRO 门控与 Paywall 文案修正

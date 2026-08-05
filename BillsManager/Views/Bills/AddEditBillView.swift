@@ -29,6 +29,7 @@ struct AddEditBillView: View {
     
     @State private var showingCategoryManager: Bool = false
     @State private var showingAccountManager: Bool = false
+    @State private var persistenceError: String?
 
     @AppStorage("defaultCurrency") private var defaultCurrency: String = Locale.current.currency?.identifier ?? "USD"
     @AppStorage("defaultReminderDays") private var defaultReminderDays: Int = 1
@@ -178,6 +179,7 @@ struct AddEditBillView: View {
         .onAppear {
             populateFormIfEditing()
         }
+        .persistenceAlert($persistenceError)
     }
     
     private func populateFormIfEditing() {
@@ -254,7 +256,10 @@ struct AddEditBillView: View {
             }
         }
         
-        try? modelContext.save()
+        if let message = Persistence.saveReturningMessage(modelContext) {
+            persistenceError = message
+            return
+        }
         dismiss()
     }
 }

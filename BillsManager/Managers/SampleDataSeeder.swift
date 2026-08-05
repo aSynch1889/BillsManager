@@ -55,12 +55,17 @@ enum SampleDataSeeder {
         context.insert(sample1)
         context.insert(sample2)
         context.insert(sample3)
-        try? context.save()
-        return true
+        do {
+            try Persistence.save(context)
+            return true
+        } catch {
+            print("Sample insert save failed: \(error)")
+            return false
+        }
     }
 
     @discardableResult
-    static func removeSamples(context: ModelContext) -> Int {
+    static func removeSamples(context: ModelContext) throws -> Int {
         let bills = (try? context.fetch(FetchDescriptor<Bill>())) ?? []
         let samples = bills.filter { $0.isSample || knownSampleNames.contains($0.name) }
         for bill in samples {
@@ -68,7 +73,7 @@ enum SampleDataSeeder {
             context.delete(bill)
         }
         if !samples.isEmpty {
-            try? context.save()
+            try Persistence.save(context)
             NotificationManager.shared.refreshBadge(using: context)
         }
         return samples.count

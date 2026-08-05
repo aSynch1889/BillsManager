@@ -28,6 +28,7 @@ struct BillListView: View {
     
     @State private var selectedFilter: BillFilterTab = .all
     @State private var selectedCategory: Category? = nil
+    @State private var persistenceError: String?
     @State private var searchText: String = ""
     @State private var editingBill: Bill? = nil
     
@@ -179,12 +180,16 @@ struct BillListView: View {
                 AddEditBillView(billToEdit: bill)
             }
         }
+        .persistenceAlert($persistenceError)
     }
     
     private func deleteBill(_ bill: Bill) {
         NotificationManager.shared.cancelNotification(for: bill)
         modelContext.delete(bill)
-        try? modelContext.save()
+        if let message = Persistence.saveReturningMessage(modelContext) {
+            persistenceError = message
+            return
+        }
         NotificationManager.shared.refreshBadge(using: modelContext)
     }
     
@@ -197,7 +202,10 @@ struct BillListView: View {
             } else {
                 bill.markAsPaid()
             }
-            try? modelContext.save()
+            if let message = Persistence.saveReturningMessage(modelContext) {
+                persistenceError = message
+                return
+            }
             NotificationManager.shared.applyPaidSideEffects(
                 for: bill,
                 overdueCount: overdueCount(in: modelContext)
