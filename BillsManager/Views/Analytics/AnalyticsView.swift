@@ -36,6 +36,7 @@ struct MonthlyExpense: Identifiable {
 struct AnalyticsView: View {
     @Query private var bills: [Bill]
     @State private var selectedRange: AnalyticsTimeRange = .thisMonth
+    @AppStorage("defaultCurrency") private var defaultCurrency: String = Locale.current.currency?.identifier ?? "USD"
     
     private var filteredBills: [Bill] {
         let calendar = Calendar.current
@@ -78,6 +79,10 @@ struct AnalyticsView: View {
             return CategoryExpense(categoryName: name, color: color, totalAmount: total)
         }.sorted(by: { $0.totalAmount > $1.totalAmount })
     }
+
+    private func money(_ amount: Double) -> String {
+        CurrencyFormatter.string(amount: amount, currencyCode: defaultCurrency)
+    }
     
     var body: some View {
         ScrollView {
@@ -97,7 +102,7 @@ struct AnalyticsView: View {
                         Text(L10n.s("Total Bills"))
                             .font(.caption)
                             .foregroundStyle(.secondary)
-                        Text(String(format: "$%.2f", totalAmount))
+                        Text(money(totalAmount))
                             .font(.system(.title2, design: .rounded, weight: .bold))
                     }
                     Spacer()
@@ -105,7 +110,7 @@ struct AnalyticsView: View {
                         Text(L10n.s("Paid / Unpaid"))
                             .font(.caption)
                             .foregroundStyle(.secondary)
-                        Text(String(format: "$%.0f / $%.0f", paidAmount, unpaidAmount))
+                        Text("\(money(paidAmount)) / \(money(unpaidAmount))")
                             .font(.system(.subheadline, design: .rounded, weight: .semibold))
                             .foregroundStyle(.green)
                     }
@@ -142,7 +147,7 @@ struct AnalyticsView: View {
                                     Text(cat.categoryName)
                                         .font(.subheadline)
                                     Spacer()
-                                    Text(String(format: "$%.2f", cat.totalAmount))
+                                    Text(money(cat.totalAmount))
                                         .font(.subheadline.bold())
                                     Text(String(format: "(%.1f%%)", totalAmount > 0 ? (cat.totalAmount / totalAmount * 100) : 0))
                                         .font(.caption)

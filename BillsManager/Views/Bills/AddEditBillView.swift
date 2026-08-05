@@ -29,8 +29,21 @@ struct AddEditBillView: View {
     
     @State private var showingCategoryManager: Bool = false
     @State private var showingAccountManager: Bool = false
+
+    @AppStorage("defaultCurrency") private var defaultCurrency: String = Locale.current.currency?.identifier ?? "USD"
+    @AppStorage("defaultReminderDays") private var defaultReminderDays: Int = 1
     
     private var isEditing: Bool { billToEdit != nil }
+
+    private var parsedAmount: Double? {
+        CurrencyFormatter.parseAmount(amountText)
+    }
+
+    private var canSave: Bool {
+        !name.trimmingCharacters(in: .whitespaces).isEmpty
+            && parsedAmount != nil
+            && (frequency == .once || !hasRepeatEndDate || repeatEndDate >= Calendar.current.startOfDay(for: dueDate))
+    }
     
     var body: some View {
         Form {
@@ -86,7 +99,12 @@ struct AddEditBillView: View {
                 if frequency != .once {
                     Toggle(L10n.s("Set End Date"), isOn: $hasRepeatEndDate)
                     if hasRepeatEndDate {
-                        DatePicker(L10n.s("Repeat Until"), selection: $repeatEndDate, displayedComponents: [.date])
+                        DatePicker(
+                            L10n.s("Repeat Until"),
+                            selection: $repeatEndDate,
+                            in: dueDate...,
+                            displayedComponents: [.date]
+                        )
                     }
                 }
             }
@@ -154,7 +172,7 @@ struct AddEditBillView: View {
             }
             ToolbarItem(placement: .confirmationAction) {
                 Button(L10n.s("Save")) { saveBill() }
-                    .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty || Double(amountText) == nil)
+                    .disabled(!canSave)
             }
         }
         .onAppear {
@@ -165,7 +183,7 @@ struct AddEditBillView: View {
     private func populateFormIfEditing() {
         if let bill = billToEdit {
             name = bill.name
-            amountText = String(format: "%.2f", bill.amount)
+            amountText = CurrencyFormatter.inputString(for: bill.amount)
             dueDate = bill.dueDate
             selectedCategory = bill.category
             selectedAccount = bill.account
@@ -180,14 +198,17 @@ struct AddEditBillView: View {
             notes = bill.notes ?? ""
             attachmentImageData = bill.attachmentImageData
         } else {
-            // Default selected category & account
             selectedCategory = categories.first
             selectedAccount = accounts.first(where: { $0.isDefault }) ?? accounts.first
+            reminderDaysBefore = defaultReminderDays
         }
     }
     
     private func saveBill() {
-        guard let amount = Double(amountText), !name.trimmingCharacters(in: .whitespaces).isEmpty else { return }
+        guard let amount = parsedAmount, !name.trimmingCharacters(in: .whitespaces).isEmpty else { return }
+        if frequency != .once && hasRepeatEndDate {
+            guard repeatEndDate >= Calendar.current.startOfDay(for: dueDate) else { return }
+        }
         
         let targetEndDate = (frequency != .once && hasRepeatEndDate) ? repeatEndDate : nil
         
@@ -214,6 +235,7 @@ struct AddEditBillView: View {
             let newBill = Bill(
                 name: name,
                 amount: amount,
+                currencyCode: defaultCurrency,
                 dueDate: dueDate,
                 isAutoPay: isAutoPay,
                 frequency: frequency,

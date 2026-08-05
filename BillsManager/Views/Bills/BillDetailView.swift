@@ -60,7 +60,7 @@ struct BillDetailView: View {
                     if bill.isPaid {
                         undoLastPayment()
                     } else {
-                        paidAmountText = String(format: "%.2f", bill.amount)
+                        paidAmountText = CurrencyFormatter.inputString(for: bill.amount)
                         showingMarkPaidSheet = true
                     }
                 }) {
@@ -164,7 +164,7 @@ struct BillDetailView: View {
                                     }
                                 }
                                 Spacer()
-                                Text(String(format: "$%.2f", record.amountPaid))
+                                Text(CurrencyFormatter.string(amount: record.amountPaid, currencyCode: bill.currencyCode))
                                     .font(.callout.bold())
                                     .foregroundStyle(.green)
                             }
@@ -227,7 +227,7 @@ struct BillDetailView: View {
                     }
                     ToolbarItem(placement: .confirmationAction) {
                         Button(L10n.s("Confirm")) {
-                            let amount = Double(paidAmountText) ?? bill.amount
+                            guard let amount = CurrencyFormatter.parseAmount(paidAmountText) else { return }
                             let code = confirmationCodeText.isEmpty ? nil : confirmationCodeText
                             bill.markAsPaid(paidAmount: amount, confirmationCode: code)
                             try? modelContext.save()
@@ -237,6 +237,7 @@ struct BillDetailView: View {
                             )
                             showingMarkPaidSheet = false
                         }
+                        .disabled(CurrencyFormatter.parseAmount(paidAmountText) == nil)
                     }
                 }
             }

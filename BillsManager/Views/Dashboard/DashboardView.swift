@@ -6,6 +6,7 @@ struct DashboardView: View {
     
     @Query(sort: \Bill.dueDate) private var allBills: [Bill]
     @Environment(\.modelContext) private var modelContext
+    @AppStorage("defaultCurrency") private var defaultCurrency: String = Locale.current.currency?.identifier ?? "USD"
     
     private var overdueBills: [Bill] {
         allBills.filter { $0.status == .overdue }
@@ -38,6 +39,10 @@ struct DashboardView: View {
             $0.isPaid && calendar.isDate($0.dueDate, equalTo: now, toGranularity: .month)
         }.reduce(0) { $0 + $1.amount }
     }
+
+    private func money(_ amount: Double) -> String {
+        CurrencyFormatter.string(amount: amount, currencyCode: defaultCurrency)
+    }
     
     var body: some View {
         ScrollView {
@@ -53,7 +58,7 @@ struct DashboardView: View {
                             Text(String(format: L10n.s("Overdue Bills (%d)"), overdueBills.count))
                                 .font(.headline)
                                 .foregroundStyle(.red)
-                            Text(String(format: L10n.s("Total overdue: $%.2f"), totalOverdueAmount))
+                            Text(String(format: L10n.s("Total overdue: %@"), money(totalOverdueAmount)))
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                         }
@@ -72,21 +77,21 @@ struct DashboardView: View {
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
                     MetricCardView(
                         title: L10n.s("Due This Month"),
-                        value: String(format: "$%.2f", totalDueThisMonth),
+                        value: money(totalDueThisMonth),
                         iconName: "calendar.badge.clock",
                         iconColor: .orange
                     )
                     
                     MetricCardView(
                         title: L10n.s("Overdue Amount"),
-                        value: String(format: "$%.2f", totalOverdueAmount),
+                        value: money(totalOverdueAmount),
                         iconName: "exclamationmark.circle.fill",
                         iconColor: .red
                     )
                     
                     MetricCardView(
                         title: L10n.s("Paid This Month"),
-                        value: String(format: "$%.2f", totalPaidThisMonth),
+                        value: money(totalPaidThisMonth),
                         iconName: "checkmark.circle.fill",
                         iconColor: .green
                     )

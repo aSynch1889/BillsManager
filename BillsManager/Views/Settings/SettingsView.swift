@@ -22,6 +22,8 @@ struct SettingsView: View {
 
     @State private var notificationStatusText: String = L10n.s("Checking…")
     @State private var notificationDenied: Bool = false
+
+    private static let commonCurrencyCodes = ["USD", "EUR", "GBP", "JPY", "CNY", "HKD", "AUD", "CAD", "SGD", "CHF"]
     
     var body: some View {
         List {
@@ -72,6 +74,23 @@ struct SettingsView: View {
                 }
             }
             
+            // Preferences
+            Section(header: Text(L10n.s("Preferences"))) {
+                Picker(L10n.s("Default Currency"), selection: $defaultCurrency) {
+                    ForEach(Self.commonCurrencyCodes, id: \.self) { code in
+                        Text(code).tag(code)
+                    }
+                }
+
+                Picker(L10n.s("Default Reminder"), selection: $defaultReminderDays) {
+                    Text(L10n.s("On due date")).tag(0)
+                    Text(L10n.s("1 day before")).tag(1)
+                    Text(L10n.s("2 days before")).tag(2)
+                    Text(L10n.s("3 days before")).tag(3)
+                    Text(L10n.s("7 days before")).tag(7)
+                }
+            }
+
             // Notifications
             Section(header: Text(L10n.s("Notifications"))) {
                 HStack {

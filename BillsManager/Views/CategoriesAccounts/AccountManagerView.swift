@@ -97,9 +97,11 @@ struct AccountManagerView: View {
                     ToolbarItem(placement: .confirmationAction) {
                         Button(L10n.s("Save")) {
                             guard !accountName.trimmingCharacters(in: .whitespaces).isEmpty else { return }
+                            let trimmedLast4 = last4.trimmingCharacters(in: .whitespaces)
+                            guard trimmedLast4.isEmpty || CurrencyFormatter.isValidLast4(trimmedLast4) else { return }
                             let newAcc = Account(
                                 name: accountName,
-                                accountNumberLast4: last4.isEmpty ? nil : last4,
+                                accountNumberLast4: trimmedLast4.isEmpty ? nil : trimmedLast4,
                                 iconName: iconName,
                                 hexColor: accountColor.toHex(),
                                 isDefault: accounts.isEmpty
@@ -108,7 +110,11 @@ struct AccountManagerView: View {
                             try? modelContext.save()
                             showingAddAccountSheet = false
                         }
-                        .disabled(accountName.trimmingCharacters(in: .whitespaces).isEmpty)
+                        .disabled(
+                            accountName.trimmingCharacters(in: .whitespaces).isEmpty
+                                || (!last4.trimmingCharacters(in: .whitespaces).isEmpty
+                                    && !CurrencyFormatter.isValidLast4(last4.trimmingCharacters(in: .whitespaces)))
+                        )
                     }
                 }
             }

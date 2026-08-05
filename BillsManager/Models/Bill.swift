@@ -101,10 +101,7 @@ final class Bill {
     }
 
     var formattedAmount: String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.currencyCode = currencyCode
-        return formatter.string(from: NSNumber(value: amount)) ?? String(format: "$%.2f", amount)
+        CurrencyFormatter.string(amount: amount, currencyCode: currencyCode)
     }
 
     var hasPaymentHistory: Bool {

@@ -24,7 +24,7 @@
 | PRO 权益门控 | 🔴 `isProUser` 仅在设置页展示文案，业务门控为 0 |
 | 本地化覆盖 | 🔴 148 key；`zh-Hans` 24（16.2%），显式 `en` 2（1.4%） |
 | 静默错误 | 🔴 17 处 `try?` |
-| 货币硬编码 | 🔴 9 处 `$` 格式 |
+| 货币硬编码 | 🟢 `CurrencyFormatter` 统一；Dashboard/Analytics/支付历史已替换 |
 | App Icon | 🟠 源文件为 1024×1024 JPEG、无 alpha；Asset Catalog 编译成功 |
 | 版本号 | 🔴 构建产物为 `1.0.0 (1)`，与工程 `CURRENT_PROJECT_VERSION=2026072601`、设置页硬编码并存 |
 
@@ -226,13 +226,11 @@ case .background: if lockEnabled { isUnlocked = false }
 
 开启/关闭锁均 `await authenticate()`，失败则回滚 Toggle。
 
-### 2.3 货币与金额显示混乱 — 🔴 仍存在
+### 2.3 货币与金额显示混乱 — 🟢 已解决
 
-- `Bill.formattedAmount` 用 `currencyCode` ✔
-- Dashboard / Analytics / 逾期 Banner / 支付历史等多处 **硬编码 `$%.2f`**
-- `defaultCurrency` `@AppStorage` 存在但 **无 UI、新建账单未读取**
-
-**方案**：统一 `CurrencyFormatter`；设置页可选默认币种；新建账单写入 `defaultCurrency`；分析页按币种分组或提示“多币种未汇总汇率”。
+- ✅ 统一 `CurrencyFormatter`；Dashboard / Analytics / 支付历史不再硬编码 `$`
+- ✅ 设置页可选默认币种；新建账单写入 `defaultCurrency`
+- 分析页仍按金额直接相加（多币种汇率汇总属 Sprint 外增强）
 
 ### 2.4 本地化严重不完整 — 🔴 仍存在
 
@@ -246,11 +244,9 @@ case .background: if lockEnabled { isUnlocked = false }
 2. 硬编码按钮改 `String(localized:)`
 3. 种子数据按 `Locale.current.language` 写入中/英默认名，或用本地化 key 映射展示层
 
-### 2.5 设置项“幽灵配置” — 🔴 仍存在
+### 2.5 设置项“幽灵配置” — 🟢 已解决
 
-`defaultCurrency`、`defaultReminderDays` 声明后未绑定 UI、未影响业务。
-
-**方案**：在 Settings 增加控件并在 `AddEditBillView` 默认值读取；或删除无用状态避免技术债。
+设置页 Preferences：`Default Currency` / `Default Reminder`；`AddEditBillView` 新建时读取二者。
 
 ### 2.6 照片权限声明与实际能力不匹配 — 🔴 仍存在
 
@@ -274,14 +270,12 @@ case .background: if lockEnabled { isUnlocked = false }
 
 **方案**：Onboarding 勾选“加载示例数据”；或仅插入分类/账户，账单由用户创建；提供“清空示例数据”。
 
-### 2.9 金额输入与表单约束不足 — 🔴 仍存在（新增）
+### 2.9 金额输入与表单约束不足 — 🟢 已解决
 
-- Save 只检查 `Double(amountText) != nil`，所以 `0`、负数、`nan`、`infinity` 都可能进入模型。
-- `.decimalPad` 会随地区显示逗号小数，但 `Double("12,34")` 解析失败；部分地区用户无法保存合法金额。
-- 编辑表单用固定 `"%.2f"` 回填，未使用当前 Locale。
-- `repeatEndDate` 可早于 `dueDate`，账户尾号不限制 4 位，支付金额也允许负数或非有限值。
-
-**方案**：使用 `NumberFormatter` / `FloatingPointFormatStyle.Currency` 按 Locale 解析，统一校验 `amount.isFinite && amount > 0`；截止日期不得早于到期日；支付金额同样校验；尾号限制 4 位数字。
+- ✅ `CurrencyFormatter.parseAmount` 按 Locale 解析；校验 `isFinite && > 0`
+- ✅ 表单回填用地区化小数格式；支付金额同样校验
+- ✅ `repeatEndDate` DatePicker 下限为 `dueDate`
+- ✅ 账户尾号为空或恰好 4 位数字
 
 ### 2.10 周期算法会日期漂移，逾期账单只推进一期 — 🟢 已解决
 
@@ -423,7 +417,7 @@ case .background: if lockEnabled { isUnlocked = false }
 1. ✅ 修复默认数据对象复用与重复 Seed，并补首次启动断言
 2. ✅ 通知授权 + 调度修复 + 角标
 3. ✅ 周期账单支付后重 schedule；定义锚定日、逾期追赶和撤销支付语义
-4. 金额输入校验、地区化解析与货币格式化统一
+4. ✅ 金额输入校验、地区化解析与货币格式化统一
 5. 示例数据可选
 6. 基础崩溃与保存错误提示
 
