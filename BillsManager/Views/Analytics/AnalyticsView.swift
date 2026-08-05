@@ -35,7 +35,9 @@ struct MonthlyExpense: Identifiable {
 
 struct AnalyticsView: View {
     @Query private var bills: [Bill]
+    @Environment(StoreManager.self) private var storeManager
     @State private var selectedRange: AnalyticsTimeRange = .thisMonth
+    @State private var showingPaywall: Bool = false
     @AppStorage("defaultCurrency") private var defaultCurrency: String = Locale.current.currency?.identifier ?? "USD"
     
     private var filteredBills: [Bill] {
@@ -95,6 +97,28 @@ struct AnalyticsView: View {
                 }
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
+                .onChange(of: selectedRange) { _, newRange in
+                    if newRange != .thisMonth && !storeManager.canAccess(.advancedAnalytics) {
+                        selectedRange = .thisMonth
+                        showingPaywall = true
+                    }
+                }
+
+                if !storeManager.canAccess(.advancedAnalytics) {
+                    Button {
+                        showingPaywall = true
+                    } label: {
+                        Label(L10n.s("Unlock multi-range analytics with PRO"), systemImage: "lock.fill")
+                            .font(.caption.bold())
+                            .frame(maxWidth: .infinity)
+                            .padding(10)
+                            .background(Color.orange.opacity(0.12))
+                            .foregroundStyle(.orange)
+                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                    }
+                    .buttonStyle(.plain)
+                    .padding(.horizontal)
+                }
                 
                 // Total Summary Card
                 HStack(spacing: 16) {
@@ -173,5 +197,10 @@ struct AnalyticsView: View {
         }
         .background(Color(.systemGroupedBackground))
         .navigationTitle(L10n.s("Analytics"))
+        .sheet(isPresented: $showingPaywall) {
+            NavigationStack {
+                PaywallView()
+            }
+        }
     }
 }

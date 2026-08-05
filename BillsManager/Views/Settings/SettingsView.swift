@@ -48,7 +48,7 @@ struct SettingsView: View {
                                 .font(.headline)
                                 .foregroundStyle(.primary)
                             
-                            Text(storeManager.isProUser ? L10n.s("All premium features unlocked") : L10n.s("Ad-free, unlimited categories, data backup"))
+                            Text(storeManager.isProUser ? L10n.s("All premium features unlocked") : L10n.s("Unlimited categories, backup & analytics"))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -141,6 +141,10 @@ struct SettingsView: View {
                 Toggle(isOn: Binding(
                     get: { authManager.isAppLockEnabled },
                     set: { newValue in
+                        if newValue && !storeManager.canAccess(.appLock) {
+                            showingPaywall = true
+                            return
+                        }
                         authManager.isAppLockEnabled = newValue
                         if newValue {
                             Task {
@@ -158,11 +162,23 @@ struct SettingsView: View {
             
             // Backup & Export Section
             Section(header: Text(L10n.s("Export & Backup"))) {
-                Button(action: exportCSV) {
+                Button(action: {
+                    guard storeManager.canAccess(.exportBackup) else {
+                        showingPaywall = true
+                        return
+                    }
+                    exportCSV()
+                }) {
                     Label(L10n.s("Export to CSV"), systemImage: "arrow.down.doc.fill")
                 }
                 
-                Button(action: exportJSONBackup) {
+                Button(action: {
+                    guard storeManager.canAccess(.exportBackup) else {
+                        showingPaywall = true
+                        return
+                    }
+                    exportJSONBackup()
+                }) {
                     Label(L10n.s("Create JSON Backup"), systemImage: "externaldrive.fill")
                 }
             }

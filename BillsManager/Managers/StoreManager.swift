@@ -22,6 +22,11 @@ final class StoreManager {
     var isProUser: Bool {
         !purchasedProductIDs.isEmpty
     }
+
+    /// Known PRO product IDs — only these entitlements unlock premium features.
+    var knownProductIDs: Set<String> {
+        Set(productIDs)
+    }
     
     init() {
         transactionListener = listenForTransactions()
@@ -55,6 +60,10 @@ final class StoreManager {
             switch result {
             case .success(let verification):
                 let transaction = try checkVerified(verification)
+                guard knownProductIDs.contains(transaction.productID) else {
+                    await transaction.finish()
+                    return false
+                }
                 purchasedProductIDs.insert(transaction.productID)
                 await transaction.finish()
                 return true
@@ -87,6 +96,7 @@ final class StoreManager {
         for await result in Transaction.currentEntitlements {
             do {
                 let transaction = try checkVerified(result)
+                guard knownProductIDs.contains(transaction.productID) else { continue }
                 if transaction.revocationDate == nil {
                     purchased.insert(transaction.productID)
                 }

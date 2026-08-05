@@ -25,7 +25,7 @@ struct PaywallView: View {
                     Text(L10n.s("Bills Manager PRO"))
                         .font(.system(size: 28, weight: .bold, design: .rounded))
                     
-                    Text(L10n.s("Unlock full financial tracking potential & ad-free experience"))
+                    Text(L10n.s("Unlock full financial tracking potential"))
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -35,7 +35,6 @@ struct PaywallView: View {
                 
                 // Feature Highlights List
                 VStack(alignment: .leading, spacing: 16) {
-                    FeatureRow(icon: "star.circle.fill", color: .amber, title: L10n.s("Ad-Free Experience"), subtitle: L10n.s("Zero banner or popup advertisements"))
                     FeatureRow(icon: "folder.badge.plus", color: .purple, title: L10n.s("Unlimited Categories & Accounts"), subtitle: L10n.s("Create unlimited custom expense categories"))
                     FeatureRow(icon: "square.and.arrow.up.fill", color: .blue, title: L10n.s("CSV Export & JSON Backup"), subtitle: L10n.s("Export all bill records to CSV or backup database"))
                     FeatureRow(icon: "lock.shield.fill", color: .green, title: L10n.s("Face ID / Touch ID Security"), subtitle: L10n.s("Secure sensitive bill data with biometric lock"))

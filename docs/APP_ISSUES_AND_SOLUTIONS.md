@@ -21,7 +21,7 @@
 | Unit / UI Test | 🔴 工程没有 Test target，无法回归业务边界 |
 | 原 P0 / P1 整改 | 🔴 未发现代码变更；下文全部保持未关闭 |
 | 通知授权调用点 | 🟢 Onboarding 完成 + 保存账单 `ensureAuthorization`；设置页可跳转系统设置 |
-| PRO 权益门控 | 🔴 `isProUser` 仅在设置页展示文案，业务门控为 0 |
+| PRO 权益门控 | 🟢 `ProFeature` 门控分类/账户/导出/锁/多区间分析；已去 Ad-Free 文案 |
 | 本地化覆盖 | 🔴 148 key；`zh-Hans` 24（16.2%），显式 `en` 2（1.4%） |
 | 静默错误 | 🟠 关键保存/导出已 Alert；附件等路径仍有 `try?` |
 | 货币硬编码 | 🟢 `CurrencyFormatter` 统一；Dashboard/Analytics/支付历史已替换 |
@@ -49,46 +49,14 @@
 
 ## 1. 严重问题（P0）— 建议上线前必须处理
 
-### 1.1 Freemium / PRO 权益完全未门控（与 PRD 严重不符）— 🔴 仍存在
+### 1.1 Freemium / PRO 权益完全未门控（与 PRD 严重不符）— 🟢 已解决
 
-**现象**
-PRD 与 README 写明：免费版限制自定义分类/账户数量、导出备份、生物识别、高级图表等需 PRO。代码中：
-
-- `CategoryManagerView` / `AccountManagerView`：无数量上限、不检查 `isProUser`
-- `SettingsView` 导出 CSV / JSON：任意用户可点
-- 生物识别开关：任意用户可开
-- `AnalyticsView`：完整图表对全员开放
-- Paywall 宣传 “Ad-Free”，应用内 **无广告代码**，免费版也无广告
-
-**影响**
-- 商业模式失效，内购无转化动机
-- App Review 可能认为付费内容“不存在/误导”（见审核文档）
-- 用户投诉“买了没变化 / 宣传虚假”
-
-**解决方案**
-
-1. 建立统一权益层，例如 `ProGate` / `StoreManager` 扩展：
-
-```swift
-enum ProFeature {
-    case unlimitedCategories
-    case unlimitedAccounts
-    case exportBackup
-    case appLock
-    case advancedAnalytics
-}
-
-extension StoreManager {
-    func canAccess(_ feature: ProFeature) -> Bool { isProUser }
-}
-```
-
-2. 在入口拦截并弹出 `PaywallView`：
-   - 自定义分类/账户：`categories.filter { !$0.isSystem }.count >= 5` 时拦截（默认系统分类不计入）
-   - 导出按钮、App Lock Toggle、高级分析段（趋势/多区间等）
-3. 免费版仍应保留 **完整核心账单能力**（避免 4.2 最低功能问题）
-4. 删除或改写 “Ad-Free” 文案，除非确实接入广告并在免费版展示
-5. 用 StoreKit Configuration + 单元/UI 测试验证：未购买 / 已购买 / 恢复购买三条路径
+**修复**
+- 统一 `ProFeature` + `StoreManager.canAccess` / 限额辅助方法
+- 自定义分类 ≥5、账户 ≥3 时拦截并弹 Paywall；导出、App Lock、多区间分析同理
+- 免费用户保留本月基础分析与完整账单 CRUD
+- 删除 Paywall / 设置中的 “Ad-Free” 文案（应用内无广告）
+- entitlement 仅计入已知 PRO Product ID（见 3.9）
 
 ---
 
@@ -359,11 +327,9 @@ case .background: if lockEnabled { isUnlocked = false }
 
 **方案**：改文案或补齐功能，避免 2.3.1 / 3.1 审核与用户预期落差。
 
-### 3.9 StoreKit 权益判定过宽 — 🟠 当前暂不触发（新增）
+### 3.9 StoreKit 权益判定过宽 — 🟢 已解决
 
-`isProUser` 以 `purchasedProductIDs` 非空判定，而 `updatePurchasedProducts()` 会接收当前 App 的所有 entitlement，没有过滤三个 PRO Product ID。未来增加其他非 PRO IAP 时，购买任意商品都可能错误解锁 PRO。
-
-**方案**：只接收 `productIDs.contains(transaction.productID)` 的有效、未撤销 entitlement，并覆盖订阅过期、升级/降级、退款与 Family Sharing 测试。
+`updatePurchasedProducts` / 购买成功路径仅接受 `knownProductIDs` 内的有效 entitlement。
 
 ### 3.10 版本与发布配置不可复现 — 🔴 仍存在（新增）
 
@@ -421,7 +387,7 @@ case .background: if lockEnabled { isUnlocked = false }
 6. ✅ 基础崩溃与保存错误提示
 
 ### Sprint B — 商业化可用（约 3–5 天）
-1. PRO 门控与 Paywall 文案修正
+1. ✅ PRO 门控与 Paywall 文案修正
 2. 决定“仅永久买断”或为月/年订阅提供真实持续价值
 3. 商品 ID、ASC 与共享 StoreKit Scheme 对齐
 4. 订阅法律披露 + Restore + 管理订阅链接

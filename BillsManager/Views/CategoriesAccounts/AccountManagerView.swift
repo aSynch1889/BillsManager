@@ -4,17 +4,26 @@ import SwiftData
 struct AccountManagerView: View {
     @Query private var accounts: [Account]
     @Environment(\.modelContext) private var modelContext
-    
+    @Environment(StoreManager.self) private var storeManager
+
     @State private var showingAddAccountSheet: Bool = false
-    
+    @State private var showingPaywall: Bool = false
+
     @State private var accountName: String = ""
     @State private var last4: String = ""
     @State private var iconName: String = "creditcard.fill"
     @State private var accountColor: Color = .blue
     @State private var persistenceError: String?
-    
+
     var body: some View {
         List {
+            if !storeManager.canAccess(.unlimitedAccounts) {
+                Section {
+                    Text(String(format: L10n.s("Free plan: %d / %d accounts"), accounts.count, ProFeature.freeAccountLimit))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
             ForEach(accounts) { account in
                 HStack(spacing: 12) {
                     ZStack {
@@ -25,7 +34,7 @@ struct AccountManagerView: View {
                             .font(.subheadline.bold())
                             .foregroundStyle(.white)
                     }
-                    
+
                     VStack(alignment: .leading, spacing: 2) {
                         Text(account.name)
                             .font(.body.weight(.medium))
@@ -35,9 +44,9 @@ struct AccountManagerView: View {
                                 .foregroundStyle(.secondary)
                         }
                     }
-                    
+
                     Spacer()
-                    
+
                     if account.isDefault {
                         Text(L10n.s("Default"))
                             .font(.caption)
@@ -59,13 +68,7 @@ struct AccountManagerView: View {
         .navigationTitle(L10n.s("Payment Accounts"))
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                Button(action: {
-                    accountName = ""
-                    last4 = ""
-                    iconName = "creditcard.fill"
-                    accountColor = .blue
-                    showingAddAccountSheet = true
-                }) {
+                Button(action: attemptAddAccount) {
                     Image(systemName: "plus")
                 }
             }
@@ -77,7 +80,7 @@ struct AccountManagerView: View {
                         TextField(L10n.s("Account Name (e.g. Chase Visa)"), text: $accountName)
                         TextField(L10n.s("Last 4 Digits (Optional)"), text: $last4)
                             .keyboardType(.numberPad)
-                        
+
                         NavigationLink(destination: IconPickerView(selectedIcon: $iconName)) {
                             HStack {
                                 Text(L10n.s("Icon"))
@@ -87,7 +90,7 @@ struct AccountManagerView: View {
                                     .foregroundStyle(accountColor)
                             }
                         }
-                        
+
                         ColorPicker(L10n.s("Color"), selection: $accountColor)
                     }
                 }
@@ -125,6 +128,23 @@ struct AccountManagerView: View {
                 }
             }
         }
+        .sheet(isPresented: $showingPaywall) {
+            NavigationStack {
+                PaywallView()
+            }
+        }
         .persistenceAlert($persistenceError)
+    }
+
+    private func attemptAddAccount() {
+        guard storeManager.canAddAccount(currentCount: accounts.count) else {
+            showingPaywall = true
+            return
+        }
+        accountName = ""
+        last4 = ""
+        iconName = "creditcard.fill"
+        accountColor = .blue
+        showingAddAccountSheet = true
     }
 }
