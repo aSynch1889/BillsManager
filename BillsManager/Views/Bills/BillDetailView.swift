@@ -58,7 +58,7 @@ struct BillDetailView: View {
                 // Primary Action Button
                 Button(action: {
                     if bill.isPaid {
-                        togglePaid()
+                        undoLastPayment()
                     } else {
                         paidAmountText = String(format: "%.2f", bill.amount)
                         showingMarkPaidSheet = true
@@ -74,6 +74,22 @@ struct BillDetailView: View {
                     .background(bill.isPaid ? Color.gray : Color.green)
                     .foregroundStyle(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                }
+
+                // Recurring bills stay unpaid after roll — expose undo when history exists.
+                if !bill.isPaid && bill.hasPaymentHistory {
+                    Button(action: undoLastPayment) {
+                        HStack {
+                            Image(systemName: "arrow.uturn.backward.circle")
+                            Text(L10n.s("Undo Last Payment"))
+                                .font(.subheadline.bold())
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color(.tertiarySystemFill))
+                        .foregroundStyle(.primary)
+                        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                    }
                 }
                 
                 // Bill Details Info Group
@@ -214,8 +230,11 @@ struct BillDetailView: View {
                             let amount = Double(paidAmountText) ?? bill.amount
                             let code = confirmationCodeText.isEmpty ? nil : confirmationCodeText
                             bill.markAsPaid(paidAmount: amount, confirmationCode: code)
-                            NotificationManager.shared.cancelNotification(for: bill)
                             try? modelContext.save()
+                            NotificationManager.shared.applyPaidSideEffects(
+                                for: bill,
+                                overdueCount: overdueCount()
+                            )
                             showingMarkPaidSheet = false
                         }
                     }
@@ -228,6 +247,7 @@ struct BillDetailView: View {
                 NotificationManager.shared.cancelNotification(for: bill)
                 modelContext.delete(bill)
                 try? modelContext.save()
+                NotificationManager.shared.refreshBadge(using: modelContext)
                 dismiss()
             }
             Button(L10n.s("Cancel"), role: .cancel) {}
@@ -240,12 +260,22 @@ struct BillDetailView: View {
         return formatter.string(from: date)
     }
     
-    private func togglePaid() {
+    private func undoLastPayment() {
         withAnimation {
-            bill.markAsUnpaid()
-            NotificationManager.shared.scheduleNotification(for: bill)
+            if let record = bill.undoLastPayment() {
+                modelContext.delete(record)
+            }
             try? modelContext.save()
+            NotificationManager.shared.applyPaidSideEffects(
+                for: bill,
+                overdueCount: overdueCount()
+            )
         }
+    }
+
+    private func overdueCount() -> Int {
+        let bills = (try? modelContext.fetch(FetchDescriptor<Bill>())) ?? []
+        return bills.filter { $0.status == .overdue }.count
     }
 }
 

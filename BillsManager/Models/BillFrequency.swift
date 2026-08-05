@@ -10,9 +10,9 @@ enum BillFrequency: String, Codable, CaseIterable, Identifiable {
     case quarterly = "Quarterly"
     case semiannually = "Semi-annually"
     case yearly = "Yearly"
-    
+
     var id: String { rawValue }
-    
+
     var localizedName: String {
         switch self {
         case .once: return L10n.s("One-time")
@@ -26,8 +26,22 @@ enum BillFrequency: String, Codable, CaseIterable, Identifiable {
         case .yearly: return L10n.s("Yearly")
         }
     }
-    
-    func nextDueDate(from date: Date) -> Date? {
+
+    /// Months to add for calendar-month based frequencies; `nil` for non-month cadences.
+    private var monthStep: Int? {
+        switch self {
+        case .monthly: return 1
+        case .bimonthly: return 2
+        case .quarterly: return 3
+        case .semiannually: return 6
+        case .yearly: return 12
+        default: return nil
+        }
+    }
+
+    /// Next due date. When `anchorDay` is set (1…31), month-based cadences land on that
+    /// day-of-month (clamped to the month length) so `1/31 → 2/28 → 3/31` instead of drifting to `3/28`.
+    func nextDueDate(from date: Date, anchorDay: Int? = nil) -> Date? {
         let calendar = Calendar.current
         switch self {
         case .once:
@@ -38,17 +52,33 @@ enum BillFrequency: String, Codable, CaseIterable, Identifiable {
             return calendar.date(byAdding: .weekOfYear, value: 1, to: date)
         case .biweekly:
             return calendar.date(byAdding: .weekOfYear, value: 2, to: date)
-        case .monthly:
-            return calendar.date(byAdding: .month, value: 1, to: date)
-        case .bimonthly:
-            return calendar.date(byAdding: .month, value: 2, to: date)
-        case .quarterly:
-            return calendar.date(byAdding: .month, value: 3, to: date)
-        case .semiannually:
-            return calendar.date(byAdding: .month, value: 6, to: date)
-        case .yearly:
-            return calendar.date(byAdding: .year, value: 1, to: date)
+        case .monthly, .bimonthly, .quarterly, .semiannually, .yearly:
+            guard let step = monthStep,
+                  let tentative = calendar.date(byAdding: .month, value: step, to: date) else {
+                return nil
+            }
+            guard let anchorDay, (1...31).contains(anchorDay) else {
+                return tentative
+            }
+            return Self.dateBySettingDay(anchorDay, inSameMonthAs: tentative, calendar: calendar, preservingTimeFrom: date)
         }
+    }
+
+    private static func dateBySettingDay(
+        _ day: Int,
+        inSameMonthAs reference: Date,
+        calendar: Calendar,
+        preservingTimeFrom timeSource: Date
+    ) -> Date? {
+        guard let dayRange = calendar.range(of: .day, in: .month, for: reference) else { return reference }
+        let clampedDay = min(max(day, 1), dayRange.count)
+        var comps = calendar.dateComponents([.year, .month], from: reference)
+        comps.day = clampedDay
+        let time = calendar.dateComponents([.hour, .minute, .second], from: timeSource)
+        comps.hour = time.hour
+        comps.minute = time.minute
+        comps.second = time.second
+        return calendar.date(from: comps)
     }
 }
 
@@ -58,7 +88,7 @@ enum BillStatus: String, Codable, CaseIterable {
     case dueSoon = "Due Soon"
     case upcoming = "Upcoming"
     case paid = "Paid"
-    
+
     var localizedName: String {
         switch self {
         case .overdue: return L10n.s("Overdue")

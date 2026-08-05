@@ -185,18 +185,28 @@ struct BillListView: View {
         NotificationManager.shared.cancelNotification(for: bill)
         modelContext.delete(bill)
         try? modelContext.save()
+        NotificationManager.shared.refreshBadge(using: modelContext)
     }
     
     private func togglePaid(_ bill: Bill) {
         withAnimation {
             if bill.isPaid {
-                bill.markAsUnpaid()
-                NotificationManager.shared.scheduleNotification(for: bill)
+                if let record = bill.undoLastPayment() {
+                    modelContext.delete(record)
+                }
             } else {
                 bill.markAsPaid()
-                NotificationManager.shared.cancelNotification(for: bill)
             }
             try? modelContext.save()
+            NotificationManager.shared.applyPaidSideEffects(
+                for: bill,
+                overdueCount: overdueCount(in: modelContext)
+            )
         }
+    }
+
+    private func overdueCount(in context: ModelContext) -> Int {
+        let bills = (try? context.fetch(FetchDescriptor<Bill>())) ?? []
+        return bills.filter { $0.status == .overdue }.count
     }
 }

@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct BillRowView: View {
     let bill: Bill
@@ -88,13 +89,20 @@ struct BillRowView: View {
     private func togglePaid() {
         withAnimation {
             if bill.isPaid {
-                bill.markAsUnpaid()
-                NotificationManager.shared.scheduleNotification(for: bill)
+                if let record = bill.undoLastPayment() {
+                    modelContext.delete(record)
+                }
             } else {
                 bill.markAsPaid()
-                NotificationManager.shared.cancelNotification(for: bill)
             }
             try? modelContext.save()
+            NotificationManager.shared.applyPaidSideEffects(
+                for: bill,
+                overdueCount: {
+                    let bills = (try? modelContext.fetch(FetchDescriptor<Bill>())) ?? []
+                    return bills.filter { $0.status == .overdue }.count
+                }()
+            )
         }
     }
 }

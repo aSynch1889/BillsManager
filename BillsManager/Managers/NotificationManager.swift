@@ -1,6 +1,7 @@
 import Foundation
 import UserNotifications
 import UIKit
+import SwiftData
 
 final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     static let shared = NotificationManager()
@@ -113,6 +114,22 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
                 print("Failed to set badge count: \(error)")
             }
         }
+    }
+
+    /// After mark-paid / undo: cancel if fully paid, otherwise reschedule for the (possibly rolled) due date.
+    func applyPaidSideEffects(for bill: Bill, overdueCount: Int) {
+        if bill.isPaid {
+            cancelNotification(for: bill)
+        } else {
+            scheduleNotification(for: bill)
+        }
+        updateBadgeCount(overdueCount: overdueCount)
+    }
+
+    func refreshBadge(using context: ModelContext) {
+        let bills = (try? context.fetch(FetchDescriptor<Bill>())) ?? []
+        let overdue = bills.filter { $0.status == .overdue }.count
+        updateBadgeCount(overdueCount: overdue)
     }
 
     // MARK: - UNUserNotificationCenterDelegate

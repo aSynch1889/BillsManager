@@ -195,6 +195,7 @@ struct AddEditBillView: View {
             bill.name = name
             bill.amount = amount
             bill.dueDate = dueDate
+            bill.syncRecurrenceAnchor(from: dueDate)
             bill.category = selectedCategory
             bill.account = selectedAccount
             bill.frequency = frequency

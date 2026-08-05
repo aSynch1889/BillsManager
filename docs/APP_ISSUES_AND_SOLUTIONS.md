@@ -107,32 +107,13 @@ extension StoreManager {
 
 周期账单 mark paid 后重 schedule 见 1.3 / Sprint A.3。
 
-### 1.3 周期账单“标记已付”后通知逻辑错误 — 🔴 仍存在
+### 1.3 周期账单“标记已付”后通知逻辑错误 — 🟢 已解决
 
-**现象**（`BillListView.togglePaid` / `BillDetailView`）：
+**现象（已修复）**
+旧列表路径在周期 `markAsPaid`（推进 dueDate 且 `isPaid = false`）后仍 `cancelNotification`，不为新 dueDate 重新 schedule。
 
-- 一次性：`markAsPaid` → `isPaid = true` → `cancelNotification` ✔
-- 周期：`markAsPaid` 会 **推进 `dueDate` 且 `isPaid = false`**，但列表路径仍 `cancelNotification`，**不为新 dueDate 重新 schedule**
-
-**影响**
-下一期账单无提醒。
-
-**解决方案**
-
-```swift
-// 统一支付后副作用
-func applyPaidSideEffects(for bill: Bill) {
-    if bill.isPaid {
-        NotificationManager.shared.cancelNotification(for: bill)
-    } else {
-        // 周期账单已滚到下一期
-        NotificationManager.shared.scheduleNotification(for: bill)
-    }
-    NotificationManager.shared.updateBadgeCount(overdueCount: /* query */)
-}
-```
-
-删除时 `cancel`；编辑 dueDate/提醒时先 cancel 再 schedule。
+**修复**
+统一 `NotificationManager.applyPaidSideEffects`：已付则 cancel，否则按当前 dueDate schedule，并刷新逾期角标。列表 / 行 / 详情支付与撤销均走此路径。
 
 ---
 
@@ -220,13 +201,12 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 
 ## 2. 高优先级问题（P1）
 
-### 2.1 通知内容与角标设计粗糙 — 🔴 仍存在
+### 2.1 通知内容与角标设计粗糙 — 🟠 部分解决
 
-- `content.badge = 1` 固定为 1，无法反映真实逾期数
-- 过期触发（提醒日已过才创建账单）不会补发
-- 无 `UNUserNotificationCenterDelegate`，前台不展示
-
-**方案**：角标只走 `setBadgeCount(overdue)`；创建时若 `notificationDate < now` 则跳过或立即本地提示；实现 delegate 前台展示。
+- ✅ 角标改为 Dashboard / 支付副作用同步真实逾期数（不再 `content.badge = 1`）
+- ✅ 提醒触发时间已过则跳过 schedule
+- ✅ 实现 `UNUserNotificationCenterDelegate`，前台展示 banner
+- ⏳ 过期才创建的账单仍无“立即本地提示”补发（可选增强）
 
 ### 2.2 App Lock 体验不完整 — 🔴 仍存在
 
@@ -303,13 +283,14 @@ case .background: if lockEnabled { isUnlocked = false }
 
 **方案**：使用 `NumberFormatter` / `FloatingPointFormatStyle.Currency` 按 Locale 解析，统一校验 `amount.isFinite && amount > 0`；截止日期不得早于到期日；支付金额同样校验；尾号限制 4 位数字。
 
-### 2.10 周期算法会日期漂移，逾期账单只推进一期 — 🔴 仍存在（新增）
+### 2.10 周期算法会日期漂移，逾期账单只推进一期 — 🟢 已解决
 
-- 每月账单 `1/31 → 2/28 → 3/28`，原“月末/锚定日”语义丢失。
-- 逾期多期后标记一次支付，只调用一次 `nextDueDate`；新到期日可能仍在过去，账单继续逾期且通知日期也已过。
-- `markAsUnpaid()` 只改布尔值，无法把周期账单的 `dueDate` 回滚到支付前，也不移除对应 PaymentRecord；因此周期账单一旦支付后，UI 实际上无法正确撤销。
+**产品规则（已落地）**
+- **一次 Mark Paid = 一期**：多期逾期需多次标记，每期一条 `PaymentRecord`
+- 持久化 `recurrenceAnchorDay`；月度系 `nextDueDate` 按锚定日 clamp（`1/31 → 2/28 → 3/31`）
+- `PaymentRecord.periodDueDate` 记录本期；`undoLastPayment()` 回滚 dueDate、删除记录；详情对已滚期账单提供「Undo Last Payment」
 
-**方案**：持久化 `recurrenceAnchorDay` / 月末标志；明确“每次支付一期间”或“一键追赶到未来”的产品规则；PaymentRecord 保存本期 `periodDueDate`；撤销支付必须以记录为依据回滚期次并重建通知。
+---
 
 ### 2.11 Auto-Pay 仅是标签，容易被理解为自动扣款 — 🟠 部分实现（新增）
 
@@ -441,7 +422,7 @@ case .background: if lockEnabled { isUnlocked = false }
 ### Sprint A — 可信核心（约 3–5 天）
 1. ✅ 修复默认数据对象复用与重复 Seed，并补首次启动断言
 2. ✅ 通知授权 + 调度修复 + 角标
-3. 周期账单支付后重 schedule；定义锚定日、逾期追赶和撤销支付语义
+3. ✅ 周期账单支付后重 schedule；定义锚定日、逾期追赶和撤销支付语义
 4. 金额输入校验、地区化解析与货币格式化统一
 5. 示例数据可选
 6. 基础崩溃与保存错误提示
