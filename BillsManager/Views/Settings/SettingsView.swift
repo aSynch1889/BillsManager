@@ -22,6 +22,7 @@ struct SettingsView: View {
 
     @State private var notificationStatusText: String = L10n.s("Checking…")
     @State private var notificationDenied: Bool = false
+    @State private var sampleBillCount: Int = 0
 
     private static let commonCurrencyCodes = ["USD", "EUR", "GBP", "JPY", "CNY", "HKD", "AUD", "CAD", "SGD", "CHF"]
     
@@ -63,7 +64,7 @@ struct SettingsView: View {
                 }
             }
             
-            // Management Section
+            // Manage Data
             Section(header: Text(L10n.s("Manage Data"))) {
                 NavigationLink(destination: CategoryManagerView()) {
                     Label(L10n.s("Categories"), systemImage: "folder.fill")
@@ -71,6 +72,18 @@ struct SettingsView: View {
                 
                 NavigationLink(destination: AccountManagerView()) {
                     Label(L10n.s("Payment Accounts"), systemImage: "creditcard.fill")
+                }
+
+                if sampleBillCount > 0 {
+                    Button(role: .destructive) {
+                        let removed = SampleDataSeeder.removeSamples(context: modelContext)
+                        sampleBillCount = max(0, sampleBillCount - removed)
+                    } label: {
+                        Label(
+                            String(format: L10n.s("Remove Sample Bills (%d)"), sampleBillCount),
+                            systemImage: "trash"
+                        )
+                    }
                 }
             }
             
@@ -193,6 +206,7 @@ struct SettingsView: View {
         }
         .task {
             await refreshNotificationStatus()
+            sampleBillCount = SampleDataSeeder.sampleCount(in: modelContext)
         }
     }
 

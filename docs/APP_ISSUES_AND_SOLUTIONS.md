@@ -264,11 +264,9 @@ case .background: if lockEnabled { isUnlocked = false }
 
 **方案**：统计已付以 `PaymentRecord` 为准；应付以未付账单 `dueDate` 为准；图表提供“应付 vs 实付”切换。
 
-### 2.8 示例数据污染真实使用 — 🔴 仍存在
+### 2.8 示例数据污染真实使用 — 🟢 已解决
 
-首次安装插入 3 条英文示例账单 + 逾期/已付样本。
-
-**方案**：Onboarding 勾选“加载示例数据”；或仅插入分类/账户，账单由用户创建；提供“清空示例数据”。
+默认仅 Seed 分类/账户；Onboarding 可选「Load Sample Bills」；设置页可「Remove Sample Bills」。账单带 `isSample` 标记。
 
 ### 2.9 金额输入与表单约束不足 — 🟢 已解决
 
@@ -418,7 +416,7 @@ case .background: if lockEnabled { isUnlocked = false }
 2. ✅ 通知授权 + 调度修复 + 角标
 3. ✅ 周期账单支付后重 schedule；定义锚定日、逾期追赶和撤销支付语义
 4. ✅ 金额输入校验、地区化解析与货币格式化统一
-5. 示例数据可选
+5. ✅ 示例数据可选
 6. 基础崩溃与保存错误提示
 
 ### Sprint B — 商业化可用（约 3–5 天）

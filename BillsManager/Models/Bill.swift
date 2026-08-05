@@ -17,6 +17,8 @@ final class Bill {
     var reminderDaysBefore: Int
     var reminderTime: Date
     var notes: String?
+    /// Marks onboarding demo bills so they can be removed without touching user data.
+    var isSample: Bool
     @Attribute(.externalStorage) var attachmentImageData: Data?
 
     @Relationship
@@ -42,6 +44,7 @@ final class Bill {
         reminderDaysBefore: Int = 1,
         reminderTime: Date = Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: Date()) ?? Date(),
         notes: String? = nil,
+        isSample: Bool = false,
         attachmentImageData: Data? = nil,
         category: Category? = nil,
         account: Account? = nil
@@ -60,6 +63,7 @@ final class Bill {
         self.reminderDaysBefore = reminderDaysBefore
         self.reminderTime = reminderTime
         self.notes = notes
+        self.isSample = isSample
         self.attachmentImageData = attachmentImageData
         self.category = category
         self.account = account
