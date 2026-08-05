@@ -293,7 +293,6 @@ case .background: if lockEnabled { isUnlocked = false }
 - App Icon 源文件为 **JPEG**（1024、无 alpha）；本次 Asset Catalog 编译成功，因此不是已证实的上传阻断，但建议用 sRGB PNG 作为标准源资产
 - 版本号实际有三套来源：`Info.plist=1.0.0/1`、工程 `MARKETING_VERSION=1.0.0` / `CURRENT_PROJECT_VERSION=2026072601`、Settings 硬编码；构建产物最终是 `1.0.0 (1)`，工程 Build Number 没有生效
 - Entitlements 为空（对本 App 可接受）
-- **无** `PrivacyInfo.xcprivacy`（Xcode 15+ / 隐私清单要求）
 - ✅ 设置页与 Paywall 提供隐私政策 / 使用条款 / Support 链接（`LegalLinks`）
 - **无** `PrivacyInfo.xcprivacy`（Xcode 15+ / 隐私清单要求；见 Sprint C）
 - README 写 MIT，与 App 内未展示 License 无关但需确认商标名 “Bills Manager” 不与他人冲突
@@ -302,8 +301,8 @@ case .background: if lockEnabled { isUnlocked = false }
 
 | 宣称 | 实际 |
 | :--- | :--- |
-| Ad-free PRO | 全程无广告 |
-| 100% local + Face ID | Face ID 可选，且未门控 PRO |
+| Ad-free PRO | ✅ 文案已移除；应用内无广告 |
+| 100% local + Face ID | Face ID 已门控 PRO；本地存储属实 |
 | JSON 全量备份 | 仅导出子集且不可恢复 |
 | 高斯模糊遮罩 | 未实现 |
 | 高级趋势对比 | 仅环形图分类占比 |
