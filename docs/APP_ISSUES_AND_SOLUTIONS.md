@@ -105,35 +105,17 @@
 
 ---
 
-### 1.5 内购商品与测试配置未形成可验证闭环 — 🟡 待 ASC / 沙盒核验
+### 1.5 内购商品与测试配置未形成可验证闭环 — 🟠 部分解决
 
-**现象**
-
-| 项 | 当前值 |
+| 项 | 状态 |
 | :--- | :--- |
 | Bundle ID | `com.antigravity.billsmanager` |
-| IAP IDs | `com.billsmanager.pro.lifetime` 等 |
-| 共享 Scheme / StoreKit Configuration 绑定 | 仓库未见共享 `.xcscheme`，无法确认测试 Scheme 已绑定 |
-| 商品加载失败 UI | 商品数组为空时永久显示 Loading，无错误、重试或降级 |
+| 在售 IAP | `com.billsmanager.pro.lifetime`（月/年仅 Restore） |
+| 共享 Scheme + StoreKit 配置 | ✅ `xcshareddata/xcschemes/BillsManager.xcscheme` 绑定 `StoreKit.storekit` |
+| 空商品 UI | ✅ 错误文案 + Retry，不再永久 Loading |
+| ASC 商品是否已创建 | 🟡 仍需人工在 App Store Connect 核验 |
 
-**影响**
-
-- **Product ID 不要求与 Bundle ID 同前缀**，两者命名不同本身不是 StoreKit 错误；旧版文档对此风险表述过重。
-- 真正风险是仓库无法证明 ASC 已创建并提交完全一致的三个商品，也没有可复现的共享 StoreKit 测试 Scheme。
-- 任一配置或网络错误导致 `Product.products(for:)` 返回空数组时，Paywall 永久 Loading。
-
-**解决方案**
-
-1. 在 ASC 核对三个 Product ID、订阅组、销售地区、协议税务状态与审核截图。
-2. 提交共享 Scheme 并绑定 `StoreKit.storekit`，让团队和 CI 能复现本地购买。
-3. 空商品状态展示错误、重试按钮和支持信息。
-4. 可选统一命名空间以降低人工配错概率，例如：
-
-- `com.antigravity.billsmanager.pro.lifetime`
-- `com.antigravity.billsmanager.pro.monthly`
-- `com.antigravity.billsmanager.pro.yearly`
-
-若商品已在 ASC 创建，Product ID 通常不能改名，只能新建；不要仅为“看起来一致”破坏现有商品。
+不重命名已有 Product ID（避免破坏 ASC）。
 
 ---
 
@@ -389,7 +371,7 @@ case .background: if lockEnabled { isUnlocked = false }
 ### Sprint B — 商业化可用（约 3–5 天）
 1. ✅ PRO 门控与 Paywall 文案修正
 2. ✅ 决定“仅永久买断”或为月/年订阅提供真实持续价值
-3. 商品 ID、ASC 与共享 StoreKit Scheme 对齐
+3. ✅ 商品 ID、ASC 与共享 StoreKit Scheme 对齐
 4. 订阅法律披露 + Restore + 管理订阅链接
 5. 隐私政策 / 条款 URL
 

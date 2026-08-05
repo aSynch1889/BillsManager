@@ -10,6 +10,9 @@ final class StoreManager {
     var purchasedProductIDs: Set<String> = []
     var isLoadingProducts: Bool = false
     var purchaseErrorMessage: String?
+    /// Set when product fetch finishes with an empty list (config/network/ASC mismatch).
+    var productsLoadFailed: Bool = false
+    var productsLoadErrorMessage: String?
     
     // Product IDs
     /// Primary offer: Non-Consumable lifetime unlock (Guideline 3.1.2-safe for static local features).
@@ -48,17 +51,25 @@ final class StoreManager {
     @MainActor
     func loadProducts() async {
         isLoadingProducts = true
+        productsLoadFailed = false
+        productsLoadErrorMessage = nil
         defer { isLoadingProducts = false }
         
         do {
             // Only fetch offered SKUs for the storefront UI.
-            products = try await Product.products(for: offeredProductIDs)
-                .sorted { lhs, rhs in
-                    // Lifetime first when multiple are ever re-enabled.
-                    lhs.id == Self.lifetimeProID && rhs.id != Self.lifetimeProID
-                }
+            let loaded = try await Product.products(for: offeredProductIDs)
+            products = loaded.sorted { lhs, rhs in
+                lhs.id == Self.lifetimeProID && rhs.id != Self.lifetimeProID
+            }
+            if products.isEmpty {
+                productsLoadFailed = true
+                productsLoadErrorMessage = L10n.s("No products available. Check your network or try again.")
+            }
         } catch {
             print("Failed to load StoreKit products: \(error)")
+            products = []
+            productsLoadFailed = true
+            productsLoadErrorMessage = error.localizedDescription
             purchaseErrorMessage = error.localizedDescription
         }
     }

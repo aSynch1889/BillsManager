@@ -46,7 +46,7 @@ struct PaywallView: View {
                 .padding(.horizontal)
                 
                 // Product Selection Cards
-                if storeManager.products.isEmpty {
+                if storeManager.isLoadingProducts {
                     VStack(spacing: 12) {
                         ProgressView()
                         Text(L10n.s("Loading Products..."))
@@ -54,6 +54,26 @@ struct PaywallView: View {
                             .foregroundStyle(.secondary)
                     }
                     .padding()
+                } else if storeManager.products.isEmpty {
+                    VStack(spacing: 12) {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                            .font(.title)
+                            .foregroundStyle(.orange)
+                        Text(storeManager.productsLoadErrorMessage ?? L10n.s("No products available. Check your network or try again."))
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                        Text(String(format: L10n.s("Expected product: %@"), StoreManager.lifetimeProID))
+                            .font(.caption2)
+                            .foregroundStyle(.tertiary)
+                            .multilineTextAlignment(.center)
+                        Button(L10n.s("Retry")) {
+                            Task { await storeManager.loadProducts() }
+                        }
+                        .buttonStyle(.borderedProminent)
+                    }
+                    .padding()
+                    .padding(.horizontal)
                 } else {
                     VStack(spacing: 12) {
                         ForEach(storeManager.products, id: \.id) { product in
@@ -139,6 +159,11 @@ struct PaywallView: View {
                         .font(.title3)
                         .foregroundStyle(.secondary)
                 }
+            }
+        }
+        .task {
+            if storeManager.products.isEmpty {
+                await storeManager.loadProducts()
             }
         }
     }
