@@ -207,6 +207,18 @@ struct SettingsView: View {
                     Text("iOS 17.0+")
                         .foregroundStyle(.secondary)
                 }
+
+                Link(destination: LegalLinks.privacyPolicy) {
+                    Label(L10n.s("Privacy Policy"), systemImage: "hand.raised.fill")
+                }
+
+                Link(destination: LegalLinks.termsOfUse) {
+                    Label(L10n.s("Terms of Use"), systemImage: "doc.plaintext")
+                }
+
+                Link(destination: LegalLinks.support) {
+                    Label(L10n.s("Support"), systemImage: "questionmark.circle")
+                }
             }
         }
         .navigationTitle(L10n.s("Settings"))

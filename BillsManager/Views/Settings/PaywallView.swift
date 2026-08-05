@@ -170,6 +170,11 @@ struct PaywallView: View {
                 VStack(spacing: 8) {
                     Text(L10n.s("Payment will be charged to your Apple ID account at confirmation of purchase. This is a one-time Non-Consumable purchase that unlocks PRO permanently for this Apple ID."))
                     Text(L10n.s("If you previously subscribed monthly or yearly, use Restore Purchases or Manage Subscriptions to review or cancel auto-renewal in your Apple ID settings."))
+                    HStack(spacing: 16) {
+                        Link(L10n.s("Privacy Policy"), destination: LegalLinks.privacyPolicy)
+                        Link(L10n.s("Terms of Use"), destination: LegalLinks.termsOfUse)
+                    }
+                    .font(.caption.bold())
                 }
                 .font(.caption2)
                 .foregroundStyle(.tertiary)

@@ -294,7 +294,8 @@ case .background: if lockEnabled { isUnlocked = false }
 - 版本号实际有三套来源：`Info.plist=1.0.0/1`、工程 `MARKETING_VERSION=1.0.0` / `CURRENT_PROJECT_VERSION=2026072601`、Settings 硬编码；构建产物最终是 `1.0.0 (1)`，工程 Build Number 没有生效
 - Entitlements 为空（对本 App 可接受）
 - **无** `PrivacyInfo.xcprivacy`（Xcode 15+ / 隐私清单要求）
-- **无** 隐私政策 / 使用条款链接（设置与 Paywall）
+- ✅ 设置页与 Paywall 提供隐私政策 / 使用条款 / Support 链接（`LegalLinks`）
+- **无** `PrivacyInfo.xcprivacy`（Xcode 15+ / 隐私清单要求；见 Sprint C）
 - README 写 MIT，与 App 内未展示 License 无关但需确认商标名 “Bills Manager” 不与他人冲突
 
 ### 3.8 文案与功能夸大 — 🔴 仍存在
@@ -373,7 +374,7 @@ case .background: if lockEnabled { isUnlocked = false }
 2. ✅ 决定“仅永久买断”或为月/年订阅提供真实持续价值
 3. ✅ 商品 ID、ASC 与共享 StoreKit Scheme 对齐
 4. ✅ 订阅法律披露 + Restore + 管理订阅链接
-5. 隐私政策 / 条款 URL
+5. ✅ 隐私政策 / 条款 URL
 
 ### Sprint C — 数据可信（约 3–4 天）
 1. JSON 备份 v2 + 恢复
