@@ -78,17 +78,18 @@ struct BillsManagerApp: App {
         let existingCategories = (try? context.fetch(descriptor)) ?? []
         
         if existingCategories.isEmpty {
-            for cat in Category.defaults {
-                context.insert(cat)
-            }
-            for acc in Account.defaults {
-                context.insert(acc)
-            }
+            // Create defaults once and reuse the same instances for sample bill relationships.
+            // Calling Category.defaults / Account.defaults again would allocate new @Model
+            // objects and SwiftData would insert duplicates via bill associations.
+            let defaultCategories = Category.defaults
+            let defaultAccounts = Account.defaults
+            defaultCategories.forEach(context.insert)
+            defaultAccounts.forEach(context.insert)
             
-            let utilitiesCat = Category.defaults.first(where: { $0.name == "Utilities" })
-            let housingCat = Category.defaults.first(where: { $0.name == "Housing" })
-            let subCat = Category.defaults.first(where: { $0.name == "Subscriptions" })
-            let defaultAcc = Account.defaults.first(where: { $0.isDefault })
+            let utilitiesCat = defaultCategories.first(where: { $0.name == "Utilities" })
+            let housingCat = defaultCategories.first(where: { $0.name == "Housing" })
+            let subCat = defaultCategories.first(where: { $0.name == "Subscriptions" })
+            let defaultAcc = defaultAccounts.first(where: { $0.isDefault })
             
             let sample1 = Bill(
                 name: "Electricity Bill",
@@ -123,6 +124,37 @@ struct BillsManagerApp: App {
             context.insert(sample3)
             
             try? context.save()
+
+            #if DEBUG
+            assertSeedIntegrity(context: context, expectedCategories: defaultCategories, expectedAccounts: defaultAccounts)
+            #endif
         }
     }
+
+    #if DEBUG
+    /// First-launch assertion: exactly 7 categories, 3 accounts, 3 sample bills, no duplicate names.
+    private func assertSeedIntegrity(
+        context: ModelContext,
+        expectedCategories: [Category],
+        expectedAccounts: [Account]
+    ) {
+        let categories = (try? context.fetch(FetchDescriptor<Category>())) ?? []
+        let accounts = (try? context.fetch(FetchDescriptor<Account>())) ?? []
+        let bills = (try? context.fetch(FetchDescriptor<Bill>())) ?? []
+
+        assert(categories.count == 7, "Seed expected 7 categories, got \(categories.count)")
+        assert(accounts.count == 3, "Seed expected 3 accounts, got \(accounts.count)")
+        assert(bills.count == 3, "Seed expected 3 sample bills, got \(bills.count)")
+
+        let categoryNames = categories.map(\.name)
+        let accountNames = accounts.map(\.name)
+        assert(Set(categoryNames).count == categoryNames.count, "Duplicate category names after seed: \(categoryNames)")
+        assert(Set(accountNames).count == accountNames.count, "Duplicate account names after seed: \(accountNames)")
+
+        assert(Set(categories.map(\.id)) == Set(expectedCategories.map(\.id)),
+               "Seed categories must be the same inserted instances")
+        assert(Set(accounts.map(\.id)) == Set(expectedAccounts.map(\.id)),
+               "Seed accounts must be the same inserted instances")
+    }
+    #endif
 }

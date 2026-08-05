@@ -194,22 +194,15 @@ func applyPaidSideEffects(for bill: Bill) {
 
 ---
 
-### 1.6 首次启动默认分类/账户可能重复插入 — 🔴 高概率仍存在（新增）
+### 1.6 首次启动默认分类/账户可能重复插入 — 🟢 已解决
 
-**现象**
+**现象（已修复）**
 
-`Category.defaults` / `Account.defaults` 是每次访问都创建全新模型对象的计算属性。启动 Seed 先插入一批 defaults，随后又再次调用 defaults 查找示例账单关联对象：
+`Category.defaults` / `Account.defaults` 是每次访问都创建全新模型对象的计算属性。旧 Seed 先插入一批 defaults，随后又再次调用 defaults 查找示例账单关联对象，SwiftData 会把第二批对象连同账单一起插入，造成 Utilities、Housing、Subscriptions、Checking Account 重复。
 
-```swift
-for cat in Category.defaults { context.insert(cat) }
-let utilitiesCat = Category.defaults.first { $0.name == "Utilities" }
-```
+**修复**
 
-示例账单插入时，SwiftData 会处理其关联的未托管 Category / Account 对象，存在把第二批对象连同账单一起插入的高概率，造成 Utilities、Housing、Subscriptions、Checking Account 重复。当前模拟器服务在复评中未能完成干净安装数据库抽检，因此仍需真机/可用 Simulator 最终确认，但代码构造方式本身应修。
-
-**解决方案**
-
-只创建一次并复用同一数组：
+`BillsManagerApp.seedInitialDataIfNeeded` 只创建一次并复用同一数组：
 
 ```swift
 let defaultCategories = Category.defaults
@@ -219,7 +212,7 @@ defaultAccounts.forEach(context.insert)
 // 后续全部从 defaultCategories / defaultAccounts 取关联对象
 ```
 
-增加首次启动测试，断言 7 个分类、3 个账户、3 个示例账单且名称不重复。
+DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示例账单，名称不重复，且与插入实例 ID 一致。
 
 ---
 
@@ -452,7 +445,7 @@ case .background: if lockEnabled { isUnlocked = false }
 ## 6. 建议修复路线图（4 个迭代）
 
 ### Sprint A — 可信核心（约 3–5 天）
-1. 修复默认数据对象复用与重复 Seed，并补首次启动断言
+1. ✅ 修复默认数据对象复用与重复 Seed，并补首次启动断言
 2. 通知授权 + 调度修复 + 角标
 3. 周期账单支付后重 schedule；定义锚定日、逾期追赶和撤销支付语义
 4. 金额输入校验、地区化解析与货币格式化统一
