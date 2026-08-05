@@ -25,7 +25,7 @@ struct PaywallView: View {
                     Text(L10n.s("Bills Manager PRO"))
                         .font(.system(size: 28, weight: .bold, design: .rounded))
                     
-                    Text(L10n.s("Unlock full financial tracking potential"))
+                    Text(L10n.s("One-time purchase. Unlock PRO forever on this Apple ID."))
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)

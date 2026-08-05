@@ -159,11 +159,11 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 
 ---
 
-### 1.7 月/年订阅缺少可证明的“持续价值” — 🔴 仍存在（新增）
+### 1.7 月/年订阅缺少可证明的“持续价值” — 🟢 已解决（产品决策）
 
-当前订阅与永久买断解锁同一组静态、本地功能；无云服务、持续内容、订阅期权益或明确的持续重大更新承诺。Apple Guideline 3.1.2(a) 要求自动续订订阅向用户提供持续价值，仅“永久功能开关按月收费”存在商业审核风险。
+**决策**：Paywall **仅出售 Non-Consumable 永久买断**（`com.billsmanager.pro.lifetime`）。月/年订阅 ID 保留用于 Restore / 历史 entitlement，但不再作为在售商品，直至具备可证明的持续价值（如云同步）。
 
-**方案**：优先考虑仅保留 Non-Consumable 永久买断；若保留订阅，必须定义并兑现持续价值（例如跨设备云同步、持续新增的高级能力/内容），并在 Paywall 与 Review Notes 明确说明。参见 [App Review Guidelines 3.1.2](https://developer.apple.com/app-store/review/guidelines/).
+参见 [App Review Guidelines 3.1.2](https://developer.apple.com/app-store/review/guidelines/).
 
 ---
 
@@ -388,7 +388,7 @@ case .background: if lockEnabled { isUnlocked = false }
 
 ### Sprint B — 商业化可用（约 3–5 天）
 1. ✅ PRO 门控与 Paywall 文案修正
-2. 决定“仅永久买断”或为月/年订阅提供真实持续价值
+2. ✅ 决定“仅永久买断”或为月/年订阅提供真实持续价值
 3. 商品 ID、ASC 与共享 StoreKit Scheme 对齐
 4. 订阅法律披露 + Restore + 管理订阅链接
 5. 隐私政策 / 条款 URL

@@ -12,10 +12,15 @@ final class StoreManager {
     var purchaseErrorMessage: String?
     
     // Product IDs
+    /// Primary offer: Non-Consumable lifetime unlock (Guideline 3.1.2-safe for static local features).
     static let lifetimeProID = "com.billsmanager.pro.lifetime"
+    /// Legacy / restore-only auto-renewable IDs — not offered in Paywall until continuous value exists.
     static let monthlyProID = "com.billsmanager.pro.monthly"
     static let yearlyProID = "com.billsmanager.pro.yearly"
-    
+
+    /// Products shown for purchase in the Paywall.
+    private let offeredProductIDs = [lifetimeProID]
+    /// All PRO IDs that may unlock entitlement (includes legacy subscriptions for Restore).
     private let productIDs = [lifetimeProID, monthlyProID, yearlyProID]
     private var transactionListener: Task<Void, Error>?
     
@@ -46,9 +51,15 @@ final class StoreManager {
         defer { isLoadingProducts = false }
         
         do {
-            products = try await Product.products(for: productIDs)
+            // Only fetch offered SKUs for the storefront UI.
+            products = try await Product.products(for: offeredProductIDs)
+                .sorted { lhs, rhs in
+                    // Lifetime first when multiple are ever re-enabled.
+                    lhs.id == Self.lifetimeProID && rhs.id != Self.lifetimeProID
+                }
         } catch {
             print("Failed to load StoreKit products: \(error)")
+            purchaseErrorMessage = error.localizedDescription
         }
     }
     
