@@ -121,8 +121,15 @@ struct OnboardingView: View {
     }
     
     private func completeOnboarding() {
-        withAnimation {
-            hasCompletedOnboarding = true
+        Task {
+            // Prompt for notification permission at the end of onboarding
+            // (page 2 markets reminders; asking here converts better than cold start).
+            _ = await NotificationManager.shared.requestAuthorization()
+            await MainActor.run {
+                withAnimation {
+                    hasCompletedOnboarding = true
+                }
+            }
         }
     }
 }

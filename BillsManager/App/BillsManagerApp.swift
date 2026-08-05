@@ -23,7 +23,8 @@ struct BillsManagerApp: App {
             ])
             let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
             container = try ModelContainer(for: schema, configurations: [config])
-            
+
+            NotificationManager.shared.configure()
             seedInitialDataIfNeeded(context: container.mainContext)
         } catch {
             fatalError("Could not initialize SwiftData ModelContainer: \(error)")

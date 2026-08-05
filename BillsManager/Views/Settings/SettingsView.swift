@@ -19,6 +19,9 @@ struct SettingsView: View {
     
     @AppStorage("defaultCurrency") private var defaultCurrency: String = Locale.current.currency?.identifier ?? "USD"
     @AppStorage("defaultReminderDays") private var defaultReminderDays: Int = 1
+
+    @State private var notificationStatusText: String = L10n.s("Checking…")
+    @State private var notificationDenied: Bool = false
     
     var body: some View {
         List {
@@ -69,6 +72,33 @@ struct SettingsView: View {
                 }
             }
             
+            // Notifications
+            Section(header: Text(L10n.s("Notifications"))) {
+                HStack {
+                    Label(L10n.s("Permission Status"), systemImage: "bell.badge")
+                    Spacer()
+                    Text(notificationStatusText)
+                        .foregroundStyle(.secondary)
+                }
+
+                if notificationDenied {
+                    Button {
+                        NotificationManager.shared.openSystemSettings()
+                    } label: {
+                        Label(L10n.s("Open System Settings"), systemImage: "gear")
+                    }
+                } else {
+                    Button {
+                        Task {
+                            _ = await NotificationManager.shared.requestAuthorization()
+                            await refreshNotificationStatus()
+                        }
+                    } label: {
+                        Label(L10n.s("Enable Reminders"), systemImage: "bell.fill")
+                    }
+                }
+            }
+
             // Security Section
             Section(header: Text(L10n.s("Security & Privacy"))) {
                 Toggle(isOn: Binding(
@@ -141,6 +171,28 @@ struct SettingsView: View {
             if let url = jsonShareURL {
                 ShareSheet(activityItems: [url])
             }
+        }
+        .task {
+            await refreshNotificationStatus()
+        }
+    }
+
+    @MainActor
+    private func refreshNotificationStatus() async {
+        let status = await NotificationManager.shared.authorizationStatus()
+        switch status {
+        case .authorized, .provisional, .ephemeral:
+            notificationStatusText = L10n.s("Enabled")
+            notificationDenied = false
+        case .denied:
+            notificationStatusText = L10n.s("Denied")
+            notificationDenied = true
+        case .notDetermined:
+            notificationStatusText = L10n.s("Not Asked")
+            notificationDenied = false
+        @unknown default:
+            notificationStatusText = L10n.s("Unknown")
+            notificationDenied = false
         }
     }
     

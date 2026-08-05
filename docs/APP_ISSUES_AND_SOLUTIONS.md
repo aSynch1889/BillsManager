@@ -20,7 +20,7 @@
 | Debug Simulator 构建 | 🟢 `BUILD SUCCEEDED`，无 Swift 编译错误 |
 | Unit / UI Test | 🔴 工程没有 Test target，无法回归业务边界 |
 | 原 P0 / P1 整改 | 🔴 未发现代码变更；下文全部保持未关闭 |
-| 通知授权调用点 | 🔴 仅定义 `requestAuthorization()`，调用点为 0 |
+| 通知授权调用点 | 🟢 Onboarding 完成 + 保存账单 `ensureAuthorization`；设置页可跳转系统设置 |
 | PRO 权益门控 | 🔴 `isProUser` 仅在设置页展示文案，业务门控为 0 |
 | 本地化覆盖 | 🔴 148 key；`zh-Hans` 24（16.2%），显式 `en` 2（1.4%） |
 | 静默错误 | 🔴 17 处 `try?` |
@@ -92,26 +92,20 @@ extension StoreManager {
 
 ---
 
-### 1.2 本地通知从未请求授权，核心卖点失效 — 🔴 仍存在
+### 1.2 本地通知从未请求授权，核心卖点失效 — 🟢 已解决
 
-**现象**
-`NotificationManager.requestAuthorization()` **全工程无调用点**。
-`scheduleNotification` 在保存账单时会添加请求，但在用户未授权时静默失败。
-Onboarding 宣传 “Never Miss a Payment”，却不引导开启通知。
+**现象（已修复）**
+旧版 `NotificationManager.requestAuthorization()` 全工程无调用点；`scheduleNotification` 在未授权时静默失败；Onboarding 宣传提醒却不引导开启。
 
-**影响**
-用户以为会有提醒，实际无推送 → 差评与退订。
+**修复**
+1. Onboarding「Get Started / Skip」完成时请求通知权限
+2. 保存带提醒账单时调用 `ensureAuthorization()`（未决定则弹系统框）
+3. 设置页新增 Notifications 区：展示权限状态；被拒时提供「打开系统设置」
+4. 启动配置 `UNUserNotificationCenterDelegate`，前台可展示 banner
+5. 去掉通知 `badge = 1`；Dashboard `onAppear` / 逾期数变化时 `updateBadgeCount(overdueCount:)`
+6. 提醒触发时间已过则跳过 schedule
 
-**解决方案**
-
-1. 在合适时机请求权限（推荐组合）：
-   - Onboarding 最后一页或 “Get Started” 后轻量引导页
-   - 用户首次设置提醒/保存带提醒账单时再请求（转化更高）
-2. 权限被拒时：设置页提供 “打开系统设置” 跳转（`UIApplication.openSettingsURLString`）
-3. 保存/支付后统一调用调度逻辑；**周期账单 mark paid 后应重新 schedule 下一次**（见 2.1）
-4. 启动或 Dashboard `onAppear` 同步角标：`updateBadgeCount(overdueCount:)`
-
----
+周期账单 mark paid 后重 schedule 见 1.3 / Sprint A.3。
 
 ### 1.3 周期账单“标记已付”后通知逻辑错误 — 🔴 仍存在
 
@@ -446,7 +440,7 @@ case .background: if lockEnabled { isUnlocked = false }
 
 ### Sprint A — 可信核心（约 3–5 天）
 1. ✅ 修复默认数据对象复用与重复 Seed，并补首次启动断言
-2. 通知授权 + 调度修复 + 角标
+2. ✅ 通知授权 + 调度修复 + 角标
 3. 周期账单支付后重 schedule；定义锚定日、逾期追赶和撤销支付语义
 4. 金额输入校验、地区化解析与货币格式化统一
 5. 示例数据可选

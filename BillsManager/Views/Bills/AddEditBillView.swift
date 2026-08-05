@@ -205,7 +205,10 @@ struct AddEditBillView: View {
             bill.notes = notes.isEmpty ? nil : notes
             bill.attachmentImageData = attachmentImageData
             
-            NotificationManager.shared.scheduleNotification(for: bill)
+            Task {
+                _ = await NotificationManager.shared.ensureAuthorization()
+                NotificationManager.shared.scheduleNotification(for: bill)
+            }
         } else {
             let newBill = Bill(
                 name: name,
@@ -222,7 +225,10 @@ struct AddEditBillView: View {
                 account: selectedAccount
             )
             modelContext.insert(newBill)
-            NotificationManager.shared.scheduleNotification(for: newBill)
+            Task {
+                _ = await NotificationManager.shared.ensureAuthorization()
+                NotificationManager.shared.scheduleNotification(for: newBill)
+            }
         }
         
         try? modelContext.save()

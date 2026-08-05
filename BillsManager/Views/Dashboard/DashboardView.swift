@@ -157,5 +157,11 @@ struct DashboardView: View {
                 }
             }
         }
+        .onAppear {
+            NotificationManager.shared.updateBadgeCount(overdueCount: overdueBills.count)
+        }
+        .onChange(of: overdueBills.count) { _, newCount in
+            NotificationManager.shared.updateBadgeCount(overdueCount: newCount)
+        }
     }
 }
