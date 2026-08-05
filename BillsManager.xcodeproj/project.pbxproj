@@ -48,6 +48,7 @@
 		01010036 /* SampleDataSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020036 /* SampleDataSeeder.swift */; };
 		01010037 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020037 /* Persistence.swift */; };
 		01010038 /* ProFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020038 /* ProFeature.swift */; };
+		01010039 /* LegalLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020039 /* LegalLinks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +96,7 @@
 		01020036 /* SampleDataSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDataSeeder.swift; sourceTree = "<group>"; };
 		01020037 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		01020038 /* ProFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProFeature.swift; sourceTree = "<group>"; };
+		01020039 /* LegalLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalLinks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				01020036 /* SampleDataSeeder.swift */,
 				01020037 /* Persistence.swift */,
 				01020038 /* ProFeature.swift */,
+				01020039 /* LegalLinks.swift */,
 				01020007 /* StoreManager.swift */,
 				01020008 /* NotificationManager.swift */,
 				01020009 /* BiometricAuthManager.swift */,
@@ -347,6 +350,7 @@
 				01010036 /* SampleDataSeeder.swift in Sources */,
 				01010037 /* Persistence.swift in Sources */,
 				01010038 /* ProFeature.swift in Sources */,
+				01010039 /* LegalLinks.swift in Sources */,
 				01010002 /* Category.swift in Sources */,
 				01010003 /* Account.swift in Sources */,
 				01010004 /* PaymentRecord.swift in Sources */,

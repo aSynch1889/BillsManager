@@ -103,12 +103,15 @@ final class StoreManager {
     }
     
     @MainActor
-    func restorePurchases() async {
+    func restorePurchases() async -> Bool {
+        purchaseErrorMessage = nil
         do {
             try await AppStore.sync()
             await updatePurchasedProducts()
+            return true
         } catch {
             purchaseErrorMessage = error.localizedDescription
+            return false
         }
     }
     

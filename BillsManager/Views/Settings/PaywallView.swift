@@ -6,6 +6,10 @@ struct PaywallView: View {
     @Environment(\.dismiss) private var dismiss
     
     @State private var selectedProductID: String = StoreManager.lifetimeProID
+    @State private var restoreAlertTitle: String = ""
+    @State private var restoreAlertMessage: String = ""
+    @State private var showingRestoreAlert: Bool = false
+    @State private var purchaseAlertMessage: String?
     
     var body: some View {
         ScrollView {
@@ -116,6 +120,8 @@ struct PaywallView: View {
                                 let success = await storeManager.purchase(selectedProduct)
                                 if success {
                                     dismiss()
+                                } else if let err = storeManager.purchaseErrorMessage {
+                                    purchaseAlertMessage = err
                                 }
                             }
                         }) {
@@ -131,23 +137,45 @@ struct PaywallView: View {
                     
                     Button(action: {
                         Task {
-                            await storeManager.restorePurchases()
+                            let ok = await storeManager.restorePurchases()
+                            if ok && storeManager.isProUser {
+                                restoreAlertTitle = L10n.s("Purchases Restored")
+                                restoreAlertMessage = L10n.s("Your PRO access has been restored.")
+                                showingRestoreAlert = true
+                            } else if ok {
+                                restoreAlertTitle = L10n.s("No Purchases Found")
+                                restoreAlertMessage = L10n.s("We couldn't find an active PRO purchase for this Apple ID.")
+                                showingRestoreAlert = true
+                            } else {
+                                restoreAlertTitle = L10n.s("Restore Failed")
+                                restoreAlertMessage = storeManager.purchaseErrorMessage ?? L10n.s("Please try again later.")
+                                showingRestoreAlert = true
+                            }
                         }
                     }) {
                         Text(L10n.s("Restore Purchases"))
                             .font(.subheadline.bold())
                             .foregroundStyle(.blue)
                     }
+
+                    Link(destination: LegalLinks.manageSubscriptions) {
+                        Text(L10n.s("Manage Subscriptions"))
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
                 }
                 .padding(.horizontal)
                 
-                // Terms & Privacy Note
-                Text(L10n.s("Payment will be charged to your Apple ID account at confirmation of purchase."))
-                    .font(.caption2)
-                    .foregroundStyle(.tertiary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
-                    .padding(.bottom, 24)
+                // Legal disclosure (lifetime offer + restore of any legacy subscription)
+                VStack(spacing: 8) {
+                    Text(L10n.s("Payment will be charged to your Apple ID account at confirmation of purchase. This is a one-time Non-Consumable purchase that unlocks PRO permanently for this Apple ID."))
+                    Text(L10n.s("If you previously subscribed monthly or yearly, use Restore Purchases or Manage Subscriptions to review or cancel auto-renewal in your Apple ID settings."))
+                }
+                .font(.caption2)
+                .foregroundStyle(.tertiary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+                .padding(.bottom, 24)
             }
         }
         .background(Color(.systemGroupedBackground))
@@ -165,6 +193,21 @@ struct PaywallView: View {
             if storeManager.products.isEmpty {
                 await storeManager.loadProducts()
             }
+        }
+        .alert(restoreAlertTitle, isPresented: $showingRestoreAlert) {
+            Button(L10n.s("OK"), role: .cancel) {
+                if storeManager.isProUser { dismiss() }
+            }
+        } message: {
+            Text(restoreAlertMessage)
+        }
+        .alert(L10n.s("Purchase Failed"), isPresented: Binding(
+            get: { purchaseAlertMessage != nil },
+            set: { if !$0 { purchaseAlertMessage = nil } }
+        )) {
+            Button(L10n.s("OK"), role: .cancel) { purchaseAlertMessage = nil }
+        } message: {
+            Text(purchaseAlertMessage ?? "")
         }
     }
 }

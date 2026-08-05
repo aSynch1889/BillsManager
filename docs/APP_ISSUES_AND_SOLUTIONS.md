@@ -372,7 +372,7 @@ case .background: if lockEnabled { isUnlocked = false }
 1. ✅ PRO 门控与 Paywall 文案修正
 2. ✅ 决定“仅永久买断”或为月/年订阅提供真实持续价值
 3. ✅ 商品 ID、ASC 与共享 StoreKit Scheme 对齐
-4. 订阅法律披露 + Restore + 管理订阅链接
+4. ✅ 订阅法律披露 + Restore + 管理订阅链接
 5. 隐私政策 / 条款 URL
 
 ### Sprint C — 数据可信（约 3–4 天）
