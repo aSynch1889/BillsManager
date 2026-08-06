@@ -270,14 +270,14 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 
 **建议最低测试集**：`BillFrequency.nextDueDate`、`Bill.status`、`markAsPaid` 周期边界、`ExportManager` 编解码、`StoreManager` verification mock。
 
-### 3.7 工程与产品元数据 — 🔴 仍存在
+### 3.7 工程与产品元数据 — 🟢 已解决
 
-- App Icon 源文件为 **JPEG**（1024、无 alpha）；本次 Asset Catalog 编译成功，因此不是已证实的上传阻断，但建议用 sRGB PNG 作为标准源资产
-- 版本号实际有三套来源：`Info.plist=1.0.0/1`、工程 `MARKETING_VERSION=1.0.0` / `CURRENT_PROJECT_VERSION=2026072601`、Settings 硬编码；构建产物最终是 `1.0.0 (1)`，工程 Build Number 没有生效
+- ✅ App Icon 改为 1024×1024 sRGB PNG
+- ✅ `Info.plist` 使用 `$(MARKETING_VERSION)` / `$(CURRENT_PROJECT_VERSION)`；设置页读 Bundle
 - Entitlements 为空（对本 App 可接受）
 - ✅ 设置页与 Paywall 提供隐私政策 / 使用条款 / Support 链接（`LegalLinks`）
-- **无** `PrivacyInfo.xcprivacy`（Xcode 15+ / 隐私清单要求；见 Sprint C）
-- README 写 MIT，与 App 内未展示 License 无关但需确认商标名 “Bills Manager” 不与他人冲突
+- ✅ 新增 `PrivacyInfo.xcprivacy`（无追踪；声明 UserDefaults / File Timestamp 合理用途）
+- README MIT / 商标名仍属人工确认项
 
 ### 3.8 文案与功能夸大 — 🔴 仍存在
 
@@ -360,7 +360,7 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 ### Sprint C — 数据可信（约 3–4 天）
 1. ✅ JSON 备份 v2 + 恢复
 2. ✅ 支付历史与分析口径修正
-3. Privacy Manifest + Icon PNG
+3. ✅ Privacy Manifest + Icon PNG
 
 ### Sprint D — 打磨（持续）
 1. ✅ 完整中英本地化（系统分类展示层 + 目录全量 en/zh-Hans）

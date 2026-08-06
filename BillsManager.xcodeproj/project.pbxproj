@@ -38,6 +38,7 @@
 		0101001C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0102001C /* Assets.xcassets */; };
 		0101001D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0102001D /* Localizable.xcstrings */; };
 		0101001E /* StoreKit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 0102001E /* StoreKit.storekit */; };
+		0101003B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0102003B /* PrivacyInfo.xcprivacy */; };
 		01010021 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020021 /* OnboardingView.swift */; };
 		01010022 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020022 /* SplashView.swift */; };
 		01010030 /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020030 /* AppLanguage.swift */; };
@@ -87,6 +88,7 @@
 		0102001E /* StoreKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = StoreKit.storekit; sourceTree = "<group>"; };
 		0102001F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01020020 /* BillsManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BillsManager.entitlements; sourceTree = "<group>"; };
+		0102003B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		01020021 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		01020022 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		01020030 /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				01020001 /* BillsManagerApp.swift */,
 				0102001F /* Info.plist */,
+				0102003B /* PrivacyInfo.xcprivacy */,
 				01020020 /* BillsManager.entitlements */,
 			);
 			path = App;
@@ -333,6 +336,7 @@
 				0101001C /* Assets.xcassets in Resources */,
 				0101001D /* Localizable.xcstrings in Resources */,
 				0101001E /* StoreKit.storekit in Resources */,
+				0101003B /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
