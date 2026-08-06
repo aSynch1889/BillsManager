@@ -69,7 +69,7 @@ struct AddEditBillView: View {
                         HStack {
                             Image(systemName: cat.iconName)
                                 .foregroundStyle(cat.color)
-                            Text(cat.name)
+                            Text(cat.localizedDisplayName)
                         }
                         .tag(Category?.some(cat))
                     }
@@ -81,7 +81,7 @@ struct AddEditBillView: View {
                         HStack {
                             Image(systemName: acc.iconName)
                                 .foregroundStyle(acc.color)
-                            Text(acc.name)
+                            Text(acc.localizedDisplayName)
                         }
                         .tag(Account?.some(acc))
                     }

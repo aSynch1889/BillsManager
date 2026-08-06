@@ -105,7 +105,7 @@ struct BillListView: View {
                             Button(action: { selectedCategory = category }) {
                                 HStack(spacing: 4) {
                                     Image(systemName: category.iconName)
-                                    Text(category.name)
+                                    Text(category.localizedDisplayName)
                                 }
                                 .font(.caption.bold())
                                 .padding(.horizontal, 12)

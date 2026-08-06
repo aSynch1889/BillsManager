@@ -5,7 +5,10 @@ enum SampleDataSeeder {
     static let knownSampleNames: Set<String> = [
         "Electricity Bill",
         "Apartment Rent",
-        "Streaming Subscription"
+        "Streaming Subscription",
+        "电费账单",
+        "房租",
+        "流媒体订阅"
     ]
 
     /// Inserts three demo bills once. No-ops if any sample bills already exist.
@@ -24,7 +27,7 @@ enum SampleDataSeeder {
         let defaultAcc = accounts.first(where: { $0.isDefault }) ?? accounts.first
 
         let sample1 = Bill(
-            name: "Electricity Bill",
+            name: L10n.s("Electricity Bill"),
             amount: 125.50,
             dueDate: Calendar.current.date(byAdding: .day, value: 2, to: Date()) ?? Date(),
             frequency: .monthly,
@@ -33,7 +36,7 @@ enum SampleDataSeeder {
             account: defaultAcc
         )
         let sample2 = Bill(
-            name: "Apartment Rent",
+            name: L10n.s("Apartment Rent"),
             amount: 1500.00,
             dueDate: Calendar.current.date(byAdding: .day, value: 7, to: Date()) ?? Date(),
             frequency: .monthly,
@@ -42,7 +45,7 @@ enum SampleDataSeeder {
             account: defaultAcc
         )
         let sample3 = Bill(
-            name: "Streaming Subscription",
+            name: L10n.s("Streaming Subscription"),
             amount: 14.99,
             dueDate: Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date(),
             isPaid: true,

@@ -97,9 +97,9 @@ struct BillDetailView: View {
                 VStack(spacing: 16) {
                     DetailRow(title: L10n.s("Due Date"), value: formattedDate(bill.dueDate), icon: "calendar")
                     Divider()
-                    DetailRow(title: L10n.s("Category"), value: bill.category?.name ?? L10n.s("Uncategorized"), icon: bill.category?.iconName ?? "folder")
+                    DetailRow(title: L10n.s("Category"), value: bill.category?.localizedDisplayName ?? L10n.s("Uncategorized"), icon: bill.category?.iconName ?? "folder")
                     Divider()
-                    DetailRow(title: L10n.s("Payment Account"), value: bill.account?.name ?? L10n.s("None"), icon: bill.account?.iconName ?? "creditcard")
+                    DetailRow(title: L10n.s("Payment Account"), value: bill.account?.localizedDisplayName ?? L10n.s("None"), icon: bill.account?.iconName ?? "creditcard")
                     Divider()
                     DetailRow(title: L10n.s("Frequency"), value: bill.frequency.localizedName, icon: "repeat")
                     Divider()

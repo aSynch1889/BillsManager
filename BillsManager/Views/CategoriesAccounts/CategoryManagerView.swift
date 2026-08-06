@@ -39,7 +39,7 @@ struct CategoryManagerView: View {
                             .foregroundStyle(.white)
                     }
 
-                    Text(category.name)
+                    Text(category.localizedDisplayName)
                         .font(.body.weight(.medium))
 
                     Spacer()

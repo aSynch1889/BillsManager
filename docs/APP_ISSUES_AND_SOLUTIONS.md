@@ -22,7 +22,7 @@
 | 原 P0 / P1 整改 | 🔴 未发现代码变更；下文全部保持未关闭 |
 | 通知授权调用点 | 🟢 Onboarding 完成 + 保存账单 `ensureAuthorization`；设置页可跳转系统设置 |
 | PRO 权益门控 | 🟢 `ProFeature` 门控分类/账户/导出/锁/多区间分析；已去 Ad-Free 文案 |
-| 本地化覆盖 | 🔴 148 key；`zh-Hans` 24（16.2%），显式 `en` 2（1.4%） |
+| 本地化覆盖 | 🟢 显式 `en` 100%；`zh-Hans` ≈97%+；系统分类/账户展示层本地化 |
 | 静默错误 | 🟠 关键保存/导出已 Alert；附件等路径仍有 `try?` |
 | 货币硬编码 | 🟢 `CurrencyFormatter` 统一；Dashboard/Analytics/支付历史已替换 |
 | App Icon | 🟠 源文件为 1024×1024 JPEG、无 alpha；Asset Catalog 编译成功 |
@@ -167,17 +167,15 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 - ✅ 设置页可选默认币种；新建账单写入 `defaultCurrency`
 - 分析页仍按金额直接相加（多币种汇率汇总属 Sprint 外增强）
 
-### 2.4 本地化严重不完整 — 🔴 仍存在
+### 2.4 本地化严重不完整 — 🟢 已解决
 
-- `Localizable.xcstrings` 共 **148** 个 key
-- 含 `zh-Hans` **24（16.2%）**；含显式 `en` **2（1.4%）**；大量仅 source（英文字面量）
-- 工具栏 `"Cancel"` / `"Save"` / `"Delete"` 等硬编码未走 `NSLocalizedString`
-- 种子分类/账户/示例账单全是英文固定名
+**修复**
+- `Localizable.xcstrings` 全量补齐显式 `en`；`zh-Hans` 覆盖率约 97%+（剩余多为符号/版本占位）
+- 工具栏 Cancel/Save/Delete 等已走 `L10n.s`
+- 系统分类/默认账户 UI 用 `localizedDisplayName`；示例账单按当前语言写入名称
+- 设置页版本号改为从 Bundle 读取
 
-**方案**：
-1. 全量补齐 en + zh-Hans
-2. 硬编码按钮改 `String(localized:)`
-3. 种子数据按 `Locale.current.language` 写入中/英默认名，或用本地化 key 映射展示层
+---
 
 ### 2.5 设置项“幽灵配置” — 🟢 已解决
 
@@ -365,7 +363,7 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 3. Privacy Manifest + Icon PNG
 
 ### Sprint D — 打磨（持续）
-1. 完整中英本地化
+1. ✅ 完整中英本地化（系统分类展示层 + 目录全量 en/zh-Hans）
 2. 单测 + 关键 UI 测
 3. iPad 双栏、无障碍、Widget
 
@@ -373,7 +371,7 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 
 ## 7. 验收标准（Definition of Done 建议）
 
-- [ ] 冷启动后可在中文系统下看到完整中文 UI（无大面积英文残留）
+- [x] 冷启动后可在中文系统下看到完整中文 UI（无大面积英文残留）
 - [ ] 关闭通知权限时有明确引导；开启后到期前提醒可测
 - [ ] 月付账单连续标记 3 次支付，下期提醒仍存在且 dueDate 正确
 - [ ] 月末账单 `1/31` 连续展期不漂移；跨多期逾期与撤销支付行为符合产品定义

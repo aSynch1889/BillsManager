@@ -1,7 +1,16 @@
 {
   "sourceLanguage": "en",
   "strings": {
-    "%@": {},
+    "%@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@"
+          }
+        }
+      }
+    },
     "%@ (%@) is due in %d days.": {
       "extractionState": "stale",
       "localizations": {
@@ -108,11 +117,35 @@
             "state": "translated",
             "value": "%d 天前"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d days before"
+          }
         }
       }
     },
-    "•": {},
-    "•••• %@": {},
+    "•": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "•"
+          }
+        }
+      }
+    },
+    "•••• %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "•••• %@"
+          }
+        }
+      }
+    },
     "1 day before": {
       "extractionState": "stale",
       "localizations": {
@@ -139,10 +172,25 @@
             "state": "translated",
             "value": "1 天前"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 day before"
+          }
         }
       }
     },
-    "1.0.0 (Build 1)": {},
+    "1.0.0 (Build 1)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1.0.0 (Build 1)"
+          }
+        }
+      }
+    },
     "2 days before": {
       "extractionState": "stale",
       "localizations": {
@@ -168,6 +216,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "2 天前"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2 days before"
           }
         }
       }
@@ -198,6 +252,12 @@
             "state": "translated",
             "value": "3 天前"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3 days before"
+          }
         }
       }
     },
@@ -226,6 +286,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "3 個月"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3 Months"
           }
         }
       }
@@ -256,6 +322,12 @@
             "state": "translated",
             "value": "7 天前"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 days before"
+          }
         }
       }
     },
@@ -284,6 +356,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "100% 本地儲存，受 Face ID 保護。可隨時將資料匯出為 CSV 或 JSON 備份。"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "100% local storage protected with Face ID. Export data to CSV or JSON backup anytime."
           }
         }
       }
@@ -314,6 +392,12 @@
             "state": "translated",
             "value": "關於"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "About"
+          }
         }
       }
     },
@@ -342,6 +426,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "帳戶"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account"
           }
         }
       }
@@ -372,6 +462,12 @@
             "state": "translated",
             "value": "帳戶資訊"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account Info"
+          }
         }
       }
     },
@@ -400,6 +496,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "帳戶名稱（例如 Chase Visa）"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account Name (e.g. Chase Visa)"
           }
         }
       }
@@ -430,6 +532,12 @@
             "state": "translated",
             "value": "即將到期"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Action Required Soon"
+          }
         }
       }
     },
@@ -458,6 +566,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "未結帳單數"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Active Bills"
           }
         }
       }
@@ -488,6 +602,12 @@
             "state": "translated",
             "value": "無廣告體驗"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ad-Free Experience"
+          }
         }
       }
     },
@@ -516,6 +636,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "無廣告、無限分類、資料備份"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ad-free, unlimited categories, data backup"
           }
         }
       }
@@ -546,6 +672,12 @@
             "state": "translated",
             "value": "新增帳戶"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Account"
+          }
         }
       }
     },
@@ -574,6 +706,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "新增帳單"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Bill"
           }
         }
       }
@@ -604,6 +742,12 @@
             "state": "translated",
             "value": "新增帳單以查看分類支出圖表。"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add bills to view category spending charts."
+          }
         }
       }
     },
@@ -632,6 +776,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "新增分類"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Category"
           }
         }
       }
@@ -662,6 +812,12 @@
             "state": "translated",
             "value": "進階分析"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Advanced Analytics"
+          }
         }
       }
     },
@@ -690,6 +846,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "全部"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All"
           }
         }
       }
@@ -720,6 +882,12 @@
             "state": "translated",
             "value": "所有帳單均已付清！"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All bills are paid up!"
+          }
         }
       }
     },
@@ -748,6 +916,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "全部分類"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All Categories"
           }
         }
       }
@@ -778,6 +952,12 @@
             "state": "translated",
             "value": "解鎖全部進階功能"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All premium features unlocked"
+          }
         }
       }
     },
@@ -806,6 +986,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "全部時間"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All Time"
           }
         }
       }
@@ -836,6 +1022,12 @@
             "state": "translated",
             "value": "金額"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Amount"
+          }
         }
       }
     },
@@ -864,6 +1056,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "已付金額"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Amount Paid"
           }
         }
       }
@@ -894,6 +1092,12 @@
             "state": "translated",
             "value": "資料分析"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analytics"
+          }
         }
       }
     },
@@ -922,6 +1126,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "應用程式版本"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App Version"
           }
         }
       }
@@ -952,6 +1162,12 @@
             "state": "translated",
             "value": "確定要刪除此帳單嗎？"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Are you sure you want to delete this bill?"
+          }
         }
       }
     },
@@ -980,6 +1196,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "附加收據 / 發票"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attach Receipt / Invoice"
           }
         }
       }
@@ -1010,6 +1232,12 @@
             "state": "translated",
             "value": "附件 / 收據"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attachment / Receipt"
+          }
         }
       }
     },
@@ -1039,6 +1267,12 @@
             "state": "translated",
             "value": "需要通過身分驗證才能存取您的財務資料。"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Authentication is required to access your financial data."
+          }
         }
       }
     },
@@ -1067,6 +1301,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "自動扣款"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auto-Pay"
           }
         }
       }
@@ -1195,6 +1435,12 @@
             "state": "translated",
             "value": "每兩週"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bi-weekly"
+          }
         }
       }
     },
@@ -1223,6 +1469,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "帳單詳情"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bill Details"
           }
         }
       }
@@ -1253,6 +1505,12 @@
             "state": "translated",
             "value": "帳單到期提醒"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bill Due Reminder"
+          }
         }
       }
     },
@@ -1281,6 +1539,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "帳單名稱（例如電費）"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bill Name (e.g. Electric Bill)"
           }
         }
       }
@@ -1311,6 +1575,12 @@
             "state": "translated",
             "value": "帳單概覽"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bill Overview"
+          }
         }
       }
     },
@@ -1339,6 +1609,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "帳單列表"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bills"
           }
         }
       }
@@ -1369,6 +1645,12 @@
             "state": "translated",
             "value": "%@ 到期的帳單"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bills Due on %@"
+          }
         }
       }
     },
@@ -1397,6 +1679,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Bills Manager 已鎖定"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bills Manager Locked"
           }
         }
       }
@@ -1427,6 +1715,12 @@
             "state": "translated",
             "value": "Bills Manager 專業版"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bills Manager PRO"
+          }
         }
       }
     },
@@ -1455,6 +1749,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "生物辨識或密碼無法使用。"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Biometrics or passcode unavailable."
           }
         }
       }
@@ -1485,6 +1785,12 @@
             "state": "translated",
             "value": "日曆"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendar"
+          }
         }
       }
     },
@@ -1513,6 +1819,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "取消"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
           }
         }
       }
@@ -1543,6 +1855,12 @@
             "state": "translated",
             "value": "分類管理"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Categories"
+          }
         }
       }
     },
@@ -1571,6 +1889,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "分類"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Category"
           }
         }
       }
@@ -1601,6 +1925,12 @@
             "state": "translated",
             "value": "分類與支付帳戶"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Category & Payment Account"
+          }
         }
       }
     },
@@ -1629,6 +1959,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "分類資訊"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Category Info"
           }
         }
       }
@@ -1659,6 +1995,12 @@
             "state": "translated",
             "value": "分類名稱"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Category Name"
+          }
         }
       }
     },
@@ -1687,6 +2029,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "更改附件"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Change Attachment"
           }
         }
       }
@@ -1717,6 +2065,12 @@
             "state": "translated",
             "value": "顏色"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Color"
+          }
         }
       }
     },
@@ -1745,6 +2099,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "確認"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confirm"
           }
         }
       }
@@ -1775,6 +2135,12 @@
             "state": "translated",
             "value": "確認號"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confirmation #"
+          }
         }
       }
     },
@@ -1803,6 +2169,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "使用 %@ 繼續"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue with %@"
           }
         }
       }
@@ -1833,6 +2205,12 @@
             "state": "translated",
             "value": "建立 JSON 完整備份"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create JSON Backup"
+          }
         }
       }
     },
@@ -1861,6 +2239,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "建立無限自訂支出分類"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create unlimited custom expense categories"
           }
         }
       }
@@ -1891,6 +2275,12 @@
             "state": "translated",
             "value": "CSV 匯出與 JSON 備份"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CSV Export & JSON Backup"
+          }
         }
       }
     },
@@ -1919,6 +2309,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "每天"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daily"
           }
         }
       }
@@ -1949,6 +2345,12 @@
             "state": "translated",
             "value": "儀表板"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dashboard"
+          }
         }
       }
     },
@@ -1977,6 +2379,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "預設"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Default"
           }
         }
       }
@@ -2007,6 +2415,12 @@
             "state": "translated",
             "value": "刪除"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete"
+          }
         }
       }
     },
@@ -2035,6 +2449,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "刪除帳單"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete Bill"
           }
         }
       }
@@ -2065,6 +2485,12 @@
             "state": "translated",
             "value": "詳細分類明細與趨勢報告"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detailed category breakdown & trend reports"
+          }
         }
       }
     },
@@ -2093,6 +2519,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "已關閉"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disabled"
           }
         }
       }
@@ -2123,6 +2555,12 @@
             "state": "translated",
             "value": "到期日"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Due Date"
+          }
         }
       }
     },
@@ -2151,6 +2589,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "即將到期"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Due Soon"
           }
         }
       }
@@ -2181,6 +2625,12 @@
             "state": "translated",
             "value": "本月應付"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Due This Month"
+          }
         }
       }
     },
@@ -2209,6 +2659,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "今日到期"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Due Today"
           }
         }
       }
@@ -2239,6 +2695,12 @@
             "state": "translated",
             "value": "編輯"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit"
+          }
         }
       }
     },
@@ -2267,6 +2729,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "編輯帳單"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit Bill"
           }
         }
       }
@@ -2297,6 +2765,12 @@
             "state": "translated",
             "value": "已開啟"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enabled"
+          }
         }
       }
     },
@@ -2325,6 +2799,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "每兩個月"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Every 2 Months"
           }
         }
       }
@@ -2355,6 +2835,12 @@
             "state": "translated",
             "value": "按分類支出"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Expense by Category"
+          }
         }
       }
     },
@@ -2383,6 +2869,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "匯出與備份"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Export & Backup"
           }
         }
       }
@@ -2413,6 +2905,12 @@
             "state": "translated",
             "value": "匯出所有帳單記錄為 CSV 或備份資料庫"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Export all bill records to CSV or backup database"
+          }
         }
       }
     },
@@ -2441,6 +2939,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "匯出為 CSV 表格"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Export to CSV"
           }
         }
       }
@@ -2471,6 +2975,12 @@
             "state": "translated",
             "value": "面容 ID / 觸控 ID 安全"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Face ID / Touch ID Security"
+          }
         }
       }
     },
@@ -2499,6 +3009,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "篩選"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Filter"
           }
         }
       }
@@ -2529,6 +3045,12 @@
             "state": "translated",
             "value": "跟隨系統"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Follow System"
+          }
         }
       }
     },
@@ -2557,6 +3079,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "頻率"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frequency"
           }
         }
       }
@@ -2587,6 +3115,12 @@
             "state": "translated",
             "value": "開始使用"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Get Started"
+          }
         }
       }
     },
@@ -2616,10 +3150,31 @@
             "state": "translated",
             "value": "圖示"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Icon"
+          }
         }
       }
     },
-    "iOS 17.0+": {},
+    "iOS 17.0+": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOS 17.0+"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOS 17.0+"
+          }
+        }
+      }
+    },
     "Language": {
       "extractionState": "stale",
       "localizations": {
@@ -2645,6 +3200,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "語言"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Language"
           }
         }
       }
@@ -2675,6 +3236,12 @@
             "state": "translated",
             "value": "末四位數字（選填）"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Last 4 Digits (Optional)"
+          }
         }
       }
     },
@@ -2703,6 +3270,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "正在載入商品…"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loading Products..."
           }
         }
       }
@@ -2733,6 +3306,12 @@
             "state": "translated",
             "value": "使用 %@ 鎖定"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lock with %@"
+          }
         }
       }
     },
@@ -2761,6 +3340,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "管理資料"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manage Data"
           }
         }
       }
@@ -2791,6 +3376,12 @@
             "state": "translated",
             "value": "標記為已付"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mark as Paid"
+          }
         }
       }
     },
@@ -2819,6 +3410,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "標記為未付"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mark as Unpaid"
           }
         }
       }
@@ -2849,6 +3446,12 @@
             "state": "translated",
             "value": "最低 iOS 版本需求"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minimum iOS Required"
+          }
         }
       }
     },
@@ -2877,6 +3480,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "每月"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monthly"
           }
         }
       }
@@ -2907,6 +3516,12 @@
             "state": "translated",
             "value": "絕不錯過任何付款"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Never Miss a Payment"
+          }
         }
       }
     },
@@ -2935,6 +3550,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "新建帳單"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New Bill"
           }
         }
       }
@@ -2965,6 +3586,12 @@
             "state": "translated",
             "value": "下一步"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next"
+          }
         }
       }
     },
@@ -2993,6 +3620,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "暫無分析資料"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Analytics Data"
           }
         }
       }
@@ -3023,6 +3656,12 @@
             "state": "translated",
             "value": "此日期沒有安排帳單付款。"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No bill payments scheduled for this date."
+          }
         }
       }
     },
@@ -3051,6 +3690,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "沒有到期帳單"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Bills Due"
           }
         }
       }
@@ -3081,6 +3726,12 @@
             "state": "translated",
             "value": "未找到帳單"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Bills Found"
+          }
         }
       }
     },
@@ -3109,6 +3760,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "無"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "None"
           }
         }
       }
@@ -3139,6 +3796,12 @@
             "state": "translated",
             "value": "備註"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notes"
+          }
         }
       }
     },
@@ -3167,6 +3830,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "備註 / 帳號…"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notes / Account numbers..."
           }
         }
       }
@@ -3197,6 +3866,12 @@
             "state": "translated",
             "value": "備註與附件"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notes & Attachments"
+          }
         }
       }
     },
@@ -3225,6 +3900,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "到期當天"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On due date"
           }
         }
       }
@@ -3255,6 +3936,12 @@
             "state": "translated",
             "value": "一次性"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "One-time"
+          }
         }
       }
     },
@@ -3283,6 +3970,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "選填代碼"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Optional code"
           }
         }
       }
@@ -3313,6 +4006,12 @@
             "state": "translated",
             "value": "在統一的地方管理水電費、訂閱、房租和信用卡還款，並自動記錄週期性日期。"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Organize utilities, subscriptions, rent, and card payments in one unified place with automatic recurring dates."
+          }
         }
       }
     },
@@ -3341,6 +4040,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "已逾期"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overdue"
           }
         }
       }
@@ -3371,6 +4076,12 @@
             "state": "translated",
             "value": "逾期金額"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overdue Amount"
+          }
         }
       }
     },
@@ -3399,6 +4110,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "逾期帳單（%d）"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overdue Bills (%d)"
           }
         }
       }
@@ -3429,6 +4146,12 @@
             "state": "translated",
             "value": "已支付"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paid"
+          }
         }
       }
     },
@@ -3457,6 +4180,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "已付 / 未付"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paid / Unpaid"
           }
         }
       }
@@ -3487,6 +4216,12 @@
             "state": "translated",
             "value": "本月已付"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paid This Month"
+          }
         }
       }
     },
@@ -3515,6 +4250,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "密碼"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passcode"
           }
         }
       }
@@ -3545,6 +4286,12 @@
             "state": "translated",
             "value": "付款"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pay"
+          }
         }
       }
     },
@@ -3573,6 +4320,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "支付帳戶"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payment Account"
           }
         }
       }
@@ -3603,6 +4356,12 @@
             "state": "translated",
             "value": "支付帳戶"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payment Accounts"
+          }
         }
       }
     },
@@ -3631,6 +4390,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "付款記錄"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payment History"
           }
         }
       }
@@ -3661,6 +4426,12 @@
             "state": "translated",
             "value": "付款記錄"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payment Record"
+          }
         }
       }
     },
@@ -3689,6 +4460,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "購買確認後，款項將從您的 Apple ID 帳戶扣款。"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payment will be charged to your Apple ID account at confirmation of purchase."
           }
         }
       }
@@ -3719,6 +4496,12 @@
             "state": "translated",
             "value": "隱私與專業工具"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacy & Professional Tools"
+          }
         }
       }
     },
@@ -3747,6 +4530,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "PRO 版已啟用"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PRO Version Active"
           }
         }
       }
@@ -3777,6 +4566,12 @@
             "state": "translated",
             "value": "每季度"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quarterly"
+          }
         }
       }
     },
@@ -3805,6 +4600,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "範圍"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Range"
           }
         }
       }
@@ -3835,6 +4636,12 @@
             "state": "translated",
             "value": "在到期日之前收到及時的本機通知，並查看可互動的月曆指示點。"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Receive timely local notifications before due dates and view interactive monthly calendar indicator dots."
+          }
         }
       }
     },
@@ -3863,6 +4670,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "週期性與自動扣款"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recurring & Auto-Pay"
           }
         }
       }
@@ -3893,6 +4706,12 @@
             "state": "translated",
             "value": "參考號：%@"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ref: %@"
+          }
         }
       }
     },
@@ -3921,6 +4740,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "提醒我"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remind Me"
           }
         }
       }
@@ -3951,6 +4776,12 @@
             "state": "translated",
             "value": "提醒"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reminder"
+          }
         }
       }
     },
@@ -3979,6 +4810,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "提醒時間"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reminder Time"
           }
         }
       }
@@ -4009,6 +4846,12 @@
             "state": "translated",
             "value": "提醒與通知"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reminders & Notifications"
+          }
         }
       }
     },
@@ -4037,6 +4880,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "重複頻率"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repeat Frequency"
           }
         }
       }
@@ -4067,6 +4916,12 @@
             "state": "translated",
             "value": "重複截止"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repeat Until"
+          }
         }
       }
     },
@@ -4095,6 +4950,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "恢復購買"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore Purchases"
           }
         }
       }
@@ -4125,6 +4986,12 @@
             "state": "translated",
             "value": "儲存"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save"
+          }
         }
       }
     },
@@ -4153,6 +5020,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "搜尋帳單…"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search bills..."
           }
         }
       }
@@ -4183,6 +5056,12 @@
             "state": "translated",
             "value": "用生物識別鎖定保護敏感帳單資料"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Secure sensitive bill data with biometric lock"
+          }
         }
       }
     },
@@ -4211,6 +5090,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "安全與隱私"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Security & Privacy"
           }
         }
       }
@@ -4241,6 +5126,12 @@
             "state": "translated",
             "value": "選擇圖示"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select Icon"
+          }
         }
       }
     },
@@ -4269,6 +5160,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "每半年"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semi-annually"
           }
         }
       }
@@ -4299,6 +5196,12 @@
             "state": "translated",
             "value": "設定結束日期"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Set End Date"
+          }
         }
       }
     },
@@ -4327,6 +5230,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "設定"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings"
           }
         }
       }
@@ -4357,6 +5266,12 @@
             "state": "translated",
             "value": "略過"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skip"
+          }
         }
       }
     },
@@ -4385,6 +5300,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "智慧帳單追蹤與提醒"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Smart Bill Tracker & Reminder"
           }
         }
       }
@@ -4415,6 +5336,12 @@
             "state": "translated",
             "value": "點按「+」建立你的第一張帳單，或更改搜尋篩選條件。"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap '+' to create your first bill or change your search filter."
+          }
         }
       }
     },
@@ -4443,6 +5370,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "本月"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This Month"
           }
         }
       }
@@ -4473,6 +5406,12 @@
             "state": "translated",
             "value": "今年"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This Year"
+          }
         }
       }
     },
@@ -4501,6 +5440,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "帳單總數"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total Bills"
           }
         }
       }
@@ -4531,6 +5476,12 @@
             "state": "translated",
             "value": "逾期總額：$%.2f"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total overdue: $%.2f"
+          }
         }
       }
     },
@@ -4559,6 +5510,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "輕鬆管理帳單"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Track Bills Effortlessly"
           }
         }
       }
@@ -4589,6 +5546,12 @@
             "state": "translated",
             "value": "未分類"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uncategorized"
+          }
         }
       }
     },
@@ -4617,6 +5580,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "無限分類與帳戶"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlimited Categories & Accounts"
           }
         }
       }
@@ -4647,6 +5616,12 @@
             "state": "translated",
             "value": "解鎖 Bills Manager 以查看財務資料。"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock Bills Manager to view financial data."
+          }
         }
       }
     },
@@ -4675,6 +5650,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "解鎖完整的財務追蹤功能與無廣告體驗"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock full financial tracking potential & ad-free experience"
           }
         }
       }
@@ -4705,6 +5686,12 @@
             "state": "translated",
             "value": "使用 %@ 解鎖"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock with %@"
+          }
         }
       }
     },
@@ -4733,6 +5720,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "未支付"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unpaid"
           }
         }
       }
@@ -4763,6 +5756,12 @@
             "state": "translated",
             "value": "標記未付"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unpay"
+          }
         }
       }
     },
@@ -4791,6 +5790,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "近期"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Upcoming"
           }
         }
       }
@@ -4821,6 +5826,12 @@
             "state": "translated",
             "value": "近期帳單"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Upcoming Bills"
+          }
         }
       }
     },
@@ -4849,6 +5860,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "升級為 PRO 專業版"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Upgrade to PRO"
           }
         }
       }
@@ -4879,6 +5896,12 @@
             "state": "translated",
             "value": "每週"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weekly"
+          }
         }
       }
     },
@@ -4908,6 +5931,12 @@
             "state": "translated",
             "value": "每年"
           }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yearly"
+          }
         }
       }
     },
@@ -4936,6 +5965,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "零橫幅與彈窗廣告"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zero banner or popup advertisements"
           }
         }
       }
@@ -5016,6 +6051,422 @@
           "stringUnit": {
             "state": "translated",
             "value": "在此时间范围内添加未付账单后，可查看应付义务。"
+          }
+        }
+      }
+    },
+    "OK": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "好"
+          }
+        }
+      }
+    },
+    "Utilities": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Utilities"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "水电燃气"
+          }
+        }
+      }
+    },
+    "Housing": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Housing"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "住房"
+          }
+        }
+      }
+    },
+    "Subscriptions": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscriptions"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "订阅"
+          }
+        }
+      }
+    },
+    "Credit Card": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Credit Card"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "信用卡"
+          }
+        }
+      }
+    },
+    "Insurance": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Insurance"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保险"
+          }
+        }
+      }
+    },
+    "Loans": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loans"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "贷款"
+          }
+        }
+      }
+    },
+    "Personal": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personal"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "个人"
+          }
+        }
+      }
+    },
+    "Checking Account": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Checking Account"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "支票账户"
+          }
+        }
+      }
+    },
+    "Cash": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cash"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "现金"
+          }
+        }
+      }
+    },
+    "Electricity Bill": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Electricity Bill"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "电费账单"
+          }
+        }
+      }
+    },
+    "Apartment Rent": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apartment Rent"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "房租"
+          }
+        }
+      }
+    },
+    "Streaming Subscription": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Streaming Subscription"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "流媒体订阅"
+          }
+        }
+      }
+    },
+    "Authenticate to enable App Lock.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Authenticate to enable App Lock."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请验证身份以开启应用锁。"
+          }
+        }
+      }
+    },
+    "Authenticate to disable App Lock.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Authenticate to disable App Lock."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请验证身份以关闭应用锁。"
+          }
+        }
+      }
+    },
+    "Restore from JSON": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore from JSON"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从 JSON 恢复"
+          }
+        }
+      }
+    },
+    "Restore Backup": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore Backup"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢复备份"
+          }
+        }
+      }
+    },
+    "Merge with Existing Data": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Merge with Existing Data"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "与现有数据合并"
+          }
+        }
+      }
+    },
+    "Replace All Data": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Replace All Data"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "替换全部数据"
+          }
+        }
+      }
+    },
+    "Restore Complete": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore Complete"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢复完成"
+          }
+        }
+      }
+    },
+    "Backup from %@ — %d bills, %d categories, %d accounts. Choose merge or replace.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backup from %1$@ — %2$d bills, %3$d categories, %4$d accounts. Choose merge or replace."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "备份时间 %1$@ — %2$d 笔账单、%3$d 个分类、%4$d 个账户。请选择合并或覆盖。"
+          }
+        }
+      }
+    },
+    "Restored successfully. New items — categories: %d, accounts: %d, bills: %d.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restored successfully. New items — categories: %1$d, accounts: %2$d, bills: %3$d."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢复成功。新增 — 分类：%1$d，账户：%2$d，账单：%3$d。"
+          }
+        }
+      }
+    },
+    "Unsupported backup version: %d": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unsupported backup version: %d"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不支持的备份版本：%d"
+          }
+        }
+      }
+    },
+    "This backup file has no data.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This backup file has no data."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此备份文件没有数据。"
+          }
+        }
+      }
+    },
+    "Couldn't read the backup file. Please try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't read the backup file. Please try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法读取备份文件，请重试。"
+          }
+        }
+      }
+    },
+    "Couldn't restore from backup. Please try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't restore from backup. Please try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法从备份恢复，请重试。"
           }
         }
       }

@@ -26,6 +26,15 @@ final class Account {
     var color: Color {
         Color(hex: hexColor) ?? .blue
     }
+
+    /// Default seed accounts keep English storage keys; UI resolves via L10n.
+    var localizedDisplayName: String {
+        Self.defaultEnglishNames.contains(name) ? L10n.s(name) : name
+    }
+
+    private static let defaultEnglishNames: Set<String> = [
+        "Checking Account", "Credit Card", "Cash"
+    ]
 }
 
 extension Account {

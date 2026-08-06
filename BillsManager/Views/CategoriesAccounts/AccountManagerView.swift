@@ -36,7 +36,7 @@ struct AccountManagerView: View {
                     }
 
                     VStack(alignment: .leading, spacing: 2) {
-                        Text(account.name)
+                        Text(account.localizedDisplayName)
                             .font(.body.weight(.medium))
                         if let last4 = account.accountNumberLast4, !last4.isEmpty {
                             Text("•••• \(last4)")

@@ -211,14 +211,14 @@ struct SettingsView: View {
                 HStack {
                     Text(L10n.s("App Version"))
                     Spacer()
-                    Text("1.0.0 (Build 1)")
+                    Text(appVersionLabel)
                         .foregroundStyle(.secondary)
                 }
                 
                 HStack {
                     Text(L10n.s("Minimum iOS Required"))
                     Spacer()
-                    Text("iOS 17.0+")
+                    Text(L10n.s("iOS 17.0+"))
                         .foregroundStyle(.secondary)
                 }
 
@@ -298,6 +298,12 @@ struct SettingsView: View {
             sampleBillCount = SampleDataSeeder.sampleCount(in: modelContext)
         }
         .persistenceAlert($persistenceError)
+    }
+
+    private var appVersionLabel: String {
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
+        let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "—"
+        return "\(version) (\(build))"
     }
 
     @MainActor

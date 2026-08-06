@@ -38,7 +38,7 @@ struct BillRowView: View {
                         .font(.caption)
                         .foregroundStyle(bill.statusColor)
                     
-                    if let categoryName = bill.category?.name {
+                    if let categoryName = bill.category?.localizedDisplayName {
                         Text("•")
                             .font(.caption)
                             .foregroundStyle(.secondary)

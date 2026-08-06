@@ -24,6 +24,11 @@ final class Category {
     var color: Color {
         Color(hex: hexColor) ?? .blue
     }
+
+    /// System seed categories keep English storage keys; UI resolves via L10n.
+    var localizedDisplayName: String {
+        isSystem ? L10n.s(name) : name
+    }
 }
 
 extension Category {

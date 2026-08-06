@@ -97,7 +97,7 @@ struct AnalyticsView: View {
         switch metricMode {
         case .paid:
             let grouped = Dictionary(grouping: paidRecordsInRange) {
-                $0.bill.category?.name ?? L10n.s("Uncategorized")
+                $0.bill.category?.localizedDisplayName ?? L10n.s("Uncategorized")
             }
             return grouped.map { name, items in
                 let total = items.reduce(0) { $0 + $1.record.amountPaid }
@@ -107,7 +107,7 @@ struct AnalyticsView: View {
 
         case .due:
             let grouped = Dictionary(grouping: dueUnpaidBills) {
-                $0.category?.name ?? L10n.s("Uncategorized")
+                $0.category?.localizedDisplayName ?? L10n.s("Uncategorized")
             }
             return grouped.map { name, bills in
                 let total = bills.reduce(0) { $0 + $1.amount }
