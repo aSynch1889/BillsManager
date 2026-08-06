@@ -179,6 +179,7 @@ struct BillDetailView: View {
         .background(Color(.systemGroupedBackground))
         .navigationTitle(L10n.s("Bill Details"))
         .navigationBarTitleDisplayMode(.inline)
+        .hidesTabBarWhenPushed()
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Menu {

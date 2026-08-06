@@ -64,6 +64,7 @@ struct AccountManagerView: View {
             }
         }
         .navigationTitle(L10n.s("Payment Accounts"))
+        .hidesTabBarWhenPushed()
         .confirmationDialog(
             deleteAccountTitle,
             isPresented: Binding(

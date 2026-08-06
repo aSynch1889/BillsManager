@@ -46,6 +46,7 @@
 		01010030 /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020030 /* AppLanguage.swift */; };
 		01010031 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020031 /* LanguageManager.swift */; };
 		01010032 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020032 /* L10n.swift */; };
+		0101003E /* View+TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102003E /* View+TabBar.swift */; };
 		01010033 /* RootContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020033 /* RootContentView.swift */; };
 		01010034 /* LanguageSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020034 /* LanguageSelectionView.swift */; };
 		01010035 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020035 /* CurrencyFormatter.swift */; };
@@ -98,6 +99,7 @@
 		01020030 /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
 		01020031 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		01020032 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		0102003E /* View+TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+TabBar.swift"; sourceTree = "<group>"; };
 		01020033 /* RootContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContentView.swift; sourceTree = "<group>"; };
 		01020034 /* LanguageSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionView.swift; sourceTree = "<group>"; };
 		01020035 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				01020030 /* AppLanguage.swift */,
 				01020031 /* LanguageManager.swift */,
 				01020032 /* L10n.swift */,
+				0102003E /* View+TabBar.swift */,
 				01020035 /* CurrencyFormatter.swift */,
 				01020036 /* SampleDataSeeder.swift */,
 				01020037 /* Persistence.swift */,
@@ -358,6 +361,7 @@
 				01010030 /* AppLanguage.swift in Sources */,
 				01010031 /* LanguageManager.swift in Sources */,
 				01010032 /* L10n.swift in Sources */,
+				0101003E /* View+TabBar.swift in Sources */,
 				01010033 /* RootContentView.swift in Sources */,
 				01010034 /* LanguageSelectionView.swift in Sources */,
 				01010035 /* CurrencyFormatter.swift in Sources */,

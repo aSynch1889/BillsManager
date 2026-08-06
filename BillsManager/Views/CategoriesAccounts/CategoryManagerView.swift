@@ -63,6 +63,7 @@ struct CategoryManagerView: View {
             }
         }
         .navigationTitle(L10n.s("Categories"))
+        .hidesTabBarWhenPushed()
         .confirmationDialog(
             deleteCategoryTitle,
             isPresented: Binding(

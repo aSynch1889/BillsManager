@@ -26,6 +26,7 @@ struct SettingsView: View {
 
     @State private var notificationStatusText: String = L10n.s("Checking…")
     @State private var notificationDenied: Bool = false
+    @State private var notificationAuthorized: Bool = false
     @State private var sampleBillCount: Int = 0
     @State private var persistenceError: String?
 
@@ -91,29 +92,7 @@ struct SettingsView: View {
                     Text(L10n.s("7 days before")).tag(7)
                 }
 
-                HStack {
-                    Label(L10n.s("Permission Status"), systemImage: "bell.badge")
-                    Spacer()
-                    Text(notificationStatusText)
-                        .foregroundStyle(.secondary)
-                }
-
-                if notificationDenied {
-                    Button {
-                        NotificationManager.shared.openSystemSettings()
-                    } label: {
-                        Label(L10n.s("Open System Settings"), systemImage: "gear")
-                    }
-                } else {
-                    Button {
-                        Task {
-                            _ = await NotificationManager.shared.requestAuthorization()
-                            await refreshNotificationStatus()
-                        }
-                    } label: {
-                        Label(L10n.s("Enable Reminders"), systemImage: "bell.fill")
-                    }
-                }
+                notificationPermissionRow
 
                 Toggle(isOn: Binding(
                     get: { authManager.isAppLockEnabled },
@@ -291,6 +270,42 @@ struct SettingsView: View {
         return "\(version) (\(build))"
     }
 
+    /// Single row: status when already on; tap to enable or open Settings otherwise.
+    @ViewBuilder
+    private var notificationPermissionRow: some View {
+        let label = Label(L10n.s("Notifications"), systemImage: "bell.badge")
+        if notificationAuthorized {
+            HStack {
+                label
+                Spacer()
+                Text(notificationStatusText)
+                    .foregroundStyle(.secondary)
+            }
+            .accessibilityElement(children: .combine)
+        } else {
+            Button {
+                if notificationDenied {
+                    NotificationManager.shared.openSystemSettings()
+                } else {
+                    Task {
+                        _ = await NotificationManager.shared.requestAuthorization()
+                        await refreshNotificationStatus()
+                    }
+                }
+            } label: {
+                HStack {
+                    label
+                    Spacer()
+                    Text(notificationDenied ? L10n.s("Open System Settings") : L10n.s("Enable Reminders"))
+                        .foregroundStyle(.secondary)
+                    Image(systemName: "chevron.right")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.tertiary)
+                }
+            }
+        }
+    }
+
     @MainActor
     private func refreshNotificationStatus() async {
         let status = await NotificationManager.shared.authorizationStatus()
@@ -298,15 +313,19 @@ struct SettingsView: View {
         case .authorized, .provisional, .ephemeral:
             notificationStatusText = L10n.s("Enabled")
             notificationDenied = false
+            notificationAuthorized = true
         case .denied:
             notificationStatusText = L10n.s("Denied")
             notificationDenied = true
+            notificationAuthorized = false
         case .notDetermined:
             notificationStatusText = L10n.s("Not Asked")
             notificationDenied = false
+            notificationAuthorized = false
         @unknown default:
             notificationStatusText = L10n.s("Unknown")
             notificationDenied = false
+            notificationAuthorized = false
         }
     }
     

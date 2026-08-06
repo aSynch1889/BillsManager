@@ -37,5 +37,6 @@ struct IconPickerView: View {
         }
         .navigationTitle(L10n.s("Select Icon"))
         .navigationBarTitleDisplayMode(.inline)
+        .hidesTabBarWhenPushed()
     }
 }
