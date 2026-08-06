@@ -41,8 +41,8 @@ struct PaywallView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     FeatureRow(icon: "folder.badge.plus", color: .purple, title: L10n.s("Unlimited Categories & Accounts"), subtitle: L10n.s("Create unlimited custom expense categories"))
                     FeatureRow(icon: "square.and.arrow.up.fill", color: .blue, title: L10n.s("CSV Export & JSON Backup"), subtitle: L10n.s("Export all bill records to CSV or backup database"))
-                    FeatureRow(icon: "lock.shield.fill", color: .green, title: L10n.s("Face ID / Touch ID Security"), subtitle: L10n.s("Secure sensitive bill data with biometric lock"))
-                    FeatureRow(icon: "chart.pie.fill", color: .orange, title: L10n.s("Advanced Analytics"), subtitle: L10n.s("Detailed category breakdown & trend reports"))
+                    FeatureRow(icon: "lock.shield.fill", color: .green, title: L10n.s("Face ID / Touch ID Security"), subtitle: L10n.s("Secure on-device bill data with biometric lock. Data stays on this device."))
+                    FeatureRow(icon: "chart.pie.fill", color: .orange, title: L10n.s("Advanced Analytics"), subtitle: L10n.s("Category breakdown with paid vs due metrics"))
                 }
                 .padding()
                 .background(Color(.secondarySystemGroupedBackground))

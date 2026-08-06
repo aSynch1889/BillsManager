@@ -6707,6 +6707,70 @@
           }
         }
       }
+    },
+    "Category breakdown with paid vs due metrics": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Category breakdown with paid vs due metrics"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分类占比，支持实付与应付口径"
+          }
+        }
+      }
+    },
+    "Secure on-device bill data with biometric lock. Data stays on this device.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Secure on-device bill data with biometric lock. Data stays on this device."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用生物识别锁定本机账单数据；数据仅保存在本设备。"
+          }
+        }
+      }
+    },
+    "Bills stay on this device. Optional Face ID lock (PRO). Export CSV or JSON backup anytime.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bills stay on this device. Optional Face ID lock (PRO). Export CSV or JSON backup anytime."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "账单仅保存在本机。可选 Face ID 锁（PRO）。随时导出 CSV 或 JSON 备份。"
+          }
+        }
+      }
+    },
+    "Data is stored only on this device. There is no iCloud sync.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data is stored only on this device. There is no iCloud sync."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "数据仅保存在本设备，不同步到 iCloud。"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

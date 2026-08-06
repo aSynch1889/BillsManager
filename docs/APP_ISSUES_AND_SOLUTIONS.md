@@ -285,17 +285,17 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 - ✅ 新增 `PrivacyInfo.xcprivacy`（无追踪；声明 UserDefaults / File Timestamp 合理用途）
 - README MIT / 商标名仍属人工确认项
 
-### 3.8 文案与功能夸大 — 🔴 仍存在
+### 3.8 文案与功能夸大 — 🟢 已解决
 
 | 宣称 | 实际 |
 | :--- | :--- |
 | Ad-free PRO | ✅ 文案已移除；应用内无广告 |
-| 100% local + Face ID | Face ID 已门控 PRO；本地存储属实 |
-| JSON 全量备份 | ✅ v2 含附件/支付历史；Settings 可合并或覆盖恢复 |
+| 100% local + Face ID | ✅ Onboarding 改为「本机存储 + 可选 PRO Face ID」 |
+| JSON 全量备份 | ✅ v2 含附件/支付历史；可恢复 |
 | 高斯模糊遮罩 | ✅ App Switcher / inactive 隐私模糊 |
-| 高级趋势对比 | 仅环形图分类占比 |
+| 高级趋势对比 | ✅ Paywall 改为「分类占比与实付/应付口径」，不再宣称趋势报告 |
 
-**方案**：改文案或补齐功能，避免 2.3.1 / 3.1 审核与用户预期落差。
+---
 
 ### 3.9 StoreKit 权益判定过宽 — 🟢 已解决
 

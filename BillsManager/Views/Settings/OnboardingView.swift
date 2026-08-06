@@ -30,7 +30,7 @@ struct OnboardingView: View {
         ),
         OnboardingItem(
             title: L10n.s("Privacy & Professional Tools"),
-            description: L10n.s("100% local storage protected with Face ID. Export data to CSV or JSON backup anytime."),
+            description: L10n.s("Bills stay on this device. Optional Face ID lock (PRO). Export CSV or JSON backup anytime."),
             iconName: "lock.shield.fill",
             gradientColors: [.emerald, .teal]
         )
