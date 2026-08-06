@@ -5,39 +5,34 @@ struct BillDetailView: View {
     let bill: Bill
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
-    
+
     @State private var showingEditSheet: Bool = false
     @State private var showingMarkPaidSheet: Bool = false
-    @State private var paidAmountText: String = ""
-    @State private var confirmationCodeText: String = ""
-    @State private var paidNotesText: String = ""
     @State private var showingDeleteConfirmation: Bool = false
     @State private var persistenceError: String?
-    
+
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                // Top Header Card
                 VStack(spacing: 12) {
                     ZStack {
                         Circle()
                             .fill(bill.category?.color ?? .blue)
                             .frame(width: 64, height: 64)
-                        
+
                         Image(systemName: bill.category?.iconName ?? "doc.text.fill")
                             .font(.title)
                             .foregroundStyle(.white)
                     }
-                    
+
                     Text(bill.name)
                         .font(.title2.bold())
                         .multilineTextAlignment(.center)
-                    
+
                     Text(bill.formattedAmount)
                         .font(.system(size: 36, weight: .bold, design: .rounded))
                         .foregroundStyle(.primary)
-                    
-                    // Status Badge
+
                     HStack(spacing: 6) {
                         Circle()
                             .fill(bill.statusColor)
@@ -55,13 +50,11 @@ struct BillDetailView: View {
                 .padding(.vertical, 24)
                 .background(Color(.secondarySystemGroupedBackground))
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                
-                // Primary Action Button
+
                 Button(action: {
                     if bill.isPaid {
                         undoLastPayment()
                     } else {
-                        paidAmountText = CurrencyFormatter.inputString(for: bill.amount)
                         showingMarkPaidSheet = true
                     }
                 }) {
@@ -77,7 +70,6 @@ struct BillDetailView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                 }
 
-                // Recurring bills stay unpaid after roll — expose undo when history exists.
                 if !bill.isPaid && bill.hasPaymentHistory {
                     Button(action: undoLastPayment) {
                         HStack {
@@ -92,8 +84,7 @@ struct BillDetailView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                     }
                 }
-                
-                // Bill Details Info Group
+
                 VStack(spacing: 16) {
                     DetailRow(title: L10n.s("Due Date"), value: formattedDate(bill.dueDate), icon: "calendar")
                     Divider()
@@ -114,8 +105,7 @@ struct BillDetailView: View {
                 .padding()
                 .background(Color(.secondarySystemGroupedBackground))
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                
-                // Notes Section
+
                 if let notes = bill.notes, !notes.isEmpty {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(L10n.s("Notes"))
@@ -129,8 +119,7 @@ struct BillDetailView: View {
                     .background(Color(.secondarySystemGroupedBackground))
                     .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                 }
-                
-                // Attachment Image Preview
+
                 if let imageData = bill.attachmentImageData, let uiImage = UIImage(data: imageData) {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(L10n.s("Attachment / Receipt"))
@@ -146,28 +135,37 @@ struct BillDetailView: View {
                     .background(Color(.secondarySystemGroupedBackground))
                     .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                 }
-                
-                // Payment History Log Section
+
                 if let history = bill.paymentHistory, !history.isEmpty {
                     VStack(alignment: .leading, spacing: 12) {
                         Text(L10n.s("Payment History"))
                             .font(.title3.bold())
-                        
+
                         ForEach(history.sorted(by: { $0.paidDate > $1.paidDate })) { record in
-                            HStack {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text(formattedDate(record.paidDate))
-                                        .font(.subheadline.bold())
-                                    if let code = record.confirmationCode, !code.isEmpty {
-                                        Text(String(format: L10n.s("Ref: %@"), code))
-                                            .font(.caption)
-                                            .foregroundStyle(.secondary)
+                            VStack(alignment: .leading, spacing: 8) {
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text(formattedDate(record.paidDate))
+                                            .font(.subheadline.bold())
+                                        if let code = record.confirmationCode, !code.isEmpty {
+                                            Text(String(format: L10n.s("Ref: %@"), code))
+                                                .font(.caption)
+                                                .foregroundStyle(.secondary)
+                                        }
                                     }
+                                    Spacer()
+                                    Text(CurrencyFormatter.string(amount: record.amountPaid, currencyCode: bill.currencyCode))
+                                        .font(.callout.bold())
+                                        .foregroundStyle(.green)
                                 }
-                                Spacer()
-                                Text(CurrencyFormatter.string(amount: record.amountPaid, currencyCode: bill.currencyCode))
-                                    .font(.callout.bold())
-                                    .foregroundStyle(.green)
+                                if let receipt = record.receiptImageData, let uiImage = UIImage(data: receipt) {
+                                    Image(uiImage: uiImage)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(maxHeight: 120)
+                                        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                                        .accessibilityLabel(L10n.s("Receipt Photo"))
+                                }
                             }
                             .padding()
                             .background(Color(.secondarySystemGroupedBackground))
@@ -201,51 +199,22 @@ struct BillDetailView: View {
             }
         }
         .sheet(isPresented: $showingMarkPaidSheet) {
-            NavigationStack {
-                Form {
-                    Section(L10n.s("Payment Record")) {
-                        HStack {
-                            Text(L10n.s("Amount Paid"))
-                            Spacer()
-                            TextField(L10n.s("Amount"), text: $paidAmountText)
-                                .keyboardType(.decimalPad)
-                                .multilineTextAlignment(.trailing)
-                        }
-                        
-                        HStack {
-                            Text(L10n.s("Confirmation #"))
-                            Spacer()
-                            TextField(L10n.s("Optional code"), text: $confirmationCodeText)
-                                .multilineTextAlignment(.trailing)
-                        }
+            MarkPaidSheet(
+                bill: bill,
+                onCancel: { showingMarkPaidSheet = false },
+                onConfirm: { amount, code, receipt in
+                    bill.markAsPaid(paidAmount: amount, confirmationCode: code, receiptData: receipt)
+                    if let message = Persistence.saveReturningMessage(modelContext) {
+                        persistenceError = message
+                        return
                     }
+                    NotificationManager.shared.applyPaidSideEffects(
+                        for: bill,
+                        overdueCount: overdueCount()
+                    )
+                    showingMarkPaidSheet = false
                 }
-                .navigationTitle(L10n.s("Mark as Paid"))
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button(L10n.s("Cancel")) { showingMarkPaidSheet = false }
-                    }
-                    ToolbarItem(placement: .confirmationAction) {
-                        Button(L10n.s("Confirm")) {
-                            guard let amount = CurrencyFormatter.parseAmount(paidAmountText) else { return }
-                            let code = confirmationCodeText.isEmpty ? nil : confirmationCodeText
-                            bill.markAsPaid(paidAmount: amount, confirmationCode: code)
-                            if let message = Persistence.saveReturningMessage(modelContext) {
-                                persistenceError = message
-                                return
-                            }
-                            NotificationManager.shared.applyPaidSideEffects(
-                                for: bill,
-                                overdueCount: overdueCount()
-                            )
-                            showingMarkPaidSheet = false
-                        }
-                        .disabled(CurrencyFormatter.parseAmount(paidAmountText) == nil)
-                    }
-                }
-            }
-            .presentationDetents([.medium])
+            )
         }
         .confirmationDialog(L10n.s("Are you sure you want to delete this bill?"), isPresented: $showingDeleteConfirmation, titleVisibility: .visible) {
             Button(L10n.s("Delete Bill"), role: .destructive) {
@@ -262,13 +231,13 @@ struct BillDetailView: View {
         }
         .persistenceAlert($persistenceError)
     }
-    
+
     private func formattedDate(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         return formatter.string(from: date)
     }
-    
+
     private func undoLastPayment() {
         withAnimation {
             if let record = bill.undoLastPayment() {
@@ -295,7 +264,7 @@ private struct DetailRow: View {
     let title: String
     let value: String
     let icon: String
-    
+
     var body: some View {
         HStack {
             Label(title, systemImage: icon)

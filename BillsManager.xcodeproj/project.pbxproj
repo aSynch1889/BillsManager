@@ -25,6 +25,7 @@
 		01010010 /* BillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020010 /* BillListView.swift */; };
 		01010011 /* BillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020011 /* BillDetailView.swift */; };
 		01010012 /* AddEditBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020012 /* AddEditBillView.swift */; };
+		0101003C /* MarkPaidSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102003C /* MarkPaidSheet.swift */; };
 		01010013 /* BillCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020013 /* BillCalendarView.swift */; };
 		01010014 /* CalendarGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020014 /* CalendarGridCell.swift */; };
 		01010015 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020015 /* AnalyticsView.swift */; };
@@ -73,6 +74,7 @@
 		01020010 /* BillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillListView.swift; sourceTree = "<group>"; };
 		01020011 /* BillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillDetailView.swift; sourceTree = "<group>"; };
 		01020012 /* AddEditBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditBillView.swift; sourceTree = "<group>"; };
+		0102003C /* MarkPaidSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkPaidSheet.swift; sourceTree = "<group>"; };
 		01020013 /* BillCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCalendarView.swift; sourceTree = "<group>"; };
 		01020014 /* CalendarGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridCell.swift; sourceTree = "<group>"; };
 		01020015 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				01020010 /* BillListView.swift */,
 				01020011 /* BillDetailView.swift */,
 				01020012 /* AddEditBillView.swift */,
+				0102003C /* MarkPaidSheet.swift */,
 			);
 			path = Bills;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				01010010 /* BillListView.swift in Sources */,
 				01010011 /* BillDetailView.swift in Sources */,
 				01010012 /* AddEditBillView.swift in Sources */,
+				0101003C /* MarkPaidSheet.swift in Sources */,
 				01010013 /* BillCalendarView.swift in Sources */,
 				01010014 /* CalendarGridCell.swift in Sources */,
 				01010015 /* AnalyticsView.swift in Sources */,

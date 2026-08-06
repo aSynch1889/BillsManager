@@ -46,16 +46,6 @@
         }
       }
     },
-    "%@ / %@": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "%1$@ / %2$@"
-          }
-        }
-      }
-    },
     "%@ is due today (%@)!": {
       "extractionState": "stale",
       "localizations": {
@@ -94,6 +84,12 @@
     "%d days before": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d days before"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -116,12 +112,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "%d 天前"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%d days before"
           }
         }
       }
@@ -149,6 +139,12 @@
     "1 day before": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 day before"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -172,16 +168,11 @@
             "state": "translated",
             "value": "1 天前"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "1 day before"
-          }
         }
       }
     },
     "1.0.0 (Build 1)": {
+      "extractionState": "stale",
       "localizations": {
         "en": {
           "stringUnit": {
@@ -194,6 +185,12 @@
     "2 days before": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2 days before"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -217,18 +214,18 @@
             "state": "translated",
             "value": "2 天前"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "2 days before"
-          }
         }
       }
     },
     "3 days before": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3 days before"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -252,18 +249,18 @@
             "state": "translated",
             "value": "3 天前"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "3 days before"
-          }
         }
       }
     },
     "3 Months": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3 Months"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -287,18 +284,18 @@
             "state": "translated",
             "value": "3 個月"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "3 Months"
-          }
         }
       }
     },
     "7 days before": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7 days before"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -322,18 +319,18 @@
             "state": "translated",
             "value": "7 天前"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "7 days before"
-          }
         }
       }
     },
     "100% local storage protected with Face ID. Export data to CSV or JSON backup anytime.": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "100% local storage protected with Face ID. Export data to CSV or JSON backup anytime."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -357,18 +354,18 @@
             "state": "translated",
             "value": "100% 本地儲存，受 Face ID 保護。可隨時將資料匯出為 CSV 或 JSON 備份。"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "100% local storage protected with Face ID. Export data to CSV or JSON backup anytime."
-          }
         }
       }
     },
     "About": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "About"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -392,18 +389,18 @@
             "state": "translated",
             "value": "關於"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "About"
-          }
         }
       }
     },
     "Account": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -427,18 +424,18 @@
             "state": "translated",
             "value": "帳戶"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Account"
-          }
         }
       }
     },
     "Account Info": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account Info"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -462,18 +459,18 @@
             "state": "translated",
             "value": "帳戶資訊"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Account Info"
-          }
         }
       }
     },
     "Account Name (e.g. Chase Visa)": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account Name (e.g. Chase Visa)"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -497,18 +494,18 @@
             "state": "translated",
             "value": "帳戶名稱（例如 Chase Visa）"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Account Name (e.g. Chase Visa)"
-          }
         }
       }
     },
     "Action Required Soon": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Action Required Soon"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -532,18 +529,18 @@
             "state": "translated",
             "value": "即將到期"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Action Required Soon"
-          }
         }
       }
     },
     "Active Bills": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Active Bills"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -567,18 +564,18 @@
             "state": "translated",
             "value": "未結帳單數"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Active Bills"
-          }
         }
       }
     },
     "Ad-Free Experience": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ad-Free Experience"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -602,18 +599,18 @@
             "state": "translated",
             "value": "無廣告體驗"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ad-Free Experience"
-          }
         }
       }
     },
     "Ad-free, unlimited categories, data backup": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ad-free, unlimited categories, data backup"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -637,18 +634,18 @@
             "state": "translated",
             "value": "無廣告、無限分類、資料備份"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ad-free, unlimited categories, data backup"
-          }
         }
       }
     },
     "Add Account": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Account"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -672,18 +669,18 @@
             "state": "translated",
             "value": "新增帳戶"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Add Account"
-          }
         }
       }
     },
     "Add Bill": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Bill"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -707,18 +704,18 @@
             "state": "translated",
             "value": "新增帳單"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Add Bill"
-          }
         }
       }
     },
     "Add bills to view category spending charts.": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add bills to view category spending charts."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -742,18 +739,18 @@
             "state": "translated",
             "value": "新增帳單以查看分類支出圖表。"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Add bills to view category spending charts."
-          }
         }
       }
     },
     "Add Category": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Category"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -777,11 +774,22 @@
             "state": "translated",
             "value": "新增分類"
           }
-        },
+        }
+      }
+    },
+    "Add unpaid bills with due dates in this range to see obligations.": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Add Category"
+            "value": "Add unpaid bills with due dates in this range to see obligations."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在此时间范围内添加未付账单后，可查看应付义务。"
           }
         }
       }
@@ -789,6 +797,12 @@
     "Advanced Analytics": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Advanced Analytics"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -812,18 +826,18 @@
             "state": "translated",
             "value": "進階分析"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Advanced Analytics"
-          }
         }
       }
     },
     "All": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -847,18 +861,18 @@
             "state": "translated",
             "value": "全部"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "All"
-          }
         }
       }
     },
     "All bills are paid up!": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All bills are paid up!"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -882,18 +896,18 @@
             "state": "translated",
             "value": "所有帳單均已付清！"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "All bills are paid up!"
-          }
         }
       }
     },
     "All Categories": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All Categories"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -917,18 +931,18 @@
             "state": "translated",
             "value": "全部分類"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "All Categories"
-          }
         }
       }
     },
     "All premium features unlocked": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All premium features unlocked"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -952,18 +966,18 @@
             "state": "translated",
             "value": "解鎖全部進階功能"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "All premium features unlocked"
-          }
         }
       }
     },
     "All Time": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All Time"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -987,18 +1001,18 @@
             "state": "translated",
             "value": "全部時間"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "All Time"
-          }
         }
       }
     },
     "Amount": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Amount"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1022,18 +1036,18 @@
             "state": "translated",
             "value": "金額"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Amount"
-          }
         }
       }
     },
     "Amount Paid": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Amount Paid"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1057,18 +1071,18 @@
             "state": "translated",
             "value": "已付金額"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Amount Paid"
-          }
         }
       }
     },
     "Analytics": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analytics"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1092,11 +1106,22 @@
             "state": "translated",
             "value": "資料分析"
           }
-        },
+        }
+      }
+    },
+    "Apartment Rent": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Analytics"
+            "value": "Apartment Rent"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "房租"
           }
         }
       }
@@ -1104,6 +1129,12 @@
     "App Version": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App Version"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1127,18 +1158,18 @@
             "state": "translated",
             "value": "應用程式版本"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "App Version"
-          }
         }
       }
     },
     "Are you sure you want to delete this bill?": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Are you sure you want to delete this bill?"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1162,18 +1193,18 @@
             "state": "translated",
             "value": "確定要刪除此帳單嗎？"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Are you sure you want to delete this bill?"
-          }
         }
       }
     },
     "Attach Receipt / Invoice": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attach Receipt / Invoice"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1197,18 +1228,18 @@
             "state": "translated",
             "value": "附加收據 / 發票"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Attach Receipt / Invoice"
-          }
         }
       }
     },
     "Attachment / Receipt": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attachment / Receipt"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1232,11 +1263,39 @@
             "state": "translated",
             "value": "附件 / 收據"
           }
-        },
+        }
+      }
+    },
+    "Authenticate to disable App Lock.": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Attachment / Receipt"
+            "value": "Authenticate to disable App Lock."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请验证身份以关闭应用锁。"
+          }
+        }
+      }
+    },
+    "Authenticate to enable App Lock.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Authenticate to enable App Lock."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请验证身份以开启应用锁。"
           }
         }
       }
@@ -1244,6 +1303,12 @@
     "Authentication is required to access your financial data.": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Authentication is required to access your financial data."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1267,18 +1332,18 @@
             "state": "translated",
             "value": "需要通過身分驗證才能存取您的財務資料。"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Authentication is required to access your financial data."
-          }
         }
       }
     },
     "Auto-Pay": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auto-Pay"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1302,109 +1367,22 @@
             "state": "translated",
             "value": "自動扣款"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Auto-Pay"
-          }
         }
       }
     },
-    "External Auto-Pay Mark": {
+    "Backup from %@ — %d bills, %d categories, %d accounts. Choose merge or replace.": {
+      "extractionState": "stale",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "External Auto-Pay Mark"
+            "value": "Backup from %1$@ — %2$d bills, %3$d categories, %4$d accounts. Choose merge or replace."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "外部自动扣款标记"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "外部自動扣款標記"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "外部自動引き落としマーク"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "외부 자동이체 표시"
-          }
-        }
-      }
-    },
-    "Marked": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Marked"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已标记"
-          }
-        }
-      }
-    },
-    "Not Marked": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Not Marked"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未标记"
-          }
-        }
-      }
-    },
-    "Marks bills you already set to auto-debit outside this app. Bills Manager never charges your accounts.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Marks bills you already set to auto-debit outside this app. Bills Manager never charges your accounts."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "用于标记你已在银行或其他渠道设置自动扣款的账单。本应用不会扣款或连接银行账户。"
-          }
-        }
-      }
-    },
-    "Recurring & External Auto-Pay": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recurring & External Auto-Pay"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "周期与外部自动扣款"
+            "value": "备份时间 %1$@ — %2$d 笔账单、%3$d 个分类、%4$d 个账户。请选择合并或覆盖。"
           }
         }
       }
@@ -1412,6 +1390,12 @@
     "Bi-weekly": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bi-weekly"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1435,18 +1419,18 @@
             "state": "translated",
             "value": "每兩週"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bi-weekly"
-          }
         }
       }
     },
     "Bill Details": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bill Details"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1470,18 +1454,18 @@
             "state": "translated",
             "value": "帳單詳情"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bill Details"
-          }
         }
       }
     },
     "Bill Due Reminder": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bill Due Reminder"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1505,18 +1489,18 @@
             "state": "translated",
             "value": "帳單到期提醒"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bill Due Reminder"
-          }
         }
       }
     },
     "Bill Name (e.g. Electric Bill)": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bill Name (e.g. Electric Bill)"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1540,18 +1524,18 @@
             "state": "translated",
             "value": "帳單名稱（例如電費）"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bill Name (e.g. Electric Bill)"
-          }
         }
       }
     },
     "Bill Overview": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bill Overview"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1575,18 +1559,18 @@
             "state": "translated",
             "value": "帳單概覽"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bill Overview"
-          }
         }
       }
     },
     "Bills": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bills"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1610,18 +1594,18 @@
             "state": "translated",
             "value": "帳單列表"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bills"
-          }
         }
       }
     },
     "Bills Due on %@": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bills Due on %@"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1645,18 +1629,19 @@
             "state": "translated",
             "value": "%@ 到期的帳單"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bills Due on %@"
-          }
         }
       }
     },
+    "Bills Manager": {},
     "Bills Manager Locked": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bills Manager Locked"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1680,18 +1665,18 @@
             "state": "translated",
             "value": "Bills Manager 已鎖定"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bills Manager Locked"
-          }
         }
       }
     },
     "Bills Manager PRO": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bills Manager PRO"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1715,18 +1700,18 @@
             "state": "translated",
             "value": "Bills Manager 專業版"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bills Manager PRO"
-          }
         }
       }
     },
     "Biometrics or passcode unavailable.": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Biometrics or passcode unavailable."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1750,18 +1735,18 @@
             "state": "translated",
             "value": "生物辨識或密碼無法使用。"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Biometrics or passcode unavailable."
-          }
         }
       }
     },
     "Calendar": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendar"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1785,18 +1770,18 @@
             "state": "translated",
             "value": "日曆"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Calendar"
-          }
         }
       }
     },
     "Cancel": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1820,11 +1805,22 @@
             "state": "translated",
             "value": "取消"
           }
-        },
+        }
+      }
+    },
+    "Cash": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Cancel"
+            "value": "Cash"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "现金"
           }
         }
       }
@@ -1832,6 +1828,12 @@
     "Categories": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Categories"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1855,18 +1857,18 @@
             "state": "translated",
             "value": "分類管理"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Categories"
-          }
         }
       }
     },
     "Category": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Category"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1890,18 +1892,18 @@
             "state": "translated",
             "value": "分類"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Category"
-          }
         }
       }
     },
     "Category & Payment Account": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Category & Payment Account"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1925,18 +1927,18 @@
             "state": "translated",
             "value": "分類與支付帳戶"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Category & Payment Account"
-          }
         }
       }
     },
     "Category Info": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Category Info"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1960,18 +1962,18 @@
             "state": "translated",
             "value": "分類資訊"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Category Info"
-          }
         }
       }
     },
     "Category Name": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Category Name"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -1995,18 +1997,18 @@
             "state": "translated",
             "value": "分類名稱"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Category Name"
-          }
         }
       }
     },
     "Change Attachment": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Change Attachment"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2030,11 +2032,39 @@
             "state": "translated",
             "value": "更改附件"
           }
-        },
+        }
+      }
+    },
+    "Chart Metric": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Change Attachment"
+            "value": "Chart Metric"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "图表口径"
+          }
+        }
+      }
+    },
+    "Checking Account": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Checking Account"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "支票账户"
           }
         }
       }
@@ -2042,6 +2072,12 @@
     "Color": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Color"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2065,18 +2101,18 @@
             "state": "translated",
             "value": "顏色"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Color"
-          }
         }
       }
     },
     "Confirm": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confirm"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2100,18 +2136,18 @@
             "state": "translated",
             "value": "確認"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confirm"
-          }
         }
       }
     },
     "Confirmation #": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confirmation #"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2135,18 +2171,18 @@
             "state": "translated",
             "value": "確認號"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confirmation #"
-          }
         }
       }
     },
     "Continue with %@": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue with %@"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2170,11 +2206,39 @@
             "state": "translated",
             "value": "使用 %@ 繼續"
           }
-        },
+        }
+      }
+    },
+    "Couldn't read the backup file. Please try again.": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Continue with %@"
+            "value": "Couldn't read the backup file. Please try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法读取备份文件，请重试。"
+          }
+        }
+      }
+    },
+    "Couldn't restore from backup. Please try again.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't restore from backup. Please try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法从备份恢复，请重试。"
           }
         }
       }
@@ -2182,6 +2246,12 @@
     "Create JSON Backup": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create JSON Backup"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2205,18 +2275,18 @@
             "state": "translated",
             "value": "建立 JSON 完整備份"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Create JSON Backup"
-          }
         }
       }
     },
     "Create unlimited custom expense categories": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create unlimited custom expense categories"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2240,11 +2310,22 @@
             "state": "translated",
             "value": "建立無限自訂支出分類"
           }
-        },
+        }
+      }
+    },
+    "Credit Card": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Create unlimited custom expense categories"
+            "value": "Credit Card"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "信用卡"
           }
         }
       }
@@ -2252,6 +2333,12 @@
     "CSV Export & JSON Backup": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CSV Export & JSON Backup"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2275,18 +2362,18 @@
             "state": "translated",
             "value": "CSV 匯出與 JSON 備份"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "CSV Export & JSON Backup"
-          }
         }
       }
     },
     "Daily": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daily"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2310,18 +2397,18 @@
             "state": "translated",
             "value": "每天"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Daily"
-          }
         }
       }
     },
     "Dashboard": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dashboard"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2345,18 +2432,18 @@
             "state": "translated",
             "value": "儀表板"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dashboard"
-          }
         }
       }
     },
     "Default": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Default"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2380,18 +2467,18 @@
             "state": "translated",
             "value": "預設"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Default"
-          }
         }
       }
     },
     "Delete": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2415,18 +2502,18 @@
             "state": "translated",
             "value": "刪除"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Delete"
-          }
         }
       }
     },
     "Delete Bill": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete Bill"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2450,18 +2537,18 @@
             "state": "translated",
             "value": "刪除帳單"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Delete Bill"
-          }
         }
       }
     },
     "Detailed category breakdown & trend reports": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detailed category breakdown & trend reports"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2485,18 +2572,18 @@
             "state": "translated",
             "value": "詳細分類明細與趨勢報告"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Detailed category breakdown & trend reports"
-          }
         }
       }
     },
     "Disabled": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disabled"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2520,11 +2607,22 @@
             "state": "translated",
             "value": "已關閉"
           }
-        },
+        }
+      }
+    },
+    "Due (Unpaid)": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Disabled"
+            "value": "Due (Unpaid)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "应付（未付）"
           }
         }
       }
@@ -2532,6 +2630,12 @@
     "Due Date": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Due Date"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2555,18 +2659,18 @@
             "state": "translated",
             "value": "到期日"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Due Date"
-          }
         }
       }
     },
     "Due Soon": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Due Soon"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2590,18 +2694,18 @@
             "state": "translated",
             "value": "即將到期"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Due Soon"
-          }
         }
       }
     },
     "Due This Month": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Due This Month"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2625,18 +2729,18 @@
             "state": "translated",
             "value": "本月應付"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Due This Month"
-          }
         }
       }
     },
     "Due Today": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Due Today"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2660,18 +2764,18 @@
             "state": "translated",
             "value": "今日到期"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Due Today"
-          }
         }
       }
     },
     "Edit": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2695,18 +2799,18 @@
             "state": "translated",
             "value": "編輯"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Edit"
-          }
         }
       }
     },
     "Edit Bill": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit Bill"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2730,11 +2834,22 @@
             "state": "translated",
             "value": "編輯帳單"
           }
-        },
+        }
+      }
+    },
+    "Electricity Bill": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Edit Bill"
+            "value": "Electricity Bill"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "电费账单"
           }
         }
       }
@@ -2742,6 +2857,12 @@
     "Enabled": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enabled"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2765,18 +2886,18 @@
             "state": "translated",
             "value": "已開啟"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Enabled"
-          }
         }
       }
     },
     "Every 2 Months": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Every 2 Months"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2800,18 +2921,18 @@
             "state": "translated",
             "value": "每兩個月"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Every 2 Months"
-          }
         }
       }
     },
     "Expense by Category": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Expense by Category"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2835,18 +2956,18 @@
             "state": "translated",
             "value": "按分類支出"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Expense by Category"
-          }
         }
       }
     },
     "Export & Backup": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Export & Backup"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2870,18 +2991,18 @@
             "state": "translated",
             "value": "匯出與備份"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export & Backup"
-          }
         }
       }
     },
     "Export all bill records to CSV or backup database": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Export all bill records to CSV or backup database"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2905,18 +3026,18 @@
             "state": "translated",
             "value": "匯出所有帳單記錄為 CSV 或備份資料庫"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export all bill records to CSV or backup database"
-          }
         }
       }
     },
     "Export to CSV": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Export to CSV"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2940,11 +3061,40 @@
             "state": "translated",
             "value": "匯出為 CSV 表格"
           }
-        },
+        }
+      }
+    },
+    "External Auto-Pay Mark": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Export to CSV"
+            "value": "External Auto-Pay Mark"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "外部自動引き落としマーク"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "외부 자동이체 표시"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "外部自动扣款标记"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "外部自動扣款標記"
           }
         }
       }
@@ -2952,6 +3102,12 @@
     "Face ID / Touch ID Security": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Face ID / Touch ID Security"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -2975,18 +3131,18 @@
             "state": "translated",
             "value": "面容 ID / 觸控 ID 安全"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Face ID / Touch ID Security"
-          }
         }
       }
     },
     "Filter": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Filter"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3010,18 +3166,18 @@
             "state": "translated",
             "value": "篩選"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filter"
-          }
         }
       }
     },
     "Follow System": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Follow System"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3045,18 +3201,18 @@
             "state": "translated",
             "value": "跟隨系統"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Follow System"
-          }
         }
       }
     },
     "Frequency": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frequency"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3080,18 +3236,18 @@
             "state": "translated",
             "value": "頻率"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Frequency"
-          }
         }
       }
     },
     "Get Started": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Get Started"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3115,11 +3271,22 @@
             "state": "translated",
             "value": "開始使用"
           }
-        },
+        }
+      }
+    },
+    "Housing": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Get Started"
+            "value": "Housing"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "住房"
           }
         }
       }
@@ -3127,6 +3294,12 @@
     "Icon": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Icon"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3150,16 +3323,28 @@
             "state": "translated",
             "value": "圖示"
           }
-        },
+        }
+      }
+    },
+    "Insurance": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Icon"
+            "value": "Insurance"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保险"
           }
         }
       }
     },
     "iOS 17.0+": {
+      "extractionState": "stale",
       "localizations": {
         "en": {
           "stringUnit": {
@@ -3178,6 +3363,12 @@
     "Language": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Language"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3201,18 +3392,18 @@
             "state": "translated",
             "value": "語言"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Language"
-          }
         }
       }
     },
     "Last 4 Digits (Optional)": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Last 4 Digits (Optional)"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3236,18 +3427,18 @@
             "state": "translated",
             "value": "末四位數字（選填）"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Last 4 Digits (Optional)"
-          }
         }
       }
     },
     "Loading Products...": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loading Products..."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3271,11 +3462,22 @@
             "state": "translated",
             "value": "正在載入商品…"
           }
-        },
+        }
+      }
+    },
+    "Loans": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Loading Products..."
+            "value": "Loans"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "贷款"
           }
         }
       }
@@ -3283,6 +3485,12 @@
     "Lock with %@": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lock with %@"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3306,18 +3514,18 @@
             "state": "translated",
             "value": "使用 %@ 鎖定"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lock with %@"
-          }
         }
       }
     },
     "Manage Data": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manage Data"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3341,18 +3549,18 @@
             "state": "translated",
             "value": "管理資料"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Manage Data"
-          }
         }
       }
     },
     "Mark as Paid": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mark as Paid"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3376,18 +3584,18 @@
             "state": "translated",
             "value": "標記為已付"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mark as Paid"
-          }
         }
       }
     },
     "Mark as Unpaid": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mark as Unpaid"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3411,11 +3619,73 @@
             "state": "translated",
             "value": "標記為未付"
           }
-        },
+        }
+      }
+    },
+    "Mark bills as paid to see actual spending by category.": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mark as Unpaid"
+            "value": "Mark bills as paid to see actual spending by category."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "将账单标记为已付后，可查看按分类的实际支出。"
+          }
+        }
+      }
+    },
+    "Marked": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marked"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已标记"
+          }
+        }
+      }
+    },
+    "Marks bills you already set to auto-debit outside this app. Bills Manager never charges your accounts.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marks bills you already set to auto-debit outside this app. Bills Manager never charges your accounts."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用于标记你已在银行或其他渠道设置自动扣款的账单。本应用不会扣款或连接银行账户。"
+          }
+        }
+      }
+    },
+    "Merge with Existing Data": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Merge with Existing Data"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "与现有数据合并"
           }
         }
       }
@@ -3423,6 +3693,12 @@
     "Minimum iOS Required": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minimum iOS Required"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3446,18 +3722,18 @@
             "state": "translated",
             "value": "最低 iOS 版本需求"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Minimum iOS Required"
-          }
         }
       }
     },
     "Monthly": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monthly"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3481,18 +3757,18 @@
             "state": "translated",
             "value": "每月"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Monthly"
-          }
         }
       }
     },
     "Never Miss a Payment": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Never Miss a Payment"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3516,18 +3792,18 @@
             "state": "translated",
             "value": "絕不錯過任何付款"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Never Miss a Payment"
-          }
         }
       }
     },
     "New Bill": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New Bill"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3551,18 +3827,18 @@
             "state": "translated",
             "value": "新建帳單"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "New Bill"
-          }
         }
       }
     },
     "Next": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3586,18 +3862,18 @@
             "state": "translated",
             "value": "下一步"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Next"
-          }
         }
       }
     },
     "No Analytics Data": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Analytics Data"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3621,18 +3897,18 @@
             "state": "translated",
             "value": "暫無分析資料"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No Analytics Data"
-          }
         }
       }
     },
     "No bill payments scheduled for this date.": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No bill payments scheduled for this date."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3656,18 +3932,18 @@
             "state": "translated",
             "value": "此日期沒有安排帳單付款。"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No bill payments scheduled for this date."
-          }
         }
       }
     },
     "No Bills Due": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Bills Due"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3691,18 +3967,18 @@
             "state": "translated",
             "value": "沒有到期帳單"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No Bills Due"
-          }
         }
       }
     },
     "No Bills Found": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Bills Found"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3726,18 +4002,18 @@
             "state": "translated",
             "value": "未找到帳單"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No Bills Found"
-          }
         }
       }
     },
     "None": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "None"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3761,11 +4037,22 @@
             "state": "translated",
             "value": "無"
           }
-        },
+        }
+      }
+    },
+    "Not Marked": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "None"
+            "value": "Not Marked"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未标记"
           }
         }
       }
@@ -3773,6 +4060,12 @@
     "Notes": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notes"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3796,18 +4089,18 @@
             "state": "translated",
             "value": "備註"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Notes"
-          }
         }
       }
     },
     "Notes / Account numbers...": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notes / Account numbers..."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3831,18 +4124,18 @@
             "state": "translated",
             "value": "備註 / 帳號…"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Notes / Account numbers..."
-          }
         }
       }
     },
     "Notes & Attachments": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notes & Attachments"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3866,11 +4159,22 @@
             "state": "translated",
             "value": "備註與附件"
           }
-        },
+        }
+      }
+    },
+    "OK": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Notes & Attachments"
+            "value": "OK"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "好"
           }
         }
       }
@@ -3878,6 +4182,12 @@
     "On due date": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On due date"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3901,18 +4211,18 @@
             "state": "translated",
             "value": "到期當天"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "On due date"
-          }
         }
       }
     },
     "One-time": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "One-time"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3936,18 +4246,18 @@
             "state": "translated",
             "value": "一次性"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "One-time"
-          }
         }
       }
     },
     "Optional code": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Optional code"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -3971,18 +4281,18 @@
             "state": "translated",
             "value": "選填代碼"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Optional code"
-          }
         }
       }
     },
     "Organize utilities, subscriptions, rent, and card payments in one unified place with automatic recurring dates.": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Organize utilities, subscriptions, rent, and card payments in one unified place with automatic recurring dates."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4006,18 +4316,18 @@
             "state": "translated",
             "value": "在統一的地方管理水電費、訂閱、房租和信用卡還款，並自動記錄週期性日期。"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Organize utilities, subscriptions, rent, and card payments in one unified place with automatic recurring dates."
-          }
         }
       }
     },
     "Overdue": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overdue"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4041,18 +4351,18 @@
             "state": "translated",
             "value": "已逾期"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Overdue"
-          }
         }
       }
     },
     "Overdue Amount": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overdue Amount"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4076,18 +4386,18 @@
             "state": "translated",
             "value": "逾期金額"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Overdue Amount"
-          }
         }
       }
     },
     "Overdue Bills (%d)": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Overdue Bills (%d)"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4111,18 +4421,18 @@
             "state": "translated",
             "value": "逾期帳單（%d）"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Overdue Bills (%d)"
-          }
         }
       }
     },
     "Paid": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paid"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4146,11 +4456,22 @@
             "state": "translated",
             "value": "已支付"
           }
-        },
+        }
+      }
+    },
+    "Paid (Actual)": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Paid"
+            "value": "Paid (Actual)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已付（实付）"
           }
         }
       }
@@ -4158,6 +4479,12 @@
     "Paid / Unpaid": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paid / Unpaid"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4181,18 +4508,18 @@
             "state": "translated",
             "value": "已付 / 未付"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Paid / Unpaid"
-          }
         }
       }
     },
     "Paid This Month": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paid This Month"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4216,18 +4543,18 @@
             "state": "translated",
             "value": "本月已付"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Paid This Month"
-          }
         }
       }
     },
     "Passcode": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passcode"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4251,18 +4578,18 @@
             "state": "translated",
             "value": "密碼"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Passcode"
-          }
         }
       }
     },
     "Pay": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pay"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4286,18 +4613,18 @@
             "state": "translated",
             "value": "付款"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pay"
-          }
         }
       }
     },
     "Payment Account": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payment Account"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4320,12 +4647,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "支付帳戶"
-          }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Payment Account"
           }
         }
       }
@@ -4333,6 +4654,12 @@
     "Payment Accounts": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payment Accounts"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4356,18 +4683,18 @@
             "state": "translated",
             "value": "支付帳戶"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Payment Accounts"
-          }
         }
       }
     },
     "Payment History": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payment History"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4391,18 +4718,18 @@
             "state": "translated",
             "value": "付款記錄"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Payment History"
-          }
         }
       }
     },
     "Payment Record": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payment Record"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4426,18 +4753,18 @@
             "state": "translated",
             "value": "付款記錄"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Payment Record"
-          }
         }
       }
     },
     "Payment will be charged to your Apple ID account at confirmation of purchase.": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Payment will be charged to your Apple ID account at confirmation of purchase."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4461,11 +4788,22 @@
             "state": "translated",
             "value": "購買確認後，款項將從您的 Apple ID 帳戶扣款。"
           }
-        },
+        }
+      }
+    },
+    "Personal": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Payment will be charged to your Apple ID account at confirmation of purchase."
+            "value": "Personal"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "个人"
           }
         }
       }
@@ -4473,6 +4811,12 @@
     "Privacy & Professional Tools": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacy & Professional Tools"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4496,18 +4840,18 @@
             "state": "translated",
             "value": "隱私與專業工具"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Privacy & Professional Tools"
-          }
         }
       }
     },
     "PRO Version Active": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PRO Version Active"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4531,18 +4875,18 @@
             "state": "translated",
             "value": "PRO 版已啟用"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "PRO Version Active"
-          }
         }
       }
     },
     "Quarterly": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quarterly"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4566,18 +4910,18 @@
             "state": "translated",
             "value": "每季度"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Quarterly"
-          }
         }
       }
     },
     "Range": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Range"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4601,18 +4945,18 @@
             "state": "translated",
             "value": "範圍"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Range"
-          }
         }
       }
     },
     "Receive timely local notifications before due dates and view interactive monthly calendar indicator dots.": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Receive timely local notifications before due dates and view interactive monthly calendar indicator dots."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4636,18 +4980,18 @@
             "state": "translated",
             "value": "在到期日之前收到及時的本機通知，並查看可互動的月曆指示點。"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Receive timely local notifications before due dates and view interactive monthly calendar indicator dots."
-          }
         }
       }
     },
     "Recurring & Auto-Pay": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recurring & Auto-Pay"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4671,11 +5015,22 @@
             "state": "translated",
             "value": "週期性與自動扣款"
           }
-        },
+        }
+      }
+    },
+    "Recurring & External Auto-Pay": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Recurring & Auto-Pay"
+            "value": "Recurring & External Auto-Pay"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "周期与外部自动扣款"
           }
         }
       }
@@ -4683,6 +5038,12 @@
     "Ref: %@": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ref: %@"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4706,18 +5067,18 @@
             "state": "translated",
             "value": "參考號：%@"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ref: %@"
-          }
         }
       }
     },
     "Remind Me": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remind Me"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4741,18 +5102,18 @@
             "state": "translated",
             "value": "提醒我"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Remind Me"
-          }
         }
       }
     },
     "Reminder": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reminder"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4776,18 +5137,18 @@
             "state": "translated",
             "value": "提醒"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reminder"
-          }
         }
       }
     },
     "Reminder Time": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reminder Time"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4811,18 +5172,18 @@
             "state": "translated",
             "value": "提醒時間"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reminder Time"
-          }
         }
       }
     },
     "Reminders & Notifications": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reminders & Notifications"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4846,18 +5207,18 @@
             "state": "translated",
             "value": "提醒與通知"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reminders & Notifications"
-          }
         }
       }
     },
     "Repeat Frequency": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repeat Frequency"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4881,18 +5242,18 @@
             "state": "translated",
             "value": "重複頻率"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Repeat Frequency"
-          }
         }
       }
     },
     "Repeat Until": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Repeat Until"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4916,11 +5277,73 @@
             "state": "translated",
             "value": "重複截止"
           }
-        },
+        }
+      }
+    },
+    "Replace All Data": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Repeat Until"
+            "value": "Replace All Data"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "替换全部数据"
+          }
+        }
+      }
+    },
+    "Restore Backup": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore Backup"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢复备份"
+          }
+        }
+      }
+    },
+    "Restore Complete": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore Complete"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢复完成"
+          }
+        }
+      }
+    },
+    "Restore from JSON": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore from JSON"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从 JSON 恢复"
           }
         }
       }
@@ -4928,6 +5351,12 @@
     "Restore Purchases": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore Purchases"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4951,11 +5380,22 @@
             "state": "translated",
             "value": "恢復購買"
           }
-        },
+        }
+      }
+    },
+    "Restored successfully. New items — categories: %d, accounts: %d, bills: %d.": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Restore Purchases"
+            "value": "Restored successfully. New items — categories: %1$d, accounts: %2$d, bills: %3$d."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢复成功。新增 — 分类：%1$d，账户：%2$d，账单：%3$d。"
           }
         }
       }
@@ -4963,6 +5403,12 @@
     "Save": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -4986,18 +5432,18 @@
             "state": "translated",
             "value": "儲存"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Save"
-          }
         }
       }
     },
     "Search bills...": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search bills..."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5021,18 +5467,18 @@
             "state": "translated",
             "value": "搜尋帳單…"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Search bills..."
-          }
         }
       }
     },
     "Secure sensitive bill data with biometric lock": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Secure sensitive bill data with biometric lock"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5056,18 +5502,18 @@
             "state": "translated",
             "value": "用生物識別鎖定保護敏感帳單資料"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Secure sensitive bill data with biometric lock"
-          }
         }
       }
     },
     "Security & Privacy": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Security & Privacy"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5091,18 +5537,18 @@
             "state": "translated",
             "value": "安全與隱私"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Security & Privacy"
-          }
         }
       }
     },
     "Select Icon": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select Icon"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5126,18 +5572,18 @@
             "state": "translated",
             "value": "選擇圖示"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Select Icon"
-          }
         }
       }
     },
     "Semi-annually": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semi-annually"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5161,18 +5607,18 @@
             "state": "translated",
             "value": "每半年"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Semi-annually"
-          }
         }
       }
     },
     "Set End Date": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Set End Date"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5196,18 +5642,18 @@
             "state": "translated",
             "value": "設定結束日期"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Set End Date"
-          }
         }
       }
     },
     "Settings": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5231,18 +5677,18 @@
             "state": "translated",
             "value": "設定"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Settings"
-          }
         }
       }
     },
     "Skip": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skip"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5266,18 +5712,18 @@
             "state": "translated",
             "value": "略過"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Skip"
-          }
         }
       }
     },
     "Smart Bill Tracker & Reminder": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Smart Bill Tracker & Reminder"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5301,11 +5747,39 @@
             "state": "translated",
             "value": "智慧帳單追蹤與提醒"
           }
-        },
+        }
+      }
+    },
+    "Streaming Subscription": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Smart Bill Tracker & Reminder"
+            "value": "Streaming Subscription"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "流媒体订阅"
+          }
+        }
+      }
+    },
+    "Subscriptions": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscriptions"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "订阅"
           }
         }
       }
@@ -5313,6 +5787,12 @@
     "Tap '+' to create your first bill or change your search filter.": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap '+' to create your first bill or change your search filter."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5336,11 +5816,22 @@
             "state": "translated",
             "value": "點按「+」建立你的第一張帳單，或更改搜尋篩選條件。"
           }
-        },
+        }
+      }
+    },
+    "This backup file has no data.": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tap '+' to create your first bill or change your search filter."
+            "value": "This backup file has no data."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此备份文件没有数据。"
           }
         }
       }
@@ -5348,6 +5839,12 @@
     "This Month": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This Month"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5371,18 +5868,18 @@
             "state": "translated",
             "value": "本月"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This Month"
-          }
         }
       }
     },
     "This Year": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This Year"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5406,18 +5903,18 @@
             "state": "translated",
             "value": "今年"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This Year"
-          }
         }
       }
     },
     "Total Bills": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total Bills"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5441,18 +5938,18 @@
             "state": "translated",
             "value": "帳單總數"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Total Bills"
-          }
         }
       }
     },
     "Total overdue: $%.2f": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total overdue: $%.2f"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5476,18 +5973,18 @@
             "state": "translated",
             "value": "逾期總額：$%.2f"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Total overdue: $%.2f"
-          }
         }
       }
     },
     "Track Bills Effortlessly": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Track Bills Effortlessly"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5511,18 +6008,18 @@
             "state": "translated",
             "value": "輕鬆管理帳單"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Track Bills Effortlessly"
-          }
         }
       }
     },
     "Uncategorized": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uncategorized"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5546,18 +6043,18 @@
             "state": "translated",
             "value": "未分類"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Uncategorized"
-          }
         }
       }
     },
     "Unlimited Categories & Accounts": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlimited Categories & Accounts"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5581,18 +6078,18 @@
             "state": "translated",
             "value": "無限分類與帳戶"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unlimited Categories & Accounts"
-          }
         }
       }
     },
     "Unlock Bills Manager to view financial data.": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock Bills Manager to view financial data."
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5616,18 +6113,18 @@
             "state": "translated",
             "value": "解鎖 Bills Manager 以查看財務資料。"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unlock Bills Manager to view financial data."
-          }
         }
       }
     },
     "Unlock full financial tracking potential & ad-free experience": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock full financial tracking potential & ad-free experience"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5651,18 +6148,18 @@
             "state": "translated",
             "value": "解鎖完整的財務追蹤功能與無廣告體驗"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unlock full financial tracking potential & ad-free experience"
-          }
         }
       }
     },
     "Unlock with %@": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock with %@"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5686,18 +6183,18 @@
             "state": "translated",
             "value": "使用 %@ 解鎖"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unlock with %@"
-          }
         }
       }
     },
     "Unpaid": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unpaid"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5721,18 +6218,18 @@
             "state": "translated",
             "value": "未支付"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unpaid"
-          }
         }
       }
     },
     "Unpay": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unpay"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5756,11 +6253,22 @@
             "state": "translated",
             "value": "標記未付"
           }
-        },
+        }
+      }
+    },
+    "Unsupported backup version: %d": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Unpay"
+            "value": "Unsupported backup version: %d"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不支持的备份版本：%d"
           }
         }
       }
@@ -5768,6 +6276,12 @@
     "Upcoming": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Upcoming"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5791,18 +6305,18 @@
             "state": "translated",
             "value": "近期"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Upcoming"
-          }
         }
       }
     },
     "Upcoming Bills": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Upcoming Bills"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5826,18 +6340,18 @@
             "state": "translated",
             "value": "近期帳單"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Upcoming Bills"
-          }
         }
       }
     },
     "Upgrade to PRO": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Upgrade to PRO"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5861,11 +6375,22 @@
             "state": "translated",
             "value": "升級為 PRO 專業版"
           }
-        },
+        }
+      }
+    },
+    "Utilities": {
+      "extractionState": "stale",
+      "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Upgrade to PRO"
+            "value": "Utilities"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "水电燃气"
           }
         }
       }
@@ -5873,6 +6398,12 @@
     "Weekly": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weekly"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5896,18 +6427,18 @@
             "state": "translated",
             "value": "每週"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Weekly"
-          }
         }
       }
     },
     "Yearly": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yearly"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5931,18 +6462,18 @@
             "state": "translated",
             "value": "每年"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yearly"
-          }
         }
       }
     },
     "Zero banner or popup advertisements": {
       "extractionState": "stale",
       "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zero banner or popup advertisements"
+          }
+        },
         "ja": {
           "stringUnit": {
             "state": "translated",
@@ -5966,507 +6497,101 @@
             "state": "translated",
             "value": "零橫幅與彈窗廣告"
           }
-        },
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Zero banner or popup advertisements"
-          }
         }
       }
     },
-    "Paid (Actual)": {
+    "Receipt Photo": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Paid (Actual)"
+            "value": "Receipt Photo"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "已付（实付）"
+            "value": "收据照片"
           }
         }
       }
     },
-    "Due (Unpaid)": {
+    "Add Receipt Photo": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Due (Unpaid)"
+            "value": "Add Receipt Photo"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "应付（未付）"
+            "value": "添加收据照片"
           }
         }
       }
     },
-    "Chart Metric": {
+    "Change Receipt Photo": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Chart Metric"
+            "value": "Change Receipt Photo"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "图表口径"
+            "value": "更换收据照片"
           }
         }
       }
     },
-    "Mark bills as paid to see actual spending by category.": {
+    "Remove Receipt": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Mark bills as paid to see actual spending by category."
+            "value": "Remove Receipt"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "将账单标记为已付后，可查看按分类的实际支出。"
+            "value": "移除收据"
           }
         }
       }
     },
-    "Add unpaid bills with due dates in this range to see obligations.": {
+    "Couldn't load the selected photo.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Add unpaid bills with due dates in this range to see obligations."
+            "value": "Couldn't load the selected photo."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "在此时间范围内添加未付账单后，可查看应付义务。"
+            "value": "无法加载所选照片。"
           }
         }
       }
     },
-    "OK": {
+    "Undo last payment and remove its history record?": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "OK"
+            "value": "Undo last payment and remove its history record?"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "好"
-          }
-        }
-      }
-    },
-    "Utilities": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Utilities"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "水电燃气"
-          }
-        }
-      }
-    },
-    "Housing": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Housing"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "住房"
-          }
-        }
-      }
-    },
-    "Subscriptions": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Subscriptions"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "订阅"
-          }
-        }
-      }
-    },
-    "Credit Card": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Credit Card"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "信用卡"
-          }
-        }
-      }
-    },
-    "Insurance": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Insurance"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "保险"
-          }
-        }
-      }
-    },
-    "Loans": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Loans"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "贷款"
-          }
-        }
-      }
-    },
-    "Personal": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Personal"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "个人"
-          }
-        }
-      }
-    },
-    "Checking Account": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Checking Account"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "支票账户"
-          }
-        }
-      }
-    },
-    "Cash": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cash"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "现金"
-          }
-        }
-      }
-    },
-    "Electricity Bill": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Electricity Bill"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "电费账单"
-          }
-        }
-      }
-    },
-    "Apartment Rent": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apartment Rent"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "房租"
-          }
-        }
-      }
-    },
-    "Streaming Subscription": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Streaming Subscription"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "流媒体订阅"
-          }
-        }
-      }
-    },
-    "Authenticate to enable App Lock.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Authenticate to enable App Lock."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请验证身份以开启应用锁。"
-          }
-        }
-      }
-    },
-    "Authenticate to disable App Lock.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Authenticate to disable App Lock."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请验证身份以关闭应用锁。"
-          }
-        }
-      }
-    },
-    "Restore from JSON": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Restore from JSON"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "从 JSON 恢复"
-          }
-        }
-      }
-    },
-    "Restore Backup": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Restore Backup"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "恢复备份"
-          }
-        }
-      }
-    },
-    "Merge with Existing Data": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Merge with Existing Data"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "与现有数据合并"
-          }
-        }
-      }
-    },
-    "Replace All Data": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Replace All Data"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "替换全部数据"
-          }
-        }
-      }
-    },
-    "Restore Complete": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Restore Complete"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "恢复完成"
-          }
-        }
-      }
-    },
-    "Backup from %@ — %d bills, %d categories, %d accounts. Choose merge or replace.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Backup from %1$@ — %2$d bills, %3$d categories, %4$d accounts. Choose merge or replace."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "备份时间 %1$@ — %2$d 笔账单、%3$d 个分类、%4$d 个账户。请选择合并或覆盖。"
-          }
-        }
-      }
-    },
-    "Restored successfully. New items — categories: %d, accounts: %d, bills: %d.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Restored successfully. New items — categories: %1$d, accounts: %2$d, bills: %3$d."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "恢复成功。新增 — 分类：%1$d，账户：%2$d，账单：%3$d。"
-          }
-        }
-      }
-    },
-    "Unsupported backup version: %d": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unsupported backup version: %d"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "不支持的备份版本：%d"
-          }
-        }
-      }
-    },
-    "This backup file has no data.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This backup file has no data."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "此备份文件没有数据。"
-          }
-        }
-      }
-    },
-    "Couldn't read the backup file. Please try again.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Couldn't read the backup file. Please try again."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "无法读取备份文件，请重试。"
-          }
-        }
-      }
-    },
-    "Couldn't restore from backup. Please try again.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Couldn't restore from backup. Please try again."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "无法从备份恢复，请重试。"
+            "value": "撤销最近一次支付并删除对应历史记录？"
           }
         }
       }

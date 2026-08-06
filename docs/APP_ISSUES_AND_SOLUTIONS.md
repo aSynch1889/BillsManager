@@ -235,13 +235,14 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 | 系统分类不可编辑名称 | 若需本地化展示，增加 `displayName` |
 | 无 SwiftData Migration 计划 | 版本字段 + 显式迁移文档 |
 
-### 3.2 支付历史不完整 — 🔴 仍存在
+### 3.2 支付历史不完整 — 🟢 已解决
 
-- 标记已付支持金额/确认码，但 **无收据图**（模型有 `receiptImageData`）
-- `markAsUnpaid` 不删除最近一条 `PaymentRecord`，历史与状态不一致
-- 列表一键 Pay 不弹确认、不记确认码
+**修复**
+- 统一 `MarkPaidSheet`：金额、确认码、收据图；详情/列表/行 Pay 共用
+- Unpay / Undo 删除最近 `PaymentRecord`（含确认对话框）
+- 支付历史列表展示收据缩略图
 
-**方案**：Unpay 时可选删除最近记录；列表 Pay 进同一 sheet；支持收据。
+---
 
 ### 3.3 iPad / 大屏 — 🔴 仍存在
 

@@ -31,6 +31,8 @@ struct BillListView: View {
     @State private var persistenceError: String?
     @State private var searchText: String = ""
     @State private var editingBill: Bill? = nil
+    @State private var markingPaidBill: Bill? = nil
+    @State private var unpayingBill: Bill? = nil
     
     private var filteredBills: [Bill] {
         allBills.filter { bill in
@@ -152,9 +154,13 @@ struct BillListView: View {
                             }
                             .tint(.orange)
                         }
-                        .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                        .swipeActions(edge: .leading, allowsFullSwipe: false) {
                             Button {
-                                togglePaid(bill)
+                                if bill.isPaid {
+                                    unpayingBill = bill
+                                } else {
+                                    markingPaidBill = bill
+                                }
                             } label: {
                                 Label(bill.isPaid ? L10n.s("Unpay") : L10n.s("Pay"), systemImage: bill.isPaid ? "xmark.circle" : "checkmark.circle")
                             }
@@ -180,6 +186,53 @@ struct BillListView: View {
                 AddEditBillView(billToEdit: bill)
             }
         }
+        .sheet(item: $markingPaidBill) { bill in
+            MarkPaidSheet(
+                bill: bill,
+                onCancel: { markingPaidBill = nil },
+                onConfirm: { amount, code, receipt in
+                    bill.markAsPaid(paidAmount: amount, confirmationCode: code, receiptData: receipt)
+                    if let message = Persistence.saveReturningMessage(modelContext) {
+                        persistenceError = message
+                        return
+                    }
+                    NotificationManager.shared.applyPaidSideEffects(
+                        for: bill,
+                        overdueCount: overdueCount(in: modelContext)
+                    )
+                    markingPaidBill = nil
+                }
+            )
+        }
+        .confirmationDialog(
+            L10n.s("Undo last payment and remove its history record?"),
+            isPresented: Binding(
+                get: { unpayingBill != nil },
+                set: { if !$0 { unpayingBill = nil } }
+            ),
+            titleVisibility: .visible
+        ) {
+            Button(L10n.s("Undo Last Payment"), role: .destructive) {
+                guard let bill = unpayingBill else { return }
+                withAnimation {
+                    if let record = bill.undoLastPayment() {
+                        modelContext.delete(record)
+                    }
+                    if let message = Persistence.saveReturningMessage(modelContext) {
+                        persistenceError = message
+                    } else {
+                        NotificationManager.shared.applyPaidSideEffects(
+                            for: bill,
+                            overdueCount: overdueCount(in: modelContext)
+                        )
+                    }
+                }
+                unpayingBill = nil
+            }
+            Button(L10n.s("Cancel"), role: .cancel) {
+                unpayingBill = nil
+            }
+        }
         .persistenceAlert($persistenceError)
     }
     
@@ -191,26 +244,6 @@ struct BillListView: View {
             return
         }
         NotificationManager.shared.refreshBadge(using: modelContext)
-    }
-    
-    private func togglePaid(_ bill: Bill) {
-        withAnimation {
-            if bill.isPaid {
-                if let record = bill.undoLastPayment() {
-                    modelContext.delete(record)
-                }
-            } else {
-                bill.markAsPaid()
-            }
-            if let message = Persistence.saveReturningMessage(modelContext) {
-                persistenceError = message
-                return
-            }
-            NotificationManager.shared.applyPaidSideEffects(
-                for: bill,
-                overdueCount: overdueCount(in: modelContext)
-            )
-        }
     }
 
     private func overdueCount(in context: ModelContext) -> Int {
