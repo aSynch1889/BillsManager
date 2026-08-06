@@ -1,10 +1,10 @@
 # Bills Manager — 深度问题评估与解决方案
 
 > **首次评估**：2026-07-27
-> **最近复评**：2026-08-06（真机 `刘小华的iPhone` / iOS 18.6.2，关闭全部可代码闭环的 P0/P1）
+> **最近复评**：2026-08-06（真机 `刘小华的iPhone` / `00008110-001A5CA22E3A201E`，commit `e150306`）
 > **评估范围**：源码、模型、内购、通知、安全、本地化、数据导出、PRD 一致性、工程质量
 > **工程标识**：`com.antigravity.billsmanager` / iOS 17+ / SwiftUI + SwiftData + StoreKit 2
-> **结论摘要**：可代码闭环的 **P0/P1 均已关闭**；**P2（除 3.6 测试与 CI）均已关闭**。P0 1.5 ASC 商品与 3.6 测试/CI 仍待后续。剩余主要为 P3 增强。
+> **结论摘要**：可代码闭环的 **P0/P1 均已关闭**；**P2（除 3.6 测试与 CI）均已关闭**。仍待：P0 1.5 ASC 商品人工核验（🟡）、3.6 单测/CI（⏭）、P3 增强。
 
 ## 复评状态与验证证据
 
@@ -18,15 +18,18 @@
 | 验证项 | 2026-08-06 结果 |
 | :--- | :--- |
 | Debug 真机构建 | 🟢 `BUILD SUCCEEDED`（`00008110-001A5CA22E3A201E`） |
-| Unit / UI Test | 🔴 工程没有 Test target，无法回归业务边界 |
-| 原 P0 / P1 整改 | 🟢 可代码闭环项已关闭；ASC 商品 🟡 |
-| 通知授权调用点 | 🟢 Onboarding 完成 + 保存账单 `ensureAuthorization`；设置页可跳转系统设置 |
-| PRO 权益门控 | 🟢 `ProFeature` 门控分类/账户/导出/锁/多区间分析；已去 Ad-Free 文案 |
+| Unit / UI Test | 🔴 工程没有 Test target（P2 3.6 跳过） |
+| P0 / P1 整改 | 🟢 可代码闭环项已关闭；ASC 商品 🟡 |
+| P2 整改（除 CI） | 🟢 3.1–3.5、3.7–3.10 已关闭；3.6 ⏭ |
+| 通知授权调用点 | 🟢 Onboarding + 保存账单 `ensureAuthorization`；设置页可跳系统设置 |
+| PRO 权益门控 | 🟢 `ProFeature` 门控；买断策略；已去 Ad-Free 文案 |
 | 本地化覆盖 | 🟢 显式 `en` 100%；`zh-Hans` ≈97%+；系统分类/账户展示层本地化 |
-| 静默错误 | 🟠 关键保存/导出已 Alert；附件等路径仍有 `try?` |
-| 货币硬编码 | 🟢 `CurrencyFormatter` 统一；Dashboard/Analytics/支付历史已替换 |
-| App Icon | 🟢 1024 PNG |
-| 版本号 | 🟢 Info.plist 跟随 `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION` |
+| 静默错误 | 🟢 关键路径与附件/内购失败均 Alert |
+| 货币硬编码 | 🟢 `CurrencyFormatter` 统一 |
+| App Icon | 🟢 1024 PNG + `PrivacyInfo.xcprivacy` |
+| 版本号 | 🟢 Info.plist 跟随 `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION`；设置页读 Bundle |
+| JSON 备份恢复 | 🟢 v2 导出 + 合并/覆盖恢复 |
+| iPad 双栏 | 🟢 侧栏 + 账单列表 + 详情 |
 
 ---
 
@@ -35,15 +38,15 @@
 | 维度 | 评分 (1–10) | 说明 |
 | :--- | :---: | :--- |
 | 核心账单 CRUD / 周期滚动 | 8 | 锚定日/撤销支付已落地 |
-| 数据模型与持久化 | 8 | JSON v2 备份+恢复已闭环 |
+| 数据模型与持久化 | 8 | JSON v2 备份+恢复；ID unique；Decimal 延后 |
 | 通知与角标 | 8 | 授权、调度、角标、逾期立即补发 |
 | 安全锁 | 8 | 开关认证回滚 + App Switcher 模糊 |
 | 内购 / PRO | 7 | 门控与买断策略已落地；ASC 待核验 |
 | 导出备份 | 8 | CSV/JSON 导出 + JSON 恢复 |
 | 本地化 (en / zh-Hans) | 8 | en 全量；zh-Hans 高覆盖 |
-| 无障碍 / 多币种 / 可测试性 | 4 | 无单测；多币种无汇率 |
-| 与 PRD/README 一致性 | 7 | 主要卖点已对齐文案与实现 |
-| **整体可上线质量** | **7.2** | 适合 TestFlight；正式提交前建议关闭 P2 关键项与 ASC 核验 |
+| 无障碍 / 多币种 / 可测试性 | 5 | 行级 VoiceOver + 本机说明；无单测；多币种无汇率 |
+| 与 PRD/README 一致性 | 8 | 主要卖点已对齐文案与实现 |
+| **整体可上线质量** | **7.8** | 适合 TestFlight；正式提交前建议 ASC 核验 + 补 3.6 测试 |
 
 ---
 
@@ -333,18 +336,19 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 | 模块 | 主要问题 |
 | :--- | :--- |
 | `BillsManagerApp` | ✅ Seed 复用；通知配置；scenePhase 锁+隐私模糊 |
-| `Bill` | ✅ 锚定日/撤销；分析改 PaymentRecord；金额仍为 Double（P2） |
+| `Bill` | ✅ 锚定日/撤销；ID unique；分析改 PaymentRecord；金额 Double 延后 |
 | `NotificationManager` | ✅ 授权、角标、前台 delegate、逾期立即补发 |
-| `StoreManager` | ✅ 门控/买断；ASC 商品 🟡 |
+| `StoreManager` | ✅ 门控/买断/错误文案；ASC 商品 🟡 |
 | `ExportManager` | ✅ JSON v2 导出/恢复；CSV 仍为摘要导出 |
-| `SettingsView` | ✅ 恢复备份/隐私链接；版本读 Bundle |
-| `PaywallView` | ✅ 法律链接与买断策略 |
-| `AddEditBillView` | ✅ 金额校验与外部自动扣款文案 |
+| `SettingsView` | ✅ 恢复备份/隐私链接/本机存储说明；版本读 Bundle |
+| `PaywallView` | ✅ 法律链接、买断策略、准确分析文案 |
+| `AddEditBillView` | ✅ 金额校验、外部自动扣款文案、附件失败 Alert |
 | `AnalyticsView` | ✅ 实付按 PaymentRecord；应付按 dueDate；可切换 |
-| `Category/Account` | ✅ PRO 限额；展示层本地化 |
+| `Category/Account` | ✅ PRO 限额；unique；删除确认；展示层本地化 |
 | `Localizable.xcstrings` | ✅ en 全量；zh-Hans 高覆盖 |
-| `AppIcon` | ✅ PNG |
-| 工程 | Privacy Manifest ✅；测试/CI ⏭ |
+| `AppIcon` / Privacy | ✅ PNG + `PrivacyInfo.xcprivacy` |
+| `iPadSidebarView` | ✅ 三栏：侧栏 + 列表 + 详情 |
+| 工程 | ✅ 共享 Scheme；⏭ 测试/CI |
 
 ---
 
@@ -397,10 +401,10 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 | 项 | 值 |
 | :--- | :--- |
 | 文档路径 | `docs/APP_ISSUES_AND_SOLUTIONS.md` |
-| 关联文档 | `docs/APP_STORE_REVIEW_RISKS.md`、`docs/PRD.md` |
-| 本次状态同步 | 2026-08-06：关闭全部可代码闭环 P0/P1，以及 P2（除 3.6 测试与 CI） |
-| 下次复评建议 | 聚焦 3.6 测试/CI、ASC 商品核验与 P3 增强 |
+| 关联文档 | `docs/APP_STORE_REVIEW_RISKS.md`、`docs/PRD.md`、`docs/SWIFTDATA_MIGRATION.md` |
+| 本次状态同步 | 2026-08-06（`e150306`+）：P0/P1 可代码项关闭；P2 除 3.6 关闭；摘要/验证表/健康度/模块速查对齐 |
+| 下次复评建议 | 聚焦 3.6 测试/CI、ASC 商品与沙盒路径、P3（Widget/Spotlight/Decimal） |
 
 ---
 
-*本评估基于源码整改、真机 Debug 构建与文档同步；ASC 商品、StoreKit 沙盒全路径与 Release Archive 仍需人工核对。*
+*本评估基于源码整改、真机 Debug 构建与文档同步；ASC 商品、StoreKit 沙盒全路径与 Release Archive / CI 仍需人工核对。*
