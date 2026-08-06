@@ -6,7 +6,7 @@
       "en-US",
       "zh-Hans"
     ],
-    "version": "1.0",
+    "version": "1.0.0",
     "note": "First version cannot set whatsNew"
   },
   "subscriptionGroup": {
@@ -39,8 +39,7 @@
   "privacyUrls": {
     "en": "https://asynch1889.github.io/BillsManager-legal/privacy/en.html",
     "zh": "https://asynch1889.github.io/BillsManager-legal/privacy/zh.html",
-    "support": "https://asynch1889.github.io/BillsManager-legal/support/",
-    "warning": "Pages currently 404 — host before review submission"
+    "support": "https://asynch1889.github.io/BillsManager-legal/support/"
   },
   "name": "Bills Manager - billsmanager",
   "sku": "BILLSMANAGER-IOS-2026",

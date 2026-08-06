@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "approvedAt": "2026-08-06T08:00:56Z",
+  "planHash": "13944a54abce4edb1499ac3ffba46195104448ebc3ce7c262cbe71360a6514c3",
+  "reviewDir": ".asc/metadata/review",
+  "planPath": ".asc/metadata/review/plan.json",
+  "approvalPath": ".asc/metadata/review/approved.json",
+  "mode": "all",
+  "approvedKeys": [
+    "version:1.0.0:en-US:description",
+    "version:1.0.0:en-US:promotionalText",
+    "version:1.0.0:zh-Hans:description",
+    "version:1.0.0:zh-Hans:promotionalText"
+  ]
+}

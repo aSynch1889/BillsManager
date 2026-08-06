@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-06T08:00:49Z",
+  "command": "metadata plan",
+  "reviewDir": ".asc/metadata/review",
+  "planPath": ".asc/metadata/review/plan.json",
+  "approvalPath": ".asc/metadata/review/approved.json",
+  "planHash": "13944a54abce4edb1499ac3ffba46195104448ebc3ce7c262cbe71360a6514c3",
+  "options": {
+    "appId": "6796724831",
+    "appInfoId": "b5306c77-b704-4233-aa10-0bc93c64eb8d",
+    "version": "1.0.0",
+    "platform": "IOS",
+    "dir": "./metadata",
+    "includes": [
+      "localizations"
+    ],
+    "allowDeletes": false
+  },
+  "plan": {
+    "appId": "6796724831",
+    "appInfoId": "b5306c77-b704-4233-aa10-0bc93c64eb8d",
+    "version": "1.0.0",
+    "versionId": "2079b84a-2ebd-4421-b04f-b487a33f1f9b",
+    "dir": "./metadata",
+    "dryRun": true,
+    "includes": [
+      "localizations"
+    ],
+    "adds": [],
+    "updates": [
+      {
+        "key": "version:1.0.0:en-US:description",
+        "scope": "version",
+        "locale": "en-US",
+        "version": "1.0.0",
+        "field": "description",
+        "reason": "field value differs",
+        "from": "Bills Manager is a local-first personal bill tracker for iPhone and iPad. Organize rent, utilities, credit cards, and digital subscriptions in one place, get local due-date reminders, and never miss a payment.\n\nWHY BILLS MANAGER\n• Local-first privacy — data stays on your device with SwiftData (no account required)\n• Recurring bills — daily, weekly, bi-weekly, monthly, quarterly, yearly, and more\n• Smart statuses — Overdue, Due Today, Due Soon, Upcoming, Paid\n• Interactive calendar — month grid with color dots for each bill state\n• Dashboard — overdue banner, this-month due/paid totals, upcoming list\n• Analytics — Swift Charts category breakdown by period\n• Payment history — amount, reference, and receipt photos\n• Optional Face ID / Touch ID lock (PRO)\n• CSV export and full JSON backup (PRO)\n\nFREE\n• Unlimited bills and due-date tracking\n• Calendar, dashboard, and basic analytics\n• Local notifications and app badge\n• Up to 5 custom categories and payment accounts\n\nPRO (In-App Purchase)\n• Unlimited custom categories and payment accounts\n• CSV export and JSON full backup\n• Face ID / Touch ID / passcode lock\n• Full advanced charts and analytics\n• Ad-free experience\n\nPlans: Monthly, Yearly, or Lifetime unlock via Apple In-App Purchase. Prices are shown on the App Store. Manage or cancel auto-renewal anytime in Settings → Apple ID → Subscriptions.\n\nPRIVACY\nCore features work offline. No third-party ads or tracking SDKs. See the privacy policy for details.",
+        "to": "Bills Manager is a personal bill tracker for iPhone and iPad. Organize rent, utilities, credit cards, and subscriptions, get local due-date reminders, and never miss a payment.\n\nWHY BILLS MANAGER\n• Local-first by default — bills stay on your device until you choose PRO iCloud sync\n• Recurring bills — daily, weekly, bi-weekly, monthly, quarterly, yearly, and more\n• Smart statuses — Overdue, Due Today, Due Soon, Upcoming, Paid\n• Interactive calendar — month grid with color dots for each bill state\n• Dashboard — overdue banner, this-month due/paid totals, upcoming list\n• Analytics — Swift Charts category breakdown by period\n• Payment history — amount, reference, and receipt photos\n• Optional Face ID / Touch ID lock (PRO)\n• CSV export and full JSON backup (PRO)\n\nFREE\n• Unlimited bills and due-date tracking\n• Calendar, dashboard, and basic analytics\n• Local notifications and app badge\n• Up to 5 custom categories and payment accounts\n\nPRO (In-App Purchase)\n• Optional iCloud sync across your devices (off by default)\n• Unlimited custom categories and payment accounts\n• CSV export and JSON full backup\n• Face ID / Touch ID / passcode lock\n• Full advanced charts and analytics\n\nPlans: Monthly, Yearly, or Lifetime unlock via Apple In-App Purchase. Prices are shown on the App Store. Manage or cancel auto-renewal anytime in Settings → Apple ID → Subscriptions.\n\nPRIVACY\nCore features work offline. Optional iCloud sync uses your private CloudKit container. No third-party ads or tracking SDKs. See the privacy policy for details.\n\nTerms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+      },
+      {
+        "key": "version:1.0.0:en-US:promotionalText",
+        "scope": "version",
+        "locale": "en-US",
+        "version": "1.0.0",
+        "field": "promotionalText",
+        "reason": "field value differs",
+        "from": "Never miss a bill. Local reminders, calendar, and PRO tools for export and lock.",
+        "to": "Never miss a bill. Local reminders, calendar, and PRO iCloud sync."
+      },
+      {
+        "key": "version:1.0.0:zh-Hans:description",
+        "scope": "version",
+        "locale": "zh-Hans",
+        "version": "1.0.0",
+        "field": "description",
+        "reason": "field value differs",
+        "from": "账单管家 Bills Manager 是一款面向 iPhone 与 iPad 的本地优先个人账单管理应用。集中管理房租、水电、信用卡与各类数字订阅，本地到期提醒，避免漏缴与逾期。\n\n核心能力\n• 本地优先隐私 — 数据保存在设备 SwiftData 中，无需注册账号\n• 周期账单 — 支持每天、每周、每两周、每月、每季度、每年等多种周期\n• 智能状态 — 已逾期、今日到期、即将到期、未到期、已支付\n• 交互日历 — 月视图状态色点，点选日期查看当日账单\n• 仪表盘 — 逾期预警、本月应付/已付、即将到期列表\n• 数据分析 — Swift Charts 分类支出占比\n• 支付历史 — 金额、流水号与小票照片\n• 可选生物识别锁（PRO）\n• CSV 导出与 JSON 全量备份（PRO）\n\n免费版\n• 不限数量账单与到期追踪\n• 日历、仪表盘与基础统计\n• 本地通知与角标\n• 自定义分类与支付账户最多 5 个\n\nPRO 专业版（App 内购买）\n• 无限自定义分类与支付账户\n• CSV 导出与 JSON 全量备份\n• Face ID / Touch ID / 密码锁\n• 完整高级图表分析\n• 无广告体验\n\n提供月度、年度订阅与终身买断，价格以 App Store 显示为准。可随时在「设置 → Apple ID → 订阅」中管理或取消自动续订。\n\n隐私\n核心功能可离线使用，不含第三方广告或追踪 SDK。详情见隐私政策。",
+        "to": "账单管家 Bills Manager 是一款面向 iPhone 与 iPad 的个人账单管理应用。集中管理房租、水电、信用卡与各类订阅，本地到期提醒，避免漏缴与逾期。\n\n核心能力\n• 默认本机存储 — 数据保存在设备上，PRO 可选手动开启 iCloud 同步\n• 周期账单 — 支持每天、每周、每两周、每月、每季度、每年等多种周期\n• 智能状态 — 已逾期、今日到期、即将到期、未到期、已支付\n• 交互日历 — 月视图状态色点\n• 仪表盘 — 逾期预警、本月应付/已付、即将到期列表\n• 数据分析 — Swift Charts 分类支出占比\n• 支付历史 — 金额、流水号与小票照片\n• 可选生物识别锁（PRO）\n• CSV 导出与 JSON 全量备份（PRO）\n\n免费版\n• 不限数量账单与到期追踪\n• 日历、仪表盘与基础统计\n• 本地通知与角标\n• 自定义分类与支付账户最多 5 个\n\nPRO 专业版（App 内购买）\n• 可选 iCloud 同步（默认关闭）\n• 无限自定义分类与支付账户\n• CSV 导出与 JSON 全量备份\n• Face ID / Touch ID / 密码锁\n• 完整高级图表分析\n\n提供月度、年度订阅与终身买断，价格以 App Store 显示为准。可随时在「设置 → Apple ID → 订阅」中管理或取消自动续订。\n\n隐私\n核心功能可离线使用。可选 iCloud 同步使用你的私密 CloudKit 容器。不含第三方广告或追踪 SDK。\n\n使用条款：https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+      },
+      {
+        "key": "version:1.0.0:zh-Hans:promotionalText",
+        "scope": "version",
+        "locale": "zh-Hans",
+        "version": "1.0.0",
+        "field": "promotionalText",
+        "reason": "field value differs",
+        "from": "本地账单与到期提醒，日历一览，PRO 解锁导出与安全锁。",
+        "to": "本地账单与到期提醒，PRO 可选 iCloud 同步与导出备份。"
+      }
+    ],
+    "deletes": [],
+    "apiCalls": [
+      {
+        "operation": "update_localization",
+        "scope": "version",
+        "count": 2
+      }
+    ]
+  }
+}

@@ -1,7 +1,0 @@
-{
-  "description": "账单管家 Bills Manager 是一款面向 iPhone 与 iPad 的个人账单管理应用。集中管理房租、水电、信用卡与各类订阅，本地到期提醒，避免漏缴与逾期。\n\n核心能力\n• 默认本机存储 — 数据保存在设备上，PRO 可选手动开启 iCloud 同步\n• 周期账单 — 支持每天、每周、每两周、每月、每季度、每年等多种周期\n• 智能状态 — 已逾期、今日到期、即将到期、未到期、已支付\n• 交互日历 — 月视图状态色点\n• 仪表盘 — 逾期预警、本月应付/已付、即将到期列表\n• 数据分析 — Swift Charts 分类支出占比\n• 支付历史 — 金额、流水号与小票照片\n• 可选生物识别锁（PRO）\n• CSV 导出与 JSON 全量备份（PRO）\n\n免费版\n• 不限数量账单与到期追踪\n• 日历、仪表盘与基础统计\n• 本地通知与角标\n• 自定义分类与支付账户最多 5 个\n\nPRO 专业版（App 内购买）\n• 可选 iCloud 同步（默认关闭）\n• 无限自定义分类与支付账户\n• CSV 导出与 JSON 全量备份\n• Face ID / Touch ID / 密码锁\n• 完整高级图表分析\n\n提供月度、年度订阅与终身买断，价格以 App Store 显示为准。可随时在「设置 → Apple ID → 订阅」中管理或取消自动续订。\n\n隐私\n核心功能可离线使用。可选 iCloud 同步使用你的私密 CloudKit 容器。不含第三方广告或追踪 SDK。",
-  "keywords": "账单,账单管理,到期提醒,订阅管理,理财,还款,费用,日历,财务",
-  "marketingUrl": "https://asynch1889.github.io/BillsManager-legal/support/",
-  "promotionalText": "本地账单与到期提醒，PRO 可选 iCloud 同步与导出备份。",
-  "supportUrl": "https://asynch1889.github.io/BillsManager-legal/support/"
-}
