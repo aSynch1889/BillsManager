@@ -67,6 +67,19 @@ asc web bundle-ids capabilities sync --bundle-id com.antigravity.billsmanager
 
 Xcode entitlements 已配置：`BillsManager/App/BillsManager.entitlements`
 
+## 出口合规（加密声明）
+
+App 仅使用系统 exempt 加密（HTTPS/TLS 等），已在两处声明 **不使用非豁免加密**：
+
+- `BillsManager/App/Info.plist` → `ITSAppUsesNonExemptEncryption = false`
+- Target Build Settings → `INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO`
+
+**重要**：已上传的旧 build 不会自动带上此声明，需重新 Archive 并上传新 build 后，ASC 才会识别为「无需出口合规文档」。
+
+```bash
+asc encryption declarations exempt-declare --plist BillsManager/App/Info.plist
+```
+
 ## 提交前仍需人工完成的项
 
 运行 `asc validate --app 6796724831 --version 1.0.0 --platform IOS` 查看实时阻塞项。当前典型剩余：
