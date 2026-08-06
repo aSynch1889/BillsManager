@@ -8,6 +8,30 @@
             "state": "translated",
             "value": "%@"
           }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@"
+          }
         }
       }
     },
@@ -116,9 +140,103 @@
         }
       }
     },
+    "%d linked bills will keep their data but lose this account.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d linked bills will keep their data but lose this account."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d 笔关联账单会保留数据，但将失去该账户。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d 筆關聯帳單會保留資料，但將失去該帳戶。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d 件の関連請求はデータが残りますが、この口座との紐付けは解除されます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d개의 연결된 청구서는 데이터가 유지되지만 이 계좌 연결은 해제됩니다."
+          }
+        }
+      }
+    },
+    "%d linked bills will keep their data but lose this category.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d linked bills will keep their data but lose this category."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d 笔关联账单会保留数据，但将失去该分类。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d 筆關聯帳單會保留資料，但將失去該分類。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d 件の関連請求はデータが残りますが、このカテゴリとの紐付けは解除されます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d개의 연결된 청구서는 데이터가 유지되지만 이 카테고리 연결은 해제됩니다."
+          }
+        }
+      }
+    },
     "•": {
       "localizations": {
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "•"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "•"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "•"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "•"
+          }
+        },
+        "ko": {
           "stringUnit": {
             "state": "translated",
             "value": "•"
@@ -129,6 +247,30 @@
     "•••• %@": {
       "localizations": {
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "•••• %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "•••• %@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "•••• %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "•••• %@"
+          }
+        },
+        "ko": {
           "stringUnit": {
             "state": "translated",
             "value": "•••• %@"
@@ -175,6 +317,30 @@
       "extractionState": "stale",
       "localizations": {
         "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1.0.0 (Build 1)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1.0.0 (Build 1)"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1.0.0 (Build 1)"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1.0.0 (Build 1)"
+          }
+        },
+        "ko": {
           "stringUnit": {
             "state": "translated",
             "value": "1.0.0 (Build 1)"
@@ -777,6 +943,41 @@
         }
       }
     },
+    "Add Receipt Photo": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Receipt Photo"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加收据照片"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新增收據照片"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "領収書写真を追加"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "영수증 사진 추가"
+          }
+        }
+      }
+    },
     "Add unpaid bills with due dates in this range to see obligations.": {
       "extractionState": "stale",
       "localizations": {
@@ -790,6 +991,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "在此时间范围内添加未付账单后，可查看应付义务。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在此時間範圍內新增未付帳單後，可查看應付義務。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この期間に未払いの請求を追加すると、支払義務を確認できます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 기간에 미납 청구서를 추가하면 지급 의무를 확인할 수 있습니다."
           }
         }
       }
@@ -1123,6 +1342,24 @@
             "state": "translated",
             "value": "房租"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "房租"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "家賃"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "월세"
+          }
         }
       }
     },
@@ -1280,6 +1517,24 @@
             "state": "translated",
             "value": "请验证身份以关闭应用锁。"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請驗證身份以關閉應用鎖。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アプリロックを解除するには認証してください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "앱 잠금을 끄려면 인증하세요."
+          }
         }
       }
     },
@@ -1296,6 +1551,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "请验证身份以开启应用锁。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請驗證身份以開啟應用鎖。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アプリロックを有効にするには認証してください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "앱 잠금을 켜려면 인증하세요."
           }
         }
       }
@@ -1383,6 +1656,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "备份时间 %1$@ — %2$d 笔账单、%3$d 个分类、%4$d 个账户。请选择合并或覆盖。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "備份時間 %1$@ — %2$d 筆帳單、%3$d 個分類、%4$d 個帳戶。請選擇合併或覆蓋。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "バックアップ日時 %1$@ — 請求 %2$d、カテゴリ %3$d、口座 %4$d。結合または置換を選んでください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "백업 시각 %1$@ — 청구서 %2$d, 카테고리 %3$d, 계좌 %4$d. 병합 또는 교체를 선택하세요."
           }
         }
       }
@@ -1632,7 +1923,40 @@
         }
       }
     },
-    "Bills Manager": {},
+    "Bills Manager": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bills Manager"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "账单管家"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "帳單管家"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bills Manager"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bills Manager"
+          }
+        }
+      }
+    },
     "Bills Manager Locked": {
       "extractionState": "stale",
       "localizations": {
@@ -1699,6 +2023,41 @@
           "stringUnit": {
             "state": "translated",
             "value": "Bills Manager 專業版"
+          }
+        }
+      }
+    },
+    "Bills stay on this device. Optional Face ID lock (PRO). Export CSV or JSON backup anytime.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bills stay on this device. Optional Face ID lock (PRO). Export CSV or JSON backup anytime."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "账单仅保存在本机。可选 Face ID 锁（PRO）。随时导出 CSV 或 JSON 备份。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "帳單僅保存在本機。可選 Face ID 鎖（PRO）。隨時匯出 CSV 或 JSON 備份。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請求データはこの端末のみに保存されます。任意の Face ID ロック（PRO）。CSV または JSON バックアップをいつでも書き出せます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "청구 데이터는 이 기기에만 저장됩니다. Face ID 잠금(PRO) 선택 가능. CSV 또는 JSON 백업을 언제든 내보낼 수 있습니다."
           }
         }
       }
@@ -1822,6 +2181,24 @@
             "state": "translated",
             "value": "现金"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "現金"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "現金"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "현금"
+          }
         }
       }
     },
@@ -1926,6 +2303,41 @@
           "stringUnit": {
             "state": "translated",
             "value": "分類與支付帳戶"
+          }
+        }
+      }
+    },
+    "Category breakdown with paid vs due metrics": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Category breakdown with paid vs due metrics"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分类占比，支持实付与应付口径"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分類佔比，支援實付與應付口徑"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カテゴリ内訳（支払済み／未払い）"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "카테고리 비중(실납/미납)"
           }
         }
       }
@@ -2035,6 +2447,41 @@
         }
       }
     },
+    "Change Receipt Photo": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Change Receipt Photo"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更换收据照片"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更換收據照片"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "領収書写真を変更"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "영수증 사진 변경"
+          }
+        }
+      }
+    },
     "Chart Metric": {
       "extractionState": "stale",
       "localizations": {
@@ -2048,6 +2495,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "图表口径"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "圖表口徑"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "チャート指標"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "차트 지표"
           }
         }
       }
@@ -2065,6 +2530,94 @@
           "stringUnit": {
             "state": "translated",
             "value": "支票账户"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "支票帳戶"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当座預金"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "당좌예금"
+          }
+        }
+      }
+    },
+    "Choose a bill from the list to see details.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose a bill from the list to see details."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从列表中选择账单以查看详情。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "從列表中選擇帳單以查看詳情。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "リストから請求を選んで詳細を表示します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "목록에서 청구서를 선택해 세부정보를 보세요."
+          }
+        }
+      }
+    },
+    "Choose an item from the sidebar to get started.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose an item from the sidebar to get started."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从侧栏选择一项开始使用。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "從側欄選擇一項開始使用。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "サイドバーから項目を選んで開始します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사이드바에서 항목을 선택해 시작하세요."
           }
         }
       }
@@ -2209,6 +2762,41 @@
         }
       }
     },
+    "Couldn't load the selected photo.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't load the selected photo."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法加载所选照片。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法載入所選照片。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選択した写真を読み込めませんでした。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "선택한 사진을 불러오지 못했습니다."
+          }
+        }
+      }
+    },
     "Couldn't read the backup file. Please try again.": {
       "extractionState": "stale",
       "localizations": {
@@ -2222,6 +2810,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "无法读取备份文件，请重试。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法讀取備份檔案，請重試。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "バックアップファイルを読み込めませんでした。もう一度お試しください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "백업 파일을 읽지 못했습니다. 다시 시도하세요."
           }
         }
       }
@@ -2239,6 +2845,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "无法从备份恢复，请重试。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法從備份還原，請重試。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "バックアップから復元できませんでした。もう一度お試しください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "백업에서 복원하지 못했습니다. 다시 시도하세요."
           }
         }
       }
@@ -2326,6 +2950,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "信用卡"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "信用卡"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "クレジットカード"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "신용카드"
           }
         }
       }
@@ -2435,6 +3077,41 @@
         }
       }
     },
+    "Data is stored only on this device. There is no iCloud sync.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data is stored only on this device. There is no iCloud sync."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "数据仅保存在本设备，不同步到 iCloud。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "資料僅保存在本裝置，不同步到 iCloud。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "データはこの端末のみに保存され、iCloud 同期はありません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "데이터는 이 기기에만 저장되며 iCloud 동기화는 없습니다."
+          }
+        }
+      }
+    },
     "Default": {
       "extractionState": "stale",
       "localizations": {
@@ -2505,6 +3182,41 @@
         }
       }
     },
+    "Delete account “%@”?": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete account “%@”?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "删除账户“%@”？"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "刪除帳戶「%@」？"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "口座「%@」を削除しますか？"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "계좌 “%@”을(를) 삭제할까요?"
+          }
+        }
+      }
+    },
     "Delete Bill": {
       "extractionState": "stale",
       "localizations": {
@@ -2536,6 +3248,41 @@
           "stringUnit": {
             "state": "translated",
             "value": "刪除帳單"
+          }
+        }
+      }
+    },
+    "Delete category “%@”?": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete category “%@”?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "删除分类“%@”？"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "刪除分類「%@」？"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カテゴリ「%@」を削除しますか？"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "카테고리 “%@”을(를) 삭제할까요?"
           }
         }
       }
@@ -2610,6 +3357,41 @@
         }
       }
     },
+    "Double tap Pay button to mark paid": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Double tap Pay button to mark paid"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点按支付按钮可标记已付"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "點按支付按鈕可標記已付"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "支払ボタンをダブルタップして支払済みにします"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "지불 버튼을 이중 탭하여 납부 완료로 표시"
+          }
+        }
+      }
+    },
     "Due (Unpaid)": {
       "extractionState": "stale",
       "localizations": {
@@ -2623,6 +3405,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "应付（未付）"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "應付（未付）"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未払い"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "미납"
           }
         }
       }
@@ -2850,6 +3650,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "电费账单"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "電費帳單"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "電気料金"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "전기요금"
           }
         }
       }
@@ -3288,6 +4106,24 @@
             "state": "translated",
             "value": "住房"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "住房"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "住居"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "주거"
+          }
         }
       }
     },
@@ -3340,6 +4176,24 @@
             "state": "translated",
             "value": "保险"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保險"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保険"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "보험"
+          }
         }
       }
     },
@@ -3353,6 +4207,24 @@
           }
         },
         "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOS 17.0+"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOS 17.0+"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iOS 17.0+"
+          }
+        },
+        "ko": {
           "stringUnit": {
             "state": "translated",
             "value": "iOS 17.0+"
@@ -3478,6 +4350,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "贷款"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "貸款"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ローン"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "대출"
           }
         }
       }
@@ -3636,6 +4526,24 @@
             "state": "translated",
             "value": "将账单标记为已付后，可查看按分类的实际支出。"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "將帳單標記為已付後，可查看按分類的實際支出。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請求を支払済みにすると、カテゴリ別の実支出を確認できます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "청구서를 납부 완료로 표시하면 카테고리별 실제 지출을 볼 수 있습니다."
+          }
         }
       }
     },
@@ -3652,6 +4560,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "已标记"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已標記"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "マーク済み"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "표시됨"
           }
         }
       }
@@ -3670,6 +4596,24 @@
             "state": "translated",
             "value": "用于标记你已在银行或其他渠道设置自动扣款的账单。本应用不会扣款或连接银行账户。"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用於標記你已在銀行或其他管道設定自動扣款的帳單。本應用不會扣款或連接銀行帳戶。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このアプリ外ですでに自動引き落とし設定済みの請求を示します。Bills Manager が口座から引き落とすことはありません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "앱 외부에서 이미 자동이체 설정한 청구서를 표시합니다. Bills Manager는 계좌에서 출금하지 않습니다."
+          }
         }
       }
     },
@@ -3686,6 +4630,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "与现有数据合并"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "與現有資料合併"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "既存データと結合"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "기존 데이터와 병합"
           }
         }
       }
@@ -4054,6 +5016,24 @@
             "state": "translated",
             "value": "未标记"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未標記"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未マーク"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "미표시"
+          }
         }
       }
     },
@@ -4175,6 +5155,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "好"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "好"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "확인"
           }
         }
       }
@@ -4472,6 +5470,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "已付（实付）"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已付（實付）"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "支払済み（実績）"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "납부(실납)"
           }
         }
       }
@@ -4805,6 +5821,24 @@
             "state": "translated",
             "value": "个人"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "個人"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "個人"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "개인"
+          }
         }
       }
     },
@@ -4878,6 +5912,76 @@
         }
       }
     },
+    "Purchase didn't complete. Please try again.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Purchase didn't complete. Please try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "购买未完成，请重试。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購買未完成，請重試。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入が完了しませんでした。もう一度お試しください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매가 완료되지 않았습니다. 다시 시도하세요."
+          }
+        }
+      }
+    },
+    "Purchase is pending approval. You'll get PRO after it's approved.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Purchase is pending approval. You'll get PRO after it's approved."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "购买正在等待批准，批准后将解锁 PRO。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購買正在等待批准，批准後將解鎖 PRO。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入は承認待ちです。承認後に PRO が有効になります。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매가 승인 대기 중입니다. 승인되면 PRO가 활성화됩니다."
+          }
+        }
+      }
+    },
     "Quarterly": {
       "extractionState": "stale",
       "localizations": {
@@ -4944,6 +6048,41 @@
           "stringUnit": {
             "state": "translated",
             "value": "範圍"
+          }
+        }
+      }
+    },
+    "Receipt Photo": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Receipt Photo"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "收据照片"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "收據照片"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "領収書写真"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "영수증 사진"
           }
         }
       }
@@ -5031,6 +6170,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "周期与外部自动扣款"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "週期與外部自動扣款"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "定期と外部自動引き落とし"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "주기 및 외부 자동이체"
           }
         }
       }
@@ -5210,6 +6367,41 @@
         }
       }
     },
+    "Remove Receipt": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove Receipt"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除收据"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除收據"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "領収書を削除"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "영수증 제거"
+          }
+        }
+      }
+    },
     "Repeat Frequency": {
       "extractionState": "stale",
       "localizations": {
@@ -5294,6 +6486,24 @@
             "state": "translated",
             "value": "替换全部数据"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "替換全部資料"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "すべてのデータを置換"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "모든 데이터 교체"
+          }
         }
       }
     },
@@ -5310,6 +6520,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "恢复备份"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "還原備份"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "バックアップを復元"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "백업 복원"
           }
         }
       }
@@ -5328,6 +6556,24 @@
             "state": "translated",
             "value": "恢复完成"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "還原完成"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "復元完了"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "복원 완료"
+          }
         }
       }
     },
@@ -5344,6 +6590,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "从 JSON 恢复"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "從 JSON 還原"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "JSON から復元"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "JSON에서 복원"
           }
         }
       }
@@ -5396,6 +6660,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "恢复成功。新增 — 分类：%1$d，账户：%2$d，账单：%3$d。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "還原成功。新增 — 分類：%1$d，帳戶：%2$d，帳單：%3$d。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "復元に成功しました。追加 — カテゴリ: %1$d、口座: %2$d、請求: %3$d。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "복원되었습니다. 추가 — 카테고리: %1$d, 계좌: %2$d, 청구서: %3$d."
           }
         }
       }
@@ -5470,6 +6752,41 @@
         }
       }
     },
+    "Secure on-device bill data with biometric lock. Data stays on this device.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Secure on-device bill data with biometric lock. Data stays on this device."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用生物识别锁定本机账单数据；数据仅保存在本设备。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用生物辨識鎖定本機帳單資料；資料僅保存在本裝置。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "生体認証で端末内の請求データを保護します。データはこの端末のみに保存されます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "생체 인증으로 기기 내 청구 데이터를 보호합니다. 데이터는 이 기기에만 저장됩니다."
+          }
+        }
+      }
+    },
     "Secure sensitive bill data with biometric lock": {
       "extractionState": "stale",
       "localizations": {
@@ -5536,6 +6853,76 @@
           "stringUnit": {
             "state": "translated",
             "value": "安全與隱私"
+          }
+        }
+      }
+    },
+    "Select a Bill": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select a Bill"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择账单"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選擇帳單"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請求を選択"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "청구서 선택"
+          }
+        }
+      }
+    },
+    "Select a section": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select a section"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择功能分区"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "選擇功能分區"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "セクションを選択"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "섹션 선택"
           }
         }
       }
@@ -5764,6 +7151,24 @@
             "state": "translated",
             "value": "流媒体订阅"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "串流媒體訂閱"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ストリーミング契約"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "스트리밍 구독"
+          }
         }
       }
     },
@@ -5780,6 +7185,24 @@
           "stringUnit": {
             "state": "translated",
             "value": "订阅"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "訂閱"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "サブスクリプション"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구독"
           }
         }
       }
@@ -5833,6 +7256,24 @@
             "state": "translated",
             "value": "此备份文件没有数据。"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此備份檔案沒有資料。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このバックアップファイルにはデータがありません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 백업 파일에 데이터가 없습니다."
+          }
         }
       }
     },
@@ -5867,6 +7308,41 @@
           "stringUnit": {
             "state": "translated",
             "value": "本月"
+          }
+        }
+      }
+    },
+    "This product isn't supported by this app version.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This product isn't supported by this app version."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此版本应用不支持该商品。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此版本應用不支援該商品。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このアプリバージョンではこの商品はサポートされていません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 앱 버전에서는 해당 상품을 지원하지 않습니다."
           }
         }
       }
@@ -6042,6 +7518,41 @@
           "stringUnit": {
             "state": "translated",
             "value": "未分類"
+          }
+        }
+      }
+    },
+    "Undo last payment and remove its history record?": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Undo last payment and remove its history record?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撤销最近一次支付并删除对应历史记录？"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撤銷最近一次支付並刪除對應歷史記錄？"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "直近の支払いを取り消し、履歴を削除しますか？"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "최근 결제를 취소하고 해당 기록을 삭제할까요?"
           }
         }
       }
@@ -6270,6 +7781,24 @@
             "state": "translated",
             "value": "不支持的备份版本：%d"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不支援的備份版本：%d"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未対応のバックアップバージョン: %d"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "지원하지 않는 백업 버전: %d"
+          }
         }
       }
     },
@@ -6392,6 +7921,24 @@
             "state": "translated",
             "value": "水电燃气"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "水電燃氣"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "光熱費"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "공과금"
+          }
         }
       }
     },
@@ -6500,354 +8047,1634 @@
         }
       }
     },
-    "Receipt Photo": {
+    "Checking…": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Receipt Photo"
+            "value": "Checking…"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "收据照片"
+            "value": "检查中…"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "檢查中…"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "確認中…"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "확인 중…"
           }
         }
       }
     },
-    "Add Receipt Photo": {
+    "Couldn't create the export file. Please try again.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Add Receipt Photo"
+            "value": "Couldn't create the export file. Please try again."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "添加收据照片"
+            "value": "无法创建导出文件，请重试。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法建立匯出檔案，請重試。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "書き出しファイルを作成できませんでした。もう一度お試しください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "내보내기 파일을 만들 수 없습니다. 다시 시도하세요."
           }
         }
       }
     },
-    "Change Receipt Photo": {
+    "Couldn't open the local database.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Change Receipt Photo"
+            "value": "Couldn't open the local database."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "更换收据照片"
+            "value": "无法打开本地数据库。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法開啟本機資料庫。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ローカルデータベースを開けませんでした。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "로컬 데이터베이스를 열 수 없습니다."
           }
         }
       }
     },
-    "Remove Receipt": {
+    "Couldn't save your changes. Please try again.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Remove Receipt"
+            "value": "Couldn't save your changes. Please try again."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "移除收据"
+            "value": "无法保存更改，请重试。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法儲存變更，請重試。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "変更を保存できませんでした。もう一度お試しください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "변경 사항을 저장할 수 없습니다. 다시 시도하세요."
           }
         }
       }
     },
-    "Couldn't load the selected photo.": {
+    "Default Currency": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Couldn't load the selected photo."
+            "value": "Default Currency"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无法加载所选照片。"
+            "value": "默认货币"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "預設貨幣"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "デフォルト通貨"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "기본 통화"
           }
         }
       }
     },
-    "Undo last payment and remove its history record?": {
+    "Default Reminder": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Undo last payment and remove its history record?"
+            "value": "Default Reminder"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "撤销最近一次支付并删除对应历史记录？"
+            "value": "默认提醒"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "預設提醒"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "デフォルトリマインダー"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "기본 알림"
           }
         }
       }
     },
-    "Delete category “%@”?": {
+    "Denied": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Delete category “%@”?"
+            "value": "Denied"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "删除分类“%@”？"
+            "value": "已拒绝"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已拒絕"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拒否済み"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "거부됨"
           }
         }
       }
     },
-    "Delete account “%@”?": {
+    "Enable Reminders": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Delete account “%@”?"
+            "value": "Enable Reminders"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "删除账户“%@”？"
+            "value": "开启提醒"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "開啟提醒"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "リマインダーを有効にする"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "알림 켜기"
           }
         }
       }
     },
-    "%d linked bills will keep their data but lose this category.": {
+    "Expected product: %@": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "%d linked bills will keep their data but lose this category."
+            "value": "Expected product: %@"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "%d 笔关联账单会保留数据，但将失去该分类。"
+            "value": "期望商品：%@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "預期商品：%@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "想定プロダクト：%@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "예상 상품: %@"
           }
         }
       }
     },
-    "%d linked bills will keep their data but lose this account.": {
+    "Free plan: %d / %d accounts": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "%d linked bills will keep their data but lose this account."
+            "value": "Free plan: %1$d / %2$d accounts"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "%d 笔关联账单会保留数据，但将失去该账户。"
+            "value": "免费方案：%1$d / %2$d 个账户"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "免費方案：%1$d / %2$d 個帳戶"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無料プラン：アカウント %1$d / %2$d"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "무료 플랜: 계정 %1$d / %2$d"
           }
         }
       }
     },
-    "This product isn't supported by this app version.": {
+    "Free plan: %d / %d custom categories": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This product isn't supported by this app version."
+            "value": "Free plan: %1$d / %2$d custom categories"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "此版本应用不支持该商品。"
+            "value": "免费方案：%1$d / %2$d 个自定义分类"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "免費方案：%1$d / %2$d 個自訂分類"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無料プラン：カスタムカテゴリ %1$d / %2$d"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "무료 플랜: 맞춤 카테고리 %1$d / %2$d"
           }
         }
       }
     },
-    "Purchase is pending approval. You'll get PRO after it's approved.": {
+    "If you previously subscribed monthly or yearly, use Restore Purchases or Manage Subscriptions to review or cancel auto-renewal in your Apple ID settings.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Purchase is pending approval. You'll get PRO after it's approved."
+            "value": "If you previously subscribed monthly or yearly, use Restore Purchases or Manage Subscriptions to review or cancel auto-renewal in your Apple ID settings."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "购买正在等待批准，批准后将解锁 PRO。"
+            "value": "若你曾购买月度或年度订阅，请使用“恢复购买”或“管理订阅”，在 Apple ID 设置中查看或取消自动续订。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "若你曾購買月度或年度訂閱，請使用「恢復購買」或「管理訂閱」，在 Apple ID 設定中查看或取消自動續訂。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "以前に月額または年額サブスクリプションを購入した場合は、「購入を復元」または「サブスクリプションを管理」から Apple ID 設定で自動更新を確認・解約してください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이전에 월간/연간 구독을 구매했다면 '구입 항목 복원' 또는 '구독 관리'에서 Apple ID 설정의 자동 갱신을 확인하거나 취소하세요."
           }
         }
       }
     },
-    "Purchase didn't complete. Please try again.": {
+    "Load Sample Bills": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Purchase didn't complete. Please try again."
+            "value": "Load Sample Bills"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "购买未完成，请重试。"
+            "value": "加载示例账单"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "載入範例帳單"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "サンプル請求を読み込む"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "샘플 청구서 불러오기"
           }
         }
       }
     },
-    "Category breakdown with paid vs due metrics": {
+    "Manage Subscriptions": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Category breakdown with paid vs due metrics"
+            "value": "Manage Subscriptions"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "分类占比，支持实付与应付口径"
+            "value": "管理订阅"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "管理訂閱"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "サブスクリプションを管理"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구독 관리"
           }
         }
       }
     },
-    "Secure on-device bill data with biometric lock. Data stays on this device.": {
+    "No Purchases Found": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Secure on-device bill data with biometric lock. Data stays on this device."
+            "value": "No Purchases Found"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "用生物识别锁定本机账单数据；数据仅保存在本设备。"
+            "value": "未找到购买记录"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "找不到購買記錄"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入が見つかりません"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구입 항목 없음"
           }
         }
       }
     },
-    "Bills stay on this device. Optional Face ID lock (PRO). Export CSV or JSON backup anytime.": {
+    "No products available. Check your network or try again.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bills stay on this device. Optional Face ID lock (PRO). Export CSV or JSON backup anytime."
+            "value": "No products available. Check your network or try again."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "账单仅保存在本机。可选 Face ID 锁（PRO）。随时导出 CSV 或 JSON 备份。"
+            "value": "暂无可用商品。请检查网络后重试。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暫無可用商品。請檢查網路後重試。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "利用可能なプロダクトがありません。ネットワークを確認して再試行してください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사용 가능한 상품이 없습니다. 네트워크를 확인한 뒤 다시 시도하세요."
           }
         }
       }
     },
-    "Data is stored only on this device. There is no iCloud sync.": {
+    "Not Asked": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Data is stored only on this device. There is no iCloud sync."
+            "value": "Not Asked"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "数据仅保存在本设备，不同步到 iCloud。"
+            "value": "尚未请求"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "尚未詢問"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未確認"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "요청 전"
           }
         }
       }
     },
-    "Select a Bill": {
+    "Notifications": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Select a Bill"
+            "value": "Notifications"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "选择账单"
+            "value": "通知"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "通知"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "通知"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "알림"
           }
         }
       }
     },
-    "Choose a bill from the list to see details.": {
+    "One-time purchase. Unlock PRO forever on this Apple ID.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Choose a bill from the list to see details."
+            "value": "One-time purchase. Unlock PRO forever on this Apple ID."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "从列表中选择账单以查看详情。"
+            "value": "一次性购买。为此 Apple ID 永久解锁 PRO。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一次性購買。為此 Apple ID 永久解鎖 PRO。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "買い切り購入。この Apple ID で PRO を永続的に解除します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "일회성 구입. 이 Apple ID에서 PRO를 영구 잠금 해제합니다."
           }
         }
       }
     },
-    "Select a section": {
+    "Open System Settings": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Select a section"
+            "value": "Open System Settings"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "选择功能分区"
+            "value": "打开系统设置"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打開系統設定"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "システム設定を開く"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "시스템 설정 열기"
           }
         }
       }
     },
-    "Choose an item from the sidebar to get started.": {
+    "Optional demo data you can remove later in Settings.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Choose an item from the sidebar to get started."
+            "value": "Optional demo data you can remove later in Settings."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "从侧栏选择一项开始使用。"
+            "value": "可选的演示数据，之后可在设置中移除。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可選的示範資料，之後可在設定中移除。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "あとで設定から削除できる任意のデモデータです。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "나중에 설정에서 제거할 수 있는 선택적 데모 데이터입니다."
           }
         }
       }
     },
-    "Double tap Pay button to mark paid": {
+    "Payment will be charged to your Apple ID account at confirmation of purchase. This is a one-time Non-Consumable purchase that unlocks PRO permanently for this Apple ID.": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Double tap Pay button to mark paid"
+            "value": "Payment will be charged to your Apple ID account at confirmation of purchase. This is a one-time Non-Consumable purchase that unlocks PRO permanently for this Apple ID."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "点按支付按钮可标记已付"
+            "value": "确认购买后将从你的 Apple ID 账户扣款。这是一次性非消耗型购买，将为此 Apple ID 永久解锁 PRO。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "確認購買後將從你的 Apple ID 帳戶扣款。這是一次性非消耗型購買，將為此 Apple ID 永久解鎖 PRO。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入確認時に Apple ID アカウントへ請求されます。この Apple ID で PRO を永続解除する買い切り（非消耗型）です。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구입 확인 시 Apple ID 계정으로 결제됩니다. 이 Apple ID에서 PRO를 영구 잠금 해제하는 일회성 비소모성 구입입니다."
+          }
+        }
+      }
+    },
+    "Permission Status": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permission Status"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "权限状态"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "權限狀態"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "許可ステータス"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "권한 상태"
+          }
+        }
+      }
+    },
+    "Please try again later.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Please try again later."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请稍后再试。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請稍後再試。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "しばらくしてからもう一度お試しください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "나중에 다시 시도하세요."
+          }
+        }
+      }
+    },
+    "Preferences": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preferences"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "偏好设置"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "偏好設定"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "環境設定"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "환경설정"
+          }
+        }
+      }
+    },
+    "Privacy Policy": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacy Policy"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隐私政策"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隱私權政策"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プライバシーポリシー"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "개인정보 처리방침"
+          }
+        }
+      }
+    },
+    "Purchase Failed": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Purchase Failed"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "购买失败"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購買失敗"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入に失敗しました"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구입 실패"
+          }
+        }
+      }
+    },
+    "Purchases Restored": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Purchases Restored"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已恢复购买"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已恢復購買"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入を復元しました"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구입 항목 복원됨"
+          }
+        }
+      }
+    },
+    "Remove Sample Bills (%d)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove Sample Bills (%d)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除示例账单（%d）"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除範例帳單（%d）"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "サンプル請求を削除（%d）"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "샘플 청구서 삭제 (%d)"
+          }
+        }
+      }
+    },
+    "Restore Failed": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore Failed"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢复失败"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢復失敗"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "復元に失敗しました"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "복원 실패"
+          }
+        }
+      }
+    },
+    "Retry": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Retry"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重试"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重試"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "再試行"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "다시 시도"
+          }
+        }
+      }
+    },
+    "Something Went Wrong": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Something Went Wrong"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "出错了"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "發生錯誤"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "問題が発生しました"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "문제가 발생했습니다"
+          }
+        }
+      }
+    },
+    "Storage Unavailable": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Storage Unavailable"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "存储不可用"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "儲存空間無法使用"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ストレージを利用できません"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "저장소를 사용할 수 없음"
+          }
+        }
+      }
+    },
+    "Support": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Support"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "支持"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "支援"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "サポート"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "지원"
+          }
+        }
+      }
+    },
+    "Terms of Use": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terms of Use"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用条款"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用條款"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "利用規約"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이용 약관"
+          }
+        }
+      }
+    },
+    "Total overdue: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total overdue: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "逾期合计：%@"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "逾期合計：%@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "延滞合計：%@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "연체 합계: %@"
+          }
+        }
+      }
+    },
+    "Undo Last Payment": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Undo Last Payment"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撤销上次支付"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "復原上次付款"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "直前の支払いを取り消す"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "최근 결제 취소"
+          }
+        }
+      }
+    },
+    "Unknown": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unknown"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未知"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未知"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不明"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "알 수 없음"
+          }
+        }
+      }
+    },
+    "Unlimited categories, backup & analytics": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlimited categories, backup & analytics"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无限分类、备份与分析"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無限分類、備份與分析"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無制限カテゴリ、バックアップ、分析"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "무제한 카테고리, 백업 및 분석"
+          }
+        }
+      }
+    },
+    "Unlock multi-range analytics with PRO": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock multi-range analytics with PRO"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "升级 PRO 解锁多区间分析"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "升級 PRO 解鎖多區間分析"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PRO で複数期間の分析を解除"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PRO로 다중 기간 분석 잠금 해제"
+          }
+        }
+      }
+    },
+    "We couldn't find an active PRO purchase for this Apple ID.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We couldn't find an active PRO purchase for this Apple ID."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未找到此 Apple ID 下有效的 PRO 购买。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "找不到此 Apple ID 下有效的 PRO 購買。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この Apple ID の有効な PRO 購入が見つかりませんでした。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 Apple ID의 유효한 PRO 구입을 찾을 수 없습니다."
+          }
+        }
+      }
+    },
+    "Your PRO access has been restored.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your PRO access has been restored."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已恢复你的 PRO 权益。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已恢復你的 PRO 權益。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PRO アクセスを復元しました。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PRO 액세스가 복원되었습니다."
+          }
+        }
+      }
+    },
+    "Yes": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yes"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "是"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "是"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "はい"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "예"
+          }
+        }
+      }
+    },
+    "No": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "否"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "否"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "いいえ"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "아니요"
+          }
+        }
+      }
+    },
+    "Name": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Name"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "名称"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "名稱"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "名前"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이름"
+          }
+        }
+      }
+    },
+    "Currency": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Currency"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "货币"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "貨幣"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "通貨"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "통화"
+          }
+        }
+      }
+    },
+    "Status": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Status"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "状态"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "狀態"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ステータス"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "상태"
+          }
+        }
+      }
+    },
+    "AutoPay": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AutoPay"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自动扣款"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自動扣款"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自動引き落とし"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "자동이체"
           }
         }
       }

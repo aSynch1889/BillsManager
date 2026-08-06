@@ -40,7 +40,7 @@ struct AccountManagerView: View {
                         Text(account.localizedDisplayName)
                             .font(.body.weight(.medium))
                         if let last4 = account.accountNumberLast4, !last4.isEmpty {
-                            Text("•••• \(last4)")
+                            Text(String(format: L10n.s("•••• %@"), last4))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }

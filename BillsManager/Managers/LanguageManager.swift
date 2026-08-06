@@ -34,6 +34,7 @@ final class LanguageManager {
     /// Persist the choice and flip the tracked `effectiveCode` → fires re-render.
     func setLanguage(_ language: AppLanguage) {
         UserDefaults.standard.set(language.rawValue, forKey: Self.storageKey)
+        bundleCache.withLock { $0.removeAll() }
         effectiveCode = AppLanguage.resolveEffectiveCode(
             selected: language,
             preferredLocalizations: Bundle.main.preferredLocalizations
@@ -42,7 +43,17 @@ final class LanguageManager {
 
     /// Localized string for `key` in the currently effective language.
     func string(_ key: String, table: String = "Localizable") -> String {
-        resolvedBundle(for: effectiveCode).localizedString(forKey: key, value: nil, table: table)
+        let bundle = resolvedBundle(for: effectiveCode)
+        let value = bundle.localizedString(forKey: key, value: nil, table: table)
+        // If the key is missing from the table, Foundation returns the key itself.
+        // Fall back to English catalog / main bundle so UI never shows a raw missing key
+        // when a translation file lags behind.
+        if value == key, effectiveCode != "en" {
+            let english = resolvedBundle(for: "en").localizedString(forKey: key, value: nil, table: table)
+            if english != key { return english }
+            return Bundle.main.localizedString(forKey: key, value: key, table: table)
+        }
+        return value
     }
 
     private func resolvedBundle(for code: String) -> Bundle {

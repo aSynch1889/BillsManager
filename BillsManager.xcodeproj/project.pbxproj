@@ -38,6 +38,7 @@
 		0101003A /* PrivacyBlurOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102003A /* PrivacyBlurOverlay.swift */; };
 		0101001C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0102001C /* Assets.xcassets */; };
 		0101001D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0102001D /* Localizable.xcstrings */; };
+		0101003D /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0102003D /* InfoPlist.xcstrings */; };
 		0101001E /* StoreKit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 0102001E /* StoreKit.storekit */; };
 		0101003B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0102003B /* PrivacyInfo.xcprivacy */; };
 		01010021 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020021 /* OnboardingView.swift */; };
@@ -87,6 +88,7 @@
 		0102003A /* PrivacyBlurOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyBlurOverlay.swift; sourceTree = "<group>"; };
 		0102001C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0102001D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		0102003D /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		0102001E /* StoreKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = StoreKit.storekit; sourceTree = "<group>"; };
 		0102001F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01020020 /* BillsManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BillsManager.entitlements; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				0102001C /* Assets.xcassets */,
 				0102001D /* Localizable.xcstrings */,
+				0102003D /* InfoPlist.xcstrings */,
 				0102001E /* StoreKit.storekit */,
 			);
 			path = Resources;
@@ -338,6 +341,7 @@
 			files = (
 				0101001C /* Assets.xcassets in Resources */,
 				0101001D /* Localizable.xcstrings in Resources */,
+				0101003D /* InfoPlist.xcstrings in Resources */,
 				0101001E /* StoreKit.storekit in Resources */,
 				0101003B /* PrivacyInfo.xcprivacy in Resources */,
 			);

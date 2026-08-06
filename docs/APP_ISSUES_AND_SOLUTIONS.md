@@ -23,7 +23,7 @@
 | P2 整改（除 CI） | 🟢 3.1–3.5、3.7–3.10 已关闭；3.6 ⏭ |
 | 通知授权调用点 | 🟢 Onboarding + 保存账单 `ensureAuthorization`；设置页可跳系统设置 |
 | PRO 权益门控 | 🟢 `ProFeature` 门控；买断策略；已去 Ad-Free 文案 |
-| 本地化覆盖 | 🟢 显式 `en` 100%；`zh-Hans` ≈97%+；系统分类/账户展示层本地化 |
+| 本地化覆盖 | 🟢 `L10n` 键五语齐全（en / zh-Hans / zh-Hant / ja / ko）；系统分类/账户展示层本地化 |
 | 静默错误 | 🟢 关键路径与附件/内购失败均 Alert |
 | 货币硬编码 | 🟢 `CurrencyFormatter` 统一 |
 | App Icon | 🟢 1024 PNG + `PrivacyInfo.xcprivacy` |
@@ -173,10 +173,11 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 ### 2.4 本地化严重不完整 — 🟢 已解决
 
 **修复**
-- `Localizable.xcstrings` 全量补齐显式 `en`；`zh-Hans` 覆盖率约 97%+（剩余多为符号/版本占位）
-- 工具栏 Cancel/Save/Delete 等已走 `L10n.s`
+- `Localizable.xcstrings`：所有 `L10n.s` 键在 `en` / `zh-Hans` / `zh-Hant` / `ja` / `ko` 五语齐全（含此前缺失的约 42 条 + 58 条缺繁日韩条目）
+- 工具栏 Cancel/Save/Delete、权限文案 `InfoPlist.xcstrings`、CSV 表头/状态/频率、图表口径等均走 `L10n`
 - 系统分类/默认账户 UI 用 `localizedDisplayName`；示例账单按当前语言写入名称
-- 设置页版本号改为从 Bundle 读取
+- `LanguageManager` 切换语言时清空 bundle 缓存，缺失词条回退英文
+- 设置页版本号从 Bundle 读取
 
 ---
 

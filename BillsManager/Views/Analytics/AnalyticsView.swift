@@ -194,7 +194,7 @@ struct AnalyticsView: View {
 
                         Chart(categoryExpenses) { item in
                             SectorMark(
-                                angle: .value("Amount", item.totalAmount),
+                                angle: .value(L10n.s("Amount"), item.totalAmount),
                                 innerRadius: .ratio(0.6),
                                 angularInset: 1.5
                             )

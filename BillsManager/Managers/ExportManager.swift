@@ -49,21 +49,34 @@ final class ExportManager {
     // MARK: - CSV
 
     func generateCSV(bills: [Bill]) -> String {
-        var csv = "Name,Amount,Currency,Due Date,Status,Category,Account,Frequency,AutoPay,Notes\n"
+        let headers = [
+            L10n.s("Name"),
+            L10n.s("Amount"),
+            L10n.s("Currency"),
+            L10n.s("Due Date"),
+            L10n.s("Status"),
+            L10n.s("Category"),
+            L10n.s("Account"),
+            L10n.s("Frequency"),
+            L10n.s("AutoPay"),
+            L10n.s("Notes")
+        ]
+        var csv = headers.joined(separator: ",") + "\n"
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
+        dateFormatter.locale = Locale(identifier: LanguageManager.shared.effectiveCode)
 
         for bill in bills {
             let name = "\"\(bill.name.replacingOccurrences(of: "\"", with: "\"\""))\""
             let amount = String(format: "%.2f", bill.amount)
             let currency = bill.currencyCode
             let dueDate = dateFormatter.string(from: bill.dueDate)
-            let status = bill.status.rawValue
-            let category = "\"\(bill.category?.name ?? "Uncategorized")\""
-            let account = "\"\(bill.account?.name ?? "None")\""
-            let frequency = bill.frequency.rawValue
-            let autoPay = bill.isAutoPay ? "Yes" : "No"
+            let status = bill.status.localizedName
+            let category = "\"\((bill.category?.localizedDisplayName ?? L10n.s("Uncategorized")).replacingOccurrences(of: "\"", with: "\"\""))\""
+            let account = "\"\((bill.account?.localizedDisplayName ?? L10n.s("None")).replacingOccurrences(of: "\"", with: "\"\""))\""
+            let frequency = bill.frequency.localizedName
+            let autoPay = bill.isAutoPay ? L10n.s("Yes") : L10n.s("No")
             let notes = "\"\(bill.notes?.replacingOccurrences(of: "\"", with: "\"\"") ?? "")\""
 
             let row = "\(name),\(amount),\(currency),\(dueDate),\(status),\(category),\(account),\(frequency),\(autoPay),\(notes)\n"

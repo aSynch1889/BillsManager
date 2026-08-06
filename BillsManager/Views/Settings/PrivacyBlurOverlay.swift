@@ -13,7 +13,7 @@ struct PrivacyBlurOverlay: View {
                 Image(systemName: "lock.fill")
                     .font(.largeTitle)
                     .foregroundStyle(.secondary)
-                Text("Bills Manager")
+                Text(L10n.s("Bills Manager"))
                     .font(.headline)
                     .foregroundStyle(.secondary)
             }
