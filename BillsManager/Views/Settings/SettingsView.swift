@@ -233,6 +233,10 @@ struct SettingsView: View {
                 Link(destination: LegalLinks.support) {
                     Label(L10n.s("Support"), systemImage: "questionmark.circle")
                 }
+
+                Text(L10n.s("Data is stored only on this device. There is no iCloud sync."))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
         }
         .navigationTitle(L10n.s("Settings"))

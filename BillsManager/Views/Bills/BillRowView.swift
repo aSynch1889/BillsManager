@@ -81,6 +81,11 @@ struct BillRowView: View {
         .padding(12)
         .background(Color(.secondarySystemGroupedBackground))
         .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(
+            "\(bill.name), \(bill.formattedAmount), \(dueDateText)"
+        )
+        .accessibilityHint(bill.isPaid ? L10n.s("Paid") : L10n.s("Double tap Pay button to mark paid"))
         .sheet(isPresented: $showingMarkPaidSheet) {
             MarkPaidSheet(
                 bill: bill,
