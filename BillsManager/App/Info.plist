@@ -20,8 +20,6 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSCameraUsageDescription</key>
-	<string>Bills Manager needs camera access to capture receipt and invoice photos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Bills Manager needs photo library access to attach receipt images to your bills.</string>
 	<key>NSFaceIDUsageDescription</key>

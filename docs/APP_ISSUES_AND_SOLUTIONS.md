@@ -183,13 +183,11 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 
 设置页 Preferences：`Default Currency` / `Default Reminder`；`AddEditBillView` 新建时读取二者。
 
-### 2.6 照片权限声明与实际能力不匹配 — 🔴 仍存在
+### 2.6 照片权限声明与实际能力不匹配 — 🟢 已解决
 
-- 使用 `PhotosPicker`（一般够用）
-- 声明了 `NSCameraUsageDescription` 但 **无相机拍照入口**
-- 旧版 `NSPhotoLibraryUsageDescription` 在 iOS 17+ 对 PhotosPicker 可能非必需，但保留无害
+**修复**：移除未使用的 `NSCameraUsageDescription`（仅保留 `PhotosPicker` + `NSPhotoLibraryUsageDescription`）。
 
-**方案**：要么增加“拍照收据”，要么移除 Camera usage 文案，避免审核追问。
+---
 
 ### 2.7 分析逻辑与财务语义偏差 — 🔴 仍存在
 
@@ -382,7 +380,7 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 - [ ] 免费用户触发限额功能必现 Paywall；PRO 用户畅通
 - [x] JSON 备份 → 删除 App → 重装 → 恢复后数据一致
 - [ ] 内购沙盒：买断 / 月 / 年 / 恢复 / 过期 五条路径通过
-- [ ] 无相机权限却弹相机；无多余隐私用途
+- [x] 无相机权限却弹相机；无多余隐私用途
 - [ ] 设置页可打开隐私政策与条款
 
 ---

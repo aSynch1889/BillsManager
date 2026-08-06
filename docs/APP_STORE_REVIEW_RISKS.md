@@ -34,7 +34,7 @@
 | 🔴 高 | 隐私政策缺失/不可访问 | 5.1.1(i) | 🔴 App 内未见隐私 URL；ASC 元数据外部未知 | 高 |
 | 🔴 高 | 内购无法完成 / 商品加载失败 | 2.1(b) | 🟡 ASC 商品未知；无共享测试 Scheme；空商品无错误/重试 | 高 |
 | 🟠 中高 | 付费功能名不副实 / 误导 | 2.3.1 / 3.1.1 | 🔴 PRO 权益未门控；宣称 Ad-Free 但全 App 无广告 | 中高 |
-| 🟠 中 | 权限用途不准确 | 5.1.1(iii) | 🔴 声明相机但未提供相机入口 | 中低–中 |
+| 🟢 低 | 权限用途不准确 | 5.1.1(iii) | ✅ 已删除未使用的相机声明 | — |
 | 🟢 低 | App 图标构建兼容 | 2.3 / 上传资产 | 🟢 JPEG 源图已由 Asset Catalog 成功编译；建议换 PNG，但非已证实拒因 | 低 |
 | 🟠 中 | 恢复购买与订阅管理 | 3.1.1 / 3.1.2 | 🟠 有 Restore，缺管理订阅入口与成功/失败反馈 | 中 |
 | 🟡 中 | 隐私清单 Privacy Manifest | 5.1 / 平台要求 | 🔴 未见 `PrivacyInfo.xcprivacy`；Required Reason API 仍需核对 | 中 |
@@ -190,7 +190,7 @@ Link("Terms of Use (EULA)", destination: URL(string: "https://www.apple.com/lega
 | :--- | :--- | :--- | :--- |
 | `NSFaceIDUsageDescription` | 有，用途合理 | 低 | 保持；中英可考虑 InfoPlist.xcstrings |
 | `NSPhotoLibraryUsageDescription` | 有 | 低 | PhotosPicker 场景下可保留简洁说明 |
-| `NSCameraUsageDescription` | 有但 **无相机功能** | 中 | **删除** 或实现拍照 |
+| `NSCameraUsageDescription` | ✅ 已删除（无相机入口） | — | PhotosPicker 足够 |
 
 审核员可能问：为何申请相机？答不上或动态检查无调用仍可能被要求解释。
 
@@ -336,7 +336,7 @@ Link("Terms of Use (EULA)", destination: URL(string: "https://www.apple.com/lega
 - [ ] 🔴 去掉虚假 **Ad-Free**（或真接广告）
 - [ ] 🔴 **通知权限**请求接通
 - [ ] 🔴 修复首次 Seed 重复风险及周期支付/撤销核心缺陷
-- [ ] 🔴 删除未使用的 **NSCameraUsageDescription**（或实现相机）
+- [x] 删除未使用的 **NSCameraUsageDescription**（或实现相机）
 - [ ] 🔴 自测第 5 节全路径
 
 ### Should
