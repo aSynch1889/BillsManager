@@ -4,7 +4,7 @@
 > **最近复评**：2026-08-06（真机 `刘小华的iPhone` / iOS 18.6.2，关闭全部可代码闭环的 P0/P1）
 > **评估范围**：源码、模型、内购、通知、安全、本地化、数据导出、PRD 一致性、工程质量
 > **工程标识**：`com.antigravity.billsmanager` / iOS 17+ / SwiftUI + SwiftData + StoreKit 2
-> **结论摘要**：可代码闭环的 **P0/P1 均已关闭**。P0 1.5 中 ASC 商品是否已创建仍需人工核验（🟡）。剩余差距主要在 P2（测试、Privacy Manifest、Icon PNG、版本号统一等）。
+> **结论摘要**：可代码闭环的 **P0/P1 均已关闭**；**P2（除 3.6 测试与 CI）均已关闭**。P0 1.5 ASC 商品与 3.6 测试/CI 仍待后续。剩余主要为 P3 增强。
 
 ## 复评状态与验证证据
 
@@ -25,8 +25,8 @@
 | 本地化覆盖 | 🟢 显式 `en` 100%；`zh-Hans` ≈97%+；系统分类/账户展示层本地化 |
 | 静默错误 | 🟠 关键保存/导出已 Alert；附件等路径仍有 `try?` |
 | 货币硬编码 | 🟢 `CurrencyFormatter` 统一；Dashboard/Analytics/支付历史已替换 |
-| App Icon | 🟠 源文件为 1024×1024 JPEG、无 alpha；Asset Catalog 编译成功 |
-| 版本号 | 🟠 设置页已读 Bundle；工程 Build Number 与 Info.plist 仍可能不一致 |
+| App Icon | 🟢 1024 PNG |
+| 版本号 | 🟢 Info.plist 跟随 `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION` |
 
 ---
 
@@ -343,8 +343,8 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 | `AnalyticsView` | ✅ 实付按 PaymentRecord；应付按 dueDate；可切换 |
 | `Category/Account` | ✅ PRO 限额；展示层本地化 |
 | `Localizable.xcstrings` | ✅ en 全量；zh-Hans 高覆盖 |
-| `AppIcon` | JPEG，建议 PNG（P2） |
-| 工程 | 无测试、无 Privacy Manifest（P2） |
+| `AppIcon` | ✅ PNG |
+| 工程 | Privacy Manifest ✅；测试/CI ⏭ |
 
 ---
 
@@ -372,8 +372,8 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 
 ### Sprint D — 打磨（持续）
 1. ✅ 完整中英本地化（系统分类展示层 + 目录全量 en/zh-Hans）
-2. 单测 + 关键 UI 测
-3. iPad 双栏、无障碍、Widget
+2. ⏭ 单测 + 关键 UI 测（见 3.6，本次跳过）
+3. ✅ iPad 双栏；无障碍基础；Widget 仍属 P3
 
 ---
 
@@ -398,8 +398,8 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 | :--- | :--- |
 | 文档路径 | `docs/APP_ISSUES_AND_SOLUTIONS.md` |
 | 关联文档 | `docs/APP_STORE_REVIEW_RISKS.md`、`docs/PRD.md` |
-| 本次状态同步 | 2026-08-06：关闭全部可代码闭环 P0/P1；ASC 商品仍 🟡；真机构建验证 |
-| 下次复评建议 | 聚焦 P2（测试、Privacy Manifest、Icon PNG、版本号）与 ASC/沙盒人工核验 |
+| 本次状态同步 | 2026-08-06：关闭全部可代码闭环 P0/P1，以及 P2（除 3.6 测试与 CI） |
+| 下次复评建议 | 聚焦 3.6 测试/CI、ASC 商品核验与 P3 增强 |
 
 ---
 
