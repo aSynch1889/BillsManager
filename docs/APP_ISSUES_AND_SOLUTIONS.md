@@ -224,16 +224,18 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 
 ## 3. 中优先级问题（P2）— 体验与工程质量
 
-### 3.1 数据模型与业务边界 — 🔴 仍存在
+### 3.1 数据模型与业务边界 — 🟢 已解决（Decimal 延后）
 
-| 问题 | 方案 |
+| 问题 | 状态 |
 | :--- | :--- |
-| `amount` 无有效性校验，可存 0/负数/非有限值 | 保存时校验 `amount.isFinite && amount > 0` |
-| 金额 `Double` 浮点误差 | 存 `Decimal` 或整数分 |
-| `Bill.id` 非 `@Attribute(.unique)` | 加 unique 约束 |
-| 删除分类/账户仅 nullify，无提示 | 删除前显示关联账单数 |
-| 系统分类不可编辑名称 | 若需本地化展示，增加 `displayName` |
-| 无 SwiftData Migration 计划 | 版本字段 + 显式迁移文档 |
+| `amount` 有效性 | ✅ 表单/`parseAmount` 校验 `isFinite && > 0` |
+| 金额 `Double` | ⏭ 延后；见 `docs/SWIFTDATA_MIGRATION.md` |
+| `Bill.id` unique | ✅ `@Attribute(.unique)`（Category/Account/PaymentRecord 同） |
+| 删除分类/账户无提示 | ✅ 确认对话框展示关联账单数 |
+| 系统分类展示名 | ✅ `localizedDisplayName` |
+| Migration 计划 | ✅ `docs/SWIFTDATA_MIGRATION.md` |
+
+---
 
 ### 3.2 支付历史不完整 — 🟢 已解决
 

@@ -3,7 +3,7 @@ import SwiftData
 
 @Model
 final class Account {
-    var id: UUID
+    @Attribute(.unique) var id: UUID
     var name: String
     var accountNumberLast4: String?
     var iconName: String

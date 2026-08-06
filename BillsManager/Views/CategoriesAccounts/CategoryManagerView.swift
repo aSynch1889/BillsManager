@@ -14,6 +14,7 @@ struct CategoryManagerView: View {
     @State private var iconName: String = "folder.fill"
     @State private var categoryColor: Color = .blue
     @State private var persistenceError: String?
+    @State private var categoryPendingDelete: Category?
 
     private var customCategoryCount: Int {
         categories.filter { !$0.isSystem }.count
@@ -53,10 +54,7 @@ struct CategoryManagerView: View {
                 .swipeActions(edge: .trailing) {
                     if !category.isSystem {
                         Button(role: .destructive) {
-                            modelContext.delete(category)
-                            if let message = Persistence.saveReturningMessage(modelContext) {
-                                persistenceError = message
-                            }
+                            categoryPendingDelete = category
                         } label: {
                             Label(L10n.s("Delete"), systemImage: "trash")
                         }
@@ -65,6 +63,31 @@ struct CategoryManagerView: View {
             }
         }
         .navigationTitle(L10n.s("Categories"))
+        .confirmationDialog(
+            deleteCategoryTitle,
+            isPresented: Binding(
+                get: { categoryPendingDelete != nil },
+                set: { if !$0 { categoryPendingDelete = nil } }
+            ),
+            titleVisibility: .visible
+        ) {
+            Button(L10n.s("Delete"), role: .destructive) {
+                guard let category = categoryPendingDelete else { return }
+                modelContext.delete(category)
+                if let message = Persistence.saveReturningMessage(modelContext) {
+                    persistenceError = message
+                }
+                categoryPendingDelete = nil
+            }
+            Button(L10n.s("Cancel"), role: .cancel) {
+                categoryPendingDelete = nil
+            }
+        } message: {
+            if let category = categoryPendingDelete {
+                let count = category.bills?.count ?? 0
+                Text(String(format: L10n.s("%d linked bills will keep their data but lose this category."), count))
+            }
+        }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(action: attemptAddCategory) {
@@ -124,6 +147,11 @@ struct CategoryManagerView: View {
             }
         }
         .persistenceAlert($persistenceError)
+    }
+
+    private var deleteCategoryTitle: String {
+        guard let category = categoryPendingDelete else { return L10n.s("Delete") }
+        return String(format: L10n.s("Delete category “%@”?"), category.localizedDisplayName)
     }
 
     private func attemptAddCategory() {

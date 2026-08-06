@@ -3,7 +3,7 @@ import SwiftData
 
 @Model
 final class Category {
-    var id: UUID
+    @Attribute(.unique) var id: UUID
     var name: String
     var iconName: String
     var hexColor: String

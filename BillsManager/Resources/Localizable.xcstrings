@@ -6595,6 +6595,70 @@
           }
         }
       }
+    },
+    "Delete category “%@”?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete category “%@”?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "删除分类“%@”？"
+          }
+        }
+      }
+    },
+    "Delete account “%@”?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete account “%@”?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "删除账户“%@”？"
+          }
+        }
+      }
+    },
+    "%d linked bills will keep their data but lose this category.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d linked bills will keep their data but lose this category."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d 笔关联账单会保留数据，但将失去该分类。"
+          }
+        }
+      }
+    },
+    "%d linked bills will keep their data but lose this account.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d linked bills will keep their data but lose this account."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d 笔关联账单会保留数据，但将失去该账户。"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

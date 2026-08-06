@@ -3,7 +3,7 @@ import SwiftData
 
 @Model
 final class Bill {
-    var id: UUID
+    @Attribute(.unique) var id: UUID
     var name: String
     var amount: Double
     var currencyCode: String

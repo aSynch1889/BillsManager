@@ -14,6 +14,7 @@ struct AccountManagerView: View {
     @State private var iconName: String = "creditcard.fill"
     @State private var accountColor: Color = .blue
     @State private var persistenceError: String?
+    @State private var accountPendingDelete: Account?
 
     var body: some View {
         List {
@@ -55,10 +56,7 @@ struct AccountManagerView: View {
                 }
                 .swipeActions(edge: .trailing) {
                     Button(role: .destructive) {
-                        modelContext.delete(account)
-                        if let message = Persistence.saveReturningMessage(modelContext) {
-                            persistenceError = message
-                        }
+                        accountPendingDelete = account
                     } label: {
                         Label(L10n.s("Delete"), systemImage: "trash")
                     }
@@ -66,6 +64,31 @@ struct AccountManagerView: View {
             }
         }
         .navigationTitle(L10n.s("Payment Accounts"))
+        .confirmationDialog(
+            deleteAccountTitle,
+            isPresented: Binding(
+                get: { accountPendingDelete != nil },
+                set: { if !$0 { accountPendingDelete = nil } }
+            ),
+            titleVisibility: .visible
+        ) {
+            Button(L10n.s("Delete"), role: .destructive) {
+                guard let account = accountPendingDelete else { return }
+                modelContext.delete(account)
+                if let message = Persistence.saveReturningMessage(modelContext) {
+                    persistenceError = message
+                }
+                accountPendingDelete = nil
+            }
+            Button(L10n.s("Cancel"), role: .cancel) {
+                accountPendingDelete = nil
+            }
+        } message: {
+            if let account = accountPendingDelete {
+                let count = account.bills?.count ?? 0
+                Text(String(format: L10n.s("%d linked bills will keep their data but lose this account."), count))
+            }
+        }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(action: attemptAddAccount) {
@@ -134,6 +157,11 @@ struct AccountManagerView: View {
             }
         }
         .persistenceAlert($persistenceError)
+    }
+
+    private var deleteAccountTitle: String {
+        guard let account = accountPendingDelete else { return L10n.s("Delete") }
+        return String(format: L10n.s("Delete account “%@”?"), account.localizedDisplayName)
     }
 
     private func attemptAddAccount() {
