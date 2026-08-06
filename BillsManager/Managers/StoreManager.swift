@@ -20,6 +20,7 @@ final class StoreManager {
 
     /// All PRO products offered on the Paywall (subscriptions + lifetime).
     static let offeredProductIDs = [monthlyProID, yearlyProID, lifetimeProID]
+    static let proEntitlementCacheKey = "StoreManagerProEntitlementCache"
     private let productIDs = offeredProductIDs
     private var transactionListener: Task<Void, Error>?
     
@@ -92,6 +93,7 @@ final class StoreManager {
                     return false
                 }
                 purchasedProductIDs.insert(transaction.productID)
+                persistProEntitlementCache()
                 await transaction.finish()
                 return true
             case .userCancelled:
@@ -137,6 +139,19 @@ final class StoreManager {
             }
         }
         self.purchasedProductIDs = purchased
+        persistProEntitlementCache()
+        if isProUser {
+            CloudSyncManager.shared.clearProExpirationFlag()
+        }
+        CloudSyncManager.enforceProRequirement(isProUser: isProUser)
+    }
+
+    private func persistProEntitlementCache() {
+        UserDefaults.standard.set(isProUser, forKey: Self.proEntitlementCacheKey)
+    }
+
+    static var cachedProEntitlement: Bool {
+        UserDefaults.standard.bool(forKey: proEntitlementCacheKey)
     }
     
     private func listenForTransactions() -> Task<Void, Error> {

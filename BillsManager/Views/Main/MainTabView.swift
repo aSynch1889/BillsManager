@@ -42,7 +42,7 @@ struct MainTabView: View {
                 HStack(spacing: 8) {
                     Image(systemName: "arrow.clockwise.circle.fill")
                         .foregroundStyle(.orange)
-                    Text(L10n.s("Restart the app to apply iCloud sync changes."))
+                    Text(syncRestartBannerText)
                         .font(.caption)
                     Spacer()
                 }
@@ -102,5 +102,12 @@ struct MainTabView: View {
             }
             }
         }
+    }
+
+    private var syncRestartBannerText: String {
+        if cloudSyncManager.disabledDueToProExpiration {
+            return L10n.s("Your PRO subscription ended. iCloud sync was turned off. Restart the app to keep your data on this device.")
+        }
+        return L10n.s("Restart the app to apply iCloud sync changes.")
     }
 }

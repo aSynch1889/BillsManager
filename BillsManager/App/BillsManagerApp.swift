@@ -22,6 +22,10 @@ struct BillsManagerApp: App {
     init() {
         do {
             try ModelContainerFactory.runPendingMigrationIfNeeded()
+            if CloudSyncManager.shared.isSyncEnabled && !StoreManager.cachedProEntitlement {
+                _ = CloudSyncManager.shared.disableSyncDueToProExpiration()
+                try ModelContainerFactory.runPendingMigrationIfNeeded()
+            }
             let container = try ModelContainerFactory.makeContainer(
                 cloudSyncEnabled: CloudSyncManager.shouldUseCloudKit
             )
@@ -77,6 +81,9 @@ struct BillsManagerApp: App {
                     .animation(.default, value: hasCompletedOnboarding)
                     .onChange(of: scenePhase) { _, newPhase in
                         authManager.handleScenePhase(newPhase)
+                        if newPhase == .active {
+                            Task { await storeManager.updatePurchasedProducts() }
+                        }
                     }
                 }
                 .environment(languageManager)

@@ -308,7 +308,7 @@ struct SettingsView: View {
             .font(.subheadline)
 
             if cloudSyncManager.restartRequired {
-                Text(L10n.s("Restart the app to apply iCloud sync changes."))
+                Text(syncRestartHintText)
                     .font(.caption)
                     .foregroundStyle(.orange)
             }
@@ -322,7 +322,20 @@ struct SettingsView: View {
                         .foregroundStyle(.secondary)
                 }
             }
+
+            if cloudSyncManager.disabledDueToProExpiration {
+                Text(L10n.s("Your PRO subscription ended. iCloud sync was turned off automatically."))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
         }
+    }
+
+    private var syncRestartHintText: String {
+        if cloudSyncManager.disabledDueToProExpiration {
+            return L10n.s("Your PRO subscription ended. iCloud sync was turned off. Restart the app to keep your data on this device.")
+        }
+        return L10n.s("Restart the app to apply iCloud sync changes.")
     }
 
     private var appVersionLabel: String {

@@ -24,6 +24,7 @@
 - 本地库 configuration：`LocalStore`（`cloudKitDatabase: .none`）
 - 云库 configuration：`CloudStore`（`.private` CloudKit）
 - 切换同步需**重启 App**；`ModelContainerFactory` 在启动时执行一次性 local↔cloud 数据拷贝
+- **PRO 过期**时自动关闭 iCloud 同步并标记迁移回本地；需重启后生效。重新订阅 PRO 后可再次手动开启
 - 系统分类/账户 seed 使用**固定 UUID**，避免多设备重复
 
 ## 版本锚点
