@@ -7,6 +7,7 @@ enum ProFeature: String, CaseIterable {
     case exportBackup
     case appLock
     case advancedAnalytics
+    case iCloudSync
 
     /// Free-tier caps (system categories do not count toward the category limit).
     static let freeCustomCategoryLimit = 5

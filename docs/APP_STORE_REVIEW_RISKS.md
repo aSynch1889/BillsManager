@@ -32,7 +32,7 @@
 
 | 风险等级 | 拒因方向 | Guideline | 2026-08-06 状态 | 预估拒审概率 |
 | :---: | :--- | :--- | :--- | :---: |
-| 🟢 低 | 自动续订订阅缺少持续价值 | 3.1.2(a) | 🟢 Paywall **仅出售 Lifetime**；月/年仅 Restore | 低 |
+| 🟢 低 | 自动续订订阅缺少持续价值 | 3.1.2(a) | 🟢 PRO 可选 iCloud 同步 + 月/年/终身在售 | 低 |
 | 🟢 低 | 自动续订订阅信息披露不全 | 3.1.2(c) | 🟢 买断披露 + 隐私/条款 + 管理订阅链接 | 低 |
 | 🟠 中 | 隐私政策缺失/不可访问 | 5.1.1(i) | 🟢 App 内链接已有；ASC 元数据 URL 🟡 | 中（看 ASC） |
 | 🟡 中 | 内购无法完成 / 商品加载失败 | 2.1(b) | 🟢 Scheme/Retry/错误提示；ASC 商品 🟡 | 中（看 ASC） |
@@ -52,7 +52,9 @@
 
 ### 1.0 Guideline 3.1.2(a) — 订阅持续价值不足 — 🟢 已解决（产品决策）
 
-Paywall **仅出售** Non-Consumable 永久买断（`com.billsmanager.pro.lifetime`）。月/年订阅 ID 仅用于 Restore / 历史 entitlement，不再作为在售商品。
+Paywall 出售 **月度 / 年度 / 终身** PRO。PRO 包含可选 iCloud 同步（默认关闭）、导出备份、应用锁、无限分类/账户与高级分析。Restore 识别历史 entitlement。
+
+参见 `docs/ASC_IAP_SETUP.md`。
 
 依据：[Apple App Review Guidelines 3.1.2](https://developer.apple.com/app-store/review/guidelines/)。
 

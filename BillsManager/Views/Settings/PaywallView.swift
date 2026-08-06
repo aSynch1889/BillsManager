@@ -5,16 +5,23 @@ struct PaywallView: View {
     @Environment(StoreManager.self) private var storeManager
     @Environment(\.dismiss) private var dismiss
     
-    @State private var selectedProductID: String = StoreManager.lifetimeProID
+    @State private var selectedProductID: String = StoreManager.yearlyProID
     @State private var restoreAlertTitle: String = ""
     @State private var restoreAlertMessage: String = ""
     @State private var showingRestoreAlert: Bool = false
     @State private var purchaseAlertMessage: String?
     
+    private var selectedProduct: Product? {
+        storeManager.products.first(where: { $0.id == selectedProductID }) ?? storeManager.products.first
+    }
+
+    private var isSelectedSubscription: Bool {
+        selectedProductID == StoreManager.monthlyProID || selectedProductID == StoreManager.yearlyProID
+    }
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
-                // Header Banner
                 VStack(spacing: 12) {
                     ZStack {
                         Circle()
@@ -29,7 +36,7 @@ struct PaywallView: View {
                     Text(L10n.s("Bills Manager PRO"))
                         .font(.system(size: 28, weight: .bold, design: .rounded))
                     
-                    Text(L10n.s("One-time purchase. Unlock PRO forever on this Apple ID."))
+                    Text(L10n.s("Choose monthly, yearly, or lifetime. Unlock PRO on this Apple ID."))
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -37,11 +44,11 @@ struct PaywallView: View {
                 }
                 .padding(.top, 24)
                 
-                // Feature Highlights List
                 VStack(alignment: .leading, spacing: 16) {
+                    FeatureRow(icon: "icloud.fill", color: .cyan, title: L10n.s("iCloud Sync"), subtitle: L10n.s("Optional private iCloud sync across your iPhone and iPad (off by default)."))
                     FeatureRow(icon: "folder.badge.plus", color: .purple, title: L10n.s("Unlimited Categories & Accounts"), subtitle: L10n.s("Create unlimited custom expense categories"))
                     FeatureRow(icon: "square.and.arrow.up.fill", color: .blue, title: L10n.s("CSV Export & JSON Backup"), subtitle: L10n.s("Export all bill records to CSV or backup database"))
-                    FeatureRow(icon: "lock.shield.fill", color: .green, title: L10n.s("Face ID / Touch ID Security"), subtitle: L10n.s("Secure on-device bill data with biometric lock. Data stays on this device."))
+                    FeatureRow(icon: "lock.shield.fill", color: .green, title: L10n.s("Face ID / Touch ID Security"), subtitle: L10n.s("Secure bill data with biometric lock on device."))
                     FeatureRow(icon: "chart.pie.fill", color: .orange, title: L10n.s("Advanced Analytics"), subtitle: L10n.s("Category breakdown with paid vs due metrics"))
                 }
                 .padding()
@@ -49,7 +56,6 @@ struct PaywallView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .padding(.horizontal)
                 
-                // Product Selection Cards
                 if storeManager.isLoadingProducts {
                     VStack(spacing: 12) {
                         ProgressView()
@@ -67,7 +73,7 @@ struct PaywallView: View {
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                             .multilineTextAlignment(.center)
-                        Text(String(format: L10n.s("Expected product: %@"), StoreManager.lifetimeProID))
+                        Text(L10n.s("Expected: monthly, yearly, and lifetime PRO products."))
                             .font(.caption2)
                             .foregroundStyle(.tertiary)
                             .multilineTextAlignment(.center)
@@ -84,12 +90,13 @@ struct PaywallView: View {
                             Button(action: { selectedProductID = product.id }) {
                                 HStack {
                                     VStack(alignment: .leading, spacing: 4) {
-                                        Text(product.displayName)
+                                        Text(productDisplayName(product))
                                             .font(.headline)
                                             .foregroundStyle(.primary)
                                         Text(product.description)
                                             .font(.caption)
                                             .foregroundStyle(.secondary)
+                                            .lineLimit(2)
                                     }
                                     
                                     Spacer()
@@ -112,9 +119,8 @@ struct PaywallView: View {
                     .padding(.horizontal)
                 }
                 
-                // Purchase Button
                 VStack(spacing: 12) {
-                    if let selectedProduct = storeManager.products.first(where: { $0.id == selectedProductID }) ?? storeManager.products.first {
+                    if let selectedProduct {
                         Button(action: {
                             Task {
                                 let success = await storeManager.purchase(selectedProduct)
@@ -166,10 +172,12 @@ struct PaywallView: View {
                 }
                 .padding(.horizontal)
                 
-                // Legal disclosure (lifetime offer + restore of any legacy subscription)
                 VStack(spacing: 8) {
-                    Text(L10n.s("Payment will be charged to your Apple ID account at confirmation of purchase. This is a one-time Non-Consumable purchase that unlocks PRO permanently for this Apple ID."))
-                    Text(L10n.s("If you previously subscribed monthly or yearly, use Restore Purchases or Manage Subscriptions to review or cancel auto-renewal in your Apple ID settings."))
+                    if isSelectedSubscription {
+                        Text(L10n.s("Payment will be charged to your Apple ID account. Subscription automatically renews unless canceled at least 24 hours before the end of the current period. Manage or cancel in Apple ID Subscriptions."))
+                    } else {
+                        Text(L10n.s("Payment will be charged to your Apple ID account at confirmation of purchase. This is a one-time Non-Consumable purchase that unlocks PRO permanently for this Apple ID."))
+                    }
                     HStack(spacing: 16) {
                         Link(L10n.s("Privacy Policy"), destination: LegalLinks.privacyPolicy)
                         Link(L10n.s("Terms of Use"), destination: LegalLinks.termsOfUse)
@@ -198,6 +206,9 @@ struct PaywallView: View {
             if storeManager.products.isEmpty {
                 await storeManager.loadProducts()
             }
+            if selectedProduct == nil, let first = storeManager.products.first {
+                selectedProductID = first.id
+            }
         }
         .alert(restoreAlertTitle, isPresented: $showingRestoreAlert) {
             Button(L10n.s("OK"), role: .cancel) {
@@ -213,6 +224,19 @@ struct PaywallView: View {
             Button(L10n.s("OK"), role: .cancel) { purchaseAlertMessage = nil }
         } message: {
             Text(purchaseAlertMessage ?? "")
+        }
+    }
+
+    private func productDisplayName(_ product: Product) -> String {
+        switch product.id {
+        case StoreManager.monthlyProID:
+            return L10n.s("Monthly PRO")
+        case StoreManager.yearlyProID:
+            return L10n.s("Yearly PRO")
+        case StoreManager.lifetimeProID:
+            return L10n.s("Lifetime PRO")
+        default:
+            return product.displayName
         }
     }
 }

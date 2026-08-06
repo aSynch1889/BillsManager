@@ -32,16 +32,29 @@ enum NavigationTab: String, CaseIterable, Identifiable {
 
 struct MainTabView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(CloudSyncManager.self) private var cloudSyncManager
     @State private var selectedTab: NavigationTab = .dashboard
     @State private var showingAddBill: Bool = false
     
     var body: some View {
-        if horizontalSizeClass == .regular {
-            // iPad Layout
-            iPadSidebarView(selectedTab: $selectedTab, showingAddBill: $showingAddBill)
-        } else {
-            // iPhone Layout
-            TabView(selection: $selectedTab) {
+        VStack(spacing: 0) {
+            if cloudSyncManager.restartRequired {
+                HStack(spacing: 8) {
+                    Image(systemName: "arrow.clockwise.circle.fill")
+                        .foregroundStyle(.orange)
+                    Text(L10n.s("Restart the app to apply iCloud sync changes."))
+                        .font(.caption)
+                    Spacer()
+                }
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+                .background(Color.orange.opacity(0.12))
+            }
+
+            if horizontalSizeClass == .regular {
+                iPadSidebarView(selectedTab: $selectedTab, showingAddBill: $showingAddBill)
+            } else {
+                TabView(selection: $selectedTab) {
                 NavigationStack {
                     DashboardView(showingAddBill: $showingAddBill)
                 }
@@ -86,6 +99,7 @@ struct MainTabView: View {
                 NavigationStack {
                     AddEditBillView(billToEdit: nil)
                 }
+            }
             }
         }
     }

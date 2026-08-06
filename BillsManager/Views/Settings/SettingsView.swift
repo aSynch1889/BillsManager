@@ -5,6 +5,7 @@ import UniformTypeIdentifiers
 struct SettingsView: View {
     @Environment(StoreManager.self) private var storeManager
     @Environment(BiometricAuthManager.self) private var authManager
+    @Environment(CloudSyncManager.self) private var cloudSyncManager
     @Environment(\.modelContext) private var modelContext
     
     @Query private var bills: [Bill]
@@ -29,6 +30,7 @@ struct SettingsView: View {
     @State private var notificationAuthorized: Bool = false
     @State private var sampleBillCount: Int = 0
     @State private var persistenceError: String?
+    @State private var showingSyncRestartAlert: Bool = false
 
     private static let commonCurrencyCodes = ["USD", "EUR", "GBP", "JPY", "CNY", "HKD", "AUD", "CAD", "SGD", "CHF"]
     
@@ -53,7 +55,7 @@ struct SettingsView: View {
                                 .font(.headline)
                                 .foregroundStyle(.primary)
 
-                            Text(storeManager.isProUser ? L10n.s("All premium features unlocked") : L10n.s("Unlimited categories, backup & analytics"))
+                            Text(storeManager.isProUser ? L10n.s("All premium features unlocked") : L10n.s("Unlimited categories, iCloud sync & backup"))
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
@@ -116,8 +118,10 @@ struct SettingsView: View {
                 }
             }
 
-            // Data — categories, accounts, samples, export & backup
+            // Data — iCloud sync, categories, accounts, samples, export & backup
             Section(header: Text(L10n.s("Data"))) {
+                iCloudSyncRow
+
                 NavigationLink(destination: CategoryManagerView()) {
                     Label(L10n.s("Categories"), systemImage: "folder.fill")
                 }
@@ -194,12 +198,17 @@ struct SettingsView: View {
                     Label(L10n.s("Support"), systemImage: "questionmark.circle")
                 }
 
-                Text(L10n.s("Data is stored only on this device. There is no iCloud sync."))
+                Text(dataStorageFooterText)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
         }
         .navigationTitle(L10n.s("Settings"))
+        .alert(L10n.s("Restart Required"), isPresented: $showingSyncRestartAlert) {
+            Button(L10n.s("OK"), role: .cancel) {}
+        } message: {
+            Text(L10n.s("Quit and reopen Bills Manager to apply iCloud sync changes."))
+        }
         .sheet(isPresented: $showingPaywall) {
             NavigationStack {
                 PaywallView()
@@ -259,9 +268,61 @@ struct SettingsView: View {
         }
         .task {
             await refreshNotificationStatus()
+            await cloudSyncManager.refreshAccountStatus()
             sampleBillCount = SampleDataSeeder.sampleCount(in: modelContext)
         }
         .persistenceAlert($persistenceError)
+    }
+
+    private var dataStorageFooterText: String {
+        if cloudSyncManager.isSyncEnabled {
+            return L10n.s("iCloud sync is on. Bills sync through your private iCloud account across devices signed in with the same Apple ID.")
+        }
+        return L10n.s("Bills are stored on this device by default. PRO users can optionally enable iCloud sync.")
+    }
+
+    @ViewBuilder
+    private var iCloudSyncRow: some View {
+        if storeManager.canAccess(.iCloudSync) {
+            Toggle(isOn: Binding(
+                get: { cloudSyncManager.isSyncEnabled },
+                set: { newValue in
+                    if newValue && !cloudSyncManager.isAccountAvailable {
+                        persistenceError = L10n.s("Sign in to iCloud in Settings to enable sync.")
+                        return
+                    }
+                    if cloudSyncManager.requestSyncEnabled(newValue) {
+                        showingSyncRestartAlert = true
+                    }
+                }
+            )) {
+                Label(L10n.s("iCloud Sync"), systemImage: "icloud")
+            }
+
+            HStack {
+                Text(L10n.s("iCloud Status"))
+                Spacer()
+                Text(cloudSyncManager.accountStatusText)
+                    .foregroundStyle(.secondary)
+            }
+            .font(.subheadline)
+
+            if cloudSyncManager.restartRequired {
+                Text(L10n.s("Restart the app to apply iCloud sync changes."))
+                    .font(.caption)
+                    .foregroundStyle(.orange)
+            }
+        } else {
+            Button { showingPaywall = true } label: {
+                HStack {
+                    Label(L10n.s("iCloud Sync"), systemImage: "icloud")
+                    Spacer()
+                    Text(L10n.s("PRO"))
+                        .font(.caption.bold())
+                        .foregroundStyle(.secondary)
+                }
+            }
+        }
     }
 
     private var appVersionLabel: String {

@@ -14,24 +14,19 @@ final class StoreManager {
     var productsLoadFailed: Bool = false
     var productsLoadErrorMessage: String?
     
-    // Product IDs
-    /// Primary offer: Non-Consumable lifetime unlock (Guideline 3.1.2-safe for static local features).
     static let lifetimeProID = "com.billsmanager.pro.lifetime"
-    /// Legacy / restore-only auto-renewable IDs — not offered in Paywall until continuous value exists.
     static let monthlyProID = "com.billsmanager.pro.monthly"
     static let yearlyProID = "com.billsmanager.pro.yearly"
 
-    /// Products shown for purchase in the Paywall.
-    private let offeredProductIDs = [lifetimeProID]
-    /// All PRO IDs that may unlock entitlement (includes legacy subscriptions for Restore).
-    private let productIDs = [lifetimeProID, monthlyProID, yearlyProID]
+    /// All PRO products offered on the Paywall (subscriptions + lifetime).
+    static let offeredProductIDs = [monthlyProID, yearlyProID, lifetimeProID]
+    private let productIDs = offeredProductIDs
     private var transactionListener: Task<Void, Error>?
     
     var isProUser: Bool {
         !purchasedProductIDs.isEmpty
     }
 
-    /// Known PRO product IDs — only these entitlements unlock premium features.
     var knownProductIDs: Set<String> {
         Set(productIDs)
     }
@@ -47,6 +42,15 @@ final class StoreManager {
     deinit {
         transactionListener?.cancel()
     }
+
+    private static func sortOrder(for productID: String) -> Int {
+        switch productID {
+        case monthlyProID: return 0
+        case yearlyProID: return 1
+        case lifetimeProID: return 2
+        default: return 99
+        }
+    }
     
     @MainActor
     func loadProducts() async {
@@ -56,10 +60,9 @@ final class StoreManager {
         defer { isLoadingProducts = false }
         
         do {
-            // Only fetch offered SKUs for the storefront UI.
-            let loaded = try await Product.products(for: offeredProductIDs)
-            products = loaded.sorted { lhs, rhs in
-                lhs.id == Self.lifetimeProID && rhs.id != Self.lifetimeProID
+            let loaded = try await Product.products(for: Self.offeredProductIDs)
+            products = loaded.sorted {
+                Self.sortOrder(for: $0.id) < Self.sortOrder(for: $1.id)
             }
             if products.isEmpty {
                 productsLoadFailed = true

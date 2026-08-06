@@ -22,8 +22,9 @@
 | P0 / P1 整改 | 🟢 可代码闭环项已关闭；ASC 商品 🟡 |
 | P2 整改（除 CI） | 🟢 3.1–3.5、3.7–3.10 已关闭；3.6 ⏭ |
 | 通知授权调用点 | 🟢 Onboarding + 保存账单 `ensureAuthorization`；设置页可跳系统设置 |
-| PRO 权益门控 | 🟢 `ProFeature` 门控；买断策略；已去 Ad-Free 文案 |
+| PRO 权益门控 | 🟢 `ProFeature` 门控；月/年/终身三档 + iCloud 同步 |
 | 本地化覆盖 | 🟢 `L10n` 键五语齐全（en / zh-Hans / zh-Hant / ja / ko）；系统分类/账户展示层本地化 |
+| iCloud 同步 | 🟢 PRO 可选，默认关闭；SwiftData + CloudKit 私有库 |
 | 静默错误 | 🟢 关键路径与附件/内购失败均 Alert |
 | 货币硬编码 | 🟢 `CurrencyFormatter` 统一 |
 | App Icon | 🟢 1024 PNG + `PrivacyInfo.xcprivacy` |
@@ -138,11 +139,11 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 
 ---
 
-### 1.7 月/年订阅缺少可证明的“持续价值” — 🟢 已解决（产品决策）
+### 1.7 月/年订阅缺少可证明的“持续价值” — 🟢 已解决
 
-**决策**：Paywall **仅出售 Non-Consumable 永久买断**（`com.billsmanager.pro.lifetime`）。月/年订阅 ID 保留用于 Restore / 历史 entitlement，但不再作为在售商品，直至具备可证明的持续价值（如云同步）。
+**修复**：新增 **PRO 可选 iCloud 同步**（SwiftData + CloudKit 私有库，默认关闭）；Paywall 同时出售 **月度 / 年度 / 终身** 三种 PRO 方案。Restore 仍识别历史 entitlement。
 
-参见 [App Review Guidelines 3.1.2](https://developer.apple.com/app-store/review/guidelines/).
+参见 [App Review Guidelines 3.1.2](https://developer.apple.com/app-store/review/guidelines/) 与 `docs/ASC_IAP_SETUP.md`。
 
 ---
 
@@ -262,7 +263,7 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 ### 3.4 无障碍与系统能力 — 🟢 已解决（Widget/Spotlight 延后）
 
 - ✅ `BillRowView` 增加 VoiceOver 组合 label
-- ✅ Settings About 标明「仅本机存储、无 iCloud 同步」
+- ✅ Settings About 说明默认本机存储；PRO 可选手动开启 iCloud 同步
 - ⏭ Widget / Spotlight / 快捷指令仍属增强，记入 P3
 
 ---

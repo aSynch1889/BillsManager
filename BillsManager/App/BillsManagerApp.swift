@@ -6,6 +6,7 @@ struct BillsManagerApp: App {
     @State private var authManager = BiometricAuthManager.shared
     @State private var storeManager = StoreManager.shared
     @State private var languageManager = LanguageManager.shared
+    @State private var cloudSyncManager = CloudSyncManager.shared
     @Environment(\.scenePhase) private var scenePhase
 
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding: Bool = false
@@ -20,17 +21,16 @@ struct BillsManagerApp: App {
 
     init() {
         do {
-            let schema = Schema([
-                Bill.self,
-                Category.self,
-                Account.self,
-                PaymentRecord.self
-            ])
-            let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-            let container = try ModelContainer(for: schema, configurations: [config])
+            try ModelContainerFactory.runPendingMigrationIfNeeded()
+            let container = try ModelContainerFactory.makeContainer(
+                cloudSyncEnabled: CloudSyncManager.shouldUseCloudKit
+            )
 
             NotificationManager.shared.configure()
             Self.seedInitialDataIfNeeded(context: container.mainContext)
+            if !UserDefaults.standard.bool(forKey: CloudSyncManager.migrationPendingKey) {
+                CloudSyncManager.shared.acknowledgeRestartRequired()
+            }
             bootstrap = .ready(container)
         } catch {
             bootstrap = .failed(error)
@@ -56,6 +56,7 @@ struct BillsManagerApp: App {
                                 MainTabView()
                                     .environment(authManager)
                                     .environment(storeManager)
+                                    .environment(cloudSyncManager)
 
                                 if authManager.isAppLockEnabled && !authManager.isUnlocked {
                                     PasscodeLockView()

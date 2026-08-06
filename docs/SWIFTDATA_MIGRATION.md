@@ -18,6 +18,14 @@
 3. 真机干净安装与升级安装各验证一次
 4. JSON 备份 v2 可作为跨版本数据桥（Settings → Restore）
 
+## CloudKit / iCloud 同步（PRO，默认关闭）
+
+- 容器：`iCloud.com.antigravity.billsmanager`
+- 本地库 configuration：`LocalStore`（`cloudKitDatabase: .none`）
+- 云库 configuration：`CloudStore`（`.private` CloudKit）
+- 切换同步需**重启 App**；`ModelContainerFactory` 在启动时执行一次性 local↔cloud 数据拷贝
+- 系统分类/账户 seed 使用**固定 UUID**，避免多设备重复
+
 ## 版本锚点
 
 - 备份格式：`ExportManager.currentBackupVersion = 2`

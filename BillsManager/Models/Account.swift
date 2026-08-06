@@ -38,11 +38,17 @@ final class Account {
 }
 
 extension Account {
+    private enum SeedID {
+        static let checking = UUID(uuidString: "B2000001-0000-4000-8000-000000000001")!
+        static let creditCard = UUID(uuidString: "B2000001-0000-4000-8000-000000000002")!
+        static let cash = UUID(uuidString: "B2000001-0000-4000-8000-000000000003")!
+    }
+
     static var defaults: [Account] {
         [
-            Account(name: "Checking Account", accountNumberLast4: "4321", iconName: "building.columns.fill", hexColor: "#3B82F6", isDefault: true),
-            Account(name: "Credit Card", accountNumberLast4: "8899", iconName: "creditcard.fill", hexColor: "#EF4444"),
-            Account(name: "Cash", iconName: "dollarsign.circle.fill", hexColor: "#10B981")
+            Account(id: SeedID.checking, name: "Checking Account", accountNumberLast4: "4321", iconName: "building.columns.fill", hexColor: "#3B82F6", isDefault: true),
+            Account(id: SeedID.creditCard, name: "Credit Card", accountNumberLast4: "8899", iconName: "creditcard.fill", hexColor: "#EF4444"),
+            Account(id: SeedID.cash, name: "Cash", iconName: "dollarsign.circle.fill", hexColor: "#10B981")
         ]
     }
 }

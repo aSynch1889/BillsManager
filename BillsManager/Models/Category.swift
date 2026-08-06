@@ -32,15 +32,26 @@ final class Category {
 }
 
 extension Category {
+    /// Stable IDs so system categories dedupe across iCloud-synced devices.
+    private enum SeedID {
+        static let utilities = UUID(uuidString: "A1000001-0000-4000-8000-000000000001")!
+        static let housing = UUID(uuidString: "A1000001-0000-4000-8000-000000000002")!
+        static let subscriptions = UUID(uuidString: "A1000001-0000-4000-8000-000000000003")!
+        static let creditCard = UUID(uuidString: "A1000001-0000-4000-8000-000000000004")!
+        static let insurance = UUID(uuidString: "A1000001-0000-4000-8000-000000000005")!
+        static let loans = UUID(uuidString: "A1000001-0000-4000-8000-000000000006")!
+        static let personal = UUID(uuidString: "A1000001-0000-4000-8000-000000000007")!
+    }
+
     static var defaults: [Category] {
         [
-            Category(name: "Utilities", iconName: "bolt.fill", hexColor: "#F59E0B", isSystem: true),
-            Category(name: "Housing", iconName: "house.fill", hexColor: "#3B82F6", isSystem: true),
-            Category(name: "Subscriptions", iconName: "play.tv.fill", hexColor: "#8B5CF6", isSystem: true),
-            Category(name: "Credit Card", iconName: "creditcard.fill", hexColor: "#EF4444", isSystem: true),
-            Category(name: "Insurance", iconName: "shield.fill", hexColor: "#10B981", isSystem: true),
-            Category(name: "Loans", iconName: "banknote.fill", hexColor: "#6B7280", isSystem: true),
-            Category(name: "Personal", iconName: "person.fill", hexColor: "#EC4899", isSystem: true)
+            Category(id: SeedID.utilities, name: "Utilities", iconName: "bolt.fill", hexColor: "#F59E0B", isSystem: true),
+            Category(id: SeedID.housing, name: "Housing", iconName: "house.fill", hexColor: "#3B82F6", isSystem: true),
+            Category(id: SeedID.subscriptions, name: "Subscriptions", iconName: "play.tv.fill", hexColor: "#8B5CF6", isSystem: true),
+            Category(id: SeedID.creditCard, name: "Credit Card", iconName: "creditcard.fill", hexColor: "#EF4444", isSystem: true),
+            Category(id: SeedID.insurance, name: "Insurance", iconName: "shield.fill", hexColor: "#10B981", isSystem: true),
+            Category(id: SeedID.loans, name: "Loans", iconName: "banknote.fill", hexColor: "#6B7280", isSystem: true),
+            Category(id: SeedID.personal, name: "Personal", iconName: "person.fill", hexColor: "#EC4899", isSystem: true)
         ]
     }
 }
