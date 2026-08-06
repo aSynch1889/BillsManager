@@ -6659,6 +6659,54 @@
           }
         }
       }
+    },
+    "This product isn't supported by this app version.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This product isn't supported by this app version."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此版本应用不支持该商品。"
+          }
+        }
+      }
+    },
+    "Purchase is pending approval. You'll get PRO after it's approved.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Purchase is pending approval. You'll get PRO after it's approved."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "购买正在等待批准，批准后将解锁 PRO。"
+          }
+        }
+      }
+    },
+    "Purchase didn't complete. Please try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Purchase didn't complete. Please try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "购买未完成，请重试。"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

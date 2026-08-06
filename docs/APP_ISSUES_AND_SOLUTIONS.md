@@ -259,14 +259,17 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 - 无 Spotlight / 快捷指令
 - 无 iCloud 同步（隐私向可接受，但需在文案说明“仅本机”）
 
-### 3.5 错误处理与稳定性 — 🟠 部分解决
+### 3.5 错误处理与稳定性 — 🟢 已解决
 
 - ✅ `ModelContainer` 失败展示 `DatabaseLaunchErrorView`，不再 `fatalError`
 - ✅ 账单 CRUD / 分类账户 / 示例数据清除走 `Persistence.save` + Alert
 - ✅ CSV/JSON 导出写文件失败弹 Alert
-- ⏳ StoreKit / Paywall 错误提示仍弱；附件加载等非关键路径仍有部分 `try?`
+- ✅ Paywall：商品加载失败 Retry + 购买失败 Alert；pending/不支持商品有明确文案
+- ✅ 附件/收据 PhotosPicker 加载失败弹 Alert（不再静默 `try?`）
 
-### 3.6 测试与 CI — 🔴 仍存在
+---
+
+### 3.6 测试与 CI — 🔴 仍存在（本次跳过）
 
 - **无** Unit Test / UI Test target
 - 无关键业务：周期进位、月末 1/31、时区、StoreKit 交易校验

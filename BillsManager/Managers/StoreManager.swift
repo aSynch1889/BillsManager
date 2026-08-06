@@ -76,14 +76,16 @@ final class StoreManager {
     
     @MainActor
     func purchase(_ product: Product) async -> Bool {
+        purchaseErrorMessage = nil
         do {
             let result = try await product.purchase()
-            
+
             switch result {
             case .success(let verification):
                 let transaction = try checkVerified(verification)
                 guard knownProductIDs.contains(transaction.productID) else {
                     await transaction.finish()
+                    purchaseErrorMessage = L10n.s("This product isn't supported by this app version.")
                     return false
                 }
                 purchasedProductIDs.insert(transaction.productID)
@@ -92,8 +94,10 @@ final class StoreManager {
             case .userCancelled:
                 return false
             case .pending:
+                purchaseErrorMessage = L10n.s("Purchase is pending approval. You'll get PRO after it's approved.")
                 return false
             @unknown default:
+                purchaseErrorMessage = L10n.s("Purchase didn't complete. Please try again.")
                 return false
             }
         } catch {

@@ -143,8 +143,15 @@ struct AddEditBillView: View {
                 }
                 .onChange(of: selectedPhotoItem) { _, newItem in
                     Task {
-                        if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                        guard let newItem else { return }
+                        do {
+                            guard let data = try await newItem.loadTransferable(type: Data.self) else {
+                                persistenceError = L10n.s("Couldn't load the selected photo.")
+                                return
+                            }
                             attachmentImageData = data
+                        } catch {
+                            persistenceError = L10n.s("Couldn't load the selected photo.")
                         }
                     }
                 }
