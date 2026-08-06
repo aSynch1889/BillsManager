@@ -103,7 +103,7 @@ struct BillDetailView: View {
                     Divider()
                     DetailRow(title: L10n.s("Frequency"), value: bill.frequency.localizedName, icon: "repeat")
                     Divider()
-                    DetailRow(title: L10n.s("Auto-Pay"), value: bill.isAutoPay ? L10n.s("Enabled") : L10n.s("Disabled"), icon: "arrow.triangle.2.circlepath")
+                    DetailRow(title: L10n.s("External Auto-Pay Mark"), value: bill.isAutoPay ? L10n.s("Marked") : L10n.s("Not Marked"), icon: "arrow.triangle.2.circlepath")
                     Divider()
                     DetailRow(
                         title: L10n.s("Reminder"),

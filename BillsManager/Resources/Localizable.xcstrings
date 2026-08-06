@@ -39,6 +39,16 @@
         }
       }
     },
+    "%@ / %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ / %2$@"
+          }
+        }
+      }
+    },
     "%@ is due today (%@)!" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1065,6 +1075,104 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "自動扣款"
+          }
+        }
+      }
+    },
+    "External Auto-Pay Mark" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "External Auto-Pay Mark"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外部自动扣款标记"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外部自動扣款標記"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "外部自動引き落としマーク"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "외부 자동이체 표시"
+          }
+        }
+      }
+    },
+    "Marked" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marked"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "已标记"
+          }
+        }
+      }
+    },
+    "Not Marked" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Marked"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未标记"
+          }
+        }
+      }
+    },
+    "Marks bills you already set to auto-debit outside this app. Bills Manager never charges your accounts." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marks bills you already set to auto-debit outside this app. Bills Manager never charges your accounts."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "用于标记你已在银行或其他渠道设置自动扣款的账单。本应用不会扣款或连接银行账户。"
+          }
+        }
+      }
+    },
+    "Recurring & External Auto-Pay" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recurring & External Auto-Pay"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "周期与外部自动扣款"
           }
         }
       }

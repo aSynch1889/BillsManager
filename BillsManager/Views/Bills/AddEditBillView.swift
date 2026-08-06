@@ -88,14 +88,14 @@ struct AddEditBillView: View {
                 }
             }
             
-            Section(header: Text(L10n.s("Recurring & Auto-Pay"))) {
+            Section {
                 Picker(L10n.s("Repeat Frequency"), selection: $frequency) {
                     ForEach(BillFrequency.allCases) { freq in
                         Text(freq.localizedName).tag(freq)
                     }
                 }
                 
-                Toggle(L10n.s("Auto-Pay"), isOn: $isAutoPay)
+                Toggle(L10n.s("External Auto-Pay Mark"), isOn: $isAutoPay)
                 
                 if frequency != .once {
                     Toggle(L10n.s("Set End Date"), isOn: $hasRepeatEndDate)
@@ -108,6 +108,10 @@ struct AddEditBillView: View {
                         )
                     }
                 }
+            } header: {
+                Text(L10n.s("Recurring & External Auto-Pay"))
+            } footer: {
+                Text(L10n.s("Marks bills you already set to auto-debit outside this app. Bills Manager never charges your accounts."))
             }
             
             Section(header: Text(L10n.s("Reminders & Notifications"))) {
