@@ -289,8 +289,9 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 - ✅ App Icon 改为 1024×1024 sRGB PNG
 - ✅ `Info.plist` 使用 `$(MARKETING_VERSION)` / `$(CURRENT_PROJECT_VERSION)`；设置页读 Bundle
 - Entitlements 为空（对本 App 可接受）
-- ✅ 设置页与 Paywall 提供隐私政策 / 使用条款 / Support 链接（`LegalLinks`）
+- ✅ 设置页与 Paywall 提供隐私政策 / 使用条款 / Support 链接（`LegalLinks` → GitHub Pages `BillsManager-legal`）
 - ✅ 新增 `PrivacyInfo.xcprivacy`（无追踪；声明 UserDefaults / File Timestamp 合理用途）
+- ✅ 设置页收敛为 PRO / 通用 / 数据 / 关于 四个分区
 - README MIT / 商标名仍属人工确认项
 
 ### 3.8 文案与功能夸大 — 🟢 已解决

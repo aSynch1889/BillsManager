@@ -9,7 +9,7 @@ enum LegalLinks {
     static let manageSubscriptions = URL(string: "https://apps.apple.com/account/subscriptions")!
 
     static var privacyPolicy: URL {
-        let code = Locale.current.language.languageCode?.identifier ?? "en"
+        let code = LanguageManager.shared.effectiveCode
         return code.hasPrefix("zh") ? privacyPolicyZH : privacyPolicyEN
     }
 }
