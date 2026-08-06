@@ -295,13 +295,11 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 
 `updatePurchasedProducts` / 购买成功路径仅接受 `knownProductIDs` 内的有效 entitlement。
 
-### 3.10 版本与发布配置不可复现 — 🔴 仍存在（新增）
+### 3.10 版本与发布配置不可复现 — 🟢 已解决（CI 除外）
 
-- 仓库没有共享 `.xcscheme`，团队/CI 无法保证 StoreKit Configuration、运行参数和 Archive 行为一致。
-- `StoreKit.storekit` 被当普通 App Resource 打包，但这不等于 Scheme 已启用 StoreKit 本地测试。
-- 没有 Release Archive / `validate-app` 证据；本次仅验证 Debug Simulator 构建。
-
-**方案**：提交共享 Scheme；统一版本来源为 `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION` 并在 Info.plist 使用构建变量；设置页从 Bundle 动态读取；CI 至少执行 Debug build、tests、Release archive 与静态检查。
+- ✅ 共享 Scheme：`xcshareddata/xcschemes/BillsManager.xcscheme`，已绑定 `StoreKit.storekit`
+- ✅ 版本来源统一为 `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION`（Info.plist 构建变量；设置页读 Bundle）
+- ⏭ CI / Release Archive / `validate-app` 自动化不在本次范围
 
 ---
 
