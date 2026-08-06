@@ -74,8 +74,25 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         dateComponents.hour = timeComponents.hour
         dateComponents.minute = timeComponents.minute
 
-        // Skip past fire times — expired reminders would never deliver usefully.
+        // Skip past fire times for future-due bills — expired reminders would never deliver usefully.
+        // If the bill is already due/overdue, fire a one-shot immediate reminder instead.
         if let fireDate = calendar.date(from: dateComponents), fireDate < Date() {
+            let dueDay = calendar.startOfDay(for: bill.dueDate)
+            let today = calendar.startOfDay(for: Date())
+            guard dueDay <= today else { return }
+
+            let content = UNMutableNotificationContent()
+            content.title = L10n.s("Bill Due Reminder")
+            content.body = String(format: L10n.s("%@ is due today (%@)!"), bill.name, bill.formattedAmount)
+            content.sound = .default
+
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            center.add(request) { error in
+                if let error = error {
+                    print("Failed to add immediate notification for bill \(bill.name): \(error)")
+                }
+            }
             return
         }
 

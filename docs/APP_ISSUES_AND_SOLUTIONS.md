@@ -1,10 +1,10 @@
 # Bills Manager — 深度问题评估与解决方案
 
 > **首次评估**：2026-07-27
-> **最近复评**：2026-07-29（commit `ed42f4a`，Xcode 26.3 / iPhone 16 iOS 18.6 Simulator）
+> **最近复评**：2026-08-06（真机 `刘小华的iPhone` / iOS 18.6.2，关闭全部可代码闭环的 P0/P1）
 > **评估范围**：源码、模型、内购、通知、安全、本地化、数据导出、PRD 一致性、工程质量
 > **工程标识**：`com.antigravity.billsmanager` / iOS 17+ / SwiftUI + SwiftData + StoreKit 2
-> **结论摘要**：Debug 构建成功，产品骨架和 CRUD 主流程可演示；但截至本次复评，原清单没有任何代码级整改，**全部 P0/P1 仍未关闭**。此外新增发现默认数据可能重复、周期日期漂移/逾期追赶、地区化金额输入和订阅持续价值等风险，距离正式运营仍有明显差距。
+> **结论摘要**：可代码闭环的 **P0/P1 均已关闭**。P0 1.5 中 ASC 商品是否已创建仍需人工核验（🟡）。剩余差距主要在 P2（测试、Privacy Manifest、Icon PNG、版本号统一等）。
 
 ## 复评状态与验证证据
 
@@ -15,18 +15,18 @@
 - `🟡 待外部核验`：仅靠仓库无法确认，需要 ASC、沙盒或真机。
 - `🟢 已解决`：代码与验证均已闭环。
 
-| 验证项 | 2026-07-29 结果 |
+| 验证项 | 2026-08-06 结果 |
 | :--- | :--- |
-| Debug Simulator 构建 | 🟢 `BUILD SUCCEEDED`，无 Swift 编译错误 |
+| Debug 真机构建 | 🟢 `BUILD SUCCEEDED`（`00008110-001A5CA22E3A201E`） |
 | Unit / UI Test | 🔴 工程没有 Test target，无法回归业务边界 |
-| 原 P0 / P1 整改 | 🔴 未发现代码变更；下文全部保持未关闭 |
+| 原 P0 / P1 整改 | 🟢 可代码闭环项已关闭；ASC 商品 🟡 |
 | 通知授权调用点 | 🟢 Onboarding 完成 + 保存账单 `ensureAuthorization`；设置页可跳转系统设置 |
 | PRO 权益门控 | 🟢 `ProFeature` 门控分类/账户/导出/锁/多区间分析；已去 Ad-Free 文案 |
 | 本地化覆盖 | 🟢 显式 `en` 100%；`zh-Hans` ≈97%+；系统分类/账户展示层本地化 |
 | 静默错误 | 🟠 关键保存/导出已 Alert；附件等路径仍有 `try?` |
 | 货币硬编码 | 🟢 `CurrencyFormatter` 统一；Dashboard/Analytics/支付历史已替换 |
 | App Icon | 🟠 源文件为 1024×1024 JPEG、无 alpha；Asset Catalog 编译成功 |
-| 版本号 | 🔴 构建产物为 `1.0.0 (1)`，与工程 `CURRENT_PROJECT_VERSION=2026072601`、设置页硬编码并存 |
+| 版本号 | 🟠 设置页已读 Bundle；工程 Build Number 与 Info.plist 仍可能不一致 |
 
 ---
 
@@ -34,16 +34,16 @@
 
 | 维度 | 评分 (1–10) | 说明 |
 | :--- | :---: | :--- |
-| 核心账单 CRUD / 周期滚动 | 7 | 主流程可用，细节边界未覆盖 |
-| 数据模型与持久化 | 6.5 | SwiftData 可用，缺迁移/恢复/完整性字段 |
-| 通知与角标 | 3 | 有调度代码，**从未请求权限**，角标几乎不更新 |
-| 安全锁 | 5 | Face ID/设备密码可用，无后台模糊、无失败兜底 UX |
-| 内购 / PRO | 3 | StoreKit 2 架子有，**权益门控几乎未实现** |
-| 导出备份 | 4 | CSV/JSON 导出有，**无导入恢复**，字段不全 |
-| 本地化 (en / zh-Hans) | 4 | 声明双语，简中仅覆盖 **16.2%** 的字符串 key |
-| 无障碍 / 多币种 / 可测试性 | 3 | 硬编码 `$`，无单测，无障碍弱 |
-| 与 PRD/README 一致性 | 4 | 多处“已支持”实际未实现或未生效 |
-| **整体可上线质量** | **4.2** | 可编译、适合 TestFlight 内测；正式提交前需先关闭 P0/P1 |
+| 核心账单 CRUD / 周期滚动 | 8 | 锚定日/撤销支付已落地 |
+| 数据模型与持久化 | 8 | JSON v2 备份+恢复已闭环 |
+| 通知与角标 | 8 | 授权、调度、角标、逾期立即补发 |
+| 安全锁 | 8 | 开关认证回滚 + App Switcher 模糊 |
+| 内购 / PRO | 7 | 门控与买断策略已落地；ASC 待核验 |
+| 导出备份 | 8 | CSV/JSON 导出 + JSON 恢复 |
+| 本地化 (en / zh-Hans) | 8 | en 全量；zh-Hans 高覆盖 |
+| 无障碍 / 多币种 / 可测试性 | 4 | 无单测；多币种无汇率 |
+| 与 PRD/README 一致性 | 7 | 主要卖点已对齐文案与实现 |
+| **整体可上线质量** | **7.2** | 适合 TestFlight；正式提交前建议关闭 P2 关键项与 ASC 核验 |
 
 ---
 
@@ -145,12 +145,12 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 
 ## 2. 高优先级问题（P1）
 
-### 2.1 通知内容与角标设计粗糙 — 🟠 部分解决
+### 2.1 通知内容与角标设计粗糙 — 🟢 已解决
 
 - ✅ 角标改为 Dashboard / 支付副作用同步真实逾期数（不再 `content.badge = 1`）
-- ✅ 提醒触发时间已过则跳过 schedule
+- ✅ 提醒触发时间已过则跳过 schedule（未来到期）
 - ✅ 实现 `UNUserNotificationCenterDelegate`，前台展示 banner
-- ⏳ 过期才创建的账单仍无“立即本地提示”补发（可选增强）
+- ✅ 已到期/逾期且提醒时间已过时，补发一次性立即本地通知
 
 ### 2.2 App Lock 体验不完整 — 🟢 已解决
 
@@ -324,19 +324,19 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 
 | 模块 | 主要问题 |
 | :--- | :--- |
-| `BillsManagerApp` | 强制种子数据；重复创建 defaults 可能产生重复关联对象；无通知权限；scenePhase 锁过粗 |
-| `Bill` | 分析用 dueDate；周期日期漂移；逾期只推进一期；unpay 不回溯历史；金额 Double |
-| `NotificationManager` | 未 request；badge=1；无前台 delegate |
-| `StoreManager` | 权益未门控；商品/共享 Scheme/ASC 未闭环；entitlement 未过滤；订阅持续价值不足 |
+| `BillsManagerApp` | ✅ Seed 复用；通知配置；scenePhase 锁+隐私模糊 |
+| `Bill` | ✅ 锚定日/撤销；分析改 PaymentRecord；金额仍为 Double（P2） |
+| `NotificationManager` | ✅ 授权、角标、前台 delegate、逾期立即补发 |
+| `StoreManager` | ✅ 门控/买断；ASC 商品 🟡 |
 | `ExportManager` | ✅ JSON v2 导出/恢复；CSV 仍为摘要导出 |
-| `SettingsView` | 无隐私条款；导出无 PRO；幽灵配置；版本硬编码 |
-| `PaywallView` | 缺订阅法律文案与隐私链接；Feature 英文硬编码 |
-| `AddEditBillView` | 地区化金额解析失败；0/负数/非有限值；重复截止日期约束不足 |
+| `SettingsView` | ✅ 恢复备份/隐私链接；版本读 Bundle |
+| `PaywallView` | ✅ 法律链接与买断策略 |
+| `AddEditBillView` | ✅ 金额校验与外部自动扣款文案 |
 | `AnalyticsView` | ✅ 实付按 PaymentRecord；应付按 dueDate；可切换 |
-| `Category/Account` | 无 PRO 限额 |
-| `Localizable.xcstrings` | 中文覆盖率低 |
-| `AppIcon` | JPEG，建议 PNG |
-| 工程 | 无测试、无 Privacy Manifest |
+| `Category/Account` | ✅ PRO 限额；展示层本地化 |
+| `Localizable.xcstrings` | ✅ en 全量；zh-Hans 高覆盖 |
+| `AppIcon` | JPEG，建议 PNG（P2） |
+| 工程 | 无测试、无 Privacy Manifest（P2） |
 
 ---
 
@@ -380,7 +380,7 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 - [x] JSON 备份 → 删除 App → 重装 → 恢复后数据一致
 - [ ] 内购沙盒：买断 / 月 / 年 / 恢复 / 过期 五条路径通过
 - [x] 无相机权限却弹相机；无多余隐私用途
-- [ ] 设置页可打开隐私政策与条款
+- [x] 设置页可打开隐私政策与条款
 
 ---
 
@@ -390,9 +390,9 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 | :--- | :--- |
 | 文档路径 | `docs/APP_ISSUES_AND_SOLUTIONS.md` |
 | 关联文档 | `docs/APP_STORE_REVIEW_RISKS.md`、`docs/PRD.md` |
-| 本次状态同步 | 2026-07-29：原问题均未关闭；新增 1.6、1.7、2.9–2.11、3.9–3.10 |
-| 下次复评建议 | 完成 Sprint A/B 后重新跑构建、首次启动、通知、StoreKit 与业务回归 |
+| 本次状态同步 | 2026-08-06：关闭全部可代码闭环 P0/P1；ASC 商品仍 🟡；真机构建验证 |
+| 下次复评建议 | 聚焦 P2（测试、Privacy Manifest、Icon PNG、版本号）与 ASC/沙盒人工核验 |
 
 ---
 
-*本评估基于全量源码/配置通读、Debug Simulator 构建与静态量化；Simulator 服务在干净安装数据抽检阶段无响应，因此 1.6 仍标为“高概率”，未替代真机通知、StoreKit 沙盒、Release Archive 与 ASC 元数据人工核对。*
+*本评估基于源码整改、真机 Debug 构建与文档同步；ASC 商品、StoreKit 沙盒全路径与 Release Archive 仍需人工核对。*
