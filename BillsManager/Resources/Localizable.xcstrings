@@ -6771,6 +6771,86 @@
           }
         }
       }
+    },
+    "Select a Bill": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select a Bill"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择账单"
+          }
+        }
+      }
+    },
+    "Choose a bill from the list to see details.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose a bill from the list to see details."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从列表中选择账单以查看详情。"
+          }
+        }
+      }
+    },
+    "Select a section": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select a section"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择功能分区"
+          }
+        }
+      }
+    },
+    "Choose an item from the sidebar to get started.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose an item from the sidebar to get started."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从侧栏选择一项开始使用。"
+          }
+        }
+      }
+    },
+    "Double tap Pay button to mark paid": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Double tap Pay button to mark paid"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点按支付按钮可标记已付"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

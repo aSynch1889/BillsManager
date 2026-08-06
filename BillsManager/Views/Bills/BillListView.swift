@@ -21,6 +21,7 @@ enum BillFilterTab: String, CaseIterable, Identifiable {
 
 struct BillListView: View {
     @Binding var showingAddBill: Bool
+    var selectedBillID: Binding<PersistentIdentifier?>? = nil
     
     @Query(sort: \Bill.dueDate) private var allBills: [Bill]
     @Query private var categories: [Category]
@@ -33,6 +34,14 @@ struct BillListView: View {
     @State private var editingBill: Bill? = nil
     @State private var markingPaidBill: Bill? = nil
     @State private var unpayingBill: Bill? = nil
+
+    private var splitSelection: Binding<PersistentIdentifier?> {
+        selectedBillID ?? .constant(nil)
+    }
+
+    private var usesSplitSelection: Bool {
+        selectedBillID != nil
+    }
     
     private var filteredBills: [Bill] {
         allBills.filter { bill in
@@ -132,10 +141,17 @@ struct BillListView: View {
                 )
                 .frame(maxHeight: .infinity)
             } else {
-                List {
+                List(selection: splitSelection) {
                     ForEach(filteredBills) { bill in
-                        NavigationLink(destination: BillDetailView(bill: bill)) {
-                            BillRowView(bill: bill)
+                        Group {
+                            if usesSplitSelection {
+                                BillRowView(bill: bill)
+                                    .tag(Optional(bill.persistentModelID))
+                            } else {
+                                NavigationLink(destination: BillDetailView(bill: bill)) {
+                                    BillRowView(bill: bill)
+                                }
+                            }
                         }
                         .listRowInsets(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
                         .listRowSeparator(.hidden)

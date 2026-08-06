@@ -246,18 +246,22 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 
 ---
 
-### 3.3 iPad / 大屏 — 🔴 仍存在
+### 3.3 iPad / 大屏 — 🟢 已解决
 
-- `NavigationSplitView` 仅侧栏切换，**无 double-column 账单列表+详情**
-- 侧栏标题硬编码英文
-- 横屏可用但仪表盘信息架构未针对大屏优化
+**修复**
+- `NavigationSplitView` 三栏：侧栏分区 + 账单列表 + 详情
+- 侧栏标题/分区走 `L10n`
+- 非账单分区详情列展示引导占位
 
-### 3.4 无障碍与系统能力 — 🔴 仍存在
+---
 
-- 缺 VoiceOver label / Dynamic Type 专项
-- 无 Widget 到期摘要（竞品常见）
-- 无 Spotlight / 快捷指令
-- 无 iCloud 同步（隐私向可接受，但需在文案说明“仅本机”）
+### 3.4 无障碍与系统能力 — 🟢 已解决（Widget/Spotlight 延后）
+
+- ✅ `BillRowView` 增加 VoiceOver 组合 label
+- ✅ Settings About 标明「仅本机存储、无 iCloud 同步」
+- ⏭ Widget / Spotlight / 快捷指令仍属增强，记入 P3
+
+---
 
 ### 3.5 错误处理与稳定性 — 🟢 已解决
 
