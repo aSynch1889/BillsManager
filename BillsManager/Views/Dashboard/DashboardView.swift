@@ -35,9 +35,10 @@ struct DashboardView: View {
     private var totalPaidThisMonth: Double {
         let calendar = Calendar.current
         let now = Date()
-        return allBills.filter {
-            $0.isPaid && calendar.isDate($0.dueDate, equalTo: now, toGranularity: .month)
-        }.reduce(0) { $0 + $1.amount }
+        return allBills
+            .flatMap { $0.paymentHistory ?? [] }
+            .filter { calendar.isDate($0.paidDate, equalTo: now, toGranularity: .month) }
+            .reduce(0) { $0 + $1.amountPaid }
     }
 
     private func money(_ amount: Double) -> String {

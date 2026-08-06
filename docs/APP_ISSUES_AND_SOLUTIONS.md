@@ -189,13 +189,14 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 
 ---
 
-### 2.7 分析逻辑与财务语义偏差 — 🔴 仍存在
+### 2.7 分析逻辑与财务语义偏差 — 🟢 已解决
 
-- 按 `dueDate` 过滤，而非 `PaymentRecord.paidDate`
-- 周期账单只保留“当前期”一条，**历史已付金额不会进入分析**（支付历史未聚合）
-- “本月已付”用 `isPaid && dueDate 在本月`：周期账单付完后 dueDate 已滚走，**已付金额统计失真**
+**修复**
+- 已付金额按 `PaymentRecord.paidDate` 聚合（周期账单滚动后仍计入实付）
+- 未付/应付按当前未付账单的 `dueDate` 过滤
+- Analytics 增加「实付 / 应付」切换驱动分类图；Dashboard「本月已付」同步改口径
 
-**方案**：统计已付以 `PaymentRecord` 为准；应付以未付账单 `dueDate` 为准；图表提供“应付 vs 实付”切换。
+---
 
 ### 2.8 示例数据污染真实使用 — 🟢 已解决
 
@@ -333,7 +334,7 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 | `SettingsView` | 无隐私条款；导出无 PRO；幽灵配置；版本硬编码 |
 | `PaywallView` | 缺订阅法律文案与隐私链接；Feature 英文硬编码 |
 | `AddEditBillView` | 地区化金额解析失败；0/负数/非有限值；重复截止日期约束不足 |
-| `AnalyticsView` | 统计口径错误；多币种直接相加；硬编码 $ |
+| `AnalyticsView` | ✅ 实付按 PaymentRecord；应付按 dueDate；可切换 |
 | `Category/Account` | 无 PRO 限额 |
 | `Localizable.xcstrings` | 中文覆盖率低 |
 | `AppIcon` | JPEG，建议 PNG |
@@ -360,7 +361,7 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 
 ### Sprint C — 数据可信（约 3–4 天）
 1. ✅ JSON 备份 v2 + 恢复
-2. 支付历史与分析口径修正
+2. ✅ 支付历史与分析口径修正
 3. Privacy Manifest + Icon PNG
 
 ### Sprint D — 打磨（持续）
