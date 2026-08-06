@@ -29,7 +29,7 @@
 | App Icon | 🟢 1024 PNG + `PrivacyInfo.xcprivacy` |
 | 版本号 | 🟢 Info.plist 跟随 `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION`；设置页读 Bundle |
 | JSON 备份恢复 | 🟢 v2 导出 + 合并/覆盖恢复 |
-| iPad 双栏 | 🟢 侧栏 + 账单列表 + 详情 |
+| iPad 双栏 | 🟢 账单三栏；其余侧栏+全宽内容 |
 
 ---
 
@@ -253,9 +253,9 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 ### 3.3 iPad / 大屏 — 🟢 已解决
 
 **修复**
-- `NavigationSplitView` 三栏：侧栏分区 + 账单列表 + 详情
+- 账单：`NavigationSplitView` 三栏（侧栏 → 列表 → 详情）
+- 仪表盘 / 日历 / 分析 / 设置：两栏（侧栏 → 全宽内容），避免中间栏挤压、右侧空白「选择功能分区」占位
 - 侧栏标题/分区走 `L10n`
-- 非账单分区详情列展示引导占位
 
 ---
 
@@ -349,7 +349,7 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 | `Category/Account` | ✅ PRO 限额；unique；删除确认；展示层本地化 |
 | `Localizable.xcstrings` | ✅ en 全量；zh-Hans 高覆盖 |
 | `AppIcon` / Privacy | ✅ PNG + `PrivacyInfo.xcprivacy` |
-| `iPadSidebarView` | ✅ 三栏：侧栏 + 列表 + 详情 |
+| `iPadSidebarView` | ✅ 账单三栏；其它分区两栏全宽 |
 | 工程 | ✅ 共享 Scheme；⏭ 测试/CI |
 
 ---
