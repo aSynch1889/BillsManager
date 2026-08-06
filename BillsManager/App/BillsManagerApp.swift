@@ -62,6 +62,12 @@ struct BillsManagerApp: App {
                                         .environment(authManager)
                                         .transition(.opacity)
                                 }
+
+                                if authManager.showPrivacyBlur {
+                                    PrivacyBlurOverlay()
+                                        .transition(.opacity)
+                                        .zIndex(100)
+                                }
                             }
                             .transition(.opacity)
                         }
@@ -69,9 +75,7 @@ struct BillsManagerApp: App {
                     .animation(.default, value: showingSplash)
                     .animation(.default, value: hasCompletedOnboarding)
                     .onChange(of: scenePhase) { _, newPhase in
-                        if newPhase == .background {
-                            authManager.lockApp()
-                        }
+                        authManager.handleScenePhase(newPhase)
                     }
                 }
                 .environment(languageManager)

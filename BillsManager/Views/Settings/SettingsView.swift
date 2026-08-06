@@ -149,10 +149,10 @@ struct SettingsView: View {
                             showingPaywall = true
                             return
                         }
-                        authManager.isAppLockEnabled = newValue
-                        if newValue {
-                            Task {
-                                _ = await authManager.authenticate()
+                        Task { @MainActor in
+                            let succeeded = await authManager.setAppLockEnabled(newValue)
+                            if !succeeded, let message = authManager.authError {
+                                persistenceError = message
                             }
                         }
                     }

@@ -152,23 +152,14 @@ DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示�
 - ✅ 实现 `UNUserNotificationCenterDelegate`，前台展示 banner
 - ⏳ 过期才创建的账单仍无“立即本地提示”补发（可选增强）
 
-### 2.2 App Lock 体验不完整 — 🔴 仍存在
+### 2.2 App Lock 体验不完整 — 🟢 已解决
 
-- 退后台立即 `lockApp()`，从控制中心返回也会反复验证（可接受但可加 grace period）
-- **无** App Switcher 高斯模糊遮罩（README 写了）
-- 开启锁时若认证失败，`isAppLockEnabled` 已 true 但 `isUnlocked` 可能 false，状态混乱
-- 无“关闭锁需再认证一次”
+**修复**
+- `inactive` / `background` 显示 `PrivacyBlurOverlay`（App Switcher 高斯模糊）
+- `background` 时 `lockApp()`；`active` 取消模糊
+- 开启/关闭锁均经 `setAppLockEnabled` 先认证，失败不改 `isAppLockEnabled`（避免“已开锁但未解锁”）
 
-**方案**：
-
-```swift
-// scenePhase
-case .inactive: showPrivacyBlur = true
-case .active: showPrivacyBlur = false; /* 可选 grace */
-case .background: if lockEnabled { isUnlocked = false }
-```
-
-开启/关闭锁均 `await authenticate()`，失败则回滚 Toggle。
+---
 
 ### 2.3 货币与金额显示混乱 — 🟢 已解决
 
@@ -298,7 +289,7 @@ case .background: if lockEnabled { isUnlocked = false }
 | Ad-free PRO | ✅ 文案已移除；应用内无广告 |
 | 100% local + Face ID | Face ID 已门控 PRO；本地存储属实 |
 | JSON 全量备份 | ✅ v2 含附件/支付历史；Settings 可合并或覆盖恢复 |
-| 高斯模糊遮罩 | 未实现 |
+| 高斯模糊遮罩 | ✅ App Switcher / inactive 隐私模糊 |
 | 高级趋势对比 | 仅环形图分类占比 |
 
 **方案**：改文案或补齐功能，避免 2.3.1 / 3.1 审核与用户预期落差。

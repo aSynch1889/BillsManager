@@ -34,6 +34,7 @@
 		01010019 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020019 /* PaywallView.swift */; };
 		0101001A /* PasscodeLockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102001A /* PasscodeLockView.swift */; };
 		0101001B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102001B /* SettingsView.swift */; };
+		0101003A /* PrivacyBlurOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102003A /* PrivacyBlurOverlay.swift */; };
 		0101001C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0102001C /* Assets.xcassets */; };
 		0101001D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0102001D /* Localizable.xcstrings */; };
 		0101001E /* StoreKit.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 0102001E /* StoreKit.storekit */; };
@@ -80,6 +81,7 @@
 		01020019 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		0102001A /* PasscodeLockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeLockView.swift; sourceTree = "<group>"; };
 		0102001B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0102003A /* PrivacyBlurOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyBlurOverlay.swift; sourceTree = "<group>"; };
 		0102001C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0102001D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		0102001E /* StoreKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = StoreKit.storekit; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				01020034 /* LanguageSelectionView.swift */,
 				01020019 /* PaywallView.swift */,
 				0102001A /* PasscodeLockView.swift */,
+				0102003A /* PrivacyBlurOverlay.swift */,
 				0102001B /* SettingsView.swift */,
 				01020021 /* OnboardingView.swift */,
 			);
@@ -376,6 +379,7 @@
 				01010018 /* AccountManagerView.swift in Sources */,
 				01010019 /* PaywallView.swift in Sources */,
 				0101001A /* PasscodeLockView.swift in Sources */,
+				0101003A /* PrivacyBlurOverlay.swift in Sources */,
 				0101001B /* SettingsView.swift in Sources */,
 				01010021 /* OnboardingView.swift in Sources */,
 				01010022 /* SplashView.swift in Sources */,
