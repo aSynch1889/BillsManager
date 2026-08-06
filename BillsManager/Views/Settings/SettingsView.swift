@@ -16,6 +16,10 @@ struct SettingsView: View {
     @State private var csvShareURL: URL? = nil
     @State private var showingJSONShareSheet: Bool = false
     @State private var jsonShareURL: URL? = nil
+    @State private var showingRestoreImporter: Bool = false
+    @State private var pendingBackup: ExportManager.BackupData?
+    @State private var showingRestoreModeDialog: Bool = false
+    @State private var restoreSuccessMessage: String?
     
     @AppStorage("defaultCurrency") private var defaultCurrency: String = Locale.current.currency?.identifier ?? "USD"
     @AppStorage("defaultReminderDays") private var defaultReminderDays: Int = 1
@@ -181,6 +185,16 @@ struct SettingsView: View {
                 }) {
                     Label(L10n.s("Create JSON Backup"), systemImage: "externaldrive.fill")
                 }
+
+                Button(action: {
+                    guard storeManager.canAccess(.exportBackup) else {
+                        showingPaywall = true
+                        return
+                    }
+                    showingRestoreImporter = true
+                }) {
+                    Label(L10n.s("Restore from JSON"), systemImage: "arrow.clockwise.icloud")
+                }
             }
             
             // Language Section
@@ -237,6 +251,48 @@ struct SettingsView: View {
                 ShareSheet(activityItems: [url])
             }
         }
+        .fileImporter(
+            isPresented: $showingRestoreImporter,
+            allowedContentTypes: [.json],
+            allowsMultipleSelection: false
+        ) { result in
+            handleRestoreImport(result)
+        }
+        .confirmationDialog(
+            L10n.s("Restore Backup"),
+            isPresented: $showingRestoreModeDialog,
+            titleVisibility: .visible
+        ) {
+            Button(L10n.s("Merge with Existing Data")) {
+                performRestore(mode: .merge)
+            }
+            Button(L10n.s("Replace All Data"), role: .destructive) {
+                performRestore(mode: .replace)
+            }
+            Button(L10n.s("Cancel"), role: .cancel) {
+                pendingBackup = nil
+            }
+        } message: {
+            if let backup = pendingBackup {
+                Text(
+                    String(
+                        format: L10n.s("Backup from %@ — %d bills, %d categories, %d accounts. Choose merge or replace."),
+                        backup.exportDate.formatted(date: .abbreviated, time: .shortened),
+                        backup.bills.count,
+                        backup.categories.count,
+                        backup.accounts.count
+                    )
+                )
+            }
+        }
+        .alert(L10n.s("Restore Complete"), isPresented: Binding(
+            get: { restoreSuccessMessage != nil },
+            set: { if !$0 { restoreSuccessMessage = nil } }
+        )) {
+            Button(L10n.s("OK"), role: .cancel) { restoreSuccessMessage = nil }
+        } message: {
+            Text(restoreSuccessMessage ?? "")
+        }
         .task {
             await refreshNotificationStatus()
             sampleBillCount = SampleDataSeeder.sampleCount(in: modelContext)
@@ -284,6 +340,43 @@ struct SettingsView: View {
             showingJSONShareSheet = true
         } catch {
             persistenceError = PersistenceError.exportFailed(underlying: error).errorDescription
+        }
+    }
+
+    private func handleRestoreImport(_ result: Result<[URL], Error>) {
+        switch result {
+        case .failure(let error):
+            persistenceError = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
+        case .success(let urls):
+            guard let url = urls.first else { return }
+            let accessed = url.startAccessingSecurityScopedResource()
+            defer {
+                if accessed { url.stopAccessingSecurityScopedResource() }
+            }
+            do {
+                let data = try Data(contentsOf: url)
+                pendingBackup = try ExportManager.shared.decodeBackup(from: data)
+                showingRestoreModeDialog = true
+            } catch {
+                persistenceError = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
+            }
+        }
+    }
+
+    private func performRestore(mode: BackupRestoreMode) {
+        guard let backup = pendingBackup else { return }
+        pendingBackup = nil
+        do {
+            let counts = try ExportManager.shared.restoreBackup(backup, into: modelContext, mode: mode)
+            sampleBillCount = SampleDataSeeder.sampleCount(in: modelContext)
+            restoreSuccessMessage = String(
+                format: L10n.s("Restored successfully. New items — categories: %d, accounts: %d, bills: %d."),
+                counts.categories,
+                counts.accounts,
+                counts.bills
+            )
+        } catch {
+            persistenceError = (error as? LocalizedError)?.errorDescription ?? error.localizedDescription
         }
     }
 }

@@ -85,23 +85,17 @@
 
 ---
 
-### 1.4 JSON「备份」不可恢复 + 备份内容不完整 — 🔴 仍存在
+### 1.4 JSON「备份」不可恢复 + 备份内容不完整 — 🟢 已解决
 
-**现象**
-- 仅有 `generateJSONBackup`，**无 Import / Restore UI 与逻辑**
-- DTO 缺失：`reminderDaysBefore`、`reminderTime`、`repeatEndDate`、`isAutoPay` 以外部分、`attachmentImageData`、`paymentHistory`、账户 `isDefault`、分类 `isSystem` 等
-- CSV 导出无分享失败处理；临时文件无清理
+**现象（已修复）**
+- 旧版仅有 `generateJSONBackup`，无 Import / Restore；DTO 缺提醒、附件、支付历史、账户/分类元数据等字段。
 
-**影响**
-换机/重装等于丢数据；PRO 卖点“JSON 全量备份”名不副实。
-
-**解决方案**
-
-1. 备份格式升 `version: 2`，补齐字段；附件用 Base64 或旁路 zip
-2. Settings 增加 **Restore from JSON**：`fileImporter` → 校验 version → 用户确认“合并/覆盖”
-3. 覆盖模式：清空或按 UUID 去重合并
-4. 恢复后重算全部通知与角标
-5. 导出失败时 `alert`，不要静默 `try?`
+**修复**
+1. 备份格式升 `version: 2`，补齐 `reminderDaysBefore` / `reminderTime` / `repeatEndDate` / `recurrenceAnchorDay` / `isSample` / 附件 Base64 / `paymentHistory`（含收据）/ 分类 `id`+`isSystem` / 账户 `id`+`isDefault`；仍可读 v1
+2. Settings **Restore from JSON**：`fileImporter` → 校验 version → 确认「合并 / 覆盖」
+3. 覆盖清空账单/分类/账户后导入；合并按 UUID（v1 按名称）去重 upsert
+4. 恢复后重 schedule 全部通知并刷新角标
+5. 导出/导入失败均 `alert`，不再静默
 
 ---
 
@@ -303,7 +297,7 @@ case .background: if lockEnabled { isUnlocked = false }
 | :--- | :--- |
 | Ad-free PRO | ✅ 文案已移除；应用内无广告 |
 | 100% local + Face ID | Face ID 已门控 PRO；本地存储属实 |
-| JSON 全量备份 | 仅导出子集且不可恢复 |
+| JSON 全量备份 | ✅ v2 含附件/支付历史；Settings 可合并或覆盖恢复 |
 | 高斯模糊遮罩 | 未实现 |
 | 高级趋势对比 | 仅环形图分类占比 |
 
@@ -346,7 +340,7 @@ case .background: if lockEnabled { isUnlocked = false }
 | `Bill` | 分析用 dueDate；周期日期漂移；逾期只推进一期；unpay 不回溯历史；金额 Double |
 | `NotificationManager` | 未 request；badge=1；无前台 delegate |
 | `StoreManager` | 权益未门控；商品/共享 Scheme/ASC 未闭环；entitlement 未过滤；订阅持续价值不足 |
-| `ExportManager` | 无 import；字段不全 |
+| `ExportManager` | ✅ JSON v2 导出/恢复；CSV 仍为摘要导出 |
 | `SettingsView` | 无隐私条款；导出无 PRO；幽灵配置；版本硬编码 |
 | `PaywallView` | 缺订阅法律文案与隐私链接；Feature 英文硬编码 |
 | `AddEditBillView` | 地区化金额解析失败；0/负数/非有限值；重复截止日期约束不足 |
@@ -376,7 +370,7 @@ case .background: if lockEnabled { isUnlocked = false }
 5. ✅ 隐私政策 / 条款 URL
 
 ### Sprint C — 数据可信（约 3–4 天）
-1. JSON 备份 v2 + 恢复
+1. ✅ JSON 备份 v2 + 恢复
 2. 支付历史与分析口径修正
 3. Privacy Manifest + Icon PNG
 
@@ -395,7 +389,7 @@ case .background: if lockEnabled { isUnlocked = false }
 - [ ] 月末账单 `1/31` 连续展期不漂移；跨多期逾期与撤销支付行为符合产品定义
 - [ ] 全新安装后恰好 7 个默认分类、3 个默认账户，不出现重名对象
 - [ ] 免费用户触发限额功能必现 Paywall；PRO 用户畅通
-- [ ] JSON 备份 → 删除 App → 重装 → 恢复后数据一致
+- [x] JSON 备份 → 删除 App → 重装 → 恢复后数据一致
 - [ ] 内购沙盒：买断 / 月 / 年 / 恢复 / 过期 五条路径通过
 - [ ] 无相机权限却弹相机；无多余隐私用途
 - [ ] 设置页可打开隐私政策与条款
