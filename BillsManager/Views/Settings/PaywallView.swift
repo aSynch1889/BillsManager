@@ -93,6 +93,15 @@ struct PaywallView: View {
                                         Text(productDisplayName(product))
                                             .font(.headline)
                                             .foregroundStyle(.primary)
+                                        if let length = subscriptionPeriodText(product) {
+                                            Text(String(format: L10n.s("Length: %@"), length))
+                                                .font(.caption.bold())
+                                                .foregroundStyle(.secondary)
+                                        } else if product.id == StoreManager.lifetimeProID {
+                                            Text(L10n.s("One-time purchase · never expires"))
+                                                .font(.caption.bold())
+                                                .foregroundStyle(.secondary)
+                                        }
                                         Text(product.description)
                                             .font(.caption)
                                             .foregroundStyle(.secondary)
@@ -101,10 +110,13 @@ struct PaywallView: View {
                                     
                                     Spacer()
                                     
-                                    Text(product.displayPrice)
+                                    Text(priceWithPeriod(product))
                                         .font(.title3.bold())
                                         .foregroundStyle(.blue)
+                                        .multilineTextAlignment(.trailing)
                                 }
+                                .accessibilityElement(children: .combine)
+                                .accessibilityLabel(productAccessibilityLabel(product))
                                 .padding()
                                 .background(selectedProductID == product.id ? Color.blue.opacity(0.12) : Color(.secondarySystemGroupedBackground))
                                 .overlay(
@@ -131,7 +143,7 @@ struct PaywallView: View {
                                 }
                             }
                         }) {
-                            Text(String(format: L10n.s("Continue with %@"), selectedProduct.displayPrice))
+                            Text(String(format: L10n.s("Continue with %@"), priceWithPeriod(selectedProduct)))
                                 .font(.headline)
                                 .frame(maxWidth: .infinity)
                                 .padding()
@@ -238,6 +250,39 @@ struct PaywallView: View {
         default:
             return product.displayName
         }
+    }
+
+    private func subscriptionPeriodText(_ product: Product) -> String? {
+        guard let period = product.subscription?.subscriptionPeriod else { return nil }
+        let value = period.value
+        switch period.unit {
+        case .day:
+            return value == 1 ? L10n.s("1 day") : String(format: L10n.s("%d days"), value)
+        case .week:
+            return value == 1 ? L10n.s("1 week") : String(format: L10n.s("%d weeks"), value)
+        case .month:
+            return value == 1 ? L10n.s("1 month") : String(format: L10n.s("%d months"), value)
+        case .year:
+            return value == 1 ? L10n.s("1 year") : String(format: L10n.s("%d years"), value)
+        @unknown default:
+            return nil
+        }
+    }
+
+    private func priceWithPeriod(_ product: Product) -> String {
+        if let length = subscriptionPeriodText(product) {
+            return String(format: L10n.s("%@ / %@"), product.displayPrice, length)
+        }
+        return product.displayPrice
+    }
+
+    private func productAccessibilityLabel(_ product: Product) -> String {
+        let name = productDisplayName(product)
+        let price = priceWithPeriod(product)
+        if let length = subscriptionPeriodText(product) {
+            return "\(name), \(length), \(price)"
+        }
+        return "\(name), \(price)"
     }
 }
 
