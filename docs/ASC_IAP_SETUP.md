@@ -80,15 +80,21 @@ App 仅使用系统 exempt 加密（HTTPS/TLS 等），已在两处声明 **不�
 asc encryption declarations exempt-declare --plist BillsManager/App/Info.plist
 ```
 
+## 商店显示名（唯一性）
+
+纯 “Bills Manager” / “账单管家” 已被其他开发者占用，ASC 会报 *app name already being used*。当前使用：
+
+- en-US：`Bills Manager AG`
+- zh-Hans：`账单管家 AG`
+
 ## 提交前仍需人工完成的项
 
-运行 `asc validate --app 6796724831 --version 1.0.0 --platform IOS` 查看实时阻塞项。当前典型剩余：
+2026-08-23 `asc validate`：**blocking 仅剩截图**（`screenshots.required.any`）。地区与审核备注已更新；描述已与免费额度（分类 5 / 账户 3）对齐。仍需：
 
-1. **App 上架地区** — ASC 网页 Pricing & Availability 勾选（`asc pricing availability create` 对部分 territory 报 API 错误）
-2. **上传 Build** — Archive → Upload → 在版本页选择 build
-3. **截图** — 至少一种设备尺寸
-4. **App 隐私问卷** — 发布并声明可选 iCloud 同步存储账单数据
-5. **首提订阅** — 在版本页勾选 monthly / yearly / lifetime 一并提交审核
+1. **截图** — 至少一套必填机型（建议 iPhone 6.7" + iPad 13"）
+2. **上传并选择 Build** — Archive → Upload → 版本页选择（validate 可能滞后，提交前再确认）
+3. **App 隐私问卷** — API 无法核验 Publish；网页确认并声明可选 iCloud 财务数据
+4. **首提订阅** — 在版本页勾选 monthly / yearly / lifetime 一并提交审核
 
 ## PRO 订阅审核要点 (Guideline 3.1.2)
 

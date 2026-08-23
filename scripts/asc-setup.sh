@@ -29,7 +29,24 @@ asc metadata approve --review-dir "$REVIEW_DIR" --all
 asc metadata apply --app "$APP_ID" --version "$VERSION" --platform IOS --dir "$METADATA_DIR" --review-dir "$REVIEW_DIR" --confirm
 
 echo "==> Review notes"
-asc review details-update --id "$REVIEW_DETAIL_ID" --notes 'Bills Manager stores data locally by default. PRO unlocks optional iCloud sync via CloudKit private database (container: iCloud.com.antigravity.billsmanager). Sync is OFF by default and requires manual toggle plus app restart. PRO plans: monthly, yearly, and lifetime. Test with Sandbox Apple ID. No login required for free tier. Privacy: https://asynch1889.github.io/BillsManager-legal/privacy/en.html'
+asc review details-update --id "$REVIEW_DETAIL_ID" --notes 'Bills Manager is a local-first personal bill tracker. No user account or login.
+
+IN-APP PURCHASE (please attach to this version):
+• com.billsmanager.pro.monthly (auto-renewable)
+• com.billsmanager.pro.yearly (auto-renewable)
+• com.billsmanager.pro.lifetime (non-consumable)
+All three unlock the same PRO entitlement. Path: Settings → Upgrade to PRO.
+
+PRO includes: optional iCloud sync (OFF by default), unlimited custom categories and accounts (free: 5 custom categories, 3 payment accounts), CSV/JSON backup, Face ID lock, advanced analytics ranges.
+
+iCloud: Settings → iCloud Sync (PRO). Requires iCloud account. Changing the toggle: force-quit from the app switcher and reopen to migrate the SwiftData store. If PRO lapses, sync is turned off automatically.
+
+Notifications: requested on onboarding and when saving a bill with a reminder.
+Photos: user-picked receipt images only. Face ID: optional app lock.
+
+Privacy Policy and Terms (Apple Standard EULA) are linked in Settings and Paywall.
+Sandbox Apple ID is sufficient; no demo in-app account.
+Privacy: https://asynch1889.github.io/BillsManager-legal/privacy/en.html'
 
 echo "==> IAP / subscriptions reconcile (idempotent when products already exist)"
 asc iap setup --app "$APP_ID" \
