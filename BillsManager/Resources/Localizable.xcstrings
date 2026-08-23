@@ -10569,6 +10569,74 @@
         }
       }
     },
+    "Force-quit the app from the app switcher, then open it again to apply iCloud sync changes." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Force-quit the app from the app switcher, then open it again to apply iCloud sync changes."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iCloud 同期の変更を反映するには、アプリスイッチャーで App を終了してから開き直してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "iCloud 동기화 변경을 적용하려면 앱 전환기에서 앱을 종료한 뒤 다시 여세요."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请从 App 切换器划掉本应用后再打开，以应用 iCloud 同步更改。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請從 App 切換器滑掉本 App 後再打開，以套用 iCloud 同步變更。"
+          }
+        }
+      }
+    },
+    "Your PRO subscription ended. iCloud sync was turned off. Force-quit the app from the app switcher, then open it again to keep your data on this device." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your PRO subscription ended. iCloud sync was turned off. Force-quit the app from the app switcher, then open it again to keep your data on this device."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PRO の有効期限が切れたため iCloud 同期をオフにしました。データをこの端末に残すには、アプリスイッチャーで App を終了してから開き直してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PRO 구독이 종료되어 iCloud 동기화가 꺼졌습니다. 데이터를 이 기기에 유지하려면 앱 전환기에서 앱을 종료한 뒤 다시 여세요."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PRO 订阅已结束，iCloud 同步已自动关闭。请从 App 切换器划掉本应用后再打开，以将数据保留在本设备。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PRO 訂閱已結束，iCloud 同步已自動關閉。請從 App 切換器滑掉本 App 後再打開，以將資料保留在本裝置。"
+          }
+        }
+      }
+    },
     "Your PRO subscription ended. iCloud sync was turned off. Restart the app to keep your data on this device." : {
       "extractionState" : "stale",
       "localizations" : {

@@ -106,8 +106,8 @@ struct MainTabView: View {
 
     private var syncRestartBannerText: String {
         if cloudSyncManager.disabledDueToProExpiration {
-            return L10n.s("Your PRO subscription ended. iCloud sync was turned off. Restart the app to keep your data on this device.")
+            return L10n.s("Your PRO subscription ended. iCloud sync was turned off. Force-quit the app from the app switcher, then open it again to keep your data on this device.")
         }
-        return L10n.s("Restart the app to apply iCloud sync changes.")
+        return L10n.s("Force-quit the app from the app switcher, then open it again to apply iCloud sync changes.")
     }
 }

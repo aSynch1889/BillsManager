@@ -3,7 +3,7 @@ import SwiftData
 
 @Model
 final class PaymentRecord {
-    @Attribute(.unique) var id: UUID
+    var id: UUID
     var paidDate: Date
     var amountPaid: Double
     /// The bill's `dueDate` for the period this payment settled (needed to undo recurring rolls).

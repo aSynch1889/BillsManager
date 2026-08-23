@@ -33,33 +33,42 @@ enum ModelContainerFactory {
     }
 
     /// Copies data between local and cloud SwiftData stores when the user toggles sync.
+    /// On failure, keeps the source store and turns iCloud off if the destination was CloudKit.
     static func runPendingMigrationIfNeeded() throws {
         guard UserDefaults.standard.bool(forKey: CloudSyncManager.migrationPendingKey) else { return }
 
         let direction = UserDefaults.standard.string(forKey: CloudSyncManager.migrationDirectionKey) ?? "toCloud"
         let toCloud = direction == "toCloud"
 
-        let sourceConfig = ModelConfiguration(
-            toCloud ? localConfigurationName : cloudConfigurationName,
-            schema: schema,
-            cloudKitDatabase: toCloud ? .none : .private(CloudSyncManager.containerIdentifier)
-        )
-        let destConfig = ModelConfiguration(
-            toCloud ? cloudConfigurationName : localConfigurationName,
-            schema: schema,
-            cloudKitDatabase: toCloud ? .private(CloudSyncManager.containerIdentifier) : .none
-        )
+        do {
+            let sourceConfig = ModelConfiguration(
+                toCloud ? localConfigurationName : cloudConfigurationName,
+                schema: schema,
+                cloudKitDatabase: toCloud ? .none : .private(CloudSyncManager.containerIdentifier)
+            )
+            let destConfig = ModelConfiguration(
+                toCloud ? cloudConfigurationName : localConfigurationName,
+                schema: schema,
+                cloudKitDatabase: toCloud ? .private(CloudSyncManager.containerIdentifier) : .none
+            )
 
-        let sourceContainer = try ModelContainer(for: schema, configurations: [sourceConfig])
-        let destContainer = try ModelContainer(for: schema, configurations: [destConfig])
+            let sourceContainer = try ModelContainer(for: schema, configurations: [sourceConfig])
+            let destContainer = try ModelContainer(for: schema, configurations: [destConfig])
 
-        let sourceContext = ModelContext(sourceContainer)
-        let destContext = ModelContext(destContainer)
+            let sourceContext = ModelContext(sourceContainer)
+            let destContext = ModelContext(destContainer)
 
-        try copyAllData(from: sourceContext, to: destContext)
-        try Persistence.save(destContext)
+            try copyAllData(from: sourceContext, to: destContext)
+            try Persistence.save(destContext)
 
-        UserDefaults.standard.set(false, forKey: CloudSyncManager.migrationPendingKey)
+            UserDefaults.standard.set(false, forKey: CloudSyncManager.migrationPendingKey)
+        } catch {
+            UserDefaults.standard.set(false, forKey: CloudSyncManager.migrationPendingKey)
+            if toCloud {
+                CloudSyncManager.shared.abortFailedCloudOpen()
+            }
+            throw error
+        }
     }
 
     private static func copyAllData(from source: ModelContext, to destination: ModelContext) throws {

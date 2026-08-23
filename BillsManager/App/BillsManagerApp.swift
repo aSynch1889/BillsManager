@@ -21,14 +21,29 @@ struct BillsManagerApp: App {
 
     init() {
         do {
-            try ModelContainerFactory.runPendingMigrationIfNeeded()
+            do {
+                try ModelContainerFactory.runPendingMigrationIfNeeded()
+            } catch {
+                // Stay on the local store rather than blocking launch after a CloudKit copy failure.
+            }
             if CloudSyncManager.shared.isSyncEnabled && !StoreManager.cachedProEntitlement {
                 _ = CloudSyncManager.shared.disableSyncDueToProExpiration()
-                try ModelContainerFactory.runPendingMigrationIfNeeded()
+                do {
+                    try ModelContainerFactory.runPendingMigrationIfNeeded()
+                } catch {
+                    CloudSyncManager.shared.abortFailedCloudOpen()
+                }
             }
-            let container = try ModelContainerFactory.makeContainer(
-                cloudSyncEnabled: CloudSyncManager.shouldUseCloudKit
-            )
+            let container: ModelContainer
+            do {
+                container = try ModelContainerFactory.makeContainer(
+                    cloudSyncEnabled: CloudSyncManager.shouldUseCloudKit
+                )
+            } catch {
+                guard CloudSyncManager.shouldUseCloudKit else { throw error }
+                CloudSyncManager.shared.abortFailedCloudOpen()
+                container = try ModelContainerFactory.makeContainer(cloudSyncEnabled: false)
+            }
 
             NotificationManager.shared.configure()
             Self.seedInitialDataIfNeeded(context: container.mainContext)

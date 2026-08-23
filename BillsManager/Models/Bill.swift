@@ -3,7 +3,9 @@ import SwiftData
 
 @Model
 final class Bill {
-    @Attribute(.unique) var id: UUID
+    /// UUID identity is enforced in app code. Unique constraints are omitted so the
+    /// same schema can open a CloudKit-backed SwiftData store (CloudKit forbids them).
+    var id: UUID
     var name: String
     var amount: Double
     var currencyCode: String

@@ -78,6 +78,14 @@ final class CloudSyncManager {
         return true
     }
 
+    /// CloudKit container failed to open: stay on the local store without a copy migration.
+    func abortFailedCloudOpen() {
+        UserDefaults.standard.set(false, forKey: Self.enabledKey)
+        UserDefaults.standard.set(false, forKey: Self.migrationPendingKey)
+        UserDefaults.standard.set(false, forKey: Self.restartRequiredKey)
+        restartRequired = false
+    }
+
     /// Turns off sync when PRO entitlement is no longer active. Returns `true` when sync was disabled.
     @discardableResult
     func disableSyncDueToProExpiration() -> Bool {
