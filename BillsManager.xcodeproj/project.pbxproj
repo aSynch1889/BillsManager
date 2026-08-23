@@ -49,6 +49,7 @@
 		0101003E /* View+TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0102003E /* View+TabBar.swift */; };
 		01010040 /* CloudSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020040 /* CloudSyncManager.swift */; };
 		01010041 /* ModelContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020041 /* ModelContainerFactory.swift */; };
+		01010042 /* ScreenshotDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020042 /* ScreenshotDemo.swift */; };
 		01010033 /* RootContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020033 /* RootContentView.swift */; };
 		01010034 /* LanguageSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020034 /* LanguageSelectionView.swift */; };
 		01010035 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020035 /* CurrencyFormatter.swift */; };
@@ -116,6 +117,7 @@
 		0102003E /* View+TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+TabBar.swift"; sourceTree = "<group>"; };
 		01020040 /* CloudSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSyncManager.swift; sourceTree = "<group>"; };
 		01020041 /* ModelContainerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainerFactory.swift; sourceTree = "<group>"; };
+		01020042 /* ScreenshotDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotDemo.swift; sourceTree = "<group>"; };
 		01020033 /* RootContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootContentView.swift; sourceTree = "<group>"; };
 		01020034 /* LanguageSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionView.swift; sourceTree = "<group>"; };
 		01020035 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				0102003E /* View+TabBar.swift */,
 				01020040 /* CloudSyncManager.swift */,
 				01020041 /* ModelContainerFactory.swift */,
+				01020042 /* ScreenshotDemo.swift */,
 				01020035 /* CurrencyFormatter.swift */,
 				01020036 /* SampleDataSeeder.swift */,
 				01020037 /* Persistence.swift */,
@@ -423,6 +426,7 @@
 				0101003E /* View+TabBar.swift in Sources */,
 				01010040 /* CloudSyncManager.swift in Sources */,
 				01010041 /* ModelContainerFactory.swift in Sources */,
+				01010042 /* ScreenshotDemo.swift in Sources */,
 				01010033 /* RootContentView.swift in Sources */,
 				01010034 /* LanguageSelectionView.swift in Sources */,
 				01010035 /* CurrencyFormatter.swift in Sources */,

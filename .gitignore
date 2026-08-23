@@ -30,6 +30,7 @@ Icon
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
+screenshots/store/
 fastlane/test_output
 fastlane/builds/
 fastlane/.env.fastlane

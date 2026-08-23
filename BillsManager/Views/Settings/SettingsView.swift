@@ -12,7 +12,7 @@ struct SettingsView: View {
     @Query private var categories: [Category]
     @Query private var accounts: [Account]
     
-    @State private var showingPaywall: Bool = false
+    @State private var showingPaywall: Bool = ScreenshotDemo.showsPaywall
     @State private var showingCSVShareSheet: Bool = false
     @State private var csvShareURL: URL? = nil
     @State private var showingJSONShareSheet: Bool = false
@@ -265,6 +265,9 @@ struct SettingsView: View {
             Button(L10n.s("OK"), role: .cancel) { restoreSuccessMessage = nil }
         } message: {
             Text(restoreSuccessMessage ?? "")
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .screenshotSelectScreen)) { note in
+            showingPaywall = (note.object as? String) == "Paywall"
         }
         .task {
             await refreshNotificationStatus()

@@ -87,14 +87,33 @@ asc encryption declarations exempt-declare --plist BillsManager/App/Info.plist
 - en-US：`Bills Manager AG`
 - zh-Hans：`账单管家 AG`
 
-## 提交前仍需人工完成的项
+## 2026-08-23 ASC 配置状态
 
-2026-08-23 `asc validate`：**blocking 仅剩截图**（`screenshots.required.any`）。地区与审核备注已更新；描述已与免费额度（分类 5 / 账户 3）对齐。仍需：
+`asc validate` / `asc review doctor`：**blocking = 0**，nextAction = 可提交。
 
-1. **截图** — 至少一套必填机型（建议 iPhone 6.7" + iPad 13"）
-2. **上传并选择 Build** — Archive → Upload → 版本页选择（validate 可能滞后，提交前再确认）
-3. **App 隐私问卷** — API 无法核验 Publish；网页确认并声明可选 iCloud 财务数据
-4. **首提订阅** — 在版本页勾选 monthly / yearly / lifetime 一并提交审核
+| 项 | 状态 |
+|---|---|
+| 元数据 en-US / zh-Hans | 已同步（名称 Bills Manager AG / 账单管家 AG） |
+| 上架地区 | 175 个领土 + 新地区自动上架 |
+| 年龄分级 | `--all-none`（4+） |
+| 审核备注 | 已更新 |
+| 截图 APP_IPHONE_65 | iPhone 14 Plus 1284×2778，en-US + zh-Hans 各 5 张 COMPLETE |
+| Build | 已绑定 `d0b850b9-…`（2026072601，2026-08-06 VALID） |
+| IAP | READY_TO_SUBMIT；**首次订阅须在 ASC 版本页勾选**（API 无法代勾） |
+| 隐私问卷 | API 无法核验 Publish，提交前网页确认 |
+
+截图复拍：
+
+```bash
+./scripts/capture-asc-screenshots.sh
+asc screenshots upload --app 6796724831 --version 1.0.0 --platform IOS --path ./screenshots/store --device-type APP_IPHONE_65 --replace
+```
+
+## 提交前仍建议人工确认
+
+1. **App 隐私问卷 Publish**（含可选 iCloud 财务数据）
+2. **版本页勾选** monthly / yearly / lifetime 与 App 一并送审
+3. 若需带最新加密声明的包：再 Archive 上传新 build 并 `asc versions attach-build`
 
 ## PRO 订阅审核要点 (Guideline 3.1.2)
 

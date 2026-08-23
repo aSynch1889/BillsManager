@@ -10,7 +10,7 @@ struct BillsManagerApp: App {
     @Environment(\.scenePhase) private var scenePhase
 
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding: Bool = false
-    @State private var showingSplash: Bool = true
+    @State private var showingSplash: Bool = !ScreenshotDemo.isActive
 
     private let bootstrap: BootstrapResult
 
@@ -47,6 +47,11 @@ struct BillsManagerApp: App {
 
             NotificationManager.shared.configure()
             Self.seedInitialDataIfNeeded(context: container.mainContext)
+            if ScreenshotDemo.isActive {
+                UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
+                UserDefaults.standard.set(false, forKey: "isAppLockEnabled")
+                _ = SampleDataSeeder.insertSamplesIfNeeded(context: container.mainContext)
+            }
             if !UserDefaults.standard.bool(forKey: CloudSyncManager.migrationPendingKey) {
                 CloudSyncManager.shared.acknowledgeRestartRequired()
             }

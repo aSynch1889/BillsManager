@@ -33,8 +33,9 @@ enum NavigationTab: String, CaseIterable, Identifiable {
 struct MainTabView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(CloudSyncManager.self) private var cloudSyncManager
-    @State private var selectedTab: NavigationTab = .dashboard
+    @State private var selectedTab: NavigationTab = ScreenshotDemo.isActive ? ScreenshotDemo.initialTab : .dashboard
     @State private var showingAddBill: Bool = false
+    @State private var showingScreenshotPaywall: Bool = ScreenshotDemo.showsPaywall
     
     var body: some View {
         VStack(spacing: 0) {
@@ -101,6 +102,19 @@ struct MainTabView: View {
                 }
             }
             }
+        }
+        .sheet(isPresented: $showingScreenshotPaywall) {
+            NavigationStack {
+                PaywallView()
+            }
+        }
+        .onOpenURL { url in
+            ScreenshotDemo.handleOpenURL(url)
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .screenshotSelectScreen)) { note in
+            guard let screen = note.object as? String else { return }
+            selectedTab = ScreenshotDemo.tab(for: screen)
+            showingScreenshotPaywall = (screen == "Paywall")
         }
     }
 
