@@ -32,17 +32,18 @@
 | 账单记录与追踪 | ✅ (无限制) | ✅ (无限制) |
 | 日历视图与到期提醒 | ✅ | ✅ |
 | 基础消费统计 | ✅ | ✅ |
-| **自定义分类与支付账户** | 最多 5 个 | **无限创建** |
+| **自定义分类** | 最多 5 个 | **无限创建** |
+| **支付账户** | 最多 3 个 | **无限创建** |
 | **数据备份与导出** | ❌ | **支持 CSV 导出 & JSON 全量备份** |
 | **生物识别安全锁** | ❌ | **支持 Face ID / Touch ID / 密码锁** |
 | **高级 Swift Charts 图表** | 基础比例 | **完整分类占比与趋势对比** |
-| **无广告体验** | 含有基础提示 | **完全无广告体验** |
+| **广告** | 无 | 无（应用内无广告，PRO 不以去广告为卖点） |
 
 ### 2.2 内购定价矩阵 (IAP Pricing)
 | 产品名称 (Product ID) | 类型 | 建议售价 | 续订/支付周期 |
 | :--- | :--- | :--- | :--- |
 | `com.billsmanager.pro.lifetime` | Non-Consumable (永久买断) | $19.99 | 一次性付费，永久解锁 |
-| `com.billsmanager.pro.monthly` | Auto-Renewable Subscription | $1.99 / 月 | 每月自动续订（首周免费试用） |
+| `com.billsmanager.pro.monthly` | Auto-Renewable Subscription | $1.99 / 月 | 每月自动续订 |
 | `com.billsmanager.pro.yearly` | Auto-Renewable Subscription | $14.99 / 年 | 每年自动续订（节省 37%） |
 
 ---
