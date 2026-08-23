@@ -56,9 +56,21 @@
 		01010037 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020037 /* Persistence.swift */; };
 		01010038 /* ProFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020038 /* ProFeature.swift */; };
 		01010039 /* LegalLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020039 /* LegalLinks.swift */; };
+		01010050 /* BillFrequencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01020050 /* BillFrequencyTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		010E0001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01090001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01050001;
+			remoteInfo = BillsManager;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+
 		01000001 /* BillsManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillsManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01020001 /* BillsManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillsManagerApp.swift; sourceTree = "<group>"; };
 		01020002 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -111,10 +123,19 @@
 		01020037 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		01020038 /* ProFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProFeature.swift; sourceTree = "<group>"; };
 		01020039 /* LegalLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalLinks.swift; sourceTree = "<group>"; };
+		01000002 /* BillsManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BillsManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01020050 /* BillFrequencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillFrequencyTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		01030001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01030002 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -128,7 +149,9 @@
 			isa = PBXGroup;
 			children = (
 				01040002 /* BillsManager */,
+				01040050 /* BillsManagerTests */,
 				01000001 /* BillsManager.app */,
+				01000002 /* BillsManagerTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -286,6 +309,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		01040050 /* BillsManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				01020050 /* BillFrequencyTests.swift */,
+			);
+			path = BillsManagerTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -306,6 +337,23 @@
 			productReference = 01000001 /* BillsManager.app */;
 			productType = "com.apple.product-type.application";
 		};
+		01050002 /* BillsManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01060003 /* Build configuration list for PBXNativeTarget "BillsManagerTests" */;
+			buildPhases = (
+				01070002 /* Sources */,
+				01030002 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				010D0001 /* PBXTargetDependency */,
+			);
+			name = BillsManagerTests;
+			productName = BillsManagerTests;
+			productReference = 01000002 /* BillsManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -318,6 +366,10 @@
 				TargetAttributes = {
 					01050001 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					01050002 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 01050001;
 					};
 				};
 			};
@@ -339,6 +391,7 @@
 			projectRoot = "";
 			targets = (
 				01050001 /* BillsManager */,
+				01050002 /* BillsManagerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -410,7 +463,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		01070002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01010050 /* BillFrequencyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		010D0001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01050001 /* BillsManager */;
+			targetProxy = 010E0001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		010A0001 /* Debug */ = {
@@ -431,7 +500,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -448,6 +517,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				ENABLE_TESTABILITY = YES;
 			};
 			name = Debug;
 		};
@@ -469,7 +539,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -601,6 +671,54 @@
 			};
 			name = Release;
 		};
+		010A0010 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R9TC286V25;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antigravity.billsmanager.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BillsManager.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BillsManager";
+			};
+			name = Debug;
+		};
+		010A0011 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R9TC286V25;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.antigravity.billsmanager.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BillsManager.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BillsManager";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -618,6 +736,15 @@
 			buildConfigurations = (
 				010A0003 /* Debug */,
 				010A0004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01060003 /* Build configuration list for PBXNativeTarget "BillsManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				010A0010 /* Debug */,
+				010A0011 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
