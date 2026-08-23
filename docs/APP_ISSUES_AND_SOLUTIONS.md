@@ -1,36 +1,19 @@
 # Bills Manager — 深度问题评估与解决方案
 
-> **首次评估**：2026-07-27
-> **最近复评**：2026-08-06（真机 `刘小华的iPhone` / `00008110-001A5CA22E3A201E`，commit `e150306`）
-> **评估范围**：源码、模型、内购、通知、安全、本地化、数据导出、PRD 一致性、工程质量
-> **工程标识**：`com.antigravity.billsmanager` / iOS 17+ / SwiftUI + SwiftData + StoreKit 2
-> **结论摘要**：可代码闭环的 **P0/P1 均已关闭**；**P2（除 3.6 测试与 CI）均已关闭**。仍待：P0 1.5 ASC 商品人工核验（🟡）、3.6 单测/CI（⏭）、P3 增强。
+> **评估日期**：2026-08-23  
+> **工程**：`com.antigravity.billsmanager` · iOS 17+ · SwiftUI + SwiftData + StoreKit 2 · Universal (iPhone/iPad)  
+> **版本**：Marketing `1.0.0` · App Store Connect App ID `6796724831`  
+> **范围**：源码、数据模型、内购与 PRO 门控、iCloud 同步、通知、安全锁、本地化、导出备份、元数据、工程质量、与 PRD/ASC 一致性  
+> **结论**：核心账单 CRUD、周期、通知、PRO 门控、法律链接、Privacy Manifest 已具备 TestFlight/上架骨架；**正式提交前仍有一批产品与工程缺口**。整体可上线质量约 **7.5/10**。可代码闭环的历史 P0 大多已修，当前真正卡住发布的是 **ASC 运营项 + iCloud/CloudKit 风险 + 元数据与实现不一致**。
 
-## 复评状态与验证证据
+状态标记：
 
-状态定义：
-
-- `🔴 仍存在`：源码可直接确认，尚无修复。
-- `🟠 部分解决`：有实现骨架，但关键路径不完整。
-- `🟡 待外部核验`：仅靠仓库无法确认，需要 ASC、沙盒或真机。
-- `🟢 已解决`：代码与验证均已闭环。
-
-| 验证项 | 2026-08-06 结果 |
+| 标记 | 含义 |
 | :--- | :--- |
-| Debug 真机构建 | 🟢 `BUILD SUCCEEDED`（`00008110-001A5CA22E3A201E`） |
-| Unit / UI Test | 🔴 工程没有 Test target（P2 3.6 跳过） |
-| P0 / P1 整改 | 🟢 可代码闭环项已关闭；ASC 商品 🟡 |
-| P2 整改（除 CI） | 🟢 3.1–3.5、3.7–3.10 已关闭；3.6 ⏭ |
-| 通知授权调用点 | 🟢 Onboarding + 保存账单 `ensureAuthorization`；设置页可跳系统设置 |
-| PRO 权益门控 | 🟢 `ProFeature` 门控；月/年/终身三档 + iCloud 同步 |
-| 本地化覆盖 | 🟢 `L10n` 键五语齐全（en / zh-Hans / zh-Hant / ja / ko）；系统分类/账户展示层本地化 |
-| iCloud 同步 | 🟢 PRO 可选，默认关闭；SwiftData + CloudKit 私有库 |
-| 静默错误 | 🟢 关键路径与附件/内购失败均 Alert |
-| 货币硬编码 | 🟢 `CurrencyFormatter` 统一 |
-| App Icon | 🟢 1024 PNG + `PrivacyInfo.xcprivacy` |
-| 版本号 | 🟢 Info.plist 跟随 `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION`；设置页读 Bundle |
-| JSON 备份恢复 | 🟢 v2 导出 + 合并/覆盖恢复 |
-| iPad 双栏 | 🟢 账单三栏；其余侧栏+全宽内容 |
+| 🔴 仍存在 | 仓库可确认，未修复 |
+| 🟠 部分解决 | 有实现，关键路径不完整或有隐患 |
+| 🟡 外部核验 | 需 ASC / 沙盒 / 真机 / 线上页面 |
+| 🟢 已解决 | 代码侧已闭环（历史项） |
 
 ---
 
@@ -38,376 +21,253 @@
 
 | 维度 | 评分 (1–10) | 说明 |
 | :--- | :---: | :--- |
-| 核心账单 CRUD / 周期滚动 | 8 | 锚定日/撤销支付已落地 |
-| 数据模型与持久化 | 8 | JSON v2 备份+恢复；ID unique；Decimal 延后 |
-| 通知与角标 | 8 | 授权、调度、角标、逾期立即补发 |
-| 安全锁 | 8 | 开关认证回滚 + App Switcher 模糊 |
-| 内购 / PRO | 7 | 门控与买断策略已落地；ASC 待核验 |
-| 导出备份 | 8 | CSV/JSON 导出 + JSON 恢复 |
-| 本地化 (en / zh-Hans) | 8 | en 全量；zh-Hans 高覆盖 |
-| 无障碍 / 多币种 / 可测试性 | 5 | 行级 VoiceOver + 本机说明；无单测；多币种无汇率 |
-| 与 PRD/README 一致性 | 8 | 主要卖点已对齐文案与实现 |
-| **整体可上线质量** | **7.8** | 适合 TestFlight；正式提交前建议 ASC 核验 + 补 3.6 测试 |
+| 账单 CRUD / 周期滚动 | 8 | 锚定日、一次付一期、撤销支付已落地 |
+| 持久化 | 7 | SwiftData 本地可用；CloudKit 迁移需重启，`@Attribute(.unique)` 与 CloudKit 冲突风险 |
+| 通知与角标 | 8 | Onboarding/保存账单授权；逾期补发；角标跟逾期数 |
+| 安全锁 | 8 | Face ID/设备密码 + App Switcher 模糊 |
+| 内购 / PRO | 7 | 三档商品 + 门控齐全；Paywall 订阅披露可更严；ASC 商品待随版本提交 |
+| 导出备份 | 8 | JSON v2 可恢复；CSV 为摘要 |
+| 本地化 | 8 | L10n 五语；商店文案与免费额度不一致 |
+| 无障碍 / 测试 | 4 | 少量 VoiceOver；无 Test target / CI |
+| 与商店元数据一致性 | 6 | 免费账户上限、App 名称、截图缺失 |
+| **整体** | **7.5** | 适合 TestFlight；商店审核前先关 ASC 阻塞项与元数据错误 |
 
 ---
 
-## 1. 严重问题（P0）— 建议上线前必须处理
+## 1. 严重问题（P0）— 建议上线前处理
 
-### 1.1 Freemium / PRO 权益完全未门控（与 PRD 严重不符）— 🟢 已解决
+### 1.1 App Store Connect 版本尚未可提交 — 🟡 外部（阻塞发布，非代码）
 
-**修复**
-- 统一 `ProFeature` + `StoreManager.canAccess` / 限额辅助方法
-- 自定义分类 ≥5、账户 ≥3 时拦截并弹 Paywall；导出、App Lock、多区间分析同理
-- 免费用户保留本月基础分析与完整账单 CRUD
-- 删除 Paywall / 设置中的 “Ad-Free” 文案（应用内无广告）
-- entitlement 仅计入已知 PRO Product ID（见 3.9）
+`fastlane/builds/asc-validate.json` 显示 **3 个 blocking error**：
 
----
+1. **未选择 Build**（`build.required.missing`）
+2. **未配置上架地区**（`availability.missing`）
+3. **无任何设备截图**（`screenshots.required.any`）
 
-### 1.2 本地通知从未请求授权，核心卖点失效 — 🟢 已解决
+**解决方案**
 
-**现象（已修复）**
-旧版 `NotificationManager.requestAuthorization()` 全工程无调用点；`scheduleNotification` 在未授权时静默失败；Onboarding 宣传提醒却不引导开启。
-
-**修复**
-1. Onboarding「Get Started / Skip」完成时请求通知权限
-2. 保存带提醒账单时调用 `ensureAuthorization()`（未决定则弹系统框）
-3. 设置页新增 Notifications 区：展示权限状态；被拒时提供「打开系统设置」
-4. 启动配置 `UNUserNotificationCenterDelegate`，前台可展示 banner
-5. 去掉通知 `badge = 1`；Dashboard `onAppear` / 逾期数变化时 `updateBadgeCount(overdueCount:)`
-6. 提醒触发时间已过则跳过 schedule
-
-周期账单 mark paid 后重 schedule 见 1.3 / Sprint A.3。
-
-### 1.3 周期账单“标记已付”后通知逻辑错误 — 🟢 已解决
-
-**现象（已修复）**
-旧列表路径在周期 `markAsPaid`（推进 dueDate 且 `isPaid = false`）后仍 `cancelNotification`，不为新 dueDate 重新 schedule。
-
-**修复**
-统一 `NotificationManager.applyPaidSideEffects`：已付则 cancel，否则按当前 dueDate schedule，并刷新逾期角标。列表 / 行 / 详情支付与撤销均走此路径。
+1. Archive → Upload → 在 1.0.0 版本页选择该 build。  
+2. Pricing and Availability 勾选销售地区（脚本对部分 territory 曾报 API 错，需网页完成）。  
+3. 至少上传一组必填尺寸截图；Universal App **强烈建议同时有 iPhone 6.7" 与 iPad 13"**。截图勿含系统状态栏虚假框、勿展示未实现功能。  
+4. 提交前再跑：`asc validate --app 6796724831 --version 1.0.0 --platform IOS`。
 
 ---
 
-### 1.4 JSON「备份」不可恢复 + 备份内容不完整 — 🟢 已解决
+### 1.2 商店文案与免费额度不一致 — 🔴 仍存在
 
-**现象（已修复）**
-- 旧版仅有 `generateJSONBackup`，无 Import / Restore；DTO 缺提醒、附件、支付历史、账户/分类元数据等字段。
+| 来源 | 说法 |
+| :--- | :--- |
+| 代码 `ProFeature` | 自定义分类 **5**、支付账户 **3** |
+| `metadata/version/1.0.0/en-US.json` | “Up to **5** custom categories **and payment accounts**” |
+| `metadata/version/1.0.0/zh-Hans.json` | “自定义分类与支付账户最多 **5** 个” |
 
-**修复**
-1. 备份格式升 `version: 2`，补齐 `reminderDaysBefore` / `reminderTime` / `repeatEndDate` / `recurrenceAnchorDay` / `isSample` / 附件 Base64 / `paymentHistory`（含收据）/ 分类 `id`+`isSystem` / 账户 `id`+`isDefault`；仍可读 v1
-2. Settings **Restore from JSON**：`fileImporter` → 校验 version → 确认「合并 / 覆盖」
-3. 覆盖清空账单/分类/账户后导入；合并按 UUID（v1 按名称）去重 upsert
-4. 恢复后重 schedule 全部通知并刷新角标
-5. 导出/导入失败均 `alert`，不再静默
+审核员或用户按商店描述会认为账户也是 5。属 **Guideline 2.3.1 误导元数据**。
+
+**解决方案**
+
+二选一，且商店、Paywall、设置页、README 同一口径：
+
+- **改文案**（推荐）：英文改为 “Up to 5 custom categories and 3 payment accounts”；中文改为 “自定义分类最多 5 个、支付账户最多 3 个”。  
+- **或改代码**：`freeAccountLimit = 5`。
+
+同步 `asc metadata plan → approve → apply`。
 
 ---
 
-### 1.5 内购商品与测试配置未形成可验证闭环 — 🟠 部分解决
+### 1.3 SwiftData `@Attribute(.unique)` + CloudKit 不兼容 — 🟠 高隐患
+
+`Bill` / `Category` / `Account` / `PaymentRecord` 均使用 `@Attribute(.unique) var id`。Apple 文档：**CloudKit 支持的 SwiftData 配置不支持 Unique Constraints**。开启 PRO iCloud 后可能：
+
+- 容器创建失败 → `DatabaseLaunchErrorView`（用户无法进入 App）  
+- 或同步冲突/重复记录  
+
+`ModelContainerFactory.runPendingMigrationIfNeeded` 在 `App.init` 同步执行，大数据量或 CloudKit 失败会拉长启动、甚至启动失败。
+
+**解决方案**
+
+1. 真机用 **Development CloudKit 容器** 开关同步，验证能否创建 Cloud 配置。  
+2. 若失败：为 Cloud 配置去掉 unique（拆 `ModelConfiguration` 或仅本地 unique），用应用层 UUID 去重。  
+3. 迁移改后台任务 + 进度/失败回滚，不要静默 `try` 后整 App 不可用。  
+4. 审核备注写明：iCloud 默认关；需 PRO + 系统 iCloud 登录 + 重启。
+
+---
+
+### 1.4 PRO 权益缓存可被本地篡改 — 🟠
+
+`UserDefaults` 键 `StoreManagerProEntitlementCache` 在启动时用于判断是否因过期关闭 iCloud。用户改 UserDefaults 可推迟关闭同步；网络差时也可能短暂误判。
+
+**解决方案**
+
+启动后尽快 `Transaction.currentEntitlements`；缓存仅作 UI 占位，**不以缓存作为开启 CloudKit 的依据**（当前开启路径走 `isProUser`，保持）。过期关闭以 StoreKit 为准，失败时宁可关同步并提示，也不要用可写缓存放行。
+
+---
+
+### 1.5 法律页与 Support URL 仓库内无法证明线上可用 — 🟡
+
+`LegalLinks` 指向：
+
+- `https://asynch1889.github.io/BillsManager-legal/privacy/en.html`  
+- `.../privacy/zh.html`  
+- `.../support/`  
+- 条款：Apple 标准 EULA  
+
+**解决方案**
+
+用真机 Safari 打开三条 URL，确认 HTTPS、无 404、隐私政策含：本地存储、可选 iCloud、照片/Face ID/通知、StoreKit、联系邮箱、儿童政策。ASC App 隐私 URL 与 App 内链接一致。GitHub Pages 不稳定时可迁自有域名。
+
+---
+
+## 2. 高优先级（P1）
+
+### 2.1 Paywall 订阅信息披露偏弱 — 🟠
+
+已有：价格、Restore、管理订阅、24 小时续订说明、隐私/条款。  
+不足：未用 `Product.subscription?.subscriptionPeriod` 明确 “1 month / 1 year”；续订价与首次价未分行；无免费试用时不要写 trial。
+
+**解决方案**
+
+每个订阅行展示：`displayName` + `period`（月/年）+ `displayPrice`。选中订阅时展示：标题、时长、价格、自动续订。Lifetime 单独标注 Non-Consumable。
+
+---
+
+### 2.2 iCloud 开关强制杀进程式重启 — 🟠
+
+`requestSyncEnabled` 只写 UserDefaults 并横幅 “Restart the app”。审核员可能不知道如何重启；迁移失败无重试。
+
+**解决方案**
+
+文案写清：切到后台划掉 App 再打开。提供 “Quit App” 说明。迁移失败保留本地库并关同步，Alert 错误。审核备注给出路径。
+
+---
+
+### 2.3 内购首次随版本提交 — 🟡
+
+商品均为 `READY_TO_SUBMIT`：lifetime `6796726719`、monthly `6796726856`、yearly `6796727243`。首次订阅 **必须在 App 版本页勾选**，不能只靠 API。
+
+**解决方案**
+
+提交 1.0.0 时同时勾选三件商品。沙盒买月/年/终身、Restore、过期关同步。Paywall 空列表时 Retry 已有，需保证审核机有网且商品 Approved 或随版提交。
+
+---
+
+### 2.4 App 显示名与商店名 — 🔴 元数据
+
+`metadata/app-info/en-US.json`：`"name": "Bills Manager - billsmanager"`。后半段像关键词堆砌（2.3.7）。
+
+**解决方案**
+
+改为 “Bills Manager”（≤30 字符）。Subtitle 已有 “Bills & Due Date Tracker”，足够。中文名避免堆砌 “账单管家账单管理”。
+
+---
+
+### 2.5 定位为竞品复刻 — 🟠 品牌/4.1
+
+README：“完整复刻了 Bills Manager / Bills Monitor”。审核可能按 **4.1 Copycat** 对比图标、截图、功能列表。
+
+**解决方案**
+
+商店与审核材料不要写 clone。图标/启动/文案与已上架 “Bills Monitor” 等拉开差异。MIT 许可证与 App 名商标冲突需法务自查。
+
+---
+
+### 2.6 `NSPhotoLibraryUsageDescription` 与 PhotosPicker — 🟠 低–中
+
+附件用系统选图。完整相册权限字符串在 iOS 17 可能触发不必要权限或用途质疑。
+
+**解决方案**
+
+仅 PhotosPicker 时，评估是否可改为有限照片访问文案，或确认不会弹完整相册授权。InfoPlist 中英日韩文案与“收据附件”一致。无相机则不要声明相机（已删，保持）。
+
+---
+
+### 2.7 金额 `Double` — 🟠（已知延后）
+
+财务金额用 `Double`，分位累加有误差。见 `docs/SWIFTDATA_MIGRATION.md`。
+
+**解决方案**
+
+后续 migration 改为 `Decimal` 存储字符串或整数最小币种单位。上架前保证输入校验 `isFinite && > 0`（已有）。
+
+---
+
+### 2.8 无测试与 CI — 🔴
+
+无 Unit/UI Test target。周期锚定、月末 31 日、导入 v1/v2、StoreKit 校验均靠手工。
+
+**解决方案**
+
+最低：`BillFrequency.nextDueDate`、`Bill.markAsPaid` / `undoLastPayment`、`ExportManager` 编解码、`ProFeature` 限额。Xcode Cloud 或本地 `xcodebuild test`。
+
+---
+
+## 3. 中优先级（P2）
+
+| ID | 问题 | 方案 |
+| :--- | :--- | :--- |
+| 3.1 | iPhone Info.plist 声明横屏，布局以竖屏 Tab 为主 | 若未做横屏：iPhone 仅 Portrait；iPad 保留四向 |
+| 3.2 | `UILaunchScreen` 空 dict，白屏闪一下 | 启动图用 Accent + App Icon 或纯色 + 名称 |
+| 3.3 | 多币种分析直接加总 | 分析页注明 “未汇率换算” 或按账单币种分组 |
+| 3.4 | VoiceOver 仅账单行较完整 | Dashboard 卡片、日历格、Paywall 价格加 `accessibilityLabel` |
+| 3.5 | `print` 错误日志 | 改为 `Logger`（os），Release 避免敏感账单名 |
+| 3.6 | 通知 identifier = bill UUID，改期覆盖 | 保持单 ID 即可；若要到期当天+提前提醒需多 ID |
+| 3.7 | 默认账户含尾号字段，金融敏感 | 设置/账户页说明仅本地、可选不填 |
+| 3.8 | 语言五语，商店仅 en-US / zh-Hans | 日韩繁或商店只宣这两语，避免 2.1 语言落差 |
+| 3.9 | `PrivacyInfo` 收集类型为空，但可选 iCloud 存账单 | Manifest 可仍空（不经自有服务器）；**App 隐私问卷必须申报 iCloud 财务数据** |
+| 3.10 | 工程内 `fastlane/private_keys/*.p8` 本地存在 | 已 gitignore；确认从未入库；泄露则轮换 API Key |
+| 3.11 | CloudKit entitlement 已加，Portal 容器需人工开 | Developer Portal 确认 `iCloud.com.antigravity.billsmanager` + CloudKit |
+| 3.12 | 无 Widget / 后台刷新 | 不在 1.0 承诺即可；商店不要写锁屏小组件 |
+
+---
+
+## 4. 低优先级 / 增强（P3）
+
+1. 周期账单时间线（不只改 `dueDate`）  
+2. 柱状月趋势（Paywall 已不再承诺）  
+3. CSV 导入  
+4. 独立 App 密码（现依赖系统密码，可接受）  
+5. 家庭共享：非消耗型终身可考虑 Family Sharing；订阅看商业策略  
+6. 深色模式专项走查  
+7. 崩溃：无第三方时用 MetricKit / 系统日志  
+
+---
+
+## 5. 历史 P0/P1（代码已关闭，供对照）
 
 | 项 | 状态 |
 | :--- | :--- |
-| Bundle ID | `com.antigravity.billsmanager` |
-| 在售 IAP | `com.billsmanager.pro.lifetime`（月/年仅 Restore） |
-| 共享 Scheme + StoreKit 配置 | ✅ `xcshareddata/xcschemes/BillsManager.xcscheme` 绑定 `StoreKit.storekit` |
-| 空商品 UI | ✅ 错误文案 + Retry，不再永久 Loading |
-| ASC 商品是否已创建 | 🟡 仍需人工在 App Store Connect 核验 |
-
-不重命名已有 Product ID（避免破坏 ASC）。
-
----
-
-### 1.6 首次启动默认分类/账户可能重复插入 — 🟢 已解决
-
-**现象（已修复）**
-
-`Category.defaults` / `Account.defaults` 是每次访问都创建全新模型对象的计算属性。旧 Seed 先插入一批 defaults，随后又再次调用 defaults 查找示例账单关联对象，SwiftData 会把第二批对象连同账单一起插入，造成 Utilities、Housing、Subscriptions、Checking Account 重复。
-
-**修复**
-
-`BillsManagerApp.seedInitialDataIfNeeded` 只创建一次并复用同一数组：
-
-```swift
-let defaultCategories = Category.defaults
-let defaultAccounts = Account.defaults
-defaultCategories.forEach(context.insert)
-defaultAccounts.forEach(context.insert)
-// 后续全部从 defaultCategories / defaultAccounts 取关联对象
-```
-
-DEBUG 下增加首次启动断言：恰好 7 个分类、3 个账户、3 个示例账单，名称不重复，且与插入实例 ID 一致。
+| PRO 未门控 / Ad-Free 文案 | 🟢 `ProFeature` |
+| 通知未请求授权 | 🟢 Onboarding + 保存账单 |
+| 周期付费后通知取消不重排 | 🟢 `applyPaidSideEffects` |
+| JSON 不可恢复 | 🟢 v2 合并/覆盖 |
+| Seed 重复分类账户 | 🟢 单次数组插入 |
+| 订阅无持续价值 | 🟢 可选 iCloud 等 |
+| App Lock / 模糊 | 🟢 |
+| 相机权限多余 | 🟢 已删 |
+| Privacy Manifest / PNG 1024 Icon | 🟢 |
+| 加密声明 `ITSAppUsesNonExemptEncryption=false` | 🟢 plist + build setting |
 
 ---
 
-### 1.7 月/年订阅缺少可证明的“持续价值” — 🟢 已解决
+## 6. 建议修复顺序
 
-**修复**：新增 **PRO 可选 iCloud 同步**（SwiftData + CloudKit 私有库，默认关闭）；Paywall 同时出售 **月度 / 年度 / 终身** 三种 PRO 方案。Restore 仍识别历史 entitlement。
-
-参见 [App Review Guidelines 3.1.2](https://developer.apple.com/app-store/review/guidelines/) 与 `docs/ASC_IAP_SETUP.md`。
-
----
-
-## 2. 高优先级问题（P1）
-
-### 2.1 通知内容与角标设计粗糙 — 🟢 已解决
-
-- ✅ 角标改为 Dashboard / 支付副作用同步真实逾期数（不再 `content.badge = 1`）
-- ✅ 提醒触发时间已过则跳过 schedule（未来到期）
-- ✅ 实现 `UNUserNotificationCenterDelegate`，前台展示 banner
-- ✅ 已到期/逾期且提醒时间已过时，补发一次性立即本地通知
-
-### 2.2 App Lock 体验不完整 — 🟢 已解决
-
-**修复**
-- `inactive` / `background` 显示 `PrivacyBlurOverlay`（App Switcher 高斯模糊）
-- `background` 时 `lockApp()`；`active` 取消模糊
-- 开启/关闭锁均经 `setAppLockEnabled` 先认证，失败不改 `isAppLockEnabled`（避免“已开锁但未解锁”）
+1. 改商店免费额度文案（或改 `freeAccountLimit`）+ 去掉 App 名 keyword stuffing。  
+2. 真机验证 CloudKit 开/关、迁移、PRO 过期。  
+3. Paywall 补订阅周期展示。  
+4. 上传 Build、截图、地区、隐私问卷、三件 IAP 随版本提交。  
+5. 浏览器验收隐私/支持页。  
+6. （可并行）补单测、iPhone 方向、启动屏。
 
 ---
 
-### 2.3 货币与金额显示混乱 — 🟢 已解决
+## 7. 模块速查
 
-- ✅ 统一 `CurrencyFormatter`；Dashboard / Analytics / 支付历史不再硬编码 `$`
-- ✅ 设置页可选默认币种；新建账单写入 `defaultCurrency`
-- 分析页仍按金额直接相加（多币种汇率汇总属 Sprint 外增强）
-
-### 2.4 本地化严重不完整 — 🟢 已解决
-
-**修复**
-- `Localizable.xcstrings`：所有 `L10n.s` 键在 `en` / `zh-Hans` / `zh-Hant` / `ja` / `ko` 五语齐全（含此前缺失的约 42 条 + 58 条缺繁日韩条目）
-- 工具栏 Cancel/Save/Delete、权限文案 `InfoPlist.xcstrings`、CSV 表头/状态/频率、图表口径等均走 `L10n`
-- 系统分类/默认账户 UI 用 `localizedDisplayName`；示例账单按当前语言写入名称
-- `LanguageManager` 切换语言时清空 bundle 缓存，缺失词条回退英文
-- 设置页版本号从 Bundle 读取
-
----
-
-### 2.5 设置项“幽灵配置” — 🟢 已解决
-
-设置页 Preferences：`Default Currency` / `Default Reminder`；`AddEditBillView` 新建时读取二者。
-
-### 2.6 照片权限声明与实际能力不匹配 — 🟢 已解决
-
-**修复**：移除未使用的 `NSCameraUsageDescription`（仅保留 `PhotosPicker` + `NSPhotoLibraryUsageDescription`）。
-
----
-
-### 2.7 分析逻辑与财务语义偏差 — 🟢 已解决
-
-**修复**
-- 已付金额按 `PaymentRecord.paidDate` 聚合（周期账单滚动后仍计入实付）
-- 未付/应付按当前未付账单的 `dueDate` 过滤
-- Analytics 增加「实付 / 应付」切换驱动分类图；Dashboard「本月已付」同步改口径
-
----
-
-### 2.8 示例数据污染真实使用 — 🟢 已解决
-
-默认仅 Seed 分类/账户；Onboarding 可选「Load Sample Bills」；设置页可「Remove Sample Bills」。账单带 `isSample` 标记。
-
-### 2.9 金额输入与表单约束不足 — 🟢 已解决
-
-- ✅ `CurrencyFormatter.parseAmount` 按 Locale 解析；校验 `isFinite && > 0`
-- ✅ 表单回填用地区化小数格式；支付金额同样校验
-- ✅ `repeatEndDate` DatePicker 下限为 `dueDate`
-- ✅ 账户尾号为空或恰好 4 位数字
-
-### 2.10 周期算法会日期漂移，逾期账单只推进一期 — 🟢 已解决
-
-**产品规则（已落地）**
-- **一次 Mark Paid = 一期**：多期逾期需多次标记，每期一条 `PaymentRecord`
-- 持久化 `recurrenceAnchorDay`；月度系 `nextDueDate` 按锚定日 clamp（`1/31 → 2/28 → 3/31`）
-- `PaymentRecord.periodDueDate` 记录本期；`undoLastPayment()` 回滚 dueDate、删除记录；详情对已滚期账单提供「Undo Last Payment」
-
----
-
-### 2.11 Auto-Pay 仅是标签，容易被理解为自动扣款 — 🟢 已解决
-
-**修复**：文案改为「外部自动扣款标记」，并加 footer 说明 App 不会扣款或连接银行；字段仍为 `isAutoPay`（兼容备份）。
-
----
-
-## 3. 中优先级问题（P2）— 体验与工程质量
-
-### 3.1 数据模型与业务边界 — 🟢 已解决（Decimal 延后）
-
-| 问题 | 状态 |
+| 模块 | 仍需关注 |
 | :--- | :--- |
-| `amount` 有效性 | ✅ 表单/`parseAmount` 校验 `isFinite && > 0` |
-| 金额 `Double` | ⏭ 延后；见 `docs/SWIFTDATA_MIGRATION.md` |
-| `Bill.id` unique | ✅ `@Attribute(.unique)`（Category/Account/PaymentRecord 同） |
-| 删除分类/账户无提示 | ✅ 确认对话框展示关联账单数 |
-| 系统分类展示名 | ✅ `localizedDisplayName` |
-| Migration 计划 | ✅ `docs/SWIFTDATA_MIGRATION.md` |
-
----
-
-### 3.2 支付历史不完整 — 🟢 已解决
-
-**修复**
-- 统一 `MarkPaidSheet`：金额、确认码、收据图；详情/列表/行 Pay 共用
-- Unpay / Undo 删除最近 `PaymentRecord`（含确认对话框）
-- 支付历史列表展示收据缩略图
-
----
-
-### 3.3 iPad / 大屏 — 🟢 已解决
-
-**修复**
-- 账单：`NavigationSplitView` 三栏（侧栏 → 列表 → 详情）
-- 仪表盘 / 日历 / 分析 / 设置：两栏（侧栏 → 全宽内容），避免中间栏挤压、右侧空白「选择功能分区」占位
-- 侧栏标题/分区走 `L10n`
-
----
-
-### 3.4 无障碍与系统能力 — 🟢 已解决（Widget/Spotlight 延后）
-
-- ✅ `BillRowView` 增加 VoiceOver 组合 label
-- ✅ Settings About 说明默认本机存储；PRO 可选手动开启 iCloud 同步
-- ⏭ Widget / Spotlight / 快捷指令仍属增强，记入 P3
-
----
-
-### 3.5 错误处理与稳定性 — 🟢 已解决
-
-- ✅ `ModelContainer` 失败展示 `DatabaseLaunchErrorView`，不再 `fatalError`
-- ✅ 账单 CRUD / 分类账户 / 示例数据清除走 `Persistence.save` + Alert
-- ✅ CSV/JSON 导出写文件失败弹 Alert
-- ✅ Paywall：商品加载失败 Retry + 购买失败 Alert；pending/不支持商品有明确文案
-- ✅ 附件/收据 PhotosPicker 加载失败弹 Alert（不再静默 `try?`）
-
----
-
-### 3.6 测试与 CI — 🔴 仍存在（本次跳过）
-
-- **无** Unit Test / UI Test target
-- 无关键业务：周期进位、月末 1/31、时区、StoreKit 交易校验
-
-**建议最低测试集**：`BillFrequency.nextDueDate`、`Bill.status`、`markAsPaid` 周期边界、`ExportManager` 编解码、`StoreManager` verification mock。
-
-### 3.7 工程与产品元数据 — 🟢 已解决
-
-- ✅ App Icon 改为 1024×1024 sRGB PNG
-- ✅ `Info.plist` 使用 `$(MARKETING_VERSION)` / `$(CURRENT_PROJECT_VERSION)`；设置页读 Bundle
-- Entitlements 为空（对本 App 可接受）
-- ✅ 设置页与 Paywall 提供隐私政策 / 使用条款 / Support 链接（`LegalLinks` → GitHub Pages `BillsManager-legal`）
-- ✅ 新增 `PrivacyInfo.xcprivacy`（无追踪；声明 UserDefaults / File Timestamp 合理用途）
-- ✅ 设置页收敛为 PRO / 通用 / 数据 / 关于 四个分区
-- README MIT / 商标名仍属人工确认项
-
-### 3.8 文案与功能夸大 — 🟢 已解决
-
-| 宣称 | 实际 |
-| :--- | :--- |
-| Ad-free PRO | ✅ 文案已移除；应用内无广告 |
-| 100% local + Face ID | ✅ Onboarding 改为「本机存储 + 可选 PRO Face ID」 |
-| JSON 全量备份 | ✅ v2 含附件/支付历史；可恢复 |
-| 高斯模糊遮罩 | ✅ App Switcher / inactive 隐私模糊 |
-| 高级趋势对比 | ✅ Paywall 改为「分类占比与实付/应付口径」，不再宣称趋势报告 |
-
----
-
-### 3.9 StoreKit 权益判定过宽 — 🟢 已解决
-
-`updatePurchasedProducts` / 购买成功路径仅接受 `knownProductIDs` 内的有效 entitlement。
-
-### 3.10 版本与发布配置不可复现 — 🟢 已解决（CI 除外）
-
-- ✅ 共享 Scheme：`xcshareddata/xcschemes/BillsManager.xcscheme`，已绑定 `StoreKit.storekit`
-- ✅ 版本来源统一为 `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION`（Info.plist 构建变量；设置页读 Bundle）
-- ⏭ CI / Release Archive / `validate-app` 自动化不在本次范围
-
----
-
-## 4. 低优先级 / 增强建议（P3）
-
-1. **重复账单历史视图**：每年 12 期应能看到时间线，而非只改 dueDate
-2. **智能提醒**：大额账单更早提醒、节假日顺延说明
-3. **家庭共享 / 多账本**
-4. **CSV 导入**（银行导出）
-5. **Swift Charts** 增加柱状月趋势（PRD 暗示）
-6. **Passcode 独立于系统**（纯 App 密码）— 当前依赖设备密码，已可用但可增强
-7. **日志与崩溃**：OSLog / 无第三方也可先 OSLog
-8. **深色模式专项验收**（依赖系统色，风险低）
-9. **删除账户尾号**隐私提示（金融敏感）
-10. **订阅管理入口**：`https://apps.apple.com/account/subscriptions`
-
----
-
-## 5. 按模块的问题清单（速查）
-
-| 模块 | 主要问题 |
-| :--- | :--- |
-| `BillsManagerApp` | ✅ Seed 复用；通知配置；scenePhase 锁+隐私模糊 |
-| `Bill` | ✅ 锚定日/撤销；ID unique；分析改 PaymentRecord；金额 Double 延后 |
-| `NotificationManager` | ✅ 授权、角标、前台 delegate、逾期立即补发 |
-| `StoreManager` | ✅ 门控/买断/错误文案；ASC 商品 🟡 |
-| `ExportManager` | ✅ JSON v2 导出/恢复；CSV 仍为摘要导出 |
-| `SettingsView` | ✅ 恢复备份/隐私链接/本机存储说明；版本读 Bundle |
-| `PaywallView` | ✅ 法律链接、买断策略、准确分析文案 |
-| `AddEditBillView` | ✅ 金额校验、外部自动扣款文案、附件失败 Alert |
-| `AnalyticsView` | ✅ 实付按 PaymentRecord；应付按 dueDate；可切换 |
-| `Category/Account` | ✅ PRO 限额；unique；删除确认；展示层本地化 |
-| `Localizable.xcstrings` | ✅ en 全量；zh-Hans 高覆盖 |
-| `AppIcon` / Privacy | ✅ PNG + `PrivacyInfo.xcprivacy` |
-| `iPadSidebarView` | ✅ 账单三栏；其它分区两栏全宽 |
-| 工程 | ✅ 共享 Scheme；⏭ 测试/CI |
-
----
-
-## 6. 建议修复路线图（4 个迭代）
-
-### Sprint A — 可信核心（约 3–5 天）
-1. ✅ 修复默认数据对象复用与重复 Seed，并补首次启动断言
-2. ✅ 通知授权 + 调度修复 + 角标
-3. ✅ 周期账单支付后重 schedule；定义锚定日、逾期追赶和撤销支付语义
-4. ✅ 金额输入校验、地区化解析与货币格式化统一
-5. ✅ 示例数据可选
-6. ✅ 基础崩溃与保存错误提示
-
-### Sprint B — 商业化可用（约 3–5 天）
-1. ✅ PRO 门控与 Paywall 文案修正
-2. ✅ 决定“仅永久买断”或为月/年订阅提供真实持续价值
-3. ✅ 商品 ID、ASC 与共享 StoreKit Scheme 对齐
-4. ✅ 订阅法律披露 + Restore + 管理订阅链接
-5. ✅ 隐私政策 / 条款 URL
-
-### Sprint C — 数据可信（约 3–4 天）
-1. ✅ JSON 备份 v2 + 恢复
-2. ✅ 支付历史与分析口径修正
-3. ✅ Privacy Manifest + Icon PNG
-
-### Sprint D — 打磨（持续）
-1. ✅ 完整中英本地化（系统分类展示层 + 目录全量 en/zh-Hans）
-2. ⏭ 单测 + 关键 UI 测（见 3.6，本次跳过）
-3. ✅ iPad 双栏；无障碍基础；Widget 仍属 P3
-
----
-
-## 7. 验收标准（Definition of Done 建议）
-
-- [x] 冷启动后可在中文系统下看到完整中文 UI（无大面积英文残留）
-- [ ] 关闭通知权限时有明确引导；开启后到期前提醒可测
-- [ ] 月付账单连续标记 3 次支付，下期提醒仍存在且 dueDate 正确
-- [ ] 月末账单 `1/31` 连续展期不漂移；跨多期逾期与撤销支付行为符合产品定义
-- [ ] 全新安装后恰好 7 个默认分类、3 个默认账户，不出现重名对象
-- [ ] 免费用户触发限额功能必现 Paywall；PRO 用户畅通
-- [x] JSON 备份 → 删除 App → 重装 → 恢复后数据一致
-- [ ] 内购沙盒：买断 / 月 / 年 / 恢复 / 过期 五条路径通过
-- [x] 无相机权限却弹相机；无多余隐私用途
-- [x] 设置页可打开隐私政策与条款
-
----
-
-## 8. 文档维护
-
-| 项 | 值 |
-| :--- | :--- |
-| 文档路径 | `docs/APP_ISSUES_AND_SOLUTIONS.md` |
-| 关联文档 | `docs/APP_STORE_REVIEW_RISKS.md`、`docs/PRD.md`、`docs/SWIFTDATA_MIGRATION.md` |
-| 本次状态同步 | 2026-08-06（`e150306`+）：P0/P1 可代码项关闭；P2 除 3.6 关闭；摘要/验证表/健康度/模块速查对齐 |
-| 下次复评建议 | 聚焦 3.6 测试/CI、ASC 商品与沙盒路径、P3（Widget/Spotlight/Decimal） |
-
----
-
-*本评估基于源码整改、真机 Debug 构建与文档同步；ASC 商品、StoreKit 沙盒全路径与 Release Archive / CI 仍需人工核对。*
+| `StoreManager` / `PaywallView` | 周期披露、ASC 随版提交 |
+| `CloudSyncManager` / `ModelContainerFactory` | unique+CloudKit、迁移失败、重启 |
+| `ProFeature` vs metadata | 账户 3 vs 文案 5 |
+| `LegalLinks` | 线上页存活 |
+| `NotificationManager` | 已较完整 |
+| `ExportManager` | 已可恢复 |
+| `BiometricAuthManager` | 已完整 |
+| ASC / fastlane | 无 build、无截图、无 availability |
